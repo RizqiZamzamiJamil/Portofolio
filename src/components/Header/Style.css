@@ -1,0 +1,46 @@
+nav {
+    position: sticky;
+    top: 0; z-index: 10;
+    background-color: white;
+    font-size: 17px;
+}
+
+.brand {
+    font-family: "Londrina Solid", sans-serif;
+    color: #febe00;
+}
+
+.nav-link {
+    color: black;
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    color: #ffc107;
+}
+
+.nav-link.aktif {
+    color: #ffc107;
+}
+
+.nav-link.aktif::after {
+    content: '';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.2rem solid #ffc107;
+    color: #ffc107;
+    transform: scaleX(0.7);
+}
+
+.nav-link::after {
+    content: '';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.2rem solid #ffc107;
+    transform: scaleX(0);
+    transition: 0.2s linear;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(0.7);
+}

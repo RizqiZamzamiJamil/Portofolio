@@ -1,0 +1,163 @@
+/* ==================== About ==================== */
+.hero .yellow-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.hero .img-fluid {
+    max-width: 100%;
+    height: auto;
+    z-index: 1;
+}
+
+.hero img:hover {
+    transform: scale(1.2);
+}
+
+.hero button {
+    padding: 10px 30px;
+    font-size: 25px;
+    font-weight: 600;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+.hero button:hover {
+    transform: scale(1.1);
+}
+
+.anchor-link {
+    text-decoration: none;
+    color: black;
+}
+
+/* ==================== About ==================== */
+.about {
+    min-height: 624px;
+    background-color: #ffc107;
+}
+
+.about h1 {
+    font-family: "Londrina Solid", sans-serif;
+}
+
+.about h1 span {
+    color: white;
+}
+
+.about .content {
+    transition: transform 0.3s ease;
+}
+
+.about .content:hover {
+    transform: scale(1.05);
+}
+
+/* ==================== Skill ==================== */
+.skill {
+    min-height: 624px;
+}
+
+.skill h1 {
+    font-family: "Londrina Solid", sans-serif;
+}
+
+.skill h1 span {
+    color:#ffc107;
+}
+
+.skill p {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.skill .icon-lg {
+    font-size: 4rem;
+    margin-right: 1rem;
+}
+
+.skill-info {
+    flex-grow: 1;
+}
+
+.skill-name {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.skill-item {
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: scale(1.05);
+}
+
+/* ==================== Portofolio ==================== */
+.portofolio {
+    min-height: 624px;
+    background-color: #ffc107;
+}
+
+.portofolio h1 {
+    font-family: "Londrina Solid", sans-serif;
+}
+
+.portofolio h1 span {
+    color: white;
+}
+
+.portofolio .more {
+    background-color: black;
+    color: #ffc107;
+}
+
+.portofolio .more:hover {
+    background-color: white;
+    color: black;
+}
+
+/* ==================== Contact ====================  */
+.contact {
+    min-height: 624px;
+}
+
+.contact h1 {
+    font-family: "Londrina Solid", sans-serif;
+}
+
+.contact h1 span {
+    color:#febe00;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact i {
+    color: #febe00;
+}
+
+.contact .btn {
+    padding: 10px 40px;
+}
+
+.contact .btn:hover {
+    background-color: black;
+    color: white;
+}
+

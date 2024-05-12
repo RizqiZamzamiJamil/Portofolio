@@ -1,0 +1,9 @@
+.sosmed {
+    background-color: black;
+    color: #ffc107;
+}
+
+.sosmed:hover {
+    background-color:#ffc107;
+    color: black;
+}

@@ -1,0 +1,25 @@
+.card {
+    color: black;
+    height: 390px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card .btn {
+    background-color: #febe00;
+    color: black;
+    border: 1px solid #febe00;
+}
+
+.card .btn:hover {
+    background-color: black;
+    color:#febe00;
+}
+
+small {
+    background-color: black;
+}

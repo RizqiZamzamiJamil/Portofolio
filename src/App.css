@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 767px) {
+    .about {
+        padding-bottom: 30px;
+    }
+
+    .content img{
+        width: 80px;
+    }
+
+    .content h1 {
+        font-size: 1.8em;
+    }
+
+    .content h6 {
+        font-size: 0.7em;
+        margin-bottom: 0;
+    }
+
+    .content p {
+        font-size: 0.9em;
+    }
+
+    .skill {
+        margin-bottom: 30px;
+    }
+
+    .portofolio .more {
+        margin-bottom: 25px;
+    }
+
+
+}
+
+@media (max-width: 991px) {
+    .content .btn {
+        margin-bottom: 20px;
+    }
+
+    .content img{
+        width: 90px;
+    }
+
+    .content h1 {
+        font-size: 2em;
+    }
+
+    .content h6 {
+        font-size: 0.8em;
+        margin-bottom: 0;
+    }
+
+    .content p {
+        font-size: 1em;
+    }
+
+    .portofolio .btn {
+        font-size: 0.8em;
+    }
+
+    .contact {
+        margin-bottom: 30px;
+    }
+}
+
+@media (min-width:1px) and (max-width: 540px) {
+    ul.timeline-list li {
+        width: 455px;
+    }
+
+    ul.timeline-list span {
+        font-size: 0.7em;
+    }
+
+    ul.timeline-list h4 {
+        font-size: 0.8em;
+    }
+
+    ul.timeline-list p {
+        font-size: 0.6em;
+    }
+}
+
+@media (min-width:576px) and (max-width: 768px) {
+    ul.timeline-list li {
+        width: 515px;
+    }
+
+    ul.timeline-list span {
+        font-size: 0.7em;
+    }
+
+    ul.timeline-list h4 {
+        font-size: 0.8em;
+    }
+
+    ul.timeline-list p {
+        font-size: 0.6em;
+    }
+}
+
+@media (min-width:768px) and (max-width: 992px) {
+    ul.timeline-list li {
+        width: 695px;
+    }
+
+    ul.timeline-list span {
+        font-size: 1em;
+    }
+
+    ul.timeline-list h4 {
+        font-size: 1.2em;
+    }
+
+    ul.timeline-list p {
+        font-size: 0.8em;
+    }
+}
+
+@media (min-width:992px) and (max-width: 1199px) {
+    ul.timeline-list li {
+        width: 935px;
+    }
+
+    ul.timeline-list span {
+
+    }
+
+    ul.timeline-list h4 {
+
+    }
+
+    ul.timeline-list p {
+
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+    ul.timeline-list li {
+        width: 1115px;
+    }
+}
+
+
+
