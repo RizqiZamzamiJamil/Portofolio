@@ -3,6 +3,14 @@
     background-color: #ffc107;
 }
 
+.education h1 {
+    font-family: "Londrina Solid", sans-serif;
+}
+
+.education h1 span {
+    color: white;
+}
+
 ul.timeline-list {
 	position: relative;
 	margin: 0;

@@ -44,22 +44,22 @@ const Home = () => {
                 <BackgroundAnimation />
                 <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
                     <div className="col-lg-6 order-lg-1 d-flex justify-content-center justify-content-lg mt-0 foto">
-                        <div className="position-relative d-inline-block">
+                        <div className="position-relative d-flex tengah">
                             <div className="yellow-circle bg-warning position-absolute top-50 start-50 translate-middle"></div>
                             <img src={Foto} className="img-fluid rounded-circle position-relative z-index-1" alt="Rizqi Zamzami Jamil" width="480"/>
                         </div>
                     </div>
                     
                     <div className="col-lg-6 order-lg-2 mt-0">
-                        <h2 className="fw-bold lh-1 mb-3 text-warning">Hi <span className="text-dark">There</span>, I'm</h2>
+                        <h2 className="fw-bold lh-1 mb-3 hero-color">Hi <span className="text-dark">There</span>, I'm</h2>
                         <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">Rizqi Zamzami Jamil</h1>
-                        <h2 className="">I am a <span className="text-warning fw-bold">Frontend Developer</span></h2>
+                        <h2 className="">I am a <span className="fw-bold hero-color">Frontend Developer</span></h2>
                         
                         <div className="social-buttons mt-4">
-                            <SosmedButton link="https://www.facebook.com/rizam99zone" icon="fab fa-facebook-f" text="Facebook" />
-                            <SosmedButton link="https://www.instagram.com/rizam896" icon="fab fa-instagram" text="Instagram" />
-                            <SosmedButton link="https://www.linkedin.com/in/rizqi-zamzami-jamil" icon="fab fa-linkedin-in" text="LinkedIn" />
-                            <SosmedButton link="https://github.com/RizqiZamzamiJamil/" icon="fab fa-github" text="GitHub" />
+                            <SosmedButton link="https://www.facebook.com/rizam99zone" icon="fab fa-facebook-f" aria-label="See more for my Facebook" />
+                            <SosmedButton link="https://www.instagram.com/rizam896" icon="fab fa-instagram" aria-label="See more for my Instagram" />
+                            <SosmedButton link="https://www.linkedin.com/in/rizqi-zamzami-jamil" icon="fab fa-linkedin-in" aria-label="See more for my LinkedIn" />
+                            <SosmedButton link="https://github.com/RizqiZamzamiJamil/" icon="fab fa-github" aria-label="See more for my GitHub" />
                         </div>
 
                         <button className="btn btn-warning mt-3">
@@ -78,13 +78,13 @@ const Home = () => {
 
                     <div className="container bg-white content">
                         <div className="row p-4 pb-0 pe-lg-0 align-items-center rounded-3 border shadow-lg">
-                            <div className="col-10 col-sm-8 col-lg-4">
+                            <div className="col-10 col-sm-8 col-lg-4 fotoo">
                                 <img src={Foto2} className="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="200" height="500"/>
                             </div>
 
                             <div className="col-lg-8">
                                 <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">I'm Rizqi Zamzami Jamil</h1>
-                                <h6>Front End Developer</h6>
+                                <p>Front End Developer</p>
                                 <br />
                                 <p className="lead">
                                     I am a Frontend Web Developer based in Kediri. I have an educational background in Information Technology from <b>Politeknik Negeri Malang</b>.
@@ -92,7 +92,7 @@ const Home = () => {
                                 </p>
                                 
                                 <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-                                    <a type="button" className="btn btn-outline-dark me-2 btn-warning" href='https://drive.google.com/file/d/1ponhynJB6Qinabcm2lce09aZ22tSPppt/view?usp=drive_link' target='_blank'>Curriculum Vitae</a>
+                                    <a type="button" className="btn btn-outline-dark me-2 btn-warning" href='https://drive.google.com/file/d/1C6OTiZ4ejVasf40VBvPEg7PKjtM7xiL4/view?usp=sharing' target='_blank'>Curriculum Vitae</a>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +117,7 @@ const Home = () => {
                                         <div className="skill-info">
                                             <div className="skill-name">{skill.name}</div>
                                             <div className="progress">
-                                                <div className="progress-bar bg-warning" role="progressbar" style={{ width: `${skill.progress}%` }} aria-valuenow={skill.progress} aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div className="progress-bar" role="progressbar" style={{ width: `${skill.progress}%` }} aria-label={skill.name} aria-valuenow={skill.progress} aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -133,7 +133,7 @@ const Home = () => {
                                         <div className="skill-info">
                                             <div className="skill-name">{skill.name}</div>
                                             <div className="progress">
-                                                <div className="progress-bar bg-warning" role="progressbar" style={{ width: `${skill.progress}%` }} aria-valuenow={skill.progress} aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div className="progress-bar" role="progressbar" style={{ width: `${skill.progress}%` }} aria-label={skill.name} aria-valuenow={skill.progress} aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -172,7 +172,7 @@ const Home = () => {
                     </div>
                     
                     <div className="text-center my-4">
-                        <Link className="btn more" to="/projects">More <i className="fas fa-chevron-right"></i></Link>
+                        <Link className="btn more" to="/projects">More Projects Here <i className="fas fa-chevron-right"></i></Link>
                     </div>
                 </div>
             </section>
@@ -223,7 +223,6 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Modal konfirmasi */}
             <ConfirmationModal
                 show={showConfirmModal}
                 handleClose={handleCloseModal}

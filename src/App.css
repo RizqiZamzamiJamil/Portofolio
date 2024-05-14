@@ -3,6 +3,8 @@ body {
     padding: 0;
 }
 
+
+
 @media (max-width: 767px) {
     .about {
         padding-bottom: 30px;
@@ -118,6 +120,14 @@ body {
 
     ul.timeline-list p {
         font-size: 0.8em;
+    }
+}
+
+@media (max-width:992px) {
+    .about .fotoo {
+        display: flex;
+        justify-content: center;
+        width: 100%;
     }
 }
 

@@ -10,6 +10,10 @@
     z-index: 0;
 }
 
+.hero-color {
+    color: #ffc107;
+}
+
 .hero .img-fluid {
     max-width: 100%;
     height: auto;
@@ -99,6 +103,10 @@
     transform: scale(1.05);
 }
 
+.skill .progress-bar {
+    background-color: #ffc107;
+}
+
 /* ==================== Portofolio ==================== */
 .portofolio {
     min-height: 624px;
@@ -133,7 +141,7 @@
 }
 
 .contact h1 span {
-    color:#febe00;
+    color:#ffc107;
 }
 
 .contact-details {
@@ -149,7 +157,7 @@
 }
 
 .contact i {
-    color: #febe00;
+    color: #ffc107;
 }
 
 .contact .btn {

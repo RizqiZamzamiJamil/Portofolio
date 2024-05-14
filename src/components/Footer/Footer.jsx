@@ -12,10 +12,10 @@ const Footer = () => {
                 </div>
 
                 <div className="social-buttons">
-                    <SosmedButton link="https://www.facebook.com/rizam99zone" icon="fab fa-facebook-f" />
-                    <SosmedButton link="https://www.instagram.com/rizam896" icon="fab fa-instagram" />
-                    <SosmedButton link="https://www.linkedin.com/in/rizqi-zamzami-jamil" icon="fab fa-linkedin-in" />
-                    <SosmedButton link="https://github.com/RizqiZamzamiJamil/" icon="fab fa-github" />
+                    <SosmedButton link="https://www.facebook.com/rizam99zone" icon="fab fa-facebook-f" aria-label="See more for my Facebook" />
+                    <SosmedButton link="https://www.instagram.com/rizam896" icon="fab fa-instagram" aria-label="See more for my Instagram" />
+                    <SosmedButton link="https://www.linkedin.com/in/rizqi-zamzami-jamil" icon="fab fa-linkedin-in" aria-label="See more for my LinkedIn" />
+                    <SosmedButton link="https://github.com/RizqiZamzamiJamil/" icon="fab fa-github" aria-label="See more for my GitHub" />
                 </div>
             </div>
         </footer>
