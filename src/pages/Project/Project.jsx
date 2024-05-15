@@ -35,40 +35,28 @@ const Projects = () => {
                                 code="https://github.com/RizqiZamzamiJamil/Cuci_Sepatu_Si_Launsh"
                             />
                             <Card imgSrc={Project4}
-                                text="Full stack project creating a shoe and helmet washing business website that applies the CodeIgniter 4 framework"
+                                text="A simple To Do List web application without a database built using Vue JS with a CDN link"
                                 subtitle="JavaScript - Vue JS"
                                 preview="https://rizqizamzamijamil.github.io/To_Do_List/"
                                 code="https://github.com/RizqiZamzamiJamil/To_Do_List"
                             />
                             <Card imgSrc={Project5}
-                                text="Full stack project creating a shoe and helmet washing business website that applies the CodeIgniter 4 framework"
+                                text="A simple static food website landing page created using only HTML and CSS"
                                 subtitle="HTML & CSS"
                                 preview="https://rizqizamzamijamil.github.io/Landing_Page_Sederhana/"
                                 code="https://github.com/RizqiZamzamiJamil/Landing_Page_Sederhana"
                             />
                             <Card imgSrc={Project6}
-                                text="Full stack project creating a shoe and helmet washing business website that applies the CodeIgniter 4 framework"
+                                text="Implementation of the Multi Attribute Utility Theory (MAUT) method decision support system on websites based on the CodeIgniter 4 Framework"
                                 subtitle="PHP - Laravel"
                                 preview="/"
                                 code="https://github.com/RizqiZamzamiJamil/Sistem_Pendukung_Keputusan_MAUT"
                             />
                             <Card imgSrc={Project7}
-                                text="Full stack project creating a shoe and helmet washing business website that applies the CodeIgniter 4 framework"
+                                text="Peek survey mobile application collaboration project using Flutter (Dart) as the Frontend and Laravel as the Backend."
                                 subtitle="Dart & PHP - Flutter & Laravel"
                                 preview="/"
                                 code="https://github.com/RizqiZamzamiJamil/Survey_Mobile"
-                            />
-                            <Card imgSrc={Project3}
-                                text="Full stack project creating a shoe and helmet washing business website that applies the CodeIgniter 4 framework"
-                                subtitle="PHP - CodeIgniter 4"
-                                preview="/"
-                                code="https://github.com/RizqiZamzamiJamil/Cuci_Sepatu_Si_Launsh"
-                            />
-                            <Card imgSrc={Project3}
-                                text="Full stack project creating a shoe and helmet washing business website that applies the CodeIgniter 4 framework"
-                                subtitle="PHP - CodeIgniter 4"
-                                preview="/"
-                                code="https://github.com/RizqiZamzamiJamil/Cuci_Sepatu_Si_Launsh"
                             />
                         </div>
                     </div>

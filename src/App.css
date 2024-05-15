@@ -3,7 +3,81 @@ body {
     padding: 0;
 }
 
+@media (min-width: 576px) {
+    .education {
+        min-height: 624px;
+        background-color: #ffc107;
+    }
 
+    .education h1 {
+        font-family: "Londrina Solid", sans-serif;
+    }
+
+    .education h1 span {
+        color: white;
+    }
+
+    ul.timeline-list {
+        position: relative;
+        margin: 0;
+        padding: 0
+    }
+    ul.timeline-list:before {
+        position: absolute;
+        content: "";
+        width: 2px;
+        height: 100%;
+        background-color: black;
+        left: 50%;
+        top: 0;
+        -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+    }
+    ul.timeline-list li {
+        width: 1300px;
+        position: relative;
+        clear: both;
+        display: table;
+    }
+    .timeline_content {
+        border: 2px solid black;
+        background-color:#fff
+    }
+    ul.timeline-list li .timeline_content {
+        width: 45%;
+        color: #333;
+        padding: 30px;
+        float: left;
+        text-align: right;
+    }
+    ul.timeline-list li:nth-child(2n) .timeline_content {
+        float: right;
+        text-align: left;
+    }
+    .timeline_content h4 {
+        font-size: 22px;
+        font-weight: 600;
+        margin: 10px 0;
+    }
+    ul.timeline-list li:before {
+        position: absolute;
+        content: "";
+        width: 25px;
+        height: 25px;
+        background-color: black;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+        border-radius: 50%;
+    }
+    .timeline_content span {
+        font-size: 18px;
+        font-weight: 500;
+        font-family: poppins;
+        color: #ffc107;
+    }
+}
 
 @media (max-width: 767px) {
     .about {
@@ -34,8 +108,6 @@ body {
     .portofolio .more {
         margin-bottom: 25px;
     }
-
-
 }
 
 @media (max-width: 991px) {
@@ -70,6 +142,8 @@ body {
 }
 
 @media (min-width:1px) and (max-width: 540px) {
+
+    
     ul.timeline-list li {
         width: 455px;
     }

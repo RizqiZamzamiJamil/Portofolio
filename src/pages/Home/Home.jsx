@@ -23,6 +23,9 @@ const Home = () => {
     ];
 
     const [showConfirmModal, setShowConfirmModal] = useState(false);
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -32,6 +35,11 @@ const Home = () => {
     const handleConfirm = () => {
         setShowConfirmModal(false);
         console.log("Pesan baru telah terkirim!");
+
+        const messageBody = `Assalamualaikum Wr. Wb. \n\nNama: ${name} \nEmail: ${email} \n\nPesan: ${message}`;
+        const url = `https://api.whatsapp.com/send?phone=6282147083442&text=${encodeURIComponent(messageBody)}`;
+
+        window.open(url, "_blank");
     };
 
     const handleCloseModal = () => {
@@ -50,7 +58,7 @@ const Home = () => {
                         </div>
                     </div>
                     
-                    <div className="col-lg-6 order-lg-2 mt-0">
+                    <div className="hero-content col-lg-6 order-lg-2 mt-5">
                         <h2 className="fw-bold lh-1 mb-3 hero-color">Hi <span className="text-dark">There</span>, I'm</h2>
                         <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">Rizqi Zamzami Jamil</h1>
                         <h2 className="">I am a <span className="fw-bold hero-color">Frontend Developer</span></h2>
@@ -205,15 +213,19 @@ const Home = () => {
                                 <form className='needs-validation was-validated' onSubmit={handleSubmit}>
                                     <div className="mb-3">
                                         <label htmlFor="name" className="form-label">Your Name</label>
-                                        <input type="text" className="form-control" id="name" name="name" placeholder="Enter your name" required/>
+                                        <input type="text" className="form-control" id="name" name="name" placeholder="Enter your name" required
+                                            value={name} onChange={(e) => setName(e.target.value)}/>
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="email" className="form-label">Email Address</label>
-                                        <input type="email" className="form-control" id="email" name="email" placeholder="Enter your email" required/>
+                                        <input type="email" className="form-control" id="email" name="email" placeholder="Enter your email" required
+                                            value={email} onChange={(e) => setEmail(e.target.value)}/>
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="message" className="form-label">Message</label>
-                                        <textarea className="form-control" id="message" name="message" rows="3" placeholder="Enter your message" required></textarea>
+                                        <textarea className="form-control" id="message" name="message" rows="3" placeholder="Enter your message" required
+                                            value={message}onChange={(e) => setMessage(e.target.value)}
+                                        ></textarea>
                                     </div>
                                     <button type="submit" className="btn btn-warning">Submit</button>
                                 </form>
