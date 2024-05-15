@@ -39,6 +39,7 @@ body {
         clear: both;
         display: table;
     }
+    
     .timeline_content {
         border: 2px solid black;
         background-color:#fff
@@ -141,11 +142,9 @@ body {
     }
 }
 
-@media (min-width:1px) and (max-width: 540px) {
-
-    
-    ul.timeline-list li {
-        width: 455px;
+@media (min-width:1px) and (max-width: 576px) {
+        ul.timeline-list li {
+        width: 100%;
     }
 
     ul.timeline-list span {

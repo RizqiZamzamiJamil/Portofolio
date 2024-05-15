@@ -58,7 +58,7 @@ const Home = () => {
                         </div>
                     </div>
                     
-                    <div className="hero-content col-lg-6 order-lg-2 mt-5">
+                    <div className="hero-content col-lg-6 order-lg-2 mt-3">
                         <h2 className="fw-bold lh-1 mb-3 hero-color">Hi <span className="text-dark">There</span>, I'm</h2>
                         <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">Rizqi Zamzami Jamil</h1>
                         <h2 className="">I am a <span className="fw-bold hero-color">Frontend Developer</span></h2>
