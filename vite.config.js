@@ -7,7 +7,7 @@ export default defineConfig({
     // ...
   },
   plugins: [react()],
-  base: "/Portofolio",
+  base: "/portofolio",
   server: {
     port: 1000,
   },

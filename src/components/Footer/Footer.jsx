@@ -8,7 +8,7 @@ const Footer = () => {
                     <a href="/" className="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
                         <span className="fs-4 brand"><i className="fa-brands fa-react"></i> Ri<span className="text-dark">zam</span></span>
                     </a>
-                    <span className="mb-3 mb-md-0 text-body-secondary fw-bold">© 2024 Rizqi Zamzami Jamil</span>
+                    <span className="mb-3 mb-md-0 text-body-secondary fw-bold"><i className="fa-brands fa-react"></i>React JS © 2024 Rizqi Zamzami Jamil</span>
                 </div>
 
                 <div className="social-buttons">

@@ -1,9 +1,9 @@
 import "./Style.css";
 
-const Card = ({ imgSrc, text, subtitle, preview, code }) => {
+const Card = ({ imgSrc, text, subtitle, preview, code, delay }) => {
     return (
         <div className="col">
-            <div className="card shadow-sm">
+            <div data-aos="fade-left" data-aos-delay={delay} className="card shadow-sm">
                 <img src={imgSrc} alt="" />
                 <div className="card-body d-flex flex-column justify-content-between">
                     <div>
