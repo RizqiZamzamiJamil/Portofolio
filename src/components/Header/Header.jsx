@@ -17,9 +17,9 @@ const Header = () => {
                     </Link>
 
                     <ul className="nav nav-pills">
-                        <li className="nav-item"><Link className={isActive("/Portofolio")} to="Portofolio">Home</Link></li>
-                        <li className="nav-item"><Link className={isActive("/Portofolio/projects")} to="portofolio/projects">Projects</Link></li>
-                        <li className="nav-item"><Link className={isActive("/Portofolio/educations")} to="portofolio/educations">Educations</Link></li>
+                        <li className="nav-item"><Link className={isActive("/Portofolio/")} to="Portofolio/">Home</Link></li>
+                        <li className="nav-item"><Link className={isActive("/Portofolio/projects")} to="Portofolio/projects">Projects</Link></li>
+                        <li className="nav-item"><Link className={isActive("/Portofolio/educations")} to="Portofolio/educations">Educations</Link></li>
                     </ul>
                 </div>
                 
