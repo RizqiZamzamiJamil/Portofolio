@@ -196,7 +196,7 @@ const Home = () => {
                     </div>
                     
                     <div className="text-center my-4">
-                        <Link className="btn more" to="/projects">More Projects Here <i className="fas fa-chevron-right"></i></Link>
+                        <Link className="btn more" to="/Portofolio/projects">More Projects Here <i className="fas fa-chevron-right"></i></Link>
                     </div>
                 </div>
             </section>
