@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-import AnchorLink from 'react-anchor-link-smooth-scroll'
-import BackgroundAnimation from '../../components/Background/BackgroundAnimation';
-import Card from '../../components/Card/Card';
-import SosmedButton from '../../components/Sosmed/SosmedButton';
-import ConfirmationModal from '../../components/Modal/ConfirmationModal';
-import ScrollToTopButton from '../../components/ScrollTop/ScrollToTopButton';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import React, { useEffect, useState } from 'react';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
+import { Link } from "react-router-dom";
+import BackgroundAnimation from '../../components/Background/BackgroundAnimation';
+import Card from '../../components/Card/Card';
+import ConfirmationModal from '../../components/Modal/ConfirmationModal';
+import ScrollToTopButton from '../../components/ScrollTop/ScrollToTopButton';
+import SosmedButton from '../../components/Sosmed/SosmedButton';
 
 import Foto from '../../assets/foto.png';
 import Foto2 from '../../assets/foto2.png';
@@ -89,8 +89,6 @@ const Home = () => {
                                 </AnchorLink>
                             </button>
                         </div>
-                        
-
                     </div>
                 </div>
             </section>
@@ -115,7 +113,7 @@ const Home = () => {
                                 </p>
                                 
                                 <div data-aos="fade-right" data-aos-delay="650" className="d-grid gap-2 d-md-flex justify-content-md-start">
-                                    <a type="button" className="btn btn-outline-dark me-2 btn-warning" href='https://drive.google.com/file/d/1C6OTiZ4ejVasf40VBvPEg7PKjtM7xiL4/view?usp=sharing' target='_blank'>Curriculum Vitae</a>
+                                    <a type="button" className="btn btn-outline-dark me-2 btn-warning" href='https://drive.google.com/file/d/1bCU0RCD5QQ-jI3US0Wdj6qozbAACYVVZ/view?usp=sharing' target='_blank'>Curriculum Vitae</a>
                                 </div>
                             </div>
                         </div>
