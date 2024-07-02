@@ -11,19 +11,20 @@ import SosmedButton from '../../components/Sosmed/SosmedButton';
 
 import Foto from '../../assets/foto.png';
 import Foto2 from '../../assets/foto2.png';
-import Project1 from '../../assets/project1.png';
-import Project2 from '../../assets/project2.png';
-import Project3 from '../../assets/project3.png';
+import Project1 from '../../assets/ProjectNew.png';
+import Project2 from '../../assets/project1.png';
+import Project3 from '../../assets/project2.png';
+
 import "./Style.css";
 
 const Home = () => {
     const skills = [
-        { name: "HTML & CSS", iconClass: "fab fa-html5", progress: 90 },
+        { name: "HTML & CSS", iconClass: "fab fa-html5", progress: 95 },
         { name: "Java", iconClass: "fab fa-java", progress: 60 },
         { name: "JavaScript", iconClass: "fab fa-js", progress: 85 },
         { name: "Laravel", iconClass: "fab fa-laravel", progress: 65 },
-        { name: "Vue JS", iconClass: "fab fa-vuejs", progress: 75 },
-        { name: "React JS", iconClass: "fab fa-react", progress: 80 },
+        { name: "Vue JS", iconClass: "fab fa-vuejs", progress: 70 },
+        { name: "React JS", iconClass: "fab fa-react", progress: 85 },
     ];
 
     const [showConfirmModal, setShowConfirmModal] = useState(false);
@@ -172,24 +173,25 @@ const Home = () => {
                     <div className="container">
                         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                             <Card imgSrc={Project1}
+                                text="MSIB Batch 6 - A dynamic clinic website with a database that has the main features of online reservations and push notifications by email."
+                                subtitle="JavaScript - React.Js & Express.Js"
+                                preview="https://fe-msib-6-klinik-app-04.educalab.id/"
+                                code="https://github.com/RizqiZamzamiJamil/klinik-app"
+                                delay="600"
+                            />
+                            <Card imgSrc={Project2}
                                 text="A website frontend development project for UMKM Nyah Siok which operates in the dimsum food sector."
                                 subtitle="HTML - Bootstrap & SASS"
                                 preview="https://rizqizamzamijamil.github.io/Website_UMKM_Nyah_Siok/"
                                 code="https://github.com/RizqiZamzamiJamil/Website_UMKM_Nyah_Siok"
-                                delay="600"
+                                delay="800"
+                                
                             />
-                            <Card imgSrc={Project2}
+                            <Card imgSrc={Project3}
                                 text="Implementation of jQuery Ajax which takes the film list API and displays it in the form of a website-based film search"
                                 subtitle="JavaScript"
                                 preview="https://rizqizamzamijamil.github.io/Cinema_List/"
                                 code="https://github.com/RizqiZamzamiJamil/Cinema_List"
-                                delay="800"
-                            />
-                            <Card imgSrc={Project3}
-                                text="Full stack project creating a shoe and helmet washing business website that applies the CodeIgniter 4 framework"
-                                subtitle="PHP - CodeIgniter 4"
-                                preview="/"
-                                code="https://github.com/RizqiZamzamiJamil/Cuci_Sepatu_Si_Launsh"
                                 delay="1000"
                             />
                         </div>

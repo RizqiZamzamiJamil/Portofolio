@@ -1,4 +1,5 @@
 import Card from '../../components/Card/Card';
+import Project0 from '../../assets/ProjectNew.png';
 import Project1 from '../../assets/project1.png';
 import Project2 from '../../assets/project2.png';
 import Project3 from '../../assets/project3.png';
@@ -17,6 +18,13 @@ const Projects = () => {
 
                     <div className="container">
                         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                            <Card imgSrc={Project0}
+                                text="MSIB Batch 6 - A dynamic clinic website with a database that has the main features of online reservations and push notifications by email."
+                                subtitle="JavaScript - React.Js & Express.Js"
+                                preview="https://fe-msib-6-klinik-app-04.educalab.id/"
+                                code="https://github.com/RizqiZamzamiJamil/klinik-app"
+                                delay="300"
+                            />
                             <Card imgSrc={Project1}
                                 text="A website frontend development project for UMKM Nyah Siok which operates in the dimsum food sector."
                                 subtitle="HTML - Bootstrap & SASS"
