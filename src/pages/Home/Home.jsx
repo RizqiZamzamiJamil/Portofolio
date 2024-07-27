@@ -113,9 +113,11 @@ const Home = () => {
                                     I am very excited to continue improving my programming skills and developing various applications and websites.
                                 </p>
                                 
-                                <div data-aos="fade-right" data-aos-delay="650" className="d-grid gap-2 d-md-flex justify-content-md-start">
-                                    <a type="button" className="btn btn-outline-dark me-2 btn-warning" href='https://drive.google.com/file/d/1bCU0RCD5QQ-jI3US0Wdj6qozbAACYVVZ/view?usp=sharing' target='_blank'>Curriculum Vitae</a>
+                                <div data-aos="fade-right" data-aos-delay="650" className="d-flex gap-2">
+                                    <a type="button" className="btn btn-outline-dark btn-warning" href='https://drive.google.com/file/d/1bCU0RCD5QQ-jI3US0Wdj6qozbAACYVVZ/view?usp=sharing' target='_blank'>Curriculum Vitae</a>
+                                    <a type="button" className="btn btn-outline-dark btn-warning" href='https://drive.google.com/file/d/1gsLwGgcfcvmGLtGij5DAHWtX5mfgtq4L/view?usp=sharing' target='_blank'>Certificate</a>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
