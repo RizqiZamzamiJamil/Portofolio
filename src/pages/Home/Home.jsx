@@ -19,12 +19,12 @@ import "./Style.css";
 
 const Home = () => {
     const skills = [
-        { name: "HTML & CSS", iconClass: "fab fa-html5", progress: 95 },
-        { name: "Java", iconClass: "fab fa-java", progress: 60 },
-        { name: "JavaScript", iconClass: "fab fa-js", progress: 85 },
-        { name: "Laravel", iconClass: "fab fa-laravel", progress: 65 },
-        { name: "Vue JS", iconClass: "fab fa-vuejs", progress: 70 },
-        { name: "React JS", iconClass: "fab fa-react", progress: 85 },
+        { name: "HTML & CSS", iconClass: "fab fa-html5", progress: 98 },
+        { name: "PHP", iconClass: "fab fa-php", progress: 85 },
+        { name: "JavaScript", iconClass: "fab fa-js", progress: 90 },
+        { name: "Laravel", iconClass: "fab fa-laravel", progress: 85 },
+        { name: "Vue JS", iconClass: "fab fa-vuejs", progress: 75 },
+        { name: "React JS", iconClass: "fab fa-react", progress: 90 },
     ];
 
     const [showConfirmModal, setShowConfirmModal] = useState(false);
@@ -41,7 +41,7 @@ const Home = () => {
         setShowConfirmModal(false);
         console.log("Pesan baru telah terkirim!");
 
-        const messageBody = `Assalamualaikum Wr. Wb. \n\nNama: ${name} \nEmail: ${email} \n\nPesan: ${message}`;
+        const messageBody = `Permisi, perkenalkan \n\nNama: ${name} \nEmail: ${email} \n\n Pesan: ${message}`;
         const url = `https://api.whatsapp.com/send?phone=6282147083442&text=${encodeURIComponent(messageBody)}`;
 
         window.open(url, "_blank");
@@ -125,48 +125,52 @@ const Home = () => {
             </section>
 
             <section className="skill">
-                <h1 data-aos="fade-down" data-aos-delay="100" className="pt-5 pb-3 text-center">My <span>Skills</span></h1>
-                <p data-aos="fade-down" data-aos-delay="300" className="text-center pb-5">
-                    In my programming career, I have had various abilities, both in the Frontend and Backend fields.
-                    I have a strong understanding of Frontend technologies such as HTML, CSS, and JavaScript, as well as popular frameworks such as
-                    Laravel, Vue JS, and React JS.
-                </p>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-6">
-                            {skills.slice(0, 3).map((skill, index) => (
-                                <div key={index} className="skill-item mb-3">
-                                    <div data-aos="fade-left" data-aos-delay="600" className="d-flex align-items-center justify-content-between">
-                                        <i className={`${skill.iconClass} icon-lg`}></i>
-                                        <div className="skill-info">
-                                            <div className="skill-name">{skill.name}</div>
-                                            <div className="progress">
-                                                <div data-aos="fade-right" data-aos-delay="1200" className="progress-bar" role="progressbar" style={{ width: `${skill.progress}%` }} aria-label={skill.name} aria-valuenow={skill.progress} aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
+    <h1 data-aos="fade-down" data-aos-delay="100" className="pt-5 pb-3 text-center">My <span>Skills</span></h1>
+    <p data-aos="fade-down" data-aos-delay="300" className="text-center pb-5">
+        In my programming career, I have had various abilities, both in the Frontend and Backend fields.
+        I have a strong understanding of Frontend technologies such as HTML, CSS, and JavaScript, as well as popular frameworks such as
+        Laravel, Vue JS, and React JS.
+    </p>
+    <div className="container">
+        <div className="row">
+            <div className="col-md-6">
+                {skills.slice(0, 3).map((skill, index) => (
+                    <div key={index} className="skill-item mb-3">
+                        <div data-aos="fade-left" data-aos-delay="600" className="d-flex align-items-center">
+                            <div className="icon-wrapper" style={{ width: '80px', textAlign: 'center' }}>
+                                <i className={`${skill.iconClass} icon-lg`}></i>
+                            </div>
+                            <div className="skill-info flex-grow-1 ms-3">
+                                <div className="skill-name">{skill.name}</div>
+                                <div className="progress">
+                                    <div data-aos="fade-right" data-aos-delay="1200" className="progress-bar" role="progressbar" style={{ width: `${skill.progress}%` }} aria-label={skill.name} aria-valuenow={skill.progress} aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
-                            ))}
-                        </div>
-
-                        <div className="col-md-6">
-                            {skills.slice(3, 6).map((skill, index) => (
-                                <div key={index} className="skill-item mb-3">
-                                    <div data-aos="fade-right" data-aos-delay="600" className="d-flex align-items-center justify-content-between">
-                                        <i className={`${skill.iconClass} icon-lg`}></i>
-                                        <div className="skill-info">
-                                            <div className="skill-name">{skill.name}</div>
-                                            <div className="progress">
-                                                <div data-aos="fade-right" data-aos-delay="1200" className="progress-bar" role="progressbar" style={{ width: `${skill.progress}%` }} aria-label={skill.name} aria-valuenow={skill.progress} aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                ))}
+            </div>
+
+            <div className="col-md-6">
+                {skills.slice(3, 6).map((skill, index) => (
+                    <div key={index} className="skill-item mb-3">
+                        <div data-aos="fade-right" data-aos-delay="600" className="d-flex align-items-center">
+                            <div className="icon-wrapper" style={{ width: '80px', textAlign: 'center' }}>
+                                <i className={`${skill.iconClass} icon-lg`}></i>
+                            </div>
+                            <div className="skill-info flex-grow-1 ms-3">
+                                <div className="skill-name">{skill.name}</div>
+                                <div className="progress">
+                                    <div data-aos="fade-right" data-aos-delay="1200" className="progress-bar" role="progressbar" style={{ width: `${skill.progress}%` }} aria-label={skill.name} aria-valuenow={skill.progress} aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+</section>
 
             <section className="portofolio">
                 <div className="container">
