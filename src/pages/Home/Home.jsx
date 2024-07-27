@@ -11,9 +11,9 @@ import SosmedButton from '../../components/Sosmed/SosmedButton';
 
 import Foto from '../../assets/foto.png';
 import Foto2 from '../../assets/foto2.png';
-import Project1 from '../../assets/ProjectNew.png';
 import Project2 from '../../assets/project1.png';
 import Project3 from '../../assets/project2.png';
+import Project1 from '../../assets/ProjectNew.png';
 
 import "./Style.css";
 
@@ -74,7 +74,7 @@ const Home = () => {
                     <div className="hero-content col-lg-6 order-lg-2 mt-3">
                         <h2 data-aos="fade-right" data-aos-delay="0" className="fw-bold lh-1 mb-3 hero-color">Hi <span className="text-dark">There</span>, I'm</h2>
                         <h1 data-aos="fade-right" data-aos-delay="100" className="display-5 fw-bold text-body-emphasis lh-1 mb-3">Rizqi Zamzami Jamil</h1>
-                        <h2 data-aos="fade-right" data-aos-delay="200" className="">I am a <span className="fw-bold hero-color">Frontend Developer</span></h2>
+                        <h2 data-aos="fade-right" data-aos-delay="200" className="">I am a <span className="fw-bold hero-color">Web Developer</span></h2>
                         
                         <div data-aos="fade-right" data-aos-delay="300" className="social-buttons mt-4">
                             <SosmedButton link="https://www.facebook.com/rizam99zone" icon="fab fa-facebook-f" aria-label="See more for my Facebook" />
@@ -106,10 +106,10 @@ const Home = () => {
 
                             <div className="col-lg-8">
                                 <h1 data-aos="fade-right" data-aos-delay="600" className="display-5 fw-bold text-body-emphasis lh-1 mb-3">I'm Rizqi Zamzami Jamil</h1>
-                                <p data-aos="fade-right" data-aos-delay="600">Front End Developer</p>
+                                <p data-aos="fade-right" data-aos-delay="600">Web Developer</p>
                                 <br />
                                 <p data-aos="fade-right" data-aos-delay="650" className="lead">
-                                    I am a Frontend Web Developer based in Kediri. I have an educational background in Information Technology from <b>Politeknik Negeri Malang</b>.
+                                    I am a Web Developer based in Malang. I have an educational background in Business Information System from <b>Politeknik Negeri Malang</b>.
                                     I am very excited to continue improving my programming skills and developing various applications and websites.
                                 </p>
                                 
