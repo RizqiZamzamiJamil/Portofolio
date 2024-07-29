@@ -14,10 +14,7 @@ import Foto2 from '../../assets/foto2.png';
 import Project2 from '../../assets/project1.png';
 import Project3 from '../../assets/project2.png';
 import Project1 from '../../assets/ProjectNew.png';
-
-
 import CertificateCarousel from './CertificateCarousel';
-
 
 import "./Style.css";
 
@@ -30,17 +27,6 @@ const Home = () => {
         { name: "Vue JS", iconClass: "fab fa-vuejs", progress: 75 },
         { name: "React JS", iconClass: "fab fa-react", progress: 90 },
     ];
-
-    useEffect(() => {
-    const interval = setInterval(() => {
-        const activeItem = document.querySelector('.carousel-item.active');
-        const nextItem = activeItem.nextElementSibling || activeItem.parentElement.firstElementChild;
-        nextItem.classList.add('active');
-        activeItem.classList.remove('active');
-        }, 3000); // Adjust the time as per your need
-
-        return () => clearInterval(interval);
-    }, []);
 
     const [showConfirmModal, setShowConfirmModal] = useState(false);
     const [name, setName] = useState('');
@@ -224,58 +210,6 @@ const Home = () => {
             </section>
 
             <CertificateCarousel />
-
-            {/* <section className="certificates">
-                <div className="container">
-                    <h1 data-aos="fade-down" data-aos-delay="100" className="pt-5 pb-4 text-center">My Latest <span>Certificates</span></h1>
-
-                    <div className="container">
-                        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-center gap-3">
-                            <div class="card">
-                                <img src={MSIB} class="card-img-top" alt=""/>
-                                <div class="card-body">
-                                    <p class="card-text">Magang dan Studi Independen Bersertifikat <b>(MSIB Batch 6)</b></p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src={Gamelab} class="card-img-top" alt=""/>
-                                <div class="card-body">
-                                    <p class="card-text">Kelas Industri Web Frontend Development <b>(MSIB Batch 6)</b></p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src={ReactJs} class="card-img-top" alt=""/>
-                                <div class="card-body">
-                                    <p class="card-text">ReactJs certification by <b>Gamelab</b></p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src={VueJs} class="card-img-top" alt=""/>
-                                <div class="card-body">
-                                    <p class="card-text">VueJs certification by <b>Gamelab</b></p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src={Javascript} class="card-img-top" alt=""/>
-                                <div class="card-body">
-                                    <p class="card-text">JavaScript certification by <b>Gamelab</b></p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src={Bootstrap} class="card-img-top" alt=""/>
-                                <div class="card-body">
-                                    <p class="card-text">Bootstrap certification by <b>Gamelab</b></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="text-center my-4">
-                        <Link className="btn more" to="/Portofolio/projects">More Certificates Here <i className="fas fa-chevron-right"></i></Link>
-                    </div>
-                </div>
-            </section> */}
-
 
             <section className="contact" id="contact-me">
                 <h1 data-aos="fade-down" data-aos-delay="100" className="py-5 text-center">Contact <span>Me</span></h1>

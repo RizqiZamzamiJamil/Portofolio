@@ -1,16 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import React, { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Certificate.css';
 
-// Import gambar-gambar sertifikat
+import Bootstrap from '../../assets/bootstrap.jpg';
 import Gamelab from '../../assets/gamelab2.jpg';
+import Javascript from '../../assets/javascript.jpg';
 import MSIB from '../../assets/msib (2).jpg';
 import ReactJs from '../../assets/react.jpg';
 import VueJs from '../../assets/vue.jpg';
-import Javascript from '../../assets/javascript.jpg';
-import Bootstrap from '../../assets/bootstrap.jpg';
 
 
 const certificates = [
@@ -38,8 +37,8 @@ const CertificateCarousel = () => {
           return newItems;
         });
         setIsTransitioning(false);
-      }, 500); // This should match the transition duration in CSS
-    }, 4000);
+      }, 500);
+    }, 3000);
 
     return () => clearInterval(intervalId);
   }, []);
