@@ -1,0 +1,46 @@
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-card {
+    padding: 0 0 3px 0;
+    background-color: #ffc107;
+    flex: 0 0 32.333%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: #ffc107;
+}
+
+.carousel-card img {
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    height: auto;
+}
+
+.certificates .more {
+    background-color: #ffc107;
+    color: black;
+}
+
+.certificates .more:hover {
+    background-color: black;
+    color: #ffc107;
+}
+
+@media (max-width: 767px) {
+    .carousel-card {
+        flex: 0 0 50%;
+    }
+}
+
+@media (max-width: 575px) {
+    .carousel-card {
+        flex: 0 0 100%;
+    }
+}

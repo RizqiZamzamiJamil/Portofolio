@@ -5,6 +5,7 @@ import Education from "./pages/Education/Education";
 import Home from "./pages/Home/Home";
 import NoPage from "./pages/NoPage";
 import Project from "./pages/Project/Project";
+
 import "./App.css";
 
 export default function App() {

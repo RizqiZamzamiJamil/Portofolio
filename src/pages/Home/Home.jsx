@@ -15,6 +15,10 @@ import Project2 from '../../assets/project1.png';
 import Project3 from '../../assets/project2.png';
 import Project1 from '../../assets/ProjectNew.png';
 
+
+import CertificateCarousel from './CertificateCarousel';
+
+
 import "./Style.css";
 
 const Home = () => {
@@ -26,6 +30,17 @@ const Home = () => {
         { name: "Vue JS", iconClass: "fab fa-vuejs", progress: 75 },
         { name: "React JS", iconClass: "fab fa-react", progress: 90 },
     ];
+
+    useEffect(() => {
+    const interval = setInterval(() => {
+        const activeItem = document.querySelector('.carousel-item.active');
+        const nextItem = activeItem.nextElementSibling || activeItem.parentElement.firstElementChild;
+        nextItem.classList.add('active');
+        activeItem.classList.remove('active');
+        }, 3000); // Adjust the time as per your need
+
+        return () => clearInterval(interval);
+    }, []);
 
     const [showConfirmModal, setShowConfirmModal] = useState(false);
     const [name, setName] = useState('');
@@ -41,7 +56,7 @@ const Home = () => {
         setShowConfirmModal(false);
         console.log("Pesan baru telah terkirim!");
 
-        const messageBody = `Permisi, perkenalkan \n\nNama: ${name} \nEmail: ${email} \n\n Pesan: ${message}`;
+        const messageBody = `Permisi, perkenalkan \n\nNama : ${name} \nEmail : ${email} \n\n Pesan Saya : ${message}`;
         const url = `https://api.whatsapp.com/send?phone=6282147083442&text=${encodeURIComponent(messageBody)}`;
 
         window.open(url, "_blank");
@@ -115,7 +130,6 @@ const Home = () => {
                                 
                                 <div data-aos="fade-right" data-aos-delay="650" className="d-flex gap-2">
                                     <a type="button" className="btn btn-outline-dark btn-warning" href='https://drive.google.com/file/d/1bCU0RCD5QQ-jI3US0Wdj6qozbAACYVVZ/view?usp=sharing' target='_blank'>Curriculum Vitae</a>
-                                    <a type="button" className="btn btn-outline-dark btn-warning" href='https://drive.google.com/file/d/1gsLwGgcfcvmGLtGij5DAHWtX5mfgtq4L/view?usp=sharing' target='_blank'>Certificate</a>
                                 </div>
                                 
                             </div>
@@ -125,52 +139,52 @@ const Home = () => {
             </section>
 
             <section className="skill">
-    <h1 data-aos="fade-down" data-aos-delay="100" className="pt-5 pb-3 text-center">My <span>Skills</span></h1>
-    <p data-aos="fade-down" data-aos-delay="300" className="text-center pb-5">
-        In my programming career, I have had various abilities, both in the Frontend and Backend fields.
-        I have a strong understanding of Frontend technologies such as HTML, CSS, and JavaScript, as well as popular frameworks such as
-        Laravel, Vue JS, and React JS.
-    </p>
-    <div className="container">
-        <div className="row">
-            <div className="col-md-6">
-                {skills.slice(0, 3).map((skill, index) => (
-                    <div key={index} className="skill-item mb-3">
-                        <div data-aos="fade-left" data-aos-delay="600" className="d-flex align-items-center">
-                            <div className="icon-wrapper" style={{ width: '80px', textAlign: 'center' }}>
-                                <i className={`${skill.iconClass} icon-lg`}></i>
-                            </div>
-                            <div className="skill-info flex-grow-1 ms-3">
-                                <div className="skill-name">{skill.name}</div>
-                                <div className="progress">
-                                    <div data-aos="fade-right" data-aos-delay="1200" className="progress-bar" role="progressbar" style={{ width: `${skill.progress}%` }} aria-label={skill.name} aria-valuenow={skill.progress} aria-valuemin="0" aria-valuemax="100"></div>
+                <h1 data-aos="fade-down" data-aos-delay="100" className="pt-5 pb-3 text-center">My <span>Skills</span></h1>
+                <p data-aos="fade-down" data-aos-delay="300" className="text-center pb-5">
+                    In my programming career, I have had various abilities, both in the Frontend and Backend fields.
+                    I have a strong understanding of Frontend technologies such as HTML, CSS, and JavaScript, as well as popular frameworks such as
+                    Laravel, Vue JS, and React JS.
+                </p>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-6">
+                            {skills.slice(0, 3).map((skill, index) => (
+                                <div key={index} className="skill-item mb-3">
+                                    <div data-aos="fade-left" data-aos-delay="600" className="d-flex align-items-center">
+                                        <div className="icon-wrapper" style={{ width: '80px', textAlign: 'center' }}>
+                                            <i className={`${skill.iconClass} icon-lg`}></i>
+                                        </div>
+                                        <div className="skill-info flex-grow-1 ms-3">
+                                            <div className="skill-name">{skill.name}</div>
+                                            <div className="progress">
+                                                <div data-aos="fade-right" data-aos-delay="1200" className="progress-bar" role="progressbar" style={{ width: `${skill.progress}%` }} aria-label={skill.name} aria-valuenow={skill.progress} aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            ))}
                         </div>
-                    </div>
-                ))}
-            </div>
 
-            <div className="col-md-6">
-                {skills.slice(3, 6).map((skill, index) => (
-                    <div key={index} className="skill-item mb-3">
-                        <div data-aos="fade-right" data-aos-delay="600" className="d-flex align-items-center">
-                            <div className="icon-wrapper" style={{ width: '80px', textAlign: 'center' }}>
-                                <i className={`${skill.iconClass} icon-lg`}></i>
-                            </div>
-                            <div className="skill-info flex-grow-1 ms-3">
-                                <div className="skill-name">{skill.name}</div>
-                                <div className="progress">
-                                    <div data-aos="fade-right" data-aos-delay="1200" className="progress-bar" role="progressbar" style={{ width: `${skill.progress}%` }} aria-label={skill.name} aria-valuenow={skill.progress} aria-valuemin="0" aria-valuemax="100"></div>
+                        <div className="col-md-6">
+                            {skills.slice(3, 6).map((skill, index) => (
+                                <div key={index} className="skill-item mb-3">
+                                    <div data-aos="fade-right" data-aos-delay="600" className="d-flex align-items-center">
+                                        <div className="icon-wrapper" style={{ width: '80px', textAlign: 'center' }}>
+                                            <i className={`${skill.iconClass} icon-lg`}></i>
+                                        </div>
+                                        <div className="skill-info flex-grow-1 ms-3">
+                                            <div className="skill-name">{skill.name}</div>
+                                            <div className="progress">
+                                                <div data-aos="fade-right" data-aos-delay="1200" className="progress-bar" role="progressbar" style={{ width: `${skill.progress}%` }} aria-label={skill.name} aria-valuenow={skill.progress} aria-valuemin="0" aria-valuemax="100"></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
-                ))}
-            </div>
-        </div>
-    </div>
-</section>
+                </div>
+            </section>
 
             <section className="portofolio">
                 <div className="container">
@@ -203,11 +217,65 @@ const Home = () => {
                         </div>
                     </div>
                     
-                    <div className="text-center my-4">
+                    <div className="text-center my-4" data-aos="fade-down" data-aos-delay="100">
                         <Link className="btn more" to="/Portofolio/projects">More Projects Here <i className="fas fa-chevron-right"></i></Link>
                     </div>
                 </div>
             </section>
+
+            <CertificateCarousel />
+
+            {/* <section className="certificates">
+                <div className="container">
+                    <h1 data-aos="fade-down" data-aos-delay="100" className="pt-5 pb-4 text-center">My Latest <span>Certificates</span></h1>
+
+                    <div className="container">
+                        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-center gap-3">
+                            <div class="card">
+                                <img src={MSIB} class="card-img-top" alt=""/>
+                                <div class="card-body">
+                                    <p class="card-text">Magang dan Studi Independen Bersertifikat <b>(MSIB Batch 6)</b></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src={Gamelab} class="card-img-top" alt=""/>
+                                <div class="card-body">
+                                    <p class="card-text">Kelas Industri Web Frontend Development <b>(MSIB Batch 6)</b></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src={ReactJs} class="card-img-top" alt=""/>
+                                <div class="card-body">
+                                    <p class="card-text">ReactJs certification by <b>Gamelab</b></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src={VueJs} class="card-img-top" alt=""/>
+                                <div class="card-body">
+                                    <p class="card-text">VueJs certification by <b>Gamelab</b></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src={Javascript} class="card-img-top" alt=""/>
+                                <div class="card-body">
+                                    <p class="card-text">JavaScript certification by <b>Gamelab</b></p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src={Bootstrap} class="card-img-top" alt=""/>
+                                <div class="card-body">
+                                    <p class="card-text">Bootstrap certification by <b>Gamelab</b></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="text-center my-4">
+                        <Link className="btn more" to="/Portofolio/projects">More Certificates Here <i className="fas fa-chevron-right"></i></Link>
+                    </div>
+                </div>
+            </section> */}
+
 
             <section className="contact" id="contact-me">
                 <h1 data-aos="fade-down" data-aos-delay="100" className="py-5 text-center">Contact <span>Me</span></h1>
@@ -227,7 +295,7 @@ const Home = () => {
                                 </div>
                                 <div data-aos="fade-left" data-aos-delay="900" className="contact-item">
                                     <i className="fa-solid fa-location-dot"></i>
-                                    <p>Kediri, East Java, Indonesia</p>
+                                    <p>Malang, East Java, Indonesia</p>
                                 </div>
                             </div>
                         </div>

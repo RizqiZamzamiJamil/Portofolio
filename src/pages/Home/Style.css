@@ -131,9 +131,40 @@
     color: black;
 }
 
+/* ==================== Certificate ==================== */
+.certificates {
+    min-height: 624px;
+    /* background-color: #ffc107; */
+}
+
+.certificates h1 {
+    font-family: "Londrina Solid", sans-serif;
+}
+
+.certificates h1 span {
+    color: #ffc107;
+}
+
+.certificates .card {
+    height: 310px;
+    width: 400px;
+    padding: 0 0 3px 0;
+    background-color: #ffc107;
+}
+
+.certificates .card-body{
+    padding: 5px 10px;
+}
+
+.certificates img {
+    height: 250px;
+}
+
+
 /* ==================== Contact ====================  */
 .contact {
     min-height: 624px;
+    background-color: #ffc107;
 }
 
 .contact h1 {
@@ -141,31 +172,38 @@
 }
 
 .contact h1 span {
-    color:#ffc107;
+    color:white;
 }
 
 .contact-details {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 1.2rem;
 }
 
 .contact-item {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 1rem;
 }
 
-.contact i {
-    color: #ffc107;
+.contact-item i {
+    font-size: 1.5rem;
 }
+
+.contact-item p {
+    margin: 0;
+}
+
 
 .contact .btn {
+    background-color: black;
+    color: #ffc107;
     padding: 10px 40px;
 }
 
 .contact .btn:hover {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
 }
 
