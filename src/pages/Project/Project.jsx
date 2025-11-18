@@ -1,4 +1,5 @@
 import Project00 from "../../assets/project0.png";
+import Project001 from "../../assets/project001.png";
 import Project1 from "../../assets/project1.png";
 import Project2 from "../../assets/project2.png";
 import Project3 from "../../assets/project3.png";
@@ -26,8 +27,8 @@ const Projects = () => {
                     <div className="container">
                         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                             <Card
-                                imgSrc={Project00}
-                                text="Developing a website for new student admissions for the Recognition of Past Learning (RPL) pathway at the STIMATA Malang campus."
+                                imgSrc={Project001}
+                                text="Developing a web-based document repository system for JTI Polinema with secure upload, organization, and sharing features."
                                 subtitle="PHP - Laravel"
                                 preview="https://github.com/RizqiZamzamiJamil?tab=repositories"
                                 code="https://github.com/RizqiZamzamiJamil?tab=repositories"
