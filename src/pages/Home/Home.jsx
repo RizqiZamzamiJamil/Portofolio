@@ -1,6 +1,6 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { Link } from "react-router-dom";
 import BackgroundAnimation from "../../components/Background/BackgroundAnimation";
@@ -120,7 +120,7 @@ const Home = () => {
                                 aria-label="See more for my Facebook"
                             />
                             <SosmedButton
-                                link="https://www.instagram.com/rizam896"
+                                link="https://www.instagram.com/rizam_disini"
                                 icon="fab fa-instagram"
                                 aria-label="See more for my Instagram"
                             />
@@ -210,7 +210,7 @@ const Home = () => {
                                     <a
                                         type="button"
                                         className="btn btn-outline-dark btn-warning"
-                                        href="https://drive.google.com/file/d/1bCU0RCD5QQ-jI3US0Wdj6qozbAACYVVZ/view?usp=sharing"
+                                        href="https://drive.google.com/file/d/1nb3bKVORIM6C8vCNbUMSnI8WyHrsQJE8/view?usp=sharing"
                                         target="_blank"
                                     >
                                         Curriculum Vitae
