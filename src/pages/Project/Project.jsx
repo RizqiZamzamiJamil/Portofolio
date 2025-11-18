@@ -34,6 +34,14 @@ const Projects = () => {
                                 delay="300"
                             />
                             <Card
+                                imgSrc={Project00}
+                                text="Developing a website for new student admissions for the Recognition of Past Learning (RPL) pathway at the STIMATA Malang campus."
+                                subtitle="PHP - Laravel"
+                                preview="https://github.com/RizqiZamzamiJamil?tab=repositories"
+                                code="https://github.com/RizqiZamzamiJamil?tab=repositories"
+                                delay="300"
+                            />
+                            <Card
                                 imgSrc={Project0}
                                 text="MSIB Batch 6 - A dynamic clinic website with a database that has the main features of online reservations and push notifications by email."
                                 subtitle="JavaScript - React.Js & Express.Js"
