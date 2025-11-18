@@ -12,7 +12,7 @@ import SosmedButton from "../../components/Sosmed/SosmedButton";
 import Foto from "../../assets/foto.png";
 import Foto2 from "../../assets/foto2.png";
 import Project0 from "../../assets/project0.png";
-import Project2 from "../../assets/project1.png";
+import Project001 from "../../assets/project001.png";
 import Project1 from "../../assets/ProjectNew.png";
 import CertificateCarousel from "./CertificateCarousel";
 
@@ -21,10 +21,10 @@ import "./Style.css";
 const Home = () => {
     const skills = [
         { name: "HTML & CSS", iconClass: "fab fa-html5", progress: 98 },
-        { name: "PHP", iconClass: "fab fa-php", progress: 85 },
+        { name: "PHP", iconClass: "fab fa-php", progress: 95 },
         { name: "JavaScript", iconClass: "fab fa-js", progress: 90 },
-        { name: "Laravel", iconClass: "fab fa-laravel", progress: 85 },
-        { name: "Vue JS", iconClass: "fab fa-vuejs", progress: 75 },
+        { name: "Laravel", iconClass: "fab fa-laravel", progress: 93 },
+        { name: "Vue JS", iconClass: "fab fa-vuejs", progress: 80 },
         { name: "React JS", iconClass: "fab fa-react", progress: 90 },
     ];
 
@@ -351,6 +351,14 @@ const Home = () => {
                     <div className="container">
                         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                             <Card
+                                imgSrc={Project001}
+                                text="Developing a web-based document repository system for JTI Polinema with secure upload, organization, and sharing features."
+                                subtitle="PHP - Laravel"
+                                preview="#"
+                                code="#"
+                                delay="300"
+                            />
+                            <Card
                                 imgSrc={Project0}
                                 text="Developing a website for new student admissions for the Recognition of Past Learning (RPL) pathway at the STIMATA Malang campus."
                                 subtitle="PHP - Laravel"
@@ -365,14 +373,6 @@ const Home = () => {
                                 preview="https://fe-msib-6-klinik-app-04.educalab.id/"
                                 code="https://github.com/RizqiZamzamiJamil/klinik-app"
                                 delay="600"
-                            />
-                            <Card
-                                imgSrc={Project2}
-                                text="A website frontend development project for UMKM Nyah Siok which operates in the dimsum food sector."
-                                subtitle="HTML - Bootstrap & SASS"
-                                preview="https://rizqizamzamijamil.github.io/Website_UMKM_Nyah_Siok/"
-                                code="https://github.com/RizqiZamzamiJamil/Website_UMKM_Nyah_Siok"
-                                delay="800"
                             />
                         </div>
                     </div>
