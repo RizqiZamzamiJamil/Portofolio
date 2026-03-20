@@ -15,7 +15,7 @@ const projectAccentMap = {
     Mobile: "99, 102, 241",
 };
 
-const Card = ({ project, featuredLabel }) => {
+const Card = ({ project, featuredLabel, delay = 0 }) => {
     const normalizedLiveUrl = normalizeUrl(project.liveUrl);
     const normalizedCodeUrl = normalizeUrl(project.codeUrl);
     const hasLivePreview =
@@ -30,7 +30,7 @@ const Card = ({ project, featuredLabel }) => {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={{ duration: 0.5, ease: "easeOut", delay }}
             whileHover={{ y: -8 }}
         >
             <div className="project-card__media">

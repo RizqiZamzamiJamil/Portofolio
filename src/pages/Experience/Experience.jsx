@@ -1,6 +1,14 @@
 import { Fragment, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { experienceEntries, experienceStats } from "../../data/portfolioData";
+import {
+    defaultViewport,
+    heroItem,
+    heroStagger,
+    sectionItem,
+    sectionStagger,
+} from "../../utils/motion";
+import CertificateCarousel from "../Home/CertificateCarousel";
 import "./Style.css";
 
 const Experience = () => {
@@ -14,49 +22,84 @@ const Experience = () => {
         <main className="page-shell experience-page">
             <section className="section-shell experience-hero">
                 <div className="container">
-                    <div className="section-heading">
-                        <span className="section-heading__eyebrow">
+                    <motion.div
+                        className="section-heading"
+                        initial="hidden"
+                        animate="visible"
+                        variants={heroStagger}
+                    >
+                        <motion.span
+                            className="section-heading__eyebrow"
+                            variants={heroItem}
+                        >
                             Experience
-                        </span>
-                        <h1 className="section-heading__title">
+                        </motion.span>
+                        <motion.h1
+                            className="section-heading__title"
+                            variants={heroItem}
+                        >
                             Timeline pengalaman di luar
                             <span> portfolio</span>.
-                        </h1>
-                        <p className="section-heading__description">
+                        </motion.h1>
+                        <motion.p
+                            className="section-heading__description"
+                            variants={heroItem}
+                        >
                             Organisasi kampus, studi independen, PKL, dan
                             magang setelah lulus dalam satu alur perjalanan.
-                        </p>
-                    </div>
+                        </motion.p>
+                    </motion.div>
 
-                    <div className="experience-hero__stats">
+                    <motion.div
+                        className="experience-hero__stats"
+                        initial="hidden"
+                        animate="visible"
+                        variants={sectionStagger}
+                    >
                         {experienceStats.map((item) => (
-                            <article
+                            <motion.article
                                 key={item.label}
                                 className="content-panel experience-hero__stat"
+                                variants={sectionItem}
                             >
                                 <span>{item.label}</span>
                                 <strong>{item.value}</strong>
                                 <p>{item.detail}</p>
-                            </article>
+                            </motion.article>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
             <section className="section-shell section-shell--muted">
                 <div className="container">
-                    <div className="section-heading">
-                        <span className="section-heading__eyebrow">
+                    <motion.div
+                        className="section-heading"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={defaultViewport}
+                        variants={sectionStagger}
+                    >
+                        <motion.span
+                            className="section-heading__eyebrow"
+                            variants={sectionItem}
+                        >
                             Timeline
-                        </span>
-                        <h2 className="section-heading__title">
+                        </motion.span>
+                        <motion.h2
+                            className="section-heading__title"
+                            variants={sectionItem}
+                        >
                             Langkah yang membentuk ritme kerja saya.
-                        </h2>
-                        <p className="section-heading__description">
+                        </motion.h2>
+                        <motion.p
+                            className="section-heading__description"
+                            variants={sectionItem}
+                        >
                             Dari organisasi kampus sampai pengalaman industri
                             setelah lulus.
-                        </p>
-                    </div>
+                        </motion.p>
+                    </motion.div>
 
                     <div className="experience-timeline">
                         <div className="experience-timeline__track" aria-hidden="true"></div>
@@ -83,7 +126,7 @@ const Experience = () => {
                                         }}
                                         initial={{ opacity: 0, y: 24 }}
                                         whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true, amount: 0.2 }}
+                                        viewport={defaultViewport}
                                         transition={{
                                             duration: 0.45,
                                             delay: index * 0.08,
@@ -179,6 +222,8 @@ const Experience = () => {
                     </div>
                 </div>
             </section>
+
+            <CertificateCarousel />
         </main>
     );
 };

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import BackgroundAnimation from "../../components/Background/BackgroundAnimation";
 import Card from "../../components/Card/Card";
 import ConfirmationModal from "../../components/Modal/ConfirmationModal";
-import ScrollToTopButton from "../../components/ScrollTop/ScrollToTopButton";
 import SosmedButton from "../../components/Sosmed/SosmedButton";
 import {
     achievementHighlights,
@@ -17,23 +16,15 @@ import {
     skills,
     socialLinks,
 } from "../../data/portfolioData";
-import CertificateCarousel from "./CertificateCarousel";
+import {
+    defaultViewport,
+    heroItem,
+    heroPanel,
+    heroStagger,
+    sectionItem,
+    sectionStagger,
+} from "../../utils/motion";
 import "./Style.css";
-
-const revealUp = {
-    hidden: { opacity: 0, y: 26 },
-    visible: { opacity: 1, y: 0 },
-};
-
-const staggerList = {
-    hidden: { opacity: 1 },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.1,
-        },
-    },
-};
 
 const Home = () => {
     const [showConfirmModal, setShowConfirmModal] = useState(false);
@@ -65,80 +56,93 @@ const Home = () => {
                         className="home-hero__content"
                         initial="hidden"
                         animate="visible"
-                        variants={staggerList}
+                        variants={heroStagger}
                     >
                         <motion.span
                             className="section-heading__eyebrow"
-                            variants={revealUp}
+                            variants={heroItem}
                         >
                             Overview
                         </motion.span>
 
                         <motion.h1
                             className="home-hero__title"
-                            variants={revealUp}
+                            variants={heroItem}
                         >
                             Fullstack Developer
                         </motion.h1>
 
                         <motion.p
                             className="home-hero__description"
-                            variants={revealUp}
+                            variants={heroItem}
                         >
                             {profile.heroDescription}
                         </motion.p>
 
                         <motion.div
                             className="home-hero__badges"
-                            variants={revealUp}
+                            variants={sectionStagger}
                         >
                             {profile.heroBadges.map((badge) => (
-                                <span key={badge} className="home-hero__badge">
+                                <motion.span
+                                    key={badge}
+                                    className="home-hero__badge"
+                                    variants={heroItem}
+                                >
                                     {badge}
-                                </span>
+                                </motion.span>
                             ))}
                         </motion.div>
 
                         <motion.div
                             className="home-hero__actions"
-                            variants={revealUp}
+                            variants={sectionStagger}
                         >
-                            <a href="#contact-me" className="portfolio-button">
+                            <motion.a
+                                href="#contact-me"
+                                className="portfolio-button"
+                                variants={heroItem}
+                            >
                                 Let&apos;s Collaborate
-                            </a>
-                            <a
+                            </motion.a>
+                            <motion.a
                                 href={profile.cvUrl}
                                 target="_blank"
                                 rel="noreferrer"
                                 className="portfolio-button portfolio-button--ghost"
+                                variants={heroItem}
                             >
                                 View CV
-                            </a>
+                            </motion.a>
                         </motion.div>
 
                         <motion.div
                             className="home-hero__socials"
-                            variants={revealUp}
+                            variants={sectionStagger}
                         >
                             {socialLinks.map((item) => (
-                                <SosmedButton
+                                <motion.div
                                     key={item.label}
-                                    link={item.url}
-                                    icon={item.icon}
-                                    label={item.label}
-                                />
+                                    variants={heroItem}
+                                >
+                                    <SosmedButton
+                                        link={item.url}
+                                        icon={item.icon}
+                                        label={item.label}
+                                    />
+                                </motion.div>
                             ))}
                         </motion.div>
 
                         <motion.div
                             className="home-hero__stats"
-                            variants={staggerList}
+                            variants={sectionStagger}
                         >
                             {portfolioStats.map((item) => (
                                 <motion.article
                                     key={item.label}
                                     className="home-hero__stat"
-                                    variants={revealUp}
+                                    variants={heroItem}
                                 >
                                     <span>{item.label}</span>
                                     <strong>{item.value}</strong>
@@ -150,41 +154,70 @@ const Home = () => {
 
                     <motion.div
                         className="home-hero__visual"
-                        initial={{ opacity: 0, x: 28 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.7, ease: "easeOut" }}
+                        initial="hidden"
+                        animate="visible"
+                        variants={heroPanel}
                     >
-                        <div className="home-hero__card content-panel">
-                            <span className="info-chip">
-                                Available for fullstack opportunities
-                            </span>
+                        <motion.div
+                            className="home-hero__visual-media"
+                            variants={heroItem}
+                        >
                             <div className="home-hero__portrait">
-                                <img src={profile.heroImage} alt={profile.name} />
+                                <img
+                                    src={profile.heroImage}
+                                    alt={profile.name}
+                                />
                             </div>
-                            <div className="home-hero__card-copy">
-                                <p>Main workflow</p>
-                                <h2>Laravel, React, PHP, dan JavaScript.</h2>
-                                <ul>
-                                    <li>Lulus 2025 dari Politeknik Negeri Malang.</li>
-                                    <li>Sering membangun web untuk kebutuhan nyata.</li>
-                                    <li>Fokus pada struktur kode dan UX yang rapi.</li>
-                                </ul>
-                            </div>
-                        </div>
+                        </motion.div>
+
+                        <motion.div
+                            className="home-hero__workflow content-panel"
+                            variants={sectionStagger}
+                        >
+                            <motion.p variants={heroItem}>
+                                Main workflow
+                            </motion.p>
+                            <motion.h2 variants={heroItem}>
+                                Laravel, React, PHP, dan JavaScript.
+                            </motion.h2>
+                            <ul>
+                                <motion.li variants={heroItem}>
+                                    Lulus 2025 dari Politeknik Negeri Malang.
+                                </motion.li>
+                                <motion.li variants={heroItem}>
+                                    Sering membangun web untuk kebutuhan nyata.
+                                </motion.li>
+                                <motion.li variants={heroItem}>
+                                    Fokus pada struktur kode dan UX yang rapi.
+                                </motion.li>
+                            </ul>
+                        </motion.div>
 
                         <motion.div
                             className="home-hero__floating home-hero__floating--top"
-                            animate={{ y: [0, -10, 0] }}
-                            transition={{ duration: 4, repeat: Infinity }}
+                            initial={{ opacity: 0, y: 18 }}
+                            animate={{ opacity: 1, y: [0, -10, 0] }}
+                            transition={{
+                                opacity: { duration: 0.45, delay: 0.45 },
+                                y: { duration: 4, repeat: Infinity, delay: 0.45 },
+                            }}
                         >
-                            <strong>Wisudawan Terbaik</strong>
-                            <span>Milestone akademik 2025</span>
+                            <strong>Wisudawan Terbaik Prodi</strong>
+                            <span>Wisuda Polinema ke-70</span>
                         </motion.div>
 
                         <motion.div
                             className="home-hero__floating home-hero__floating--bottom"
-                            animate={{ y: [0, 10, 0] }}
-                            transition={{ duration: 4.8, repeat: Infinity }}
+                            initial={{ opacity: 0, y: 18 }}
+                            animate={{ opacity: 1, y: [0, 10, 0] }}
+                            transition={{
+                                opacity: { duration: 0.45, delay: 0.58 },
+                                y: {
+                                    duration: 4.8,
+                                    repeat: Infinity,
+                                    delay: 0.58,
+                                },
+                            }}
                         >
                             <strong>Based in Malang</strong>
                             <span>Open for collaboration</span>
@@ -195,29 +228,51 @@ const Home = () => {
 
             <section className="section-shell">
                 <div className="container">
-                    <div className="section-heading">
-                        <span className="section-heading__eyebrow">About Me</span>
-                        <h2 className="section-heading__title">
+                    <motion.div
+                        className="section-heading"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={defaultViewport}
+                        variants={sectionStagger}
+                    >
+                        <motion.span
+                            className="section-heading__eyebrow"
+                            variants={sectionItem}
+                        >
+                            About Me
+                        </motion.span>
+                        <motion.h2
+                            className="section-heading__title"
+                            variants={sectionItem}
+                        >
                             <span>UI rapi</span> dan backend solid.
-                        </h2>
-                        <p className="section-heading__description">
+                        </motion.h2>
+                        <motion.p
+                            className="section-heading__description"
+                            variants={sectionItem}
+                        >
                             Laravel, React, dan web yang nyaman dipakai.
-                        </p>
-                    </div>
+                        </motion.p>
+                    </motion.div>
 
                     <div className="about-grid">
                         <motion.article
                             className="content-panel about-card"
                             initial={{ opacity: 0, y: 22 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.2 }}
+                            viewport={defaultViewport}
                             transition={{ duration: 0.5 }}
                         >
                             <div className="about-card__image">
-                                <img src={profile.aboutImage} alt={profile.name} />
+                                <img
+                                    src={profile.aboutImage}
+                                    alt={profile.name}
+                                />
                             </div>
                             <div className="about-card__copy">
-                                <span className="info-chip">Profil Singkat</span>
+                                <span className="info-chip">
+                                    Profil Singkat
+                                </span>
                                 <h3>{profile.name}</h3>
                                 <p>{profile.summary}</p>
                                 <p>{profile.secondarySummary}</p>
@@ -245,13 +300,13 @@ const Home = () => {
                                 className="content-panel spotlight-card"
                                 initial={{ opacity: 0, y: 22 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, amount: 0.2 }}
+                                viewport={defaultViewport}
                                 transition={{ duration: 0.5, delay: 0.1 }}
                             >
                                 <span className="spotlight-card__tag">
                                     Achievement Spotlight
                                 </span>
-                                <h3>Wisudawan terbaik 2025.</h3>
+                                <h3>Wisudawan Terbaik Prodi pada Wisuda ke-70</h3>
                                 <p>
                                     Pencapaian ini saya jadikan standar saat
                                     mengerjakan produk digital.
@@ -262,7 +317,7 @@ const Home = () => {
                                 className="content-panel strengths-card"
                                 initial={{ opacity: 0, y: 22 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, amount: 0.2 }}
+                                viewport={defaultViewport}
                                 transition={{ duration: 0.5, delay: 0.2 }}
                             >
                                 <h3>Apa yang saya bawa ke tim</h3>
@@ -285,12 +340,26 @@ const Home = () => {
 
             <section className="section-shell section-shell--muted">
                 <div className="container">
-                    <div className="section-heading">
-                        <span className="section-heading__eyebrow">Milestones</span>
-                        <h2 className="section-heading__title">
+                    <motion.div
+                        className="section-heading"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={defaultViewport}
+                        variants={sectionStagger}
+                    >
+                        <motion.span
+                            className="section-heading__eyebrow"
+                            variants={sectionItem}
+                        >
+                            Milestones
+                        </motion.span>
+                        <motion.h2
+                            className="section-heading__title"
+                            variants={sectionItem}
+                        >
                             Pencapaian utama saya.
-                        </h2>
-                    </div>
+                        </motion.h2>
+                    </motion.div>
 
                     <div className="achievement-grid">
                         {achievementHighlights.map((item, index) => (
@@ -299,11 +368,17 @@ const Home = () => {
                                 className="achievement-card content-panel"
                                 initial={{ opacity: 0, y: 24 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, amount: 0.2 }}
-                                transition={{ duration: 0.5, delay: index * 0.08 }}
+                                viewport={defaultViewport}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: index * 0.08,
+                                }}
                             >
                                 <div className="achievement-card__icon">
-                                    <i className={item.icon} aria-hidden="true"></i>
+                                    <i
+                                        className={item.icon}
+                                        aria-hidden="true"
+                                    ></i>
                                 </div>
                                 <span>{item.value}</span>
                                 <h3>{item.title}</h3>
@@ -316,29 +391,46 @@ const Home = () => {
 
             <section className="section-shell">
                 <div className="container">
-                    <div className="section-heading">
-                        <span className="section-heading__eyebrow">My Skills</span>
-                        <h2 className="section-heading__title">
+                    <motion.div
+                        className="section-heading"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={defaultViewport}
+                        variants={sectionStagger}
+                    >
+                        <motion.span
+                            className="section-heading__eyebrow"
+                            variants={sectionItem}
+                        >
+                            My Skills
+                        </motion.span>
+                        <motion.h2
+                            className="section-heading__title"
+                            variants={sectionItem}
+                        >
                             Skill utama saya.
-                        </h2>
-                        <p className="section-heading__description">
+                        </motion.h2>
+                        <motion.p
+                            className="section-heading__description"
+                            variants={sectionItem}
+                        >
                             Frontend, backend, dan delivery untuk web product.
-                        </p>
-                    </div>
+                        </motion.p>
+                    </motion.div>
 
                     <div className="skills-layout">
                         <motion.article
                             className="content-panel skills-intro"
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true, amount: 0.2 }}
+                            viewport={defaultViewport}
                             transition={{ duration: 0.5 }}
                         >
                             <span className="info-chip">Skill Map</span>
                             <h3>UI rapi. Backend terstruktur.</h3>
                             <p>
-                                Fokus saya ada di web fullstack dengan UI
-                                jelas, interaksi ringan, dan alur data rapi.
+                                Fokus saya ada di web fullstack dengan UI jelas,
+                                interaksi ringan, dan alur data rapi.
                             </p>
                             <div className="skills-intro__chips">
                                 {skillCategories.map((item) => (
@@ -412,58 +504,98 @@ const Home = () => {
 
             <section className="section-shell section-shell--accent">
                 <div className="container">
-                    <div className="section-heading">
-                        <span className="section-heading__eyebrow">
+                    <motion.div
+                        className="section-heading"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={defaultViewport}
+                        variants={sectionStagger}
+                    >
+                        <motion.span
+                            className="section-heading__eyebrow"
+                            variants={sectionItem}
+                        >
                             Latest Projects
-                        </span>
-                        <h2 className="section-heading__title">
+                        </motion.span>
+                        <motion.h2
+                            className="section-heading__title"
+                            variants={sectionItem}
+                        >
                             Project terbaru dari portofolio saya.
-                        </h2>
-                        <p className="section-heading__description">
+                        </motion.h2>
+                        <motion.p
+                            className="section-heading__description"
+                            variants={sectionItem}
+                        >
                             Diambil otomatis dari data project dengan update
                             paling baru.
-                        </p>
-                    </div>
+                        </motion.p>
+                    </motion.div>
 
-                    <div className="latest-projects__top">
-                        <p>Urut dari update terbaru.</p>
-                        <Link
-                            to="/projects"
-                            className="portfolio-button portfolio-button--ghost"
-                        >
-                            View All Projects
-                        </Link>
-                    </div>
+                    <motion.div
+                        className="latest-projects__top"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={defaultViewport}
+                        variants={sectionStagger}
+                    >
+                        <motion.p variants={sectionItem}>
+                            Urut dari update terbaru.
+                        </motion.p>
+                        <motion.div variants={sectionItem}>
+                            <Link
+                                to="/projects"
+                                className="portfolio-button portfolio-button--ghost"
+                            >
+                                View All Projects
+                            </Link>
+                        </motion.div>
+                    </motion.div>
 
                     <div className="latest-projects__grid">
                         {latestProjects.map((project, index) => (
                             <Card
                                 key={project.id}
                                 project={project}
-                                featuredLabel={index === 0 ? "Newest" : "Recent"}
+                                featuredLabel={
+                                    index === 0 ? "Newest" : "Recent"
+                                }
+                                delay={index * 0.08}
                             />
                         ))}
                     </div>
                 </div>
             </section>
 
-            <CertificateCarousel />
-
             <section className="section-shell" id="contact-me">
                 <div className="container">
-                    <div className="section-heading">
-                        <span className="section-heading__eyebrow">Contact Me</span>
-                        <h2 className="section-heading__title">
+                    <motion.div
+                        className="section-heading"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={defaultViewport}
+                        variants={sectionStagger}
+                    >
+                        <motion.span
+                            className="section-heading__eyebrow"
+                            variants={sectionItem}
+                        >
+                            Contact Me
+                        </motion.span>
+                        <motion.h2
+                            className="section-heading__title"
+                            variants={sectionItem}
+                        >
                             Terbuka untuk kolaborasi dan peluang kerja.
-                        </h2>
-                    </div>
+                        </motion.h2>
+                    </motion.div>
 
                     <div className="contact-layout">
                         <motion.article
                             className="content-panel contact-card"
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true, amount: 0.2 }}
+                            viewport={defaultViewport}
                             transition={{ duration: 0.5 }}
                         >
                             <span className="info-chip">Let&apos;s Talk</span>
@@ -479,7 +611,10 @@ const Home = () => {
 
                             <div className="contact-card__list">
                                 {contactDetails.map((item) => (
-                                    <div key={item.label} className="contact-item">
+                                    <div
+                                        key={item.label}
+                                        className="contact-item"
+                                    >
                                         <div className="contact-item__icon">
                                             <i
                                                 className={item.icon}
@@ -499,10 +634,13 @@ const Home = () => {
                             className="content-panel contact-form-card"
                             initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true, amount: 0.2 }}
+                            viewport={defaultViewport}
                             transition={{ duration: 0.5, delay: 0.08 }}
                         >
-                            <form className="portfolio-form" onSubmit={handleSubmit}>
+                            <form
+                                className="portfolio-form"
+                                onSubmit={handleSubmit}
+                            >
                                 <div className="portfolio-form__field">
                                     <label htmlFor="name">Nama</label>
                                     <input
@@ -545,7 +683,10 @@ const Home = () => {
                                     ></textarea>
                                 </div>
 
-                                <button type="submit" className="portfolio-button">
+                                <button
+                                    type="submit"
+                                    className="portfolio-button"
+                                >
                                     Kirim Pesan
                                 </button>
                             </form>
@@ -554,7 +695,6 @@ const Home = () => {
                 </div>
             </section>
 
-            <ScrollToTopButton />
             <ConfirmationModal
                 show={showConfirmModal}
                 handleClose={() => setShowConfirmModal(false)}

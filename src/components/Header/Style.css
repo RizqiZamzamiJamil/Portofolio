@@ -96,6 +96,15 @@
     transform: translateY(-2px);
 }
 
+.site-shell {
+    position: relative;
+    isolation: isolate;
+}
+
+.route-transition {
+    will-change: opacity, transform, filter;
+}
+
 @media (max-width: 991px) {
     .site-nav {
         padding-top: 0.7rem;

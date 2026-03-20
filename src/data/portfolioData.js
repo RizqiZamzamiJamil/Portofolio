@@ -1,11 +1,15 @@
+import BlockchainCertificate from "../assets/blockchain.png";
+import BnspCertificate from "../assets/bnsp.jpg";
+import BootstrapCertificate from "../assets/bootstrap.jpg";
+import SchoolPolinema from "../assets/education/kuliah.jpg";
+import SchoolMtsn3 from "../assets/education/mts.png";
+import SchoolSdSendang from "../assets/education/sd.jpeg";
+import SchoolSmkGrogol from "../assets/education/smk.jpeg";
 import HeroPortrait from "../assets/foto.png";
 import AboutPortrait from "../assets/foto2.png";
-import SchoolSdSendang from "../assets/education/sd.jpeg";
-import SchoolMtsn3 from "../assets/education/mts.png";
-import SchoolSmkGrogol from "../assets/education/smk.jpeg";
-import SchoolPolinema from "../assets/education/kuliah.jpg";
-import ProjectClinic from "../assets/ProjectNew.png";
-import ProjectManagement from "../assets/Project8.png";
+import GamelabCertificate from "../assets/gamelab2.jpg";
+import JavascriptCertificate from "../assets/javascript.jpg";
+import MsibCertificate from "../assets/msib (2).jpg";
 import ProjectRpl from "../assets/project0.png";
 import ProjectRepository from "../assets/project001.png";
 import ProjectNyahSiok from "../assets/project1.png";
@@ -15,12 +19,9 @@ import ProjectTodoVue from "../assets/project4.png";
 import ProjectFoodLanding from "../assets/project5.png";
 import ProjectMaut from "../assets/project6.png";
 import ProjectSurvey from "../assets/project7.png";
-import BlockchainCertificate from "../assets/blockchain.png";
-import BootstrapCertificate from "../assets/bootstrap.jpg";
-import BnspCertificate from "../assets/bnsp.jpg";
-import GamelabCertificate from "../assets/gamelab2.jpg";
-import JavascriptCertificate from "../assets/javascript.jpg";
-import MsibCertificate from "../assets/msib (2).jpg";
+import ProjectManagement from "../assets/Project8.png";
+import ProjectClinic from "../assets/ProjectNew.png";
+import ProjectLMS from "../assets/lms.png";
 import ReactCertificate from "../assets/react.jpg";
 import VueCertificate from "../assets/vue.jpg";
 import WordpressCertificate from "../assets/wordpress.png";
@@ -43,12 +44,7 @@ export const profile = {
         "Lulusan 2025 dari Politeknik Negeri Malang. Saya fokus mengubah kebutuhan bisnis menjadi web yang jelas dan mudah dipakai.",
     secondarySummary:
         "Saya sering menggabungkan Laravel, PHP, JavaScript, dan React untuk web yang rapi di UI dan kuat di logika.",
-    heroBadges: [
-        "2025 Graduate",
-        "Laravel",
-        "React",
-        "Best Graduate",
-    ],
+    heroBadges: ["2025 Graduate", "Laravel", "React", "Best Graduate"],
 };
 
 export const socialLinks = [
@@ -94,7 +90,7 @@ export const coreStrengths = [
 
 export const achievementHighlights = [
     {
-        title: "Wisudawan Terbaik 2025",
+        title: "Wisudawan Terbaik Prodi, Wisuda ke-70",
         value: "Top Graduate",
         icon: "fa-solid fa-award",
         description:
@@ -105,7 +101,7 @@ export const achievementHighlights = [
         value: "Polinema",
         icon: "fa-solid fa-graduation-cap",
         description:
-            "Lulus Business Information System dan aktif membangun project web.",
+            "Lulus Sistem Informasi Bisnis dan aktif membangun project web.",
     },
     {
         title: "Stack Utama",
@@ -123,12 +119,7 @@ export const achievementHighlights = [
     },
 ];
 
-export const skillCategories = [
-    "Frontend",
-    "Backend",
-    "API",
-    "Delivery",
-];
+export const skillCategories = ["Frontend", "Backend", "API", "Delivery"];
 
 export const skills = [
     {
@@ -142,7 +133,7 @@ export const skills = [
     {
         name: "React JS",
         iconClass: "fa-brands fa-react",
-        level: 90,
+        level: 85,
         color: "#0891b2",
         focus: "Component, state flow, responsive UI.",
         description: "UI modular dan interaktif.",
@@ -150,7 +141,7 @@ export const skills = [
     {
         name: "PHP",
         iconClass: "fa-brands fa-php",
-        level: 91,
+        level: 93,
         color: "#6366f1",
         focus: "Backend logic, templating, server-side flow.",
         description: "Fondasi backend yang stabil.",
@@ -158,7 +149,7 @@ export const skills = [
     {
         name: "JavaScript",
         iconClass: "fa-brands fa-js",
-        level: 88,
+        level: 87,
         color: "#eab308",
         focus: "DOM, dynamic form, frontend logic.",
         description: "Interaksi cepat di frontend.",
@@ -174,7 +165,7 @@ export const skills = [
     {
         name: "Vue JS",
         iconClass: "fa-brands fa-vuejs",
-        level: 80,
+        level: 75,
         color: "#10b981",
         focus: "Reactive component dan dashboard ringan.",
         description: "Eksplorasi dashboard ringan.",
@@ -183,6 +174,21 @@ export const skills = [
 
 export const projects = [
     {
+        id: "lms-nazmalogy",
+        title: "LMS NaZMaLogy",
+        summary:
+            "Website LMS atau course online NaZMalogy untuk pengelolaan kelas, materi, dan alur belajar peserta.",
+        stack: ["Laravel", "Livewire", "Alpine.js", "MySQL"],
+        category: "Fullstack",
+        role: "Kemnaker Internship",
+        updatedAt: "2026-03-20",
+        image: ProjectLMS,
+        liveUrl: "https://lms.nazmalogy.com/",
+        codeUrl: null,
+        highlight:
+            "Proyek hasil magang Kemnaker bulan ke-3 dengan stack Laravel, Livewire, dan Alpine.js.",
+    },
+    {
         id: "document-repository",
         title: "Document Repository System",
         summary:
@@ -190,7 +196,7 @@ export const projects = [
         stack: ["Laravel", "PHP", "MySQL", "Bootstrap"],
         category: "Fullstack",
         role: "Thesis Project",
-        updatedAt: "2025-11-18",
+        updatedAt: "2025-07-30",
         image: ProjectRepository,
         liveUrl: null,
         codeUrl: "https://github.com/RizqiZamzamiJamil?tab=repositories",
@@ -200,12 +206,11 @@ export const projects = [
     {
         id: "stimata-rpl",
         title: "RPL Admission Website",
-        summary:
-            "Website penerimaan mahasiswa jalur RPL untuk STIMATA Malang.",
+        summary: "Website penerimaan mahasiswa jalur RPL untuk STIMATA Malang.",
         stack: ["Laravel", "PHP", "Blade", "Bootstrap"],
         category: "Fullstack",
         role: "PKL Semester 7",
-        updatedAt: "2025-09-06",
+        updatedAt: "2024-11-06",
         image: ProjectRpl,
         liveUrl: null,
         codeUrl: "https://github.com/RizqiZamzamiJamil?tab=repositories",
@@ -215,62 +220,16 @@ export const projects = [
     {
         id: "clinic-app",
         title: "Clinic Reservation App",
-        summary:
-            "Website klinik dengan reservasi online dan notifikasi email.",
+        summary: "Website klinik dengan reservasi online dan notifikasi email.",
         stack: ["React", "Express", "JavaScript", "Email Notification"],
         category: "Fullstack",
         role: "Internship Build",
-        updatedAt: "2025-07-14",
+        updatedAt: "2024-06-14",
         image: ProjectClinic,
         liveUrl: "https://fe-msib-6-klinik-app-04.educalab.id/",
         codeUrl: "https://github.com/RizqiZamzamiJamil/klinik-app",
         highlight:
             "Menggabungkan UI dinamis dengan reservasi dan komunikasi notifikasi berbasis email.",
-    },
-    {
-        id: "nyah-siok",
-        title: "UMKM Nyah Siok Website",
-        summary:
-            "Website promosi brand kuliner dimsum dengan fokus presentasi produk.",
-        stack: ["HTML", "Bootstrap", "SASS"],
-        category: "Frontend",
-        role: "Brand Website",
-        updatedAt: "2024-11-20",
-        image: ProjectNyahSiok,
-        liveUrl: "https://rizqizamzamijamil.github.io/Website_UMKM_Nyah_Siok/",
-        codeUrl: "https://github.com/RizqiZamzamiJamil/Website_UMKM_Nyah_Siok",
-        highlight:
-            "Menekankan tampilan landing page yang lebih komunikatif untuk promosi UMKM.",
-    },
-    {
-        id: "cinema-list",
-        title: "Cinema List Search",
-        summary:
-            "Eksplorasi pencarian film berbasis API dengan jQuery Ajax.",
-        stack: ["JavaScript", "API", "jQuery", "Bootstrap"],
-        category: "Frontend",
-        role: "API Exploration",
-        updatedAt: "2024-08-10",
-        image: ProjectCinema,
-        liveUrl: "https://rizqizamzamijamil.github.io/Cinema_List/",
-        codeUrl: "https://github.com/RizqiZamzamiJamil/Cinema_List",
-        highlight:
-            "Melatih pengambilan data eksternal dan pencarian berbasis user input secara real time.",
-    },
-    {
-        id: "si-launsh",
-        title: "Si Launsh Business Website",
-        summary:
-            "Website fullstack untuk usaha cuci sepatu dan helm yang dibangun dengan CodeIgniter 4.",
-        stack: ["PHP", "CodeIgniter 4", "MySQL"],
-        category: "Fullstack",
-        role: "Business Platform",
-        updatedAt: "2024-05-15",
-        image: ProjectLaundry,
-        liveUrl: null,
-        codeUrl: "https://github.com/RizqiZamzamiJamil/Cuci_Sepatu_Si_Launsh",
-        highlight:
-            "Menerapkan alur usaha ke website layanan yang lebih terstruktur dan informatif.",
     },
     {
         id: "project-management-vue",
@@ -280,10 +239,11 @@ export const projects = [
         stack: ["Vue", "JavaScript", "Local State"],
         category: "Frontend",
         role: "Dashboard Practice",
-        updatedAt: "2024-03-22",
+        updatedAt: "2024-04-30",
         image: ProjectManagement,
         liveUrl: null,
-        codeUrl: "https://github.com/RizqiZamzamiJamil/Manajemen_Proyek_Sederhana",
+        codeUrl:
+            "https://github.com/RizqiZamzamiJamil/Manajemen_Proyek_Sederhana",
         highlight:
             "Berfokus pada state management sederhana dan penyusunan UI dashboard mini.",
     },
@@ -295,12 +255,41 @@ export const projects = [
         stack: ["Vue", "JavaScript", "CDN"],
         category: "Frontend",
         role: "UI Practice",
-        updatedAt: "2023-12-06",
+        updatedAt: "2023-04-25",
         image: ProjectTodoVue,
         liveUrl: "https://rizqizamzamijamil.github.io/To_Do_List/",
         codeUrl: "https://github.com/RizqiZamzamiJamil/To_Do_List",
         highlight:
             "Menjaga pengalaman input dan pengelolaan task tetap cepat dan sederhana.",
+    },
+    {
+        id: "nyah-siok",
+        title: "UMKM Nyah Siok Website",
+        summary:
+            "Website promosi brand kuliner dimsum dengan fokus presentasi produk.",
+        stack: ["HTML", "Bootstrap", "SASS"],
+        category: "Frontend",
+        role: "Brand Website",
+        updatedAt: "2024-03-20",
+        image: ProjectNyahSiok,
+        liveUrl: "https://rizqizamzamijamil.github.io/Website_UMKM_Nyah_Siok/",
+        codeUrl: "https://github.com/RizqiZamzamiJamil/Website_UMKM_Nyah_Siok",
+        highlight:
+            "Menekankan tampilan landing page yang lebih komunikatif untuk promosi UMKM.",
+    },
+    {
+        id: "cinema-list",
+        title: "Cinema List Search",
+        summary: "Eksplorasi pencarian film berbasis API dengan jQuery Ajax.",
+        stack: ["JavaScript", "API", "jQuery", "Bootstrap"],
+        category: "Frontend",
+        role: "API Exploration",
+        updatedAt: "2024-03-10",
+        image: ProjectCinema,
+        liveUrl: "https://rizqizamzamijamil.github.io/Cinema_List/",
+        codeUrl: "https://github.com/RizqiZamzamiJamil/Cinema_List",
+        highlight:
+            "Melatih pengambilan data eksternal dan pencarian berbasis user input secara real time.",
     },
     {
         id: "food-landing-page",
@@ -310,27 +299,12 @@ export const projects = [
         stack: ["HTML", "CSS"],
         category: "Frontend",
         role: "Landing Page",
-        updatedAt: "2023-09-18",
+        updatedAt: "2024-02-18",
         image: ProjectFoodLanding,
         liveUrl: "https://rizqizamzamijamil.github.io/Landing_Page_Sederhana/",
         codeUrl: "https://github.com/RizqiZamzamiJamil/Landing_Page_Sederhana",
         highlight:
             "Mengasah kemampuan visual hierarchy dan layout responsive tanpa framework.",
-    },
-    {
-        id: "maut-system",
-        title: "Decision Support System MAUT",
-        summary:
-            "Sistem pendukung keputusan berbasis metode MAUT dengan CodeIgniter 4.",
-        stack: ["PHP", "CodeIgniter 4", "Decision Support"],
-        category: "Fullstack",
-        role: "Analytical System",
-        updatedAt: "2023-06-12",
-        image: ProjectMaut,
-        liveUrl: null,
-        codeUrl: "https://github.com/RizqiZamzamiJamil/Sistem_Pendukung_Keputusan_MAUT",
-        highlight:
-            "Menerapkan logika pengambilan keputusan ke dalam sistem web yang lebih terstruktur.",
     },
     {
         id: "peek-survey-mobile",
@@ -340,12 +314,43 @@ export const projects = [
         stack: ["Flutter", "Dart", "Laravel", "API"],
         category: "Mobile",
         role: "Collaborative Project",
-        updatedAt: "2023-02-25",
+        updatedAt: "2023-12-25",
         image: ProjectSurvey,
         liveUrl: null,
         codeUrl: "https://github.com/RizqiZamzamiJamil/Survey_Mobile",
         highlight:
             "Memberikan pengalaman kerja lintas stack dengan pembagian peran frontend dan backend.",
+    },
+    {
+        id: "maut-system",
+        title: "Decision Support System MAUT",
+        summary:
+            "Sistem pendukung keputusan berbasis metode MAUT dengan CodeIgniter 4.",
+        stack: ["PHP", "CodeIgniter 4", "Decision Support"],
+        category: "Fullstack",
+        role: "Analytical System",
+        updatedAt: "2023-12-12",
+        image: ProjectMaut,
+        liveUrl: null,
+        codeUrl:
+            "https://github.com/RizqiZamzamiJamil/Sistem_Pendukung_Keputusan_MAUT",
+        highlight:
+            "Menerapkan logika pengambilan keputusan ke dalam sistem web yang lebih terstruktur.",
+    },
+    {
+        id: "si-launsh",
+        title: "Si Launsh Business Website",
+        summary:
+            "Website fullstack untuk usaha cuci sepatu dan helm yang dibangun dengan CodeIgniter 4.",
+        stack: ["PHP", "CodeIgniter 4", "MySQL"],
+        category: "Fullstack",
+        role: "Business Platform",
+        updatedAt: "2023-07-15",
+        image: ProjectLaundry,
+        liveUrl: null,
+        codeUrl: "https://github.com/RizqiZamzamiJamil/Cuci_Sepatu_Si_Launsh",
+        highlight:
+            "Menerapkan alur usaha ke website layanan yang lebih terstruktur dan informatif.",
     },
 ];
 

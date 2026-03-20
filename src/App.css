@@ -121,7 +121,6 @@ p {
 }
 
 .section-heading__description {
-    max-width: 34rem;
     margin: 0;
     color: var(--muted-color);
     font-size: 0.9rem;

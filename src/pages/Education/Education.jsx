@@ -4,6 +4,13 @@ import {
     educationTimeline,
     profile,
 } from "../../data/portfolioData";
+import {
+    defaultViewport,
+    heroItem,
+    heroStagger,
+    sectionItem,
+    sectionStagger,
+} from "../../utils/motion";
 import "./Style.css";
 
 const Education = () => {
@@ -11,48 +18,76 @@ const Education = () => {
         <main className="page-shell education-page">
             <section className="section-shell education-hero">
                 <div className="container">
-                    <div className="section-heading section-heading--left">
-                        <span className="section-heading__eyebrow">
+                    <motion.div
+                        className="section-heading"
+                        initial="hidden"
+                        animate="visible"
+                        variants={heroStagger}
+                    >
+                        <motion.span
+                            className="section-heading__eyebrow"
+                            variants={heroItem}
+                        >
                             Education Journey
-                        </span>
-                        <h1 className="section-heading__title">
+                        </motion.span>
+                        <motion.h1
+                            className="section-heading__title"
+                            variants={heroItem}
+                        >
                             Riwayat pendidikan yang ikut membentuk cara saya
                             <span> membangun web</span>.
-                        </h1>
-                        <p className="section-heading__description">
+                        </motion.h1>
+                        <motion.p
+                            className="section-heading__description"
+                            variants={heroItem}
+                        >
                             Saya lulus pada tahun 2025 dan ingin halaman
                             education ini terasa lebih dari sekadar daftar
                             sekolah. Karena itu saya tambahkan milestone,
                             konteks perkembangan, dan pencapaian yang relevan.
-                        </p>
-                    </div>
+                        </motion.p>
+                    </motion.div>
 
-                    <div className="education-hero__cards">
-                        <article className="content-panel education-hero__card">
+                    <motion.div
+                        className="education-hero__cards"
+                        initial="hidden"
+                        animate="visible"
+                        variants={sectionStagger}
+                    >
+                        <motion.article
+                            className="content-panel education-hero__card"
+                            variants={sectionItem}
+                        >
                             <span>Graduate</span>
                             <strong>2025</strong>
                             <p>
                                 Politeknik Negeri Malang, Business Information
                                 System.
                             </p>
-                        </article>
-                        <article className="content-panel education-hero__card">
+                        </motion.article>
+                        <motion.article
+                            className="content-panel education-hero__card"
+                            variants={sectionItem}
+                        >
                             <span>Achievement</span>
                             <strong>Best Graduate</strong>
                             <p>
                                 Pencapaian akademik yang saya jadikan standar
                                 kualitas kerja.
                             </p>
-                        </article>
-                        <article className="content-panel education-hero__card">
+                        </motion.article>
+                        <motion.article
+                            className="content-panel education-hero__card"
+                            variants={sectionItem}
+                        >
                             <span>Focus</span>
                             <strong>{profile.role}</strong>
                             <p>
                                 Terutama di web berbasis Laravel, React, dan
                                 pengalaman pengguna yang lebih halus.
                             </p>
-                        </article>
-                    </div>
+                        </motion.article>
+                    </motion.div>
                 </div>
             </section>
 
@@ -75,11 +110,17 @@ const Education = () => {
                                     delay: index * 0.08,
                                 }}
                             >
-                                <div className="education-step__marker"></div>
-                                <div className="education-step__content content-panel">
+                                <div className="education-step__media content-panel">
                                     <div className="education-step__image">
                                         <img src={item.image} alt={item.school} />
                                     </div>
+                                </div>
+
+                                <div className="education-step__line" aria-hidden="true">
+                                    <div className="education-step__marker"></div>
+                                </div>
+
+                                <div className="education-step__detail content-panel">
                                     <div className="education-step__copy">
                                         <span className="education-step__period">
                                             {item.period}
@@ -104,15 +145,27 @@ const Education = () => {
 
             <section className="section-shell section-shell--muted">
                 <div className="container">
-                    <div className="section-heading">
-                        <span className="section-heading__eyebrow">
+                    <motion.div
+                        className="section-heading"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={defaultViewport}
+                        variants={sectionStagger}
+                    >
+                        <motion.span
+                            className="section-heading__eyebrow"
+                            variants={sectionItem}
+                        >
                             Academic Highlights
-                        </span>
-                        <h2 className="section-heading__title">
+                        </motion.span>
+                        <motion.h2
+                            className="section-heading__title"
+                            variants={sectionItem}
+                        >
                             Pencapaian yang bikin perjalanan ini terasa lebih
                             <span> bermakna</span>.
-                        </h2>
-                    </div>
+                        </motion.h2>
+                    </motion.div>
 
                     <div className="education-highlights">
                         {achievementHighlights.map((item, index) => (
@@ -121,7 +174,7 @@ const Education = () => {
                                 className="content-panel education-highlight"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, amount: 0.2 }}
+                                viewport={defaultViewport}
                                 transition={{
                                     duration: 0.45,
                                     delay: index * 0.08,

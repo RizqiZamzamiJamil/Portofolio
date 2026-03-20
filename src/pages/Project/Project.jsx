@@ -2,6 +2,14 @@ import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import Card from "../../components/Card/Card";
 import { latestProjects, projects } from "../../data/portfolioData";
+import {
+    defaultViewport,
+    heroItem,
+    heroPanel,
+    heroStagger,
+    sectionItem,
+    sectionStagger,
+} from "../../utils/motion";
 import "./Style.css";
 
 const categories = ["All", ...new Set(projects.map((project) => project.category))];
@@ -23,53 +31,84 @@ const Projects = () => {
                 <div className="container">
                     <div className="projects-hero__grid">
                         <motion.div
-                            initial={{ opacity: 0, y: 24 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.55 }}
+                            className="projects-hero__content"
+                            initial="hidden"
+                            animate="visible"
+                            variants={heroStagger}
                         >
-                            <span className="section-heading__eyebrow">
+                            <motion.span
+                                className="section-heading__eyebrow"
+                                variants={heroItem}
+                            >
                                 Selected Works
-                            </span>
-                            <h1 className="projects-hero__title">
+                            </motion.span>
+                            <motion.h1
+                                className="projects-hero__title"
+                                variants={heroItem}
+                            >
                                 Project pilihan yang paling relevan untuk
                                 <span> dieksplor</span>.
-                            </h1>
-                            <p className="projects-hero__description">
+                            </motion.h1>
+                            <motion.p
+                                className="projects-hero__description"
+                                variants={heroItem}
+                            >
                                 Semua project memakai sumber data yang sama agar
                                 urutan dan tampilannya tetap konsisten.
-                            </p>
+                            </motion.p>
 
-                            <div className="projects-hero__stats">
-                                <article>
+                            <motion.div
+                                className="projects-hero__stats"
+                                variants={sectionStagger}
+                            >
+                                <motion.article variants={heroItem}>
                                     <strong>{projects.length}+</strong>
                                     <span>Total project pilihan</span>
-                                </article>
-                                <article>
+                                </motion.article>
+                                <motion.article variants={heroItem}>
                                     <strong>{categories.length - 1}</strong>
                                     <span>Kategori karya</span>
-                                </article>
-                                <article>
+                                </motion.article>
+                                <motion.article variants={heroItem}>
                                     <strong>Laravel</strong>
                                     <span>Stack yang paling sering dipakai</span>
-                                </article>
-                            </div>
+                                </motion.article>
+                            </motion.div>
                         </motion.div>
 
                         <motion.article
                             className="content-panel projects-featured"
-                            initial={{ opacity: 0, x: 24 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.55, delay: 0.08 }}
+                            initial="hidden"
+                            animate="visible"
+                            variants={heroPanel}
                         >
-                            <img
-                                src={latestProjects[0].image}
-                                alt={latestProjects[0].title}
-                            />
-                            <div className="projects-featured__copy">
-                                <span className="info-chip">Newest Project</span>
-                                <h2>{latestProjects[0].title}</h2>
-                                <p>{latestProjects[0].highlight}</p>
-                            </div>
+                            <motion.div
+                                className="projects-featured__media"
+                                variants={heroItem}
+                            >
+                                <motion.img
+                                    src={latestProjects[0].image}
+                                    alt={latestProjects[0].title}
+                                    variants={heroItem}
+                                />
+                            </motion.div>
+                            <motion.div
+                                className="projects-featured__copy"
+                                variants={sectionStagger}
+                            >
+                                <motion.span
+                                    className="info-chip"
+                                    variants={heroItem}
+                                >
+                                    Newest Project
+                                </motion.span>
+                                <motion.h2 variants={heroItem}>
+                                    {latestProjects[0].title}
+                                </motion.h2>
+                                <motion.p variants={heroItem}>
+                                    {latestProjects[0].highlight}
+                                </motion.p>
+                            </motion.div>
                         </motion.article>
                     </div>
                 </div>
@@ -77,9 +116,15 @@ const Projects = () => {
 
             <section className="section-shell section-shell--muted">
                 <div className="container">
-                    <div className="projects-toolbar">
+                    <motion.div
+                        className="projects-toolbar"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={defaultViewport}
+                        variants={sectionStagger}
+                    >
                         {categories.map((category) => (
-                            <button
+                            <motion.button
                                 key={category}
                                 type="button"
                                 className={
@@ -88,22 +133,33 @@ const Projects = () => {
                                         : "projects-filter"
                                 }
                                 onClick={() => setActiveCategory(category)}
+                                variants={sectionItem}
                             >
                                 {category}
-                            </button>
+                            </motion.button>
                         ))}
-                    </div>
+                    </motion.div>
 
                     {filteredProjects.length > 0 ? (
                         <div className="projects-grid">
-                            {filteredProjects.map((project) => (
-                                <Card key={project.id} project={project} />
+                            {filteredProjects.map((project, index) => (
+                                <Card
+                                    key={project.id}
+                                    project={project}
+                                    delay={index * 0.06}
+                                />
                             ))}
                         </div>
                     ) : (
-                        <div className="empty-state">
+                        <motion.div
+                            className="empty-state"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={defaultViewport}
+                            transition={{ duration: 0.45 }}
+                        >
                             Belum ada project pada kategori ini.
-                        </div>
+                        </motion.div>
                     )}
                 </div>
             </section>

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import ScrollToTopButton from "./components/ScrollTop/ScrollToTopButton";
 import Education from "./pages/Education/Education";
 import Experience from "./pages/Experience/Experience";
 import Home from "./pages/Home/Home";
@@ -37,6 +38,7 @@ export default function App() {
                     <Route path="*" element={<NoPage />} />
                 </Route>
             </Routes>
+            <ScrollToTopButton />
             <Footer />
         </BrowserRouter>
     );

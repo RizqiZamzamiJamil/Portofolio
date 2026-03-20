@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { certificates, profile } from "../../data/portfolioData";
 import "./Certificate.css";
 
@@ -25,15 +26,19 @@ const CertificateCarousel = () => {
             return undefined;
         }
 
+        const previousOverflow = document.body.style.overflow;
+
         const handleEscape = (event) => {
             if (event.key === "Escape") {
                 setSelectedCertificate(null);
             }
         };
 
+        document.body.style.overflow = "hidden";
         window.addEventListener("keydown", handleEscape);
 
         return () => {
+            document.body.style.overflow = previousOverflow;
             window.removeEventListener("keydown", handleEscape);
         };
     }, [selectedCertificate]);
@@ -161,51 +166,59 @@ const CertificateCarousel = () => {
                 </div>
             </div>
 
-            <AnimatePresence>
-                {selectedCertificate ? (
-                    <motion.div
-                        className="certificate-modal"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        onClick={() => setSelectedCertificate(null)}
-                    >
+            {createPortal(
+                <AnimatePresence>
+                    {selectedCertificate ? (
                         <motion.div
-                            className="certificate-modal__dialog"
-                            initial={{ opacity: 0, scale: 0.96, y: 16 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            exit={{ opacity: 0, scale: 0.96, y: 16 }}
-                            transition={{ duration: 0.22 }}
-                            onClick={(event) => event.stopPropagation()}
+                            className="certificate-modal"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setSelectedCertificate(null)}
                         >
-                            <button
-                                type="button"
-                                className="certificate-modal__close"
-                                onClick={() => setSelectedCertificate(null)}
-                                aria-label="Close certificate preview"
+                            <motion.div
+                                className="certificate-modal__dialog"
+                                initial={{ opacity: 0, scale: 0.96, y: 16 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.96, y: 16 }}
+                                transition={{ duration: 0.22 }}
+                                onClick={(event) => event.stopPropagation()}
                             >
-                                <i className="fa-solid fa-xmark" aria-hidden="true"></i>
-                            </button>
+                                <button
+                                    type="button"
+                                    className="certificate-modal__close"
+                                    onClick={() => setSelectedCertificate(null)}
+                                    aria-label="Close certificate preview"
+                                >
+                                    <i
+                                        className="fa-solid fa-xmark"
+                                        aria-hidden="true"
+                                    ></i>
+                                </button>
 
-                            <div className="certificate-modal__image">
-                                <img
-                                    src={selectedCertificate.image}
-                                    alt={selectedCertificate.title}
-                                />
-                            </div>
-                            <div className="certificate-modal__copy">
-                                <span className="info-chip">Certificate Preview</span>
-                                <h3>{selectedCertificate.title}</h3>
-                                <p>{selectedCertificate.focus}</p>
-                                <div className="certificate-modal__meta">
-                                    <span>{selectedCertificate.issuer}</span>
-                                    <span>{selectedCertificate.issuedAt}</span>
+                                <div className="certificate-modal__image">
+                                    <img
+                                        src={selectedCertificate.image}
+                                        alt={selectedCertificate.title}
+                                    />
                                 </div>
-                            </div>
+                                <div className="certificate-modal__copy">
+                                    <span className="info-chip">
+                                        Certificate Preview
+                                    </span>
+                                    <h3>{selectedCertificate.title}</h3>
+                                    <p>{selectedCertificate.focus}</p>
+                                    <div className="certificate-modal__meta">
+                                        <span>{selectedCertificate.issuer}</span>
+                                        <span>{selectedCertificate.issuedAt}</span>
+                                    </div>
+                                </div>
+                            </motion.div>
                         </motion.div>
-                    </motion.div>
-                ) : null}
-            </AnimatePresence>
+                    ) : null}
+                </AnimatePresence>,
+                document.body
+            )}
         </section>
     );
 };
