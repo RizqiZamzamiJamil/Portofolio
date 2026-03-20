@@ -1,9 +1,9 @@
 import HeroPortrait from "../assets/foto.png";
 import AboutPortrait from "../assets/foto2.png";
-import SchoolSdSendang from "../assets/education/sd-negeri-sendang.svg";
-import SchoolMtsn3 from "../assets/education/mtsn-3-kediri.svg";
-import SchoolSmkGrogol from "../assets/education/smk-1-grogol.svg";
-import SchoolPolinema from "../assets/education/polinema.svg";
+import SchoolSdSendang from "../assets/education/sd.jpeg";
+import SchoolMtsn3 from "../assets/education/mts.png";
+import SchoolSmkGrogol from "../assets/education/smk.jpeg";
+import SchoolPolinema from "../assets/education/kuliah.jpg";
 import ProjectClinic from "../assets/ProjectNew.png";
 import ProjectManagement from "../assets/Project8.png";
 import ProjectRpl from "../assets/project0.png";
@@ -38,15 +38,15 @@ export const profile = {
     certificateCollectionUrl:
         "https://drive.google.com/file/d/1gsLwGgcfcvmGLtGij5DAHWtX5mfgtq4L/view?usp=sharing",
     heroDescription:
-        "Saya adalah fullstack web developer yang nyaman mengerjakan alur produk dari frontend sampai backend, dengan Laravel sebagai stack yang paling sering saya gunakan untuk membangun sistem web yang rapi, aman, dan terasa halus dipakai.",
+        "Fullstack web developer yang fokus membangun web Laravel yang rapi, aman, dan nyaman dipakai.",
     summary:
-        "Lulusan tahun 2025 dari Politeknik Negeri Malang dengan latar belakang Business Information System. Saya senang mengubah kebutuhan bisnis menjadi antarmuka yang jelas, alur yang efisien, dan sistem yang mudah dirawat.",
+        "Lulusan 2025 dari Politeknik Negeri Malang. Saya fokus mengubah kebutuhan bisnis menjadi web yang jelas dan mudah dipakai.",
     secondarySummary:
-        "Dalam praktiknya saya sering menggabungkan Laravel, PHP, JavaScript, React, dan pengolahan data terstruktur untuk membuat website yang bukan hanya enak dilihat, tapi juga punya fondasi yang kuat di sisi logika dan pengalaman pengguna.",
+        "Saya sering menggabungkan Laravel, PHP, JavaScript, dan React untuk web yang rapi di UI dan kuat di logika.",
     heroBadges: [
-        "Graduate 2025",
-        "Laravel-focused",
-        "React-friendly",
+        "2025 Graduate",
+        "Laravel",
+        "React",
         "Best Graduate",
     ],
 };
@@ -78,17 +78,17 @@ export const coreStrengths = [
     {
         title: "End-to-end thinking",
         description:
-            "Terbiasa memikirkan alur user, struktur data, dan kebutuhan implementasi secara menyatu sejak awal.",
+            "Terbiasa memikirkan alur user, data, dan implementasi secara menyatu.",
     },
     {
         title: "Laravel-centered delivery",
         description:
-            "Paling sering membangun sistem memakai Laravel untuk backend, validasi, routing, dan pengelolaan logic aplikasi.",
+            "Paling sering membangun sistem dengan Laravel untuk backend dan logic aplikasi.",
     },
     {
         title: "UI yang lebih tenang",
         description:
-            "Suka membuat tampilan yang rapi, punya hierarki visual jelas, dan animasi yang membantu, bukan mengganggu.",
+            "Suka membuat tampilan yang rapi, jelas, dan nyaman dipakai.",
     },
 ];
 
@@ -98,36 +98,36 @@ export const achievementHighlights = [
         value: "Top Graduate",
         icon: "fa-solid fa-award",
         description:
-            "Pencapaian akademik yang memperkuat disiplin, konsistensi, dan perhatian saya pada kualitas hasil kerja.",
+            "Pencapaian akademik yang saya jadikan standar kualitas kerja.",
     },
     {
         title: "Lulus Tahun 2025",
         value: "Polinema",
         icon: "fa-solid fa-graduation-cap",
         description:
-            "Menyelesaikan studi Business Information System dan aktif membangun project yang relevan dengan kebutuhan dunia kerja.",
+            "Lulus Business Information System dan aktif membangun project web.",
     },
     {
         title: "Stack Utama",
         value: "Laravel + React",
         icon: "fa-solid fa-layer-group",
         description:
-            "Berfokus pada kombinasi backend yang terstruktur dan frontend yang responsif untuk pengalaman pengguna yang lebih mulus.",
+            "Kombinasi utama saya untuk backend terstruktur dan UI responsif.",
     },
     {
         title: "Pengalaman Project",
         value: "10+ Builds",
         icon: "fa-solid fa-rocket",
         description:
-            "Mulai dari sistem akademik, repository dokumen, website klinik, sampai landing page dan aplikasi manajemen sederhana.",
+            "Mulai dari sistem akademik, repository, website klinik, dan landing page.",
     },
 ];
 
 export const skillCategories = [
-    "Frontend Interface",
-    "Backend Architecture",
-    "API & Data Handling",
-    "Product-oriented Delivery",
+    "Frontend",
+    "Backend",
+    "API",
+    "Delivery",
 ];
 
 export const skills = [
@@ -136,54 +136,48 @@ export const skills = [
         iconClass: "fa-brands fa-laravel",
         level: 93,
         color: "#f97316",
-        focus: "Routing, validation, auth flow, dashboard, CRUD, and business logic.",
-        description:
-            "Stack yang paling sering saya pakai untuk membangun website fullstack dengan struktur yang rapi.",
+        focus: "CRUD, auth, dashboard, business logic.",
+        description: "Stack utama untuk web fullstack.",
     },
     {
         name: "React JS",
         iconClass: "fa-brands fa-react",
         level: 90,
         color: "#0891b2",
-        focus: "Reusable component, state flow, interaction detail, and responsive layout.",
-        description:
-            "Saya gunakan untuk membuat antarmuka yang lebih hidup, modular, dan nyaman dipakai.",
+        focus: "Component, state flow, responsive UI.",
+        description: "UI modular dan interaktif.",
     },
     {
         name: "PHP",
         iconClass: "fa-brands fa-php",
         level: 91,
         color: "#6366f1",
-        focus: "Backend logic, templating, application structure, and server-side processing.",
-        description:
-            "Menjadi fondasi yang kuat untuk banyak project web yang saya kerjakan, terutama bersama Laravel.",
+        focus: "Backend logic, templating, server-side flow.",
+        description: "Fondasi backend yang stabil.",
     },
     {
         name: "JavaScript",
         iconClass: "fa-brands fa-js",
         level: 88,
         color: "#eab308",
-        focus: "DOM interaction, dynamic form, client-side logic, and UX enhancement.",
-        description:
-            "Saya andalkan untuk menambah interaksi yang terasa cepat, ringan, dan lebih natural.",
+        focus: "DOM, dynamic form, frontend logic.",
+        description: "Interaksi cepat di frontend.",
     },
     {
         name: "HTML & CSS",
         iconClass: "fa-brands fa-html5",
         level: 95,
         color: "#ef4444",
-        focus: "Semantic markup, responsive sectioning, layout system, and visual hierarchy.",
-        description:
-            "Saya suka merapikan struktur tampilan supaya lebih terukur, konsisten, dan mudah dikembangkan.",
+        focus: "Semantic markup, layout, visual hierarchy.",
+        description: "Layout rapi dan responsif.",
     },
     {
         name: "Vue JS",
         iconClass: "fa-brands fa-vuejs",
         level: 80,
         color: "#10b981",
-        focus: "Reactive component, lightweight dashboard, and small interactive apps.",
-        description:
-            "Pernah saya gunakan untuk project manajemen sederhana dan beberapa eksplorasi frontend.",
+        focus: "Reactive component dan dashboard ringan.",
+        description: "Eksplorasi dashboard ringan.",
     },
 ];
 
@@ -192,7 +186,7 @@ export const projects = [
         id: "document-repository",
         title: "Document Repository System",
         summary:
-            "Sistem repository dokumen berbasis web untuk JTI Polinema dengan pengelolaan upload, organisasi file, dan akses berbagi yang lebih aman. Project ini merupakan karya skripsi saya.",
+            "Repository dokumen web untuk JTI Polinema dengan upload, klasifikasi file, dan akses yang lebih aman.",
         stack: ["Laravel", "PHP", "MySQL", "Bootstrap"],
         category: "Fullstack",
         role: "Thesis Project",
@@ -201,13 +195,13 @@ export const projects = [
         liveUrl: null,
         codeUrl: "https://github.com/RizqiZamzamiJamil?tab=repositories",
         highlight:
-            "Proyek skripsi yang menitikberatkan pada alur data dokumen, manajemen repository, dan struktur sistem yang lebih rapi.",
+            "Proyek skripsi dengan fokus repository dan alur data dokumen.",
     },
     {
         id: "stimata-rpl",
         title: "RPL Admission Website",
         summary:
-            "Website penerimaan mahasiswa baru jalur RPL untuk STIMATA Malang dengan alur informasi yang lebih jelas dan mudah diakses. Project ini saya kerjakan saat PKL kuliah semester 7.",
+            "Website penerimaan mahasiswa jalur RPL untuk STIMATA Malang.",
         stack: ["Laravel", "PHP", "Blade", "Bootstrap"],
         category: "Fullstack",
         role: "PKL Semester 7",
@@ -216,13 +210,13 @@ export const projects = [
         liveUrl: null,
         codeUrl: "https://github.com/RizqiZamzamiJamil?tab=repositories",
         highlight:
-            "Proyek PKL semester 7 yang berfokus pada arsitektur halaman informasi, form pendaftaran, dan pengalaman user yang lebih efisien.",
+            "Proyek PKL semester 7 untuk alur informasi dan pendaftaran mahasiswa.",
     },
     {
         id: "clinic-app",
         title: "Clinic Reservation App",
         summary:
-            "Website klinik dinamis dengan reservasi online dan notifikasi email, dibangun selama MSIB Batch 6.",
+            "Website klinik dengan reservasi online dan notifikasi email.",
         stack: ["React", "Express", "JavaScript", "Email Notification"],
         category: "Fullstack",
         role: "Internship Build",
@@ -237,7 +231,7 @@ export const projects = [
         id: "nyah-siok",
         title: "UMKM Nyah Siok Website",
         summary:
-            "Project frontend untuk brand kuliner dimsum dengan tampilan promosi yang kuat dan fokus pada presentasi produk.",
+            "Website promosi brand kuliner dimsum dengan fokus presentasi produk.",
         stack: ["HTML", "Bootstrap", "SASS"],
         category: "Frontend",
         role: "Brand Website",
@@ -252,7 +246,7 @@ export const projects = [
         id: "cinema-list",
         title: "Cinema List Search",
         summary:
-            "Eksplorasi pencarian film berbasis API menggunakan jQuery Ajax untuk menampilkan daftar film secara dinamis.",
+            "Eksplorasi pencarian film berbasis API dengan jQuery Ajax.",
         stack: ["JavaScript", "API", "jQuery", "Bootstrap"],
         category: "Frontend",
         role: "API Exploration",
@@ -282,7 +276,7 @@ export const projects = [
         id: "project-management-vue",
         title: "Simple Project Management",
         summary:
-            "Aplikasi manajemen project sederhana tanpa database untuk mengatur nama project dan anggota tim.",
+            "Aplikasi manajemen project sederhana untuk mengatur project dan tim.",
         stack: ["Vue", "JavaScript", "Local State"],
         category: "Frontend",
         role: "Dashboard Practice",
@@ -297,7 +291,7 @@ export const projects = [
         id: "todo-vue",
         title: "Vue To Do List",
         summary:
-            "Aplikasi to do list sederhana berbasis Vue JS dengan pendekatan ringan untuk manajemen task harian.",
+            "Aplikasi to do list berbasis Vue JS untuk manajemen task harian.",
         stack: ["Vue", "JavaScript", "CDN"],
         category: "Frontend",
         role: "UI Practice",
@@ -312,7 +306,7 @@ export const projects = [
         id: "food-landing-page",
         title: "Static Food Landing Page",
         summary:
-            "Landing page makanan statis yang dibangun dengan HTML dan CSS untuk latihan struktur layout dan visual branding.",
+            "Landing page makanan statis untuk latihan layout dan visual branding.",
         stack: ["HTML", "CSS"],
         category: "Frontend",
         role: "Landing Page",
@@ -327,7 +321,7 @@ export const projects = [
         id: "maut-system",
         title: "Decision Support System MAUT",
         summary:
-            "Sistem pendukung keputusan berbasis metode MAUT menggunakan CodeIgniter 4 untuk kebutuhan evaluasi berbobot.",
+            "Sistem pendukung keputusan berbasis metode MAUT dengan CodeIgniter 4.",
         stack: ["PHP", "CodeIgniter 4", "Decision Support"],
         category: "Fullstack",
         role: "Analytical System",
@@ -342,7 +336,7 @@ export const projects = [
         id: "peek-survey-mobile",
         title: "Peek Survey Mobile Collaboration",
         summary:
-            "Project kolaboratif aplikasi survey mobile dengan Flutter untuk frontend dan Laravel sebagai backend.",
+            "Project kolaboratif aplikasi survey mobile dengan Flutter dan Laravel.",
         stack: ["Flutter", "Dart", "Laravel", "API"],
         category: "Mobile",
         role: "Collaborative Project",
@@ -465,6 +459,96 @@ export const educationTimeline = [
         description:
             "Menyelesaikan studi pada tahun 2025 dengan fokus pada pengembangan web, sistem informasi, dan penerjemahan kebutuhan bisnis menjadi solusi digital yang usable.",
         highlights: ["Graduate 2025", "Best Graduate", "Web Development"],
+    },
+];
+
+export const experienceStats = [
+    {
+        label: "Campus Org",
+        value: "HMTI",
+        detail: "Januari 2022 - Januari 2023",
+    },
+    {
+        label: "MSIB",
+        value: "MSIB 6",
+        detail: "Februari 2024 - Juni 2024",
+    },
+    {
+        label: "PKL",
+        value: "Duta Tech",
+        detail: "Agustus 2024 - November 2024",
+    },
+    {
+        label: "Internship",
+        value: "Kemnaker",
+        detail: "November 2025 - Mei 2026",
+    },
+];
+
+export const experienceEntries = [
+    {
+        title: "HMTI Polinema",
+        organization: "Himpunan Mahasiswa Teknologi Informasi",
+        period: "Januari 2022 - Januari 2023",
+        phase: "Semester 2 - 3",
+        role: "Organizing Committee - Departemen Kominfo",
+        accent: "249, 115, 22",
+        icon: "fa-solid fa-users-gear",
+        summary:
+            "Aktif selama satu tahun penuh sebagai panitia kegiatan, editor konten sosial media, dan bagian organizing committee departemen Kominfo.",
+        highlights: [
+            "Ketua pelaksana program kerja Studi Banding",
+            "Panitia pada program kerja lainnya",
+            "Editor konten sosial media",
+        ],
+    },
+    {
+        title: "MSIB Batch 6",
+        organization: "Kampus Merdeka x Gamelab Indonesia",
+        period: "Februari 2024 - Juni 2024",
+        phase: "Semester 6",
+        role: "Frontend Web Developer",
+        accent: "8, 145, 178",
+        icon: "fa-solid fa-laptop-code",
+        summary:
+            "Mengikuti Studi Independen satu semester penuh untuk belajar teknis web frontend di luar kampus bersama mitra industri.",
+        highlights: [
+            "Skema Frontend Web Developer",
+            "Mitra Gamelab Indonesia",
+            "Program nasional Kampus Merdeka",
+        ],
+    },
+    {
+        title: "PKL Duta Technology",
+        organization: "CV. Duta Technology - Malang",
+        period: "Agustus 2024 - November 2024",
+        phase: "Semester 7",
+        role: "Fullstack Developer",
+        accent: "245, 158, 11",
+        icon: "fa-solid fa-code-branch",
+        summary:
+            "Menjalani PKL selama empat bulan dengan fokus implementasi web fullstack dan penyesuaian kebutuhan kerja lapangan.",
+        highlights: [
+            "Durasi 4 bulan",
+            "Fullstack Developer",
+            "Pengalaman industri semester 7",
+        ],
+    },
+    {
+        title: "Magang Kemnaker",
+        organization: "Kemnaker x Nazma Office",
+        period: "November 2025 - Mei 2026",
+        phase: "Setelah lulus",
+        role: "Fullstack Developer",
+        accent: "99, 102, 241",
+        icon: "fa-solid fa-briefcase",
+        summary:
+            "Program magang setelah lulus dengan durasi enam bulan untuk terlibat langsung dalam pengembangan web fullstack.",
+        highlights: [
+            "Batch 2 2025",
+            "Durasi 6 bulan setelah lulus",
+            "Mitra Nazma Office",
+        ],
     },
 ];
 

@@ -71,16 +71,14 @@ const Home = () => {
                             className="section-heading__eyebrow"
                             variants={revealUp}
                         >
-                            {profile.role}
+                            Overview
                         </motion.span>
 
                         <motion.h1
                             className="home-hero__title"
                             variants={revealUp}
                         >
-                            Membangun web experience yang lebih <span>rapi</span>,
-                            halus, dan terstruktur dengan Laravel sebagai stack
-                            utama.
+                            Fullstack Developer
                         </motion.h1>
 
                         <motion.p
@@ -165,11 +163,11 @@ const Home = () => {
                             </div>
                             <div className="home-hero__card-copy">
                                 <p>Main workflow</p>
-                                <h2>Laravel, React, PHP, JavaScript, dan sistem yang terasa matang dipakai.</h2>
+                                <h2>Laravel, React, PHP, dan JavaScript.</h2>
                                 <ul>
-                                    <li>Lulus tahun 2025 dari Politeknik Negeri Malang.</li>
-                                    <li>Sering mengerjakan web berbasis kebutuhan bisnis nyata.</li>
-                                    <li>Nyaman merapikan struktur kode sekaligus pengalaman pengguna.</li>
+                                    <li>Lulus 2025 dari Politeknik Negeri Malang.</li>
+                                    <li>Sering membangun web untuk kebutuhan nyata.</li>
+                                    <li>Fokus pada struktur kode dan UX yang rapi.</li>
                                 </ul>
                             </div>
                         </div>
@@ -200,14 +198,10 @@ const Home = () => {
                     <div className="section-heading">
                         <span className="section-heading__eyebrow">About Me</span>
                         <h2 className="section-heading__title">
-                            Fullstack web developer yang nyaman menggabungkan
-                            <span> tampilan rapi</span> dan logika backend yang
-                            kuat.
+                            <span>UI rapi</span> dan backend solid.
                         </h2>
                         <p className="section-heading__description">
-                            Saya lebih suka membangun portfolio yang terasa
-                            matang: konten jelas, struktur terukur, dan tiap
-                            section punya alasan visual yang kuat.
+                            Laravel, React, dan web yang nyaman dipakai.
                         </p>
                     </div>
 
@@ -257,11 +251,10 @@ const Home = () => {
                                 <span className="spotlight-card__tag">
                                     Achievement Spotlight
                                 </span>
-                                <h3>Wisudawan terbaik tahun 2025.</h3>
+                                <h3>Wisudawan terbaik 2025.</h3>
                                 <p>
-                                    Saya ingin pencapaian ini tidak berhenti
-                                    sebagai gelar, tapi lanjut menjadi standar
-                                    kualitas saat mengerjakan produk digital.
+                                    Pencapaian ini saya jadikan standar saat
+                                    mengerjakan produk digital.
                                 </p>
                             </motion.article>
 
@@ -295,7 +288,7 @@ const Home = () => {
                     <div className="section-heading">
                         <span className="section-heading__eyebrow">Milestones</span>
                         <h2 className="section-heading__title">
-                            Pencapaian yang membentuk cara saya <span>bekerja</span>.
+                            Pencapaian utama saya.
                         </h2>
                     </div>
 
@@ -326,13 +319,10 @@ const Home = () => {
                     <div className="section-heading">
                         <span className="section-heading__eyebrow">My Skills</span>
                         <h2 className="section-heading__title">
-                            Skill chart yang lebih <span>mulus</span> dan lebih
-                            enak dibaca.
+                            Skill utama saya.
                         </h2>
                         <p className="section-heading__description">
-                            Saya susun skill section ini untuk menunjukkan
-                            keseimbangan antara frontend, backend, dan delivery
-                            mindset yang saya pakai saat membangun product.
+                            Frontend, backend, dan delivery untuk web product.
                         </p>
                     </div>
 
@@ -345,15 +335,10 @@ const Home = () => {
                             transition={{ duration: 0.5 }}
                         >
                             <span className="info-chip">Skill Map</span>
-                            <h3>
-                                Seimbang antara polishing UI dan menjaga fondasi
-                                backend tetap rapi.
-                            </h3>
+                            <h3>UI rapi. Backend terstruktur.</h3>
                             <p>
-                                Fokus utama saya ada di pengembangan website
-                                fullstack. Dari layout, komponen, interaksi, sampai
-                                struktur logic dan pengelolaan data, saya suka
-                                membuat semuanya terasa menyatu.
+                                Fokus saya ada di web fullstack dengan UI
+                                jelas, interaksi ringan, dan alur data rapi.
                             </p>
                             <div className="skills-intro__chips">
                                 {skillCategories.map((item) => (
@@ -432,21 +417,16 @@ const Home = () => {
                             Latest Projects
                         </span>
                         <h2 className="section-heading__title">
-                            Project terbaru sekarang diambil otomatis dari data
-                            project yang <span>paling baru</span>.
+                            Project terbaru dari portofolio saya.
                         </h2>
                         <p className="section-heading__description">
-                            Section ini tidak lagi diisi manual satu per satu.
-                            Selama metadata project diperbarui, kartu terbaru di
-                            home akan ikut sinkron.
+                            Diambil otomatis dari data project dengan update
+                            paling baru.
                         </p>
                     </div>
 
                     <div className="latest-projects__top">
-                        <p>
-                            Semua card di bawah ini diurutkan dari project dengan
-                            tanggal update terbaru.
-                        </p>
+                        <p>Urut dari update terbaru.</p>
                         <Link
                             to="/projects"
                             className="portfolio-button portfolio-button--ghost"
@@ -474,8 +454,7 @@ const Home = () => {
                     <div className="section-heading">
                         <span className="section-heading__eyebrow">Contact Me</span>
                         <h2 className="section-heading__title">
-                            Siap ngobrol soal project, kolaborasi, atau peluang
-                            kerja yang <span>relevan</span>.
+                            Terbuka untuk kolaborasi dan peluang kerja.
                         </h2>
                     </div>
 
@@ -494,9 +473,8 @@ const Home = () => {
                             </h3>
                             <p>
                                 Kalau kamu punya ide, kebutuhan website, atau
-                                ingin diskusi soal kemungkinan kerja sama, kirim
-                                pesan saja. Setelah submit, form ini akan langsung
-                                mengarahkan ke WhatsApp.
+                                ingin diskusi soal kerja sama, kirim pesan saja.
+                                Form ini akan langsung mengarah ke WhatsApp.
                             </p>
 
                             <div className="contact-card__list">

@@ -31,14 +31,12 @@ const Projects = () => {
                                 Selected Works
                             </span>
                             <h1 className="projects-hero__title">
-                                Project card yang lebih rapi, lebih modern, dan
-                                lebih enak untuk <span>dieksplor</span>.
+                                Project pilihan yang paling relevan untuk
+                                <span> dieksplor</span>.
                             </h1>
                             <p className="projects-hero__description">
-                                Semua project sekarang memakai sumber data yang
-                                sama, sehingga card di halaman ini dan di home
-                                tetap konsisten secara tampilan maupun urutan
-                                terbaru.
+                                Semua project memakai sumber data yang sama agar
+                                urutan dan tampilannya tetap konsisten.
                             </p>
 
                             <div className="projects-hero__stats">

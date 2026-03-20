@@ -44,13 +44,10 @@ const CertificateCarousel = () => {
                 <div className="section-heading">
                     <span className="section-heading__eyebrow">Certificates</span>
                     <h2 className="section-heading__title">
-                        Sertifikat yang sekarang tampil sebagai gallery yang lebih
-                        <span> rapat dan rapi</span>.
+                        Galeri sertifikat pilihan.
                     </h2>
                     <p className="section-heading__description">
-                        Area sertifikat saya padatkan supaya tidak ada ruang
-                        kosong besar, tetap enak discroll, dan tiap item bisa
-                        dibuka untuk zoom preview.
+                        Zoom atau geser galeri.
                     </p>
                 </div>
 
@@ -107,8 +104,8 @@ const CertificateCarousel = () => {
                     >
                         <div className="certificate-gallery__head">
                             <div>
-                                <span className="info-chip">Scrollable Gallery</span>
-                                <p>Geser untuk melihat sertifikat lainnya.</p>
+                                <span className="info-chip">Gallery</span>
+                                <p>Geser untuk melihat lainnya.</p>
                             </div>
                             <div className="certificate-gallery__controls">
                                 <button

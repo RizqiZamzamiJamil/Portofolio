@@ -5,6 +5,7 @@ const navigationItems = [
     { label: "Home", to: "/" },
     { label: "Projects", to: "/projects" },
     { label: "Education", to: "/education" },
+    { label: "Experience", to: "/experience" },
 ];
 
 const Header = () => {

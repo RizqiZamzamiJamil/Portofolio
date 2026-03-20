@@ -9,16 +9,24 @@ const formatProjectDate = (value) =>
 
 const normalizeUrl = (value) => (value ? value.trim().replace(/\/$/, "") : "");
 
+const projectAccentMap = {
+    Fullstack: "249, 115, 22",
+    Frontend: "8, 145, 178",
+    Mobile: "99, 102, 241",
+};
+
 const Card = ({ project, featuredLabel }) => {
     const normalizedLiveUrl = normalizeUrl(project.liveUrl);
     const normalizedCodeUrl = normalizeUrl(project.codeUrl);
     const hasLivePreview =
         Boolean(normalizedLiveUrl) && normalizedLiveUrl !== normalizedCodeUrl;
     const hasCodePreview = Boolean(normalizedCodeUrl);
+    const accentRgb = projectAccentMap[project.category] || "245, 158, 11";
 
     return (
         <motion.article
             className="project-card"
+            style={{ "--project-accent-rgb": accentRgb }}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -28,7 +36,9 @@ const Card = ({ project, featuredLabel }) => {
             <div className="project-card__media">
                 <img src={project.image} alt={project.title} />
                 <div className="project-card__badges">
-                    <span className="project-card__badge">{project.category}</span>
+                    <span className="project-card__badge project-card__badge--category">
+                        {project.category}
+                    </span>
                     {featuredLabel ? (
                         <span className="project-card__badge project-card__badge--accent">
                             {featuredLabel}
@@ -47,8 +57,6 @@ const Card = ({ project, featuredLabel }) => {
                     <h3>{project.title}</h3>
                     <p>{project.summary}</p>
                 </div>
-
-                <p className="project-card__highlight">{project.highlight}</p>
 
                 <div className="project-card__tags">
                     {project.stack.map((item) => (

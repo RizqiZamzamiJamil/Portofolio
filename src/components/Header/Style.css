@@ -110,17 +110,44 @@
     }
 }
 
-@media (max-width: 576px) {
-    .site-nav__links {
-        border-radius: 1.2rem;
-    }
-
-    .site-nav__link {
-        flex: 1 1 calc(33.33% - 0.5rem);
-        text-align: center;
+@media (max-width: 640px) {
+    .site-nav {
+        gap: 0.8rem;
     }
 
     .site-nav__cta {
+        display: none;
+    }
+
+    .site-nav__links {
         width: 100%;
+        flex-wrap: nowrap;
+        gap: 0.18rem;
+        padding: 0.22rem;
+        border-radius: 1.1rem;
+    }
+
+    .site-nav__link {
+        flex: 1 1 0;
+        min-width: 0;
+        padding: 0.56rem 0.28rem;
+        font-size: 0.76rem;
+        text-align: center;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 576px) {
+    .site-nav__links {
+        border-radius: 1rem;
+    }
+
+    .site-brand {
+        font-size: 1.12rem;
+    }
+
+    .site-nav__link {
+        padding: 0.54rem 0.18rem;
+        font-size: 0.71rem;
     }
 }
