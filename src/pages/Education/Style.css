@@ -1,46 +1,188 @@
-.education {
-    min-height: 624px;
-    background-color: #ffc107;
+.education-hero__cards,
+.education-highlights {
+    display: grid;
+    gap: 0.85rem;
 }
 
-.education h1 {
-    font-family: "Londrina Solid", sans-serif;
+.education-hero__cards {
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
 }
 
-.education h1 span {
-    color: white;
+.education-hero__card,
+.education-highlight {
+    padding: 1rem;
 }
 
-.timeline_content {
-	border: 2px solid black;
-	background-color:#fff;
-
-	color: #333;
-	padding: 20px;
-	margin-bottom: 20px;
+.education-hero__card span,
+.education-highlight span {
+    display: block;
+    color: var(--muted-color);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
-ul.timeline-list {
-	position: relative;
-	margin: 0;
-	padding: 0
+.education-hero__card strong {
+    display: block;
+    margin: 0.45rem 0;
+    font-family: var(--heading-font);
+    font-size: 1.1rem;
 }
 
-ul.timeline-list li {
-    width: 10px;
+.education-hero__card p,
+.education-step__copy p,
+.education-highlight p {
+    margin-bottom: 0;
+    color: var(--muted-color);
+    font-size: 0.9rem;
+    line-height: 1.58;
 }
 
-.timeline_content h4 {
-	font-size: 22px;
-	font-weight: 600;
-	margin: 10px 0;
+.education-timeline {
+    position: relative;
+    display: grid;
+    gap: 1rem;
 }
 
-.timeline_content span {
-	font-size: 18px;
-	font-weight: 500;
-	font-family: poppins;
-	color: #ffc107;
+.education-timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: rgba(20, 17, 15, 0.1);
+    transform: translateX(-50%);
 }
 
+.education-step {
+    position: relative;
+    width: calc(50% - 0.95rem);
+}
 
+.education-step--right {
+    margin-left: auto;
+}
+
+.education-step__marker {
+    position: absolute;
+    top: 1.45rem;
+    right: -1.25rem;
+    width: 0.92rem;
+    height: 0.92rem;
+    border-radius: 50%;
+    background: var(--brand-color);
+    box-shadow: 0 0 0 0.35rem rgba(245, 158, 11, 0.14);
+}
+
+.education-step--right .education-step__marker {
+    right: auto;
+    left: -1.25rem;
+}
+
+.education-step__content {
+    overflow: hidden;
+}
+
+.education-step__image {
+    aspect-ratio: 16 / 8;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(20, 17, 15, 0.08);
+}
+
+.education-step__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.education-step__copy {
+    padding: 1rem;
+}
+
+.education-step__period {
+    display: inline-flex;
+    padding: 0.38rem 0.72rem;
+    border-radius: 999px;
+    background: rgba(245, 158, 11, 0.14);
+    font-size: 0.74rem;
+    font-weight: 800;
+}
+
+.education-step__copy h2 {
+    margin: 0.75rem 0 0.35rem;
+    font-size: 1.16rem;
+}
+
+.education-step__copy strong {
+    display: block;
+    margin-bottom: 0.6rem;
+    color: var(--muted-color);
+    font-size: 0.9rem;
+}
+
+.education-step__tags {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.7rem;
+    margin-top: 0.85rem;
+}
+
+.education-step__tags span {
+    padding: 0.45rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(20, 17, 15, 0.06);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.education-highlights {
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+
+.education-highlight__icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.95rem;
+    background: rgba(245, 158, 11, 0.14);
+    color: var(--brand-strong);
+}
+
+.education-highlight span {
+    margin-top: 0.7rem;
+    color: var(--brand-strong);
+}
+
+.education-highlight h3 {
+    margin: 0.55rem 0 0.45rem;
+    font-size: 1rem;
+}
+
+@media (max-width: 991px) {
+    .education-timeline::before {
+        left: 0.45rem;
+        transform: none;
+    }
+
+    .education-step {
+        width: 100%;
+        padding-left: 1.6rem;
+    }
+
+    .education-step__marker,
+    .education-step--right .education-step__marker {
+        left: 0;
+        right: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .education-step__tags {
+        grid-template-columns: 1fr;
+    }
+}

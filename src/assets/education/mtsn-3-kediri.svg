@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">MTs Negeri 3 Kota Kediri</title>
+  <desc id="desc">Ilustrasi kartu sekolah MTs Negeri 3 Kota Kediri.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d1fae5" />
+      <stop offset="100%" stop-color="#99f6e4" />
+    </linearGradient>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M 64 0 L 0 0 0 64" fill="none" stroke="#0f766e" stroke-opacity=".12" stroke-width="2" />
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <rect width="1600" height="900" fill="url(#grid)" />
+  <circle cx="1400" cy="160" r="130" fill="#14b8a6" fill-opacity=".16" />
+  <circle cx="240" cy="140" r="90" fill="#0f766e" fill-opacity=".12" />
+  <path d="M160 650 C360 520 520 520 700 650 L700 720 L160 720 Z" fill="#ffffff" fill-opacity=".72" />
+  <path d="M215 650 L430 520 L645 650 Z" fill="#0f766e" fill-opacity=".14" />
+  <rect x="235" y="650" width="80" height="70" rx="14" fill="#ffffff" />
+  <rect x="345" y="650" width="80" height="70" rx="14" fill="#ffffff" />
+  <rect x="455" y="650" width="80" height="70" rx="14" fill="#ffffff" />
+  <rect x="565" y="650" width="60" height="70" rx="14" fill="#ffffff" />
+  <text x="760" y="280" fill="#134e4a" font-size="82" font-family="Space Grotesk, Arial, sans-serif" font-weight="700">MTs Negeri 3 Kota Kediri</text>
+  <text x="760" y="372" fill="#115e59" font-size="36" font-family="Plus Jakarta Sans, Arial, sans-serif">Kediri • 2015 - 2018</text>
+  <text x="760" y="462" fill="#134e4a" font-size="48" font-family="Plus Jakarta Sans, Arial, sans-serif" font-weight="600">Perpaduan akademik, karakter, dan ketelitian.</text>
+  <text x="760" y="542" fill="#115e59" font-size="32" font-family="Plus Jakarta Sans, Arial, sans-serif">Masa penguatan disiplin, pembelajaran umum, dan pembentukan karakter belajar.</text>
+</svg>

@@ -1,209 +1,528 @@
-/* ==================== Hero ==================== */
-.hero .yellow-circle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    z-index: 0;
+.home-page #contact-me {
+    scroll-margin-top: 5.5rem;
 }
 
-.hero-color {
-    color: #ffc107;
-}
-
-.hero .img-fluid {
-    max-width: 100%;
-    height: auto;
-    z-index: 1;
-}
-
-.hero img:hover {
-    transform: scale(1.2);
-}
-
-.hero button {
-    padding: 10px 30px;
-    font-size: 25px;
-    font-weight: 600;
-    border-radius: 20px;
-    transition: transform 0.3s ease;
-}
-
-.hero button:hover {
-    transform: scale(1.1);
-}
-
-.anchor-link {
-    text-decoration: none;
-    color: black;
-}
-
-/* ==================== About ==================== */
-.about {
-    min-height: 624px;
-    background-color: #ffc107;
-}
-
-.about h1 {
-    font-family: "Londrina Solid", sans-serif;
-}
-
-.about h1 span {
-    color: white;
-}
-
-.about .content {
-    transition: transform 0.3s ease;
-}
-
-.about .content:hover {
-    transform: scale(1.05);
-}
-
-/* ==================== Skill ==================== */
-.skill {
-    min-height: 624px;
-}
-
-.skill h1 {
-    font-family: "Londrina Solid", sans-serif;
-}
-
-.skill h1 span {
-    color:#ffc107;
-}
-
-.skill p {
-    margin: 0 auto;
-    max-width: 800px;
-}
-
-.skill .icon-lg {
-    font-size: 4rem;
-    margin-right: 1rem;
-}
-
-.skill-info {
-    flex-grow: 1;
-}
-
-.skill-name {
-    font-weight: bold;
-    font-size: 25px;
-}
-
-.skill-item {
-    transition: transform 0.3s ease;
-}
-
-.skill-item:hover {
-    transform: scale(1.05);
-}
-
-.skill .progress-bar {
-    background-color: #ffc107;
-}
-
-/* ==================== Portofolio ==================== */
-.portofolio {
-    min-height: 624px;
-    background-color: #ffc107;
-}
-
-.portofolio h1 {
-    font-family: "Londrina Solid", sans-serif;
-}
-
-.portofolio h1 span {
-    color: white;
-}
-
-.portofolio .more {
-    background-color: black;
-    color: #ffc107;
-}
-
-.portofolio .more:hover {
-    background-color: white;
-    color: black;
-}
-
-/* ==================== Certificate ==================== */
-.certificates {
-    min-height: 624px;
-    /* background-color: #ffc107; */
-}
-
-.certificates h1 {
-    font-family: "Londrina Solid", sans-serif;
-}
-
-.certificates h1 span {
-    color: #ffc107;
-}
-
-.certificates .card {
-    height: 310px;
-    width: 400px;
-    padding: 0 0 3px 0;
-    background-color: #ffc107;
-}
-
-.certificates .card-body{
-    padding: 5px 10px;
-}
-
-.certificates img {
-    height: 250px;
-}
-
-
-/* ==================== Contact ====================  */
-.contact {
-    min-height: 624px;
-    background-color: #ffc107;
-}
-
-.contact h1 {
-    font-family: "Londrina Solid", sans-serif;
-}
-
-.contact h1 span {
-    color:white;
-}
-
-.contact-details {
+.home-hero {
+    isolation: isolate;
+    min-height: calc(100svh - 72px);
     display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
+    align-items: center;
+}
+
+.home-hero__grid,
+.about-grid,
+.skills-layout,
+.contact-layout {
+    display: grid;
+    gap: 1rem;
+}
+
+.home-hero__grid {
+    position: relative;
+    z-index: 1;
+    grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.82fr);
+    align-items: center;
+}
+
+.home-hero__title {
+    max-width: 11.5ch;
+    margin: 0.95rem 0 0.85rem;
+    font-size: clamp(2.1rem, 4.8vw, 4.15rem);
+    line-height: 0.96;
+}
+
+.home-hero__title span {
+    color: var(--brand-strong);
+}
+
+.home-hero__description,
+.about-card__copy p,
+.spotlight-card p,
+.strengths-card__item p,
+.achievement-card p,
+.skills-intro p,
+.skill-card__copy p,
+.contact-card p {
+    margin-bottom: 0;
+    color: var(--muted-color);
+    font-size: 0.94rem;
+    line-height: 1.6;
+}
+
+.home-hero__badges,
+.home-hero__socials,
+.home-hero__actions,
+.about-card__actions,
+.skills-intro__chips,
+.latest-projects__top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+}
+
+.home-hero__badges,
+.home-hero__socials,
+.home-hero__actions {
+    margin-top: 0.95rem;
+}
+
+.home-hero__badge {
+    padding: 0.5rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(20, 17, 15, 0.08);
+    color: var(--text-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.home-hero__stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.7rem;
+    margin-top: 1.15rem;
+}
+
+.home-hero__stat {
+    padding: 0.9rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(20, 17, 15, 0.08);
+    box-shadow: 0 14px 24px rgba(20, 17, 15, 0.06);
+}
+
+.home-hero__stat span,
+.contact-item span {
+    display: block;
+    color: var(--muted-color);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.home-hero__stat strong {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 1rem;
+    font-family: var(--heading-font);
+}
+
+.home-hero__stat small {
+    display: block;
+    margin-top: 0.25rem;
+    color: var(--muted-color);
+    font-size: 0.76rem;
+    line-height: 1.45;
+}
+
+.home-hero__visual {
+    position: relative;
+    max-width: 30rem;
+    width: 100%;
+    margin-left: auto;
+}
+
+.home-hero__card,
+.spotlight-card,
+.strengths-card,
+.skills-intro,
+.contact-card,
+.contact-form-card {
+    padding: 1rem;
+}
+
+.home-hero__portrait,
+.about-card__image {
+    overflow: hidden;
+    border-radius: 1.1rem;
+}
+
+.home-hero__portrait {
+    margin-top: 0.75rem;
+    background: linear-gradient(145deg, rgba(245, 158, 11, 0.15), rgba(15, 118, 110, 0.08));
+}
+
+.home-hero__portrait img {
+    width: 100%;
+    max-height: 20.5rem;
+    object-fit: cover;
+}
+
+.home-hero__card-copy {
+    padding-top: 0.85rem;
+}
+
+.home-hero__card-copy p {
+    margin-bottom: 0.3rem;
+    color: var(--muted-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.home-hero__card-copy h2,
+.about-card__copy h3,
+.skills-intro h3,
+.spotlight-card h3,
+.strengths-card h3,
+.contact-card h3 {
+    margin: 0.75rem 0 0.7rem;
+    font-size: clamp(1.15rem, 2.15vw, 1.55rem);
+}
+
+.home-hero__card-copy ul {
+    margin: 0;
+    padding-left: 1rem;
+    color: var(--muted-color);
+    font-size: 0.88rem;
+    line-height: 1.55;
+}
+
+.home-hero__card-copy li + li {
+    margin-top: 0.4rem;
+}
+
+.home-hero__floating {
+    position: absolute;
+    padding: 0.8rem 0.9rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.86);
+    border: 1px solid rgba(20, 17, 15, 0.08);
+    box-shadow: 0 14px 24px rgba(20, 17, 15, 0.1);
+}
+
+.home-hero__floating strong {
+    display: block;
+    font-size: 0.82rem;
+}
+
+.home-hero__floating span {
+    display: block;
+    margin-top: 0.22rem;
+    color: var(--muted-color);
+    font-size: 0.74rem;
+}
+
+.home-hero__floating--top {
+    top: 0.85rem;
+    left: 0.6rem;
+}
+
+.home-hero__floating--bottom {
+    right: 0.6rem;
+    bottom: 0.85rem;
+}
+
+.about-grid {
+    grid-template-columns: minmax(0, 1.18fr) minmax(250px, 0.82fr);
+}
+
+.about-card {
+    display: grid;
+    grid-template-columns: minmax(170px, 220px) minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1rem;
+    align-items: center;
+}
+
+.about-card__copy p + p {
+    margin-top: 0.6rem;
+}
+
+.about-card__actions {
+    margin-top: 0.95rem;
+}
+
+.about-side,
+.strengths-card__list,
+.contact-card__list,
+.portfolio-form {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.spotlight-card {
+    background:
+        linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(249, 115, 22, 0.08)),
+        rgba(255, 255, 255, 0.82);
+}
+
+.spotlight-card__tag {
+    color: var(--brand-strong);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.strengths-card__item {
+    padding: 0.85rem;
+    border-radius: 0.9rem;
+    background: rgba(20, 17, 15, 0.04);
+}
+
+.strengths-card__item strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.96rem;
+}
+
+.achievement-grid,
+.skills-grid,
+.latest-projects__grid {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.achievement-grid {
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+
+.achievement-card {
+    padding: 1rem;
+}
+
+.achievement-card__icon,
+.contact-item__icon {
+    width: 2.45rem;
+    height: 2.45rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.88rem;
+    background: rgba(245, 158, 11, 0.14);
+    color: var(--brand-strong);
+}
+
+.achievement-card span {
+    display: block;
+    margin-top: 0.7rem;
+    color: var(--brand-strong);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.achievement-card h3 {
+    margin: 0.6rem 0 0.45rem;
+    font-size: 1.02rem;
+}
+
+.skills-layout {
+    grid-template-columns: minmax(250px, 0.82fr) minmax(0, 1.18fr);
+    align-items: start;
+}
+
+.skills-intro__chips {
+    margin-top: 0.9rem;
+}
+
+.skills-intro__chips span {
+    padding: 0.48rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(20, 17, 15, 0.06);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.skills-grid,
+.latest-projects__grid {
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.skill-card {
+    padding: 0.95rem;
+}
+
+.skill-card__header {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.skill-card__ring {
+    position: relative;
+    flex: 0 0 4.2rem;
+    width: 4.2rem;
+    height: 4.2rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: conic-gradient(var(--skill-color) 0 var(--skill-angle), rgba(20, 17, 15, 0.08) var(--skill-angle) 360deg);
+}
+
+.skill-card__ring::before {
+    content: "";
+    position: absolute;
+    inset: 0.46rem;
+    border-radius: 50%;
+    background: rgba(255, 253, 248, 0.97);
+}
+
+.skill-card__ring-center {
+    position: relative;
+    z-index: 1;
+    font-family: var(--heading-font);
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.skill-card__label {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-bottom: 0.35rem;
+}
+
+.skill-card__label i {
+    color: var(--brand-strong);
+    font-size: 1rem;
+}
+
+.skill-card__label h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.skill-card__bar {
+    margin: 0.8rem 0 0.65rem;
+    height: 0.56rem;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(20, 17, 15, 0.08);
+}
+
+.skill-card__bar span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.skill-card small {
+    color: var(--muted-color);
+    font-size: 0.74rem;
+    line-height: 1.5;
+}
+
+.latest-projects__top {
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.9rem;
+}
+
+.latest-projects__top p {
+    max-width: 38rem;
+    margin-bottom: 0;
+    color: var(--muted-color);
+    font-size: 0.92rem;
+}
+
+.contact-layout {
+    grid-template-columns: minmax(250px, 0.88fr) minmax(0, 1.12fr);
 }
 
 .contact-item {
     display: flex;
+    gap: 0.8rem;
     align-items: center;
-    gap: 1rem;
+    padding: 0.8rem;
+    border-radius: 0.95rem;
+    background: rgba(20, 17, 15, 0.04);
 }
 
-.contact-item i {
-    font-size: 1.1rem;
+.contact-item strong {
+    display: block;
+    margin-top: 0.22rem;
+    font-size: 0.9rem;
 }
 
-.contact-item p {
-    margin: 0;
+.portfolio-form__field {
+    display: grid;
+    gap: 0.42rem;
 }
 
-
-.contact .btn {
-    background-color: black;
-    color: #ffc107;
-    padding: 10px 40px;
+.portfolio-form label {
+    font-size: 0.9rem;
+    font-weight: 700;
 }
 
-.contact .btn:hover {
-    background-color: white;
-    color: black;
+.portfolio-form input,
+.portfolio-form textarea {
+    width: 100%;
+    border: 1px solid rgba(20, 17, 15, 0.12);
+    border-radius: 0.95rem;
+    padding: 0.76rem 0.88rem;
+    background: rgba(255, 255, 255, 0.86);
+    color: var(--text-color);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
+.portfolio-form input:focus,
+.portfolio-form textarea:focus {
+    outline: none;
+    border-color: rgba(245, 158, 11, 0.55);
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.12);
+}
+
+@media (max-width: 1200px) {
+    .home-hero__stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 991px) {
+    .home-hero,
+    .home-hero__grid,
+    .about-grid,
+    .skills-layout,
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .home-hero {
+        min-height: auto;
+    }
+
+    .home-hero__visual {
+        order: -1;
+        margin: 0 auto;
+    }
+
+    .about-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-hero__stats,
+    .achievement-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .latest-projects__top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+    .home-hero__floating {
+        position: static;
+        margin-top: 0.8rem;
+    }
+
+    .home-hero__actions,
+    .about-card__actions,
+    .latest-projects__top {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .skill-card__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

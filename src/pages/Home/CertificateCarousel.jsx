@@ -1,130 +1,214 @@
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { certificates, profile } from "../../data/portfolioData";
 import "./Certificate.css";
 
-import Blockchain from "../../assets/blockchain.png";
-import Bootstrap from "../../assets/bootstrap.jpg";
-import BNSP from "../../assets/bnsp.jpg";
-import Gamelab from "../../assets/gamelab2.jpg";
-import Javascript from "../../assets/javascript.jpg";
-import MSIB from "../../assets/msib (2).jpg";
-import ReactJs from "../../assets/react.jpg";
-import VueJs from "../../assets/vue.jpg";
-import Wordpress from "../../assets/wordpress.png";
-
-
-const certificates = [
-    { img: BNSP, text: "Pemrograman Software Komputer <b>BNSP</b>" },
-    { img: Blockchain, text: "Web 3.0 & Blockchain <b>MySkill</b>" },
-    { img: Wordpress, text: "Wordpress Development <b>MySkill</b>" },
-    {
-        img: MSIB,
-        text: "Magang dan Studi Independen Bersertifikat <b>(MSIB Batch 6)</b>",
-    },
-    {
-        img: Gamelab,
-        text: "Kelas Industri Web Frontend Development <b>(MSIB Batch 6)</b>",
-    },
-    { img: ReactJs, text: "ReactJs certification by <b>Gamelab</b>" },
-    { img: VueJs, text: "VueJs certification by <b>Gamelab</b>" },
-    { img: Javascript, text: "JavaScript certification by <b>Gamelab</b>" },
-    { img: Bootstrap, text: "Bootstrap certification by <b>Gamelab</b>" },
-];
+const spotlightCertificate = certificates[0];
 
 const CertificateCarousel = () => {
-    const [items, setItems] = useState([...certificates, ...certificates]);
-    const [isTransitioning, setIsTransitioning] = useState(false);
-    const trackRef = useRef(null);
+    const galleryRef = useRef(null);
+    const [selectedCertificate, setSelectedCertificate] = useState(null);
 
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setIsTransitioning(true);
-            setTimeout(() => {
-                setItems((prevItems) => {
-                    const newItems = [...prevItems];
-                    const firstItem = newItems.shift();
-                    newItems.push(firstItem);
-                    return newItems;
-                });
-                setIsTransitioning(false);
-            }, 500);
-        }, 3000);
+    const scrollGallery = (direction) => {
+        if (!galleryRef.current) {
+            return;
+        }
 
-        return () => clearInterval(intervalId);
-    }, []);
-
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,
+        galleryRef.current.scrollBy({
+            left: galleryRef.current.clientWidth * direction * 0.9,
+            behavior: "smooth",
         });
-    }, []);
+    };
+
+    useEffect(() => {
+        if (!selectedCertificate) {
+            return undefined;
+        }
+
+        const handleEscape = (event) => {
+            if (event.key === "Escape") {
+                setSelectedCertificate(null);
+            }
+        };
+
+        window.addEventListener("keydown", handleEscape);
+
+        return () => {
+            window.removeEventListener("keydown", handleEscape);
+        };
+    }, [selectedCertificate]);
 
     return (
-        <section className="certificates">
+        <section className="section-shell certificates-section">
             <div className="container">
-                <h1
-                    data-aos="fade-down"
-                    data-aos-delay="100"
-                    className="pt-5 pb-4 text-center"
-                >
-                    My Latest <span>Certificates</span>
-                </h1>
-
-                <div id="certificateCarousel" className="carousel-container">
-                    <div
-                        ref={trackRef}
-                        className="carousel-track gap-3"
-                        style={{
-                            transform: `translateX(${
-                                isTransitioning ? "-33.333%" : "0"
-                            })`,
-                            transition: isTransitioning
-                                ? "transform 0.5s ease"
-                                : "none",
-                        }}
-                    >
-                        {items.map((cert, index) => (
-                            <div
-                                className="carousel-card"
-                                data-aos="fade-left"
-                                data-aos-delay="200"
-                                key={index}
-                            >
-                                <img
-                                    src={cert.img}
-                                    className="card-img-top"
-                                    alt=""
-                                />
-                                <div className="card-body">
-                                    <p
-                                        className="card-text"
-                                        dangerouslySetInnerHTML={{
-                                            __html: cert.text,
-                                        }}
-                                    ></p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                <div className="section-heading">
+                    <span className="section-heading__eyebrow">Certificates</span>
+                    <h2 className="section-heading__title">
+                        Sertifikat yang sekarang tampil sebagai gallery yang lebih
+                        <span> rapat dan rapi</span>.
+                    </h2>
+                    <p className="section-heading__description">
+                        Area sertifikat saya padatkan supaya tidak ada ruang
+                        kosong besar, tetap enak discroll, dan tiap item bisa
+                        dibuka untuk zoom preview.
+                    </p>
                 </div>
 
-                <div
-                    className="text-center my-5"
-                    data-aos="fade-down"
-                    data-aos-delay="100"
-                >
-                    <Link
-                        className="btn more"
-                        to="https://drive.google.com/file/d/1gsLwGgcfcvmGLtGij5DAHWtX5mfgtq4L/view?usp=sharing"
-                        target="_blank"
+                <div className="certificates-layout">
+                    <motion.article
+                        className="certificate-spotlight content-panel"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.45 }}
                     >
-                        More Certificates Here{" "}
-                        <i className="fas fa-chevron-right"></i>
-                    </Link>
+                        <div className="certificate-spotlight__image">
+                            <img
+                                src={spotlightCertificate.image}
+                                alt={spotlightCertificate.title}
+                            />
+                        </div>
+                        <div className="certificate-spotlight__copy">
+                            <span className="info-chip">Highlighted Certificate</span>
+                            <h3>{spotlightCertificate.title}</h3>
+                            <p>{spotlightCertificate.focus}</p>
+                            <div className="certificate-spotlight__meta">
+                                <span>{spotlightCertificate.issuer}</span>
+                                <span>{spotlightCertificate.issuedAt}</span>
+                            </div>
+                            <div className="certificate-spotlight__actions">
+                                <button
+                                    type="button"
+                                    className="portfolio-button"
+                                    onClick={() =>
+                                        setSelectedCertificate(spotlightCertificate)
+                                    }
+                                >
+                                    Zoom Certificate
+                                </button>
+                                <a
+                                    href={profile.certificateCollectionUrl}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="portfolio-button portfolio-button--ghost"
+                                >
+                                    View Collection
+                                </a>
+                            </div>
+                        </div>
+                    </motion.article>
+
+                    <motion.article
+                        className="certificate-gallery content-panel"
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.45, delay: 0.06 }}
+                    >
+                        <div className="certificate-gallery__head">
+                            <div>
+                                <span className="info-chip">Scrollable Gallery</span>
+                                <p>Geser untuk melihat sertifikat lainnya.</p>
+                            </div>
+                            <div className="certificate-gallery__controls">
+                                <button
+                                    type="button"
+                                    onClick={() => scrollGallery(-1)}
+                                    aria-label="Scroll certificates to the left"
+                                >
+                                    <i
+                                        className="fa-solid fa-chevron-left"
+                                        aria-hidden="true"
+                                    ></i>
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => scrollGallery(1)}
+                                    aria-label="Scroll certificates to the right"
+                                >
+                                    <i
+                                        className="fa-solid fa-chevron-right"
+                                        aria-hidden="true"
+                                    ></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div
+                            className="certificate-gallery__viewport"
+                            ref={galleryRef}
+                        >
+                            {certificates.map((item) => (
+                                <button
+                                    key={item.title}
+                                    type="button"
+                                    className="certificate-gallery__item"
+                                    onClick={() => setSelectedCertificate(item)}
+                                >
+                                    <div className="certificate-gallery__thumb">
+                                        <img src={item.image} alt={item.title} />
+                                        <span className="certificate-gallery__zoom">
+                                            Zoom
+                                        </span>
+                                    </div>
+                                    <div className="certificate-gallery__meta">
+                                        <strong>{item.title}</strong>
+                                        <span>
+                                            {item.issuer} - {item.issuedAt}
+                                        </span>
+                                    </div>
+                                </button>
+                            ))}
+                        </div>
+                    </motion.article>
                 </div>
             </div>
+
+            <AnimatePresence>
+                {selectedCertificate ? (
+                    <motion.div
+                        className="certificate-modal"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setSelectedCertificate(null)}
+                    >
+                        <motion.div
+                            className="certificate-modal__dialog"
+                            initial={{ opacity: 0, scale: 0.96, y: 16 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.96, y: 16 }}
+                            transition={{ duration: 0.22 }}
+                            onClick={(event) => event.stopPropagation()}
+                        >
+                            <button
+                                type="button"
+                                className="certificate-modal__close"
+                                onClick={() => setSelectedCertificate(null)}
+                                aria-label="Close certificate preview"
+                            >
+                                <i className="fa-solid fa-xmark" aria-hidden="true"></i>
+                            </button>
+
+                            <div className="certificate-modal__image">
+                                <img
+                                    src={selectedCertificate.image}
+                                    alt={selectedCertificate.title}
+                                />
+                            </div>
+                            <div className="certificate-modal__copy">
+                                <span className="info-chip">Certificate Preview</span>
+                                <h3>{selectedCertificate.title}</h3>
+                                <p>{selectedCertificate.focus}</p>
+                                <div className="certificate-modal__meta">
+                                    <span>{selectedCertificate.issuer}</span>
+                                    <span>{selectedCertificate.issuedAt}</span>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                ) : null}
+            </AnimatePresence>
         </section>
     );
 };

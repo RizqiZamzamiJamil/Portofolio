@@ -1,9 +1,19 @@
-.sosmed {
-    background-color: black;
-    color: #ffc107;
+.social-link-button {
+    width: 3rem;
+    height: 3rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(20, 17, 15, 0.9);
+    color: var(--surface-color);
+    text-decoration: none;
+    box-shadow: 0 14px 24px rgba(20, 17, 15, 0.12);
+    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
 }
 
-.sosmed:hover {
-    background-color:#ffc107;
-    color: black;
+.social-link-button:hover {
+    background: var(--brand-color);
+    color: var(--text-color);
+    transform: translateY(-3px);
 }

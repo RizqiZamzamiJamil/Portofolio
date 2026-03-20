@@ -1,535 +1,577 @@
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect, useState } from "react";
-import AnchorLink from "react-anchor-link-smooth-scroll";
+import { useState } from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import BackgroundAnimation from "../../components/Background/BackgroundAnimation";
 import Card from "../../components/Card/Card";
 import ConfirmationModal from "../../components/Modal/ConfirmationModal";
 import ScrollToTopButton from "../../components/ScrollTop/ScrollToTopButton";
 import SosmedButton from "../../components/Sosmed/SosmedButton";
-
-import Foto from "../../assets/foto.png";
-import Foto2 from "../../assets/foto2.png";
-import Project0 from "../../assets/project0.png";
-import Project001 from "../../assets/project001.png";
-import Project1 from "../../assets/ProjectNew.png";
+import {
+    achievementHighlights,
+    contactDetails,
+    coreStrengths,
+    latestProjects,
+    portfolioStats,
+    profile,
+    skillCategories,
+    skills,
+    socialLinks,
+} from "../../data/portfolioData";
 import CertificateCarousel from "./CertificateCarousel";
-
 import "./Style.css";
 
-const Home = () => {
-    const skills = [
-        { name: "HTML & CSS", iconClass: "fab fa-html5", progress: 98 },
-        { name: "PHP", iconClass: "fab fa-php", progress: 95 },
-        { name: "JavaScript", iconClass: "fab fa-js", progress: 90 },
-        { name: "Laravel", iconClass: "fab fa-laravel", progress: 93 },
-        { name: "Vue JS", iconClass: "fab fa-vuejs", progress: 80 },
-        { name: "React JS", iconClass: "fab fa-react", progress: 90 },
-    ];
+const revealUp = {
+    hidden: { opacity: 0, y: 26 },
+    visible: { opacity: 1, y: 0 },
+};
 
+const staggerList = {
+    hidden: { opacity: 1 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+        },
+    },
+};
+
+const Home = () => {
     const [showConfirmModal, setShowConfirmModal] = useState(false);
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = (event) => {
+        event.preventDefault();
         setShowConfirmModal(true);
     };
 
     const handleConfirm = () => {
-        setShowConfirmModal(false);
-        console.log("Pesan baru telah terkirim!");
-
-        const messageBody = `Permisi, perkenalkan \n\nNama : ${name} \nEmail : ${email} \n\n Pesan Saya : ${message}`;
+        const messageBody = `Permisi, perkenalkan\n\nsaya ${name}\ndengan e-mail ${email}\n\n. Pesan Saya: ${message}`;
         const url = `https://api.whatsapp.com/send?phone=6282147083442&text=${encodeURIComponent(
             messageBody
         )}`;
 
-        window.open(url, "_blank");
-    };
-
-    const handleCloseModal = () => {
         setShowConfirmModal(false);
+        window.open(url, "_blank", "noopener,noreferrer");
     };
-
-    useEffect(() => {
-        AOS.init({
-            duration: 1000,
-        });
-    }, []);
 
     return (
-        <main>
-            <section className="hero container px-4 py-5">
+        <main className="page-shell home-page">
+            <section className="section-shell home-hero">
                 <BackgroundAnimation />
-                <div className="row flex-lg-row-reverse align-items-center g-5 py-5">
-                    <div className="col-lg-6 order-lg-1 d-flex justify-content-center justify-content-lg mt-0 foto">
-                        <div
-                            data-aos="fade-left"
-                            data-aos-delay="200"
-                            className="position-relative d-flex tengah"
+                <div className="container home-hero__grid">
+                    <motion.div
+                        className="home-hero__content"
+                        initial="hidden"
+                        animate="visible"
+                        variants={staggerList}
+                    >
+                        <motion.span
+                            className="section-heading__eyebrow"
+                            variants={revealUp}
                         >
-                            <div className="yellow-circle bg-warning position-absolute top-50 start-50 translate-middle"></div>
-                            <div data-aos="fade-left" data-aos-delay="300">
-                                <img
-                                    src={Foto}
-                                    className="img-fluid rounded-circle position-relative z-index-1"
-                                    alt="Rizqi Zamzami Jamil"
-                                    width="480"
+                            {profile.role}
+                        </motion.span>
+
+                        <motion.h1
+                            className="home-hero__title"
+                            variants={revealUp}
+                        >
+                            Membangun web experience yang lebih <span>rapi</span>,
+                            halus, dan terstruktur dengan Laravel sebagai stack
+                            utama.
+                        </motion.h1>
+
+                        <motion.p
+                            className="home-hero__description"
+                            variants={revealUp}
+                        >
+                            {profile.heroDescription}
+                        </motion.p>
+
+                        <motion.div
+                            className="home-hero__badges"
+                            variants={revealUp}
+                        >
+                            {profile.heroBadges.map((badge) => (
+                                <span key={badge} className="home-hero__badge">
+                                    {badge}
+                                </span>
+                            ))}
+                        </motion.div>
+
+                        <motion.div
+                            className="home-hero__actions"
+                            variants={revealUp}
+                        >
+                            <a href="#contact-me" className="portfolio-button">
+                                Let&apos;s Collaborate
+                            </a>
+                            <a
+                                href={profile.cvUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="portfolio-button portfolio-button--ghost"
+                            >
+                                View CV
+                            </a>
+                        </motion.div>
+
+                        <motion.div
+                            className="home-hero__socials"
+                            variants={revealUp}
+                        >
+                            {socialLinks.map((item) => (
+                                <SosmedButton
+                                    key={item.label}
+                                    link={item.url}
+                                    icon={item.icon}
+                                    label={item.label}
                                 />
+                            ))}
+                        </motion.div>
+
+                        <motion.div
+                            className="home-hero__stats"
+                            variants={staggerList}
+                        >
+                            {portfolioStats.map((item) => (
+                                <motion.article
+                                    key={item.label}
+                                    className="home-hero__stat"
+                                    variants={revealUp}
+                                >
+                                    <span>{item.label}</span>
+                                    <strong>{item.value}</strong>
+                                    <small>{item.detail}</small>
+                                </motion.article>
+                            ))}
+                        </motion.div>
+                    </motion.div>
+
+                    <motion.div
+                        className="home-hero__visual"
+                        initial={{ opacity: 0, x: 28 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.7, ease: "easeOut" }}
+                    >
+                        <div className="home-hero__card content-panel">
+                            <span className="info-chip">
+                                Available for fullstack opportunities
+                            </span>
+                            <div className="home-hero__portrait">
+                                <img src={profile.heroImage} alt={profile.name} />
+                            </div>
+                            <div className="home-hero__card-copy">
+                                <p>Main workflow</p>
+                                <h2>Laravel, React, PHP, JavaScript, dan sistem yang terasa matang dipakai.</h2>
+                                <ul>
+                                    <li>Lulus tahun 2025 dari Politeknik Negeri Malang.</li>
+                                    <li>Sering mengerjakan web berbasis kebutuhan bisnis nyata.</li>
+                                    <li>Nyaman merapikan struktur kode sekaligus pengalaman pengguna.</li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
 
-                    <div className="hero-content col-lg-6 order-lg-2 mt-3">
-                        <h2
-                            data-aos="fade-right"
-                            data-aos-delay="0"
-                            className="fw-bold lh-1 mb-3 hero-color"
+                        <motion.div
+                            className="home-hero__floating home-hero__floating--top"
+                            animate={{ y: [0, -10, 0] }}
+                            transition={{ duration: 4, repeat: Infinity }}
                         >
-                            Hi <span className="text-dark">There</span>, I'm
-                        </h2>
-                        <h1
-                            data-aos="fade-right"
-                            data-aos-delay="100"
-                            className="display-5 fw-bold text-body-emphasis lh-1 mb-3"
-                        >
-                            Rizqi Zamzami Jamil
-                        </h1>
-                        <h2
-                            data-aos="fade-right"
-                            data-aos-delay="200"
-                            className=""
-                        >
-                            I am a{" "}
-                            <span className="fw-bold hero-color">
-                                Web Developer
-                            </span>
-                        </h2>
+                            <strong>Wisudawan Terbaik</strong>
+                            <span>Milestone akademik 2025</span>
+                        </motion.div>
 
-                        <div
-                            data-aos="fade-right"
-                            data-aos-delay="300"
-                            className="social-buttons mt-4"
+                        <motion.div
+                            className="home-hero__floating home-hero__floating--bottom"
+                            animate={{ y: [0, 10, 0] }}
+                            transition={{ duration: 4.8, repeat: Infinity }}
                         >
-                            <SosmedButton
-                                link="https://www.facebook.com/rizam99zone"
-                                icon="fab fa-facebook-f"
-                                aria-label="See more for my Facebook"
-                            />
-                            <SosmedButton
-                                link="https://www.instagram.com/rizam_disini"
-                                icon="fab fa-instagram"
-                                aria-label="See more for my Instagram"
-                            />
-                            <SosmedButton
-                                link="https://www.linkedin.com/in/rizqi-zamzami-jamil"
-                                icon="fab fa-linkedin-in"
-                                aria-label="See more for my LinkedIn"
-                            />
-                            <SosmedButton
-                                link="https://github.com/RizqiZamzamiJamil/"
-                                icon="fab fa-github"
-                                aria-label="See more for my GitHub"
-                            />
-                        </div>
-
-                        <div data-aos="fade-right" data-aos-delay="400">
-                            <button className="btn btn-warning mt-3">
-                                <AnchorLink
-                                    className="anchor-link"
-                                    offset={80}
-                                    href="#contact-me"
-                                >
-                                    Contact Me{" "}
-                                    <i className="fa-brands fa-rocketchat"></i>
-                                </AnchorLink>
-                            </button>
-                        </div>
-                    </div>
+                            <strong>Based in Malang</strong>
+                            <span>Open for collaboration</span>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </section>
 
-            <section className="about">
+            <section className="section-shell">
                 <div className="container">
-                    <h1
-                        data-aos="fade-down"
-                        data-aos-delay="100"
-                        className="py-5 text-center"
-                    >
-                        About <span>Me</span>
-                    </h1>
+                    <div className="section-heading">
+                        <span className="section-heading__eyebrow">About Me</span>
+                        <h2 className="section-heading__title">
+                            Fullstack web developer yang nyaman menggabungkan
+                            <span> tampilan rapi</span> dan logika backend yang
+                            kuat.
+                        </h2>
+                        <p className="section-heading__description">
+                            Saya lebih suka membangun portfolio yang terasa
+                            matang: konten jelas, struktur terukur, dan tiap
+                            section punya alasan visual yang kuat.
+                        </p>
+                    </div>
 
-                    <div className="container bg-white content">
-                        <div className="row p-4 pb-0 pe-lg-0 align-items-center rounded-3 border shadow-lg">
-                            <div className="col-10 col-sm-8 col-lg-4 fotoo">
-                                <img
-                                    data-aos="fade-left"
-                                    data-aos-delay="400"
-                                    src={Foto2}
-                                    className="d-block mx-lg-auto img-fluid"
-                                    alt="Bootstrap Themes"
-                                    width="200"
-                                    height="500"
-                                />
+                    <div className="about-grid">
+                        <motion.article
+                            className="content-panel about-card"
+                            initial={{ opacity: 0, y: 22 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            <div className="about-card__image">
+                                <img src={profile.aboutImage} alt={profile.name} />
                             </div>
-
-                            <div className="col-lg-8">
-                                <h1
-                                    data-aos="fade-right"
-                                    data-aos-delay="600"
-                                    className="display-5 fw-bold text-body-emphasis lh-1 mb-3"
-                                >
-                                    I'm Rizqi Zamzami Jamil
-                                </h1>
-                                <p data-aos="fade-right" data-aos-delay="600">
-                                    Web Developer
-                                </p>
-                                <br />
-                                <p
-                                    data-aos="fade-right"
-                                    data-aos-delay="650"
-                                    className="lead"
-                                >
-                                    I am a Web Developer based in Malang. I have
-                                    an educational background in Business
-                                    Information System from{" "}
-                                    <b>Politeknik Negeri Malang</b>. I am very
-                                    excited to continue improving my programming
-                                    skills and developing various applications
-                                    and websites.
-                                </p>
-
-                                <div
-                                    data-aos="fade-right"
-                                    data-aos-delay="650"
-                                    className="d-flex gap-2"
-                                >
+                            <div className="about-card__copy">
+                                <span className="info-chip">Profil Singkat</span>
+                                <h3>{profile.name}</h3>
+                                <p>{profile.summary}</p>
+                                <p>{profile.secondarySummary}</p>
+                                <div className="about-card__actions">
                                     <a
-                                        type="button"
-                                        className="btn btn-outline-dark btn-warning"
-                                        href="https://drive.google.com/file/d/1nb3bKVORIM6C8vCNbUMSnI8WyHrsQJE8/view?usp=sharing"
+                                        href={profile.cvUrl}
                                         target="_blank"
+                                        rel="noreferrer"
+                                        className="portfolio-button"
                                     >
                                         Curriculum Vitae
                                     </a>
+                                    <Link
+                                        to="/education"
+                                        className="portfolio-button portfolio-button--ghost"
+                                    >
+                                        Education Journey
+                                    </Link>
                                 </div>
                             </div>
+                        </motion.article>
+
+                        <div className="about-side">
+                            <motion.article
+                                className="content-panel spotlight-card"
+                                initial={{ opacity: 0, y: 22 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.5, delay: 0.1 }}
+                            >
+                                <span className="spotlight-card__tag">
+                                    Achievement Spotlight
+                                </span>
+                                <h3>Wisudawan terbaik tahun 2025.</h3>
+                                <p>
+                                    Saya ingin pencapaian ini tidak berhenti
+                                    sebagai gelar, tapi lanjut menjadi standar
+                                    kualitas saat mengerjakan produk digital.
+                                </p>
+                            </motion.article>
+
+                            <motion.article
+                                className="content-panel strengths-card"
+                                initial={{ opacity: 0, y: 22 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.5, delay: 0.2 }}
+                            >
+                                <h3>Apa yang saya bawa ke tim</h3>
+                                <div className="strengths-card__list">
+                                    {coreStrengths.map((item) => (
+                                        <div
+                                            key={item.title}
+                                            className="strengths-card__item"
+                                        >
+                                            <strong>{item.title}</strong>
+                                            <p>{item.description}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </motion.article>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className="skill">
-                <h1
-                    data-aos="fade-down"
-                    data-aos-delay="100"
-                    className="pt-5 pb-3 text-center"
-                >
-                    My <span>Skills</span>
-                </h1>
-                <p
-                    data-aos="fade-down"
-                    data-aos-delay="300"
-                    className="text-center pb-5"
-                >
-                    In my programming career, I have had various abilities, both
-                    in the Frontend and Backend fields. I have a strong
-                    understanding of Frontend technologies such as HTML, CSS,
-                    and JavaScript, as well as popular frameworks such as
-                    Laravel, Vue JS, and React JS.
-                </p>
+            <section className="section-shell section-shell--muted">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-md-6">
-                            {skills.slice(0, 3).map((skill, index) => (
-                                <div key={index} className="skill-item mb-3">
-                                    <div
-                                        data-aos="fade-left"
-                                        data-aos-delay="600"
-                                        className="d-flex align-items-center"
-                                    >
-                                        <div
-                                            className="icon-wrapper"
-                                            style={{
-                                                width: "80px",
-                                                textAlign: "center",
-                                            }}
-                                        >
-                                            <i
-                                                className={`${skill.iconClass} icon-lg`}
-                                            ></i>
-                                        </div>
-                                        <div className="skill-info flex-grow-1 ms-3">
-                                            <div className="skill-name">
-                                                {skill.name}
-                                            </div>
-                                            <div className="progress">
-                                                <div
-                                                    data-aos="fade-right"
-                                                    data-aos-delay="1200"
-                                                    className="progress-bar"
-                                                    role="progressbar"
-                                                    style={{
-                                                        width: `${skill.progress}%`,
-                                                    }}
-                                                    aria-label={skill.name}
-                                                    aria-valuenow={
-                                                        skill.progress
-                                                    }
-                                                    aria-valuemin="0"
-                                                    aria-valuemax="100"
-                                                ></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                    <div className="section-heading">
+                        <span className="section-heading__eyebrow">Milestones</span>
+                        <h2 className="section-heading__title">
+                            Pencapaian yang membentuk cara saya <span>bekerja</span>.
+                        </h2>
+                    </div>
 
-                        <div className="col-md-6">
-                            {skills.slice(3, 6).map((skill, index) => (
-                                <div key={index} className="skill-item mb-3">
-                                    <div
-                                        data-aos="fade-right"
-                                        data-aos-delay="600"
-                                        className="d-flex align-items-center"
-                                    >
+                    <div className="achievement-grid">
+                        {achievementHighlights.map((item, index) => (
+                            <motion.article
+                                key={item.title}
+                                className="achievement-card content-panel"
+                                initial={{ opacity: 0, y: 24 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.5, delay: index * 0.08 }}
+                            >
+                                <div className="achievement-card__icon">
+                                    <i className={item.icon} aria-hidden="true"></i>
+                                </div>
+                                <span>{item.value}</span>
+                                <h3>{item.title}</h3>
+                                <p>{item.description}</p>
+                            </motion.article>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <section className="section-shell">
+                <div className="container">
+                    <div className="section-heading">
+                        <span className="section-heading__eyebrow">My Skills</span>
+                        <h2 className="section-heading__title">
+                            Skill chart yang lebih <span>mulus</span> dan lebih
+                            enak dibaca.
+                        </h2>
+                        <p className="section-heading__description">
+                            Saya susun skill section ini untuk menunjukkan
+                            keseimbangan antara frontend, backend, dan delivery
+                            mindset yang saya pakai saat membangun product.
+                        </p>
+                    </div>
+
+                    <div className="skills-layout">
+                        <motion.article
+                            className="content-panel skills-intro"
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            <span className="info-chip">Skill Map</span>
+                            <h3>
+                                Seimbang antara polishing UI dan menjaga fondasi
+                                backend tetap rapi.
+                            </h3>
+                            <p>
+                                Fokus utama saya ada di pengembangan website
+                                fullstack. Dari layout, komponen, interaksi, sampai
+                                struktur logic dan pengelolaan data, saya suka
+                                membuat semuanya terasa menyatu.
+                            </p>
+                            <div className="skills-intro__chips">
+                                {skillCategories.map((item) => (
+                                    <span key={item}>{item}</span>
+                                ))}
+                            </div>
+                        </motion.article>
+
+                        <div className="skills-grid">
+                            {skills.map((skill, index) => (
+                                <motion.article
+                                    key={skill.name}
+                                    className="skill-card content-panel"
+                                    initial={{ opacity: 0, y: 24 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.25 }}
+                                    transition={{
+                                        duration: 0.45,
+                                        delay: index * 0.06,
+                                    }}
+                                >
+                                    <div className="skill-card__header">
                                         <div
-                                            className="icon-wrapper"
+                                            className="skill-card__ring"
                                             style={{
-                                                width: "80px",
-                                                textAlign: "center",
+                                                "--skill-angle": `${skill.level * 3.6}deg`,
+                                                "--skill-color": skill.color,
                                             }}
                                         >
-                                            <i
-                                                className={`${skill.iconClass} icon-lg`}
-                                            ></i>
+                                            <div className="skill-card__ring-center">
+                                                {skill.level}%
+                                            </div>
                                         </div>
-                                        <div className="skill-info flex-grow-1 ms-3">
-                                            <div className="skill-name">
-                                                {skill.name}
+
+                                        <div className="skill-card__copy">
+                                            <div className="skill-card__label">
+                                                <i
+                                                    className={skill.iconClass}
+                                                    aria-hidden="true"
+                                                ></i>
+                                                <h3>{skill.name}</h3>
                                             </div>
-                                            <div className="progress">
-                                                <div
-                                                    data-aos="fade-right"
-                                                    data-aos-delay="1200"
-                                                    className="progress-bar"
-                                                    role="progressbar"
-                                                    style={{
-                                                        width: `${skill.progress}%`,
-                                                    }}
-                                                    aria-label={skill.name}
-                                                    aria-valuenow={
-                                                        skill.progress
-                                                    }
-                                                    aria-valuemin="0"
-                                                    aria-valuemax="100"
-                                                ></div>
-                                            </div>
+                                            <p>{skill.description}</p>
                                         </div>
                                     </div>
-                                </div>
+
+                                    <div className="skill-card__bar">
+                                        <motion.span
+                                            initial={{ width: 0 }}
+                                            whileInView={{
+                                                width: `${skill.level}%`,
+                                            }}
+                                            viewport={{ once: true }}
+                                            transition={{
+                                                duration: 0.9,
+                                                delay: 0.1 + index * 0.05,
+                                            }}
+                                            style={{
+                                                background: `linear-gradient(90deg, ${skill.color}, #f59e0b)`,
+                                            }}
+                                        ></motion.span>
+                                    </div>
+
+                                    <small>{skill.focus}</small>
+                                </motion.article>
                             ))}
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className="portofolio">
+            <section className="section-shell section-shell--accent">
                 <div className="container">
-                    <h1
-                        data-aos="fade-down"
-                        data-aos-delay="100"
-                        className="pt-5 pb-4 text-center"
-                    >
-                        My Latest <span>Projects</span>
-                    </h1>
-
-                    <div className="container">
-                        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                            <Card
-                                imgSrc={Project001}
-                                text="Developing a web-based document repository system for JTI Polinema with secure upload, organization, and sharing features."
-                                subtitle="PHP - Laravel"
-                                preview="#"
-                                code="#"
-                                delay="300"
-                            />
-                            <Card
-                                imgSrc={Project0}
-                                text="Developing a website for new student admissions for the Recognition of Past Learning (RPL) pathway at the STIMATA Malang campus."
-                                subtitle="PHP - Laravel"
-                                preview="#"
-                                code="#"
-                                delay="300"
-                            />
-                            <Card
-                                imgSrc={Project1}
-                                text="MSIB Batch 6 - A dynamic clinic website with a database that has the main features of online reservations and push notifications by email."
-                                subtitle="JavaScript - React.Js & Express.Js"
-                                preview="https://fe-msib-6-klinik-app-04.educalab.id/"
-                                code="https://github.com/RizqiZamzamiJamil/klinik-app"
-                                delay="600"
-                            />
-                        </div>
+                    <div className="section-heading">
+                        <span className="section-heading__eyebrow">
+                            Latest Projects
+                        </span>
+                        <h2 className="section-heading__title">
+                            Project terbaru sekarang diambil otomatis dari data
+                            project yang <span>paling baru</span>.
+                        </h2>
+                        <p className="section-heading__description">
+                            Section ini tidak lagi diisi manual satu per satu.
+                            Selama metadata project diperbarui, kartu terbaru di
+                            home akan ikut sinkron.
+                        </p>
                     </div>
 
-                    <div
-                        className="text-center my-4"
-                        data-aos="fade-down"
-                        data-aos-delay="100"
-                    >
-                        <Link className="btn more" to="/Portofolio/projects">
-                            More Projects Here{" "}
-                            <i className="fas fa-chevron-right"></i>
+                    <div className="latest-projects__top">
+                        <p>
+                            Semua card di bawah ini diurutkan dari project dengan
+                            tanggal update terbaru.
+                        </p>
+                        <Link
+                            to="/projects"
+                            className="portfolio-button portfolio-button--ghost"
+                        >
+                            View All Projects
                         </Link>
+                    </div>
+
+                    <div className="latest-projects__grid">
+                        {latestProjects.map((project, index) => (
+                            <Card
+                                key={project.id}
+                                project={project}
+                                featuredLabel={index === 0 ? "Newest" : "Recent"}
+                            />
+                        ))}
                     </div>
                 </div>
             </section>
 
             <CertificateCarousel />
 
-            <section className="contact" id="contact-me">
-                <h1
-                    data-aos="fade-down"
-                    data-aos-delay="100"
-                    className="py-5 text-center"
-                >
-                    Contact <span>Me</span>
-                </h1>
+            <section className="section-shell" id="contact-me">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-lg-5 px-5 mb-3">
-                            <h2 data-aos="fade-left" data-aos-delay="400">
-                                <b>Let's Talk</b>
-                            </h2>
-                            <p data-aos="fade-left" data-aos-delay="500">
-                                I'm happy if you want to talk to me. Feel free
-                                to get closer to me. Whether you have questions,
-                                want to collaborate, or simply say hello, I'm
-                                here and ready to connect. Don't hesitate to
-                                reach out through the contact form below.
-                            </p>
-                            <div className="contact-details">
-                                <div
-                                    data-aos="fade-left"
-                                    data-aos-delay="700"
-                                    className="contact-item"
-                                >
-                                    <i className="fa-solid fa-envelope"></i>
-                                    <p>rizqizamzamij@gmail.com</p>
-                                </div>
-                                <div
-                                    data-aos="fade-left"
-                                    data-aos-delay="800"
-                                    className="contact-item"
-                                >
-                                    <i className="fa-solid fa-phone"></i>
-                                    <p>+62 821 4708 3442</p>
-                                </div>
-                                <div
-                                    data-aos="fade-left"
-                                    data-aos-delay="900"
-                                    className="contact-item"
-                                >
-                                    <i className="fa-solid fa-location-dot"></i>
-                                    <p>Malang, East Java, Indonesia</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div className="section-heading">
+                        <span className="section-heading__eyebrow">Contact Me</span>
+                        <h2 className="section-heading__title">
+                            Siap ngobrol soal project, kolaborasi, atau peluang
+                            kerja yang <span>relevan</span>.
+                        </h2>
+                    </div>
 
-                        <div className="col-lg-7 px-5">
-                            <div className="contact-form">
-                                <form
-                                    className="needs-validation was-validated"
-                                    onSubmit={handleSubmit}
-                                >
-                                    <div
-                                        data-aos="fade-right"
-                                        data-aos-delay="400"
-                                        className="mb-3"
-                                    >
-                                        <label
-                                            htmlFor="name"
-                                            className="form-label"
-                                        >
-                                            Your Name
-                                        </label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="name"
-                                            name="name"
-                                            placeholder="Enter your name"
-                                            required
-                                            value={name}
-                                            onChange={(e) =>
-                                                setName(e.target.value)
-                                            }
-                                        />
+                    <div className="contact-layout">
+                        <motion.article
+                            className="content-panel contact-card"
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            <span className="info-chip">Let&apos;s Talk</span>
+                            <h3>
+                                Terbuka untuk freelance, kolaborasi, maupun role
+                                fullstack web developer.
+                            </h3>
+                            <p>
+                                Kalau kamu punya ide, kebutuhan website, atau
+                                ingin diskusi soal kemungkinan kerja sama, kirim
+                                pesan saja. Setelah submit, form ini akan langsung
+                                mengarahkan ke WhatsApp.
+                            </p>
+
+                            <div className="contact-card__list">
+                                {contactDetails.map((item) => (
+                                    <div key={item.label} className="contact-item">
+                                        <div className="contact-item__icon">
+                                            <i
+                                                className={item.icon}
+                                                aria-hidden="true"
+                                            ></i>
+                                        </div>
+                                        <div>
+                                            <span>{item.label}</span>
+                                            <strong>{item.value}</strong>
+                                        </div>
                                     </div>
-                                    <div
-                                        data-aos="fade-right"
-                                        data-aos-delay="500"
-                                        className="mb-3"
-                                    >
-                                        <label
-                                            htmlFor="email"
-                                            className="form-label"
-                                        >
-                                            Email Address
-                                        </label>
-                                        <input
-                                            type="email"
-                                            className="form-control"
-                                            id="email"
-                                            name="email"
-                                            placeholder="Enter your email"
-                                            required
-                                            value={email}
-                                            onChange={(e) =>
-                                                setEmail(e.target.value)
-                                            }
-                                        />
-                                    </div>
-                                    <div
-                                        data-aos="fade-right"
-                                        data-aos-delay="600"
-                                        className="mb-3"
-                                    >
-                                        <label
-                                            htmlFor="message"
-                                            className="form-label"
-                                        >
-                                            Message
-                                        </label>
-                                        <textarea
-                                            className="form-control"
-                                            id="message"
-                                            name="message"
-                                            rows="3"
-                                            placeholder="Enter your message"
-                                            required
-                                            value={message}
-                                            onChange={(e) =>
-                                                setMessage(e.target.value)
-                                            }
-                                        ></textarea>
-                                    </div>
-                                    <button
-                                        data-aos="fade-right"
-                                        data-aos-delay="700"
-                                        type="submit"
-                                        className="btn btn-warning"
-                                    >
-                                        Submit
-                                    </button>
-                                </form>
+                                ))}
                             </div>
-                        </div>
+                        </motion.article>
+
+                        <motion.article
+                            className="content-panel contact-form-card"
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 0.5, delay: 0.08 }}
+                        >
+                            <form className="portfolio-form" onSubmit={handleSubmit}>
+                                <div className="portfolio-form__field">
+                                    <label htmlFor="name">Nama</label>
+                                    <input
+                                        id="name"
+                                        type="text"
+                                        placeholder="Masukkan nama kamu"
+                                        required
+                                        value={name}
+                                        onChange={(event) =>
+                                            setName(event.target.value)
+                                        }
+                                    />
+                                </div>
+
+                                <div className="portfolio-form__field">
+                                    <label htmlFor="email">Email</label>
+                                    <input
+                                        id="email"
+                                        type="email"
+                                        placeholder="nama@email.com"
+                                        required
+                                        value={email}
+                                        onChange={(event) =>
+                                            setEmail(event.target.value)
+                                        }
+                                    />
+                                </div>
+
+                                <div className="portfolio-form__field">
+                                    <label htmlFor="message">Pesan</label>
+                                    <textarea
+                                        id="message"
+                                        rows="5"
+                                        placeholder="Ceritakan kebutuhan atau ide project kamu"
+                                        required
+                                        value={message}
+                                        onChange={(event) =>
+                                            setMessage(event.target.value)
+                                        }
+                                    ></textarea>
+                                </div>
+
+                                <button type="submit" className="portfolio-button">
+                                    Kirim Pesan
+                                </button>
+                            </form>
+                        </motion.article>
                     </div>
                 </div>
             </section>
@@ -537,7 +579,7 @@ const Home = () => {
             <ScrollToTopButton />
             <ConfirmationModal
                 show={showConfirmModal}
-                handleClose={handleCloseModal}
+                handleClose={() => setShowConfirmModal(false)}
                 handleConfirm={handleConfirm}
             />
         </main>

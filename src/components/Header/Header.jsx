@@ -1,34 +1,62 @@
 import { Outlet, Link, useLocation } from "react-router-dom";
 import "./Style.css";
 
+const navigationItems = [
+    { label: "Home", to: "/" },
+    { label: "Projects", to: "/projects" },
+    { label: "Education", to: "/education" },
+];
+
 const Header = () => {
     const location = useLocation();
-    const isActive = (path) => {
-        return location.pathname === path ? "nav-link aktif" : "nav-link";
-    };
+    const isActive = (path) =>
+        path === "/"
+            ? location.pathname === path
+            : location.pathname.startsWith(path);
 
     return (
         <>
-        <nav>
-            <header className="border-bottom">
-                <div className="container d-flex flex-wrap justify-content-center py-3 mb-0 ">
-                    <Link to="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                        <span className="fs-4 brand"><i className="fa-brands fa-react"></i> Ri<span className="text-dark">zam</span></span>
+            <header className="site-header">
+                <nav className="container site-nav" aria-label="Primary">
+                    <Link to="/" className="site-brand">
+                        <span className="site-brand__icon">
+                            <i className="fa-brands fa-react" aria-hidden="true"></i>
+                        </span>
+                        <span>
+                            Rizam<span className="site-brand__accent">.dev</span>
+                        </span>
                     </Link>
 
-                    <ul className="nav nav-pills">
-                        <li className="nav-item"><Link className={isActive("/Portofolio/")} to="Portofolio/">Home</Link></li>
-                        <li className="nav-item"><Link className={isActive("/Portofolio/projects")} to="Portofolio/projects">Projects</Link></li>
-                        <li className="nav-item"><Link className={isActive("/Portofolio/educations")} to="Portofolio/educations">Educations</Link></li>
-                    </ul>
-                </div>
-                
-            </header>
-        </nav>
+                    <div className="site-nav__links">
+                        {navigationItems.map((item) => (
+                            <Link
+                                key={item.to}
+                                className={
+                                    isActive(item.to)
+                                        ? "site-nav__link is-active"
+                                        : "site-nav__link"
+                                }
+                                to={item.to}
+                            >
+                                {item.label}
+                            </Link>
+                        ))}
+                    </div>
 
-        <Outlet />
+                    <a
+                        className="site-nav__cta"
+                        href="https://drive.google.com/file/d/1nb3bKVORIM6C8vCNbUMSnI8WyHrsQJE8/view?usp=sharing"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        View CV
+                    </a>
+                </nav>
+            </header>
+
+            <Outlet />
         </>
-    )
+    );
 };
 
 export default Header;

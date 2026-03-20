@@ -1,9 +1,16 @@
 import "./Style.css";
 
-const SosmedButton = ({ link, icon }) => {
+const SosmedButton = ({ link, icon, label }) => {
     return (
-        <a href={link} target="_blank" rel="noopener noreferrer" className="btn btn-outline-warning me-2 rounded-circle sosmed">
-            <i className={icon}></i><span className="visually-hidden">Facebook</span>
+        <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link-button"
+            aria-label={label}
+            title={label}
+        >
+            <i className={icon} aria-hidden="true"></i>
         </a>
     );
 };

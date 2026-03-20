@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">SD Negeri Sendang</title>
+  <desc id="desc">Ilustrasi kartu sekolah dasar SD Negeri Sendang di Kediri.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef3c7" />
+      <stop offset="100%" stop-color="#fde68a" />
+    </linearGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#d97706" stroke-opacity=".12" stroke-width="2" />
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <rect width="1600" height="900" fill="url(#grid)" />
+  <circle cx="1330" cy="170" r="150" fill="#f59e0b" fill-opacity=".16" />
+  <circle cx="260" cy="760" r="210" fill="#f97316" fill-opacity=".14" />
+  <rect x="130" y="190" width="500" height="400" rx="30" fill="#ffffff" fill-opacity=".78" />
+  <rect x="170" y="240" width="420" height="290" rx="24" fill="#f59e0b" fill-opacity=".18" />
+  <rect x="215" y="295" width="125" height="235" rx="18" fill="#fff7ed" />
+  <rect x="362" y="295" width="125" height="235" rx="18" fill="#fff7ed" />
+  <rect x="509" y="295" width="42" height="235" rx="12" fill="#fff7ed" />
+  <rect x="190" y="225" width="380" height="34" rx="17" fill="#f97316" fill-opacity=".22" />
+  <text x="760" y="300" fill="#7c2d12" font-size="84" font-family="Space Grotesk, Arial, sans-serif" font-weight="700">SD Negeri Sendang</text>
+  <text x="760" y="392" fill="#92400e" font-size="36" font-family="Plus Jakarta Sans, Arial, sans-serif">Kediri • 2009 - 2015</text>
+  <text x="760" y="480" fill="#78350f" font-size="48" font-family="Plus Jakarta Sans, Arial, sans-serif" font-weight="600">Fondasi belajar, disiplin, dan rasa ingin tahu.</text>
+  <text x="760" y="560" fill="#92400e" font-size="32" font-family="Plus Jakarta Sans, Arial, sans-serif">Awal perjalanan pendidikan formal dengan kebiasaan belajar yang konsisten.</text>
+</svg>

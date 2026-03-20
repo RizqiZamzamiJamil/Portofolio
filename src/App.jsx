@@ -9,17 +9,17 @@ import Project from "./pages/Project/Project";
 import "./App.css";
 
 export default function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Header />}>
-          <Route index path="Portofolio" element={<Home />} />
-          <Route path="Portofolio/projects" element={<Project />} />
-          <Route path="Portofolio/educations" element={<Education />} />
-          <Route path="*" element={<NoPage />} />
-        </Route>
-      </Routes>
-      <Footer />
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
+            <Routes>
+                <Route path="/" element={<Header />}>
+                    <Route index element={<Home />} />
+                    <Route path="projects" element={<Project />} />
+                    <Route path="education" element={<Education />} />
+                    <Route path="*" element={<NoPage />} />
+                </Route>
+            </Routes>
+            <Footer />
+        </BrowserRouter>
+    );
 }

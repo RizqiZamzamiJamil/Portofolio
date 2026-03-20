@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Politeknik Negeri Malang</title>
+  <desc id="desc">Ilustrasi kartu kampus Politeknik Negeri Malang.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fee2e2" />
+      <stop offset="100%" stop-color="#fecaca" />
+    </linearGradient>
+    <pattern id="grid" width="58" height="58" patternUnits="userSpaceOnUse">
+      <path d="M 58 0 L 0 0 0 58" fill="none" stroke="#be123c" stroke-opacity=".10" stroke-width="2" />
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)" />
+  <rect width="1600" height="900" fill="url(#grid)" />
+  <circle cx="1320" cy="170" r="145" fill="#f97316" fill-opacity=".12" />
+  <circle cx="280" cy="760" r="220" fill="#e11d48" fill-opacity=".10" />
+  <rect x="150" y="180" width="540" height="500" rx="36" fill="#ffffff" fill-opacity=".82" />
+  <rect x="210" y="240" width="420" height="92" rx="24" fill="#f97316" fill-opacity=".14" />
+  <rect x="210" y="370" width="420" height="250" rx="28" fill="#fff1f2" />
+  <path d="M290 498 h260" stroke="#e11d48" stroke-width="22" stroke-linecap="round" />
+  <path d="M360 430 h120" stroke="#fb7185" stroke-width="16" stroke-linecap="round" />
+  <circle cx="420" cy="560" r="58" fill="#f97316" fill-opacity=".18" />
+  <text x="760" y="270" fill="#881337" font-size="82" font-family="Space Grotesk, Arial, sans-serif" font-weight="700">Politeknik Negeri Malang</text>
+  <text x="760" y="362" fill="#9f1239" font-size="36" font-family="Plus Jakarta Sans, Arial, sans-serif">Malang • 2021 - 2025</text>
+  <text x="760" y="452" fill="#881337" font-size="48" font-family="Plus Jakarta Sans, Arial, sans-serif" font-weight="600">Business Information System dan kelulusan tahun 2025.</text>
+  <text x="760" y="532" fill="#9f1239" font-size="32" font-family="Plus Jakarta Sans, Arial, sans-serif">Periode pendalaman web development, sistem informasi, dan pencapaian wisudawan terbaik.</text>
+</svg>
