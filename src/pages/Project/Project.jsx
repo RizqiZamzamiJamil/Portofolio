@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import Card from "../../components/Card/Card";
-import { latestProjects, projects } from "../../data/portfolioData";
+import { highlightedProject, projects } from "../../data/portfolioData";
 import {
     defaultViewport,
     heroItem,
@@ -18,11 +18,14 @@ const Projects = () => {
     const [activeCategory, setActiveCategory] = useState("All");
 
     const filteredProjects = useMemo(() => {
-        if (activeCategory === "All") {
-            return projects;
-        }
+        const projectList =
+            activeCategory === "All"
+                ? projects
+                : projects.filter((project) => project.category === activeCategory);
 
-        return projects.filter((project) => project.category === activeCategory);
+        return [...projectList].sort(
+            (left, right) => new Date(right.updatedAt) - new Date(left.updatedAt)
+        );
     }, [activeCategory]);
 
     return (
@@ -87,8 +90,8 @@ const Projects = () => {
                                 variants={heroItem}
                             >
                                 <motion.img
-                                    src={latestProjects[0].image}
-                                    alt={latestProjects[0].title}
+                                    src={highlightedProject.image}
+                                    alt={highlightedProject.title}
                                     variants={heroItem}
                                 />
                             </motion.div>
@@ -100,13 +103,13 @@ const Projects = () => {
                                     className="info-chip"
                                     variants={heroItem}
                                 >
-                                    Newest Project
+                                    Highlight Project
                                 </motion.span>
                                 <motion.h2 variants={heroItem}>
-                                    {latestProjects[0].title}
+                                    {highlightedProject.title}
                                 </motion.h2>
                                 <motion.p variants={heroItem}>
-                                    {latestProjects[0].highlight}
+                                    {highlightedProject.highlight}
                                 </motion.p>
                             </motion.div>
                         </motion.article>

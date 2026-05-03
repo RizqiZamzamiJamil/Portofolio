@@ -1,10 +1,11 @@
 .certificates-section {
+    scroll-margin-top: 5.5rem;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.56));
 }
 
 .certificates-layout {
     display: grid;
-    grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
+    grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.1fr);
     gap: 1rem;
     align-items: start;
 }
@@ -32,13 +33,22 @@
 }
 
 .certificate-spotlight__image {
-    min-height: clamp(26rem, 48vw, 33rem);
+    min-height: clamp(18rem, 28vw, 24rem);
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     border-radius: 1rem;
     padding: 1rem;
+}
+
+.certificate-spotlight--portrait .certificate-spotlight__image {
+    min-height: clamp(26rem, 48vw, 33rem);
+}
+
+.certificate-spotlight--landscape .certificate-spotlight__image {
+    aspect-ratio: 16 / 10;
+    min-height: clamp(14rem, 23vw, 19rem);
 }
 
 .certificate-spotlight__image img,
@@ -171,8 +181,18 @@
 }
 
 .certificate-gallery__thumb img {
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.3s ease;
+}
+
+.certificate-gallery__thumb--portrait img {
+    width: auto;
+    max-width: 100%;
+}
+
+.certificate-gallery__thumb--landscape img {
+    height: auto;
+    max-height: 100%;
 }
 
 .certificate-gallery__item:hover .certificate-gallery__thumb img {
@@ -240,6 +260,15 @@
     box-shadow: 0 26px 60px rgba(20, 17, 15, 0.22);
 }
 
+.certificate-modal__dialog--landscape {
+    width: min(94vw, 72rem);
+    grid-template-columns: minmax(0, 1.35fr) minmax(230px, 0.65fr);
+}
+
+.certificate-modal__dialog--portrait {
+    width: min(90vw, 54rem);
+}
+
 .certificate-modal__close {
     position: absolute;
     top: 0.85rem;
@@ -263,6 +292,11 @@
     height: auto;
 }
 
+.certificate-modal__dialog--landscape .certificate-modal__image img {
+    width: 100%;
+    max-height: min(76vh, 42rem);
+}
+
 .certificate-modal__copy {
     align-self: center;
 }
@@ -274,6 +308,10 @@
     }
 
     .certificate-spotlight__image {
+        min-height: 18rem;
+    }
+
+    .certificate-spotlight--portrait .certificate-spotlight__image {
         min-height: 25rem;
     }
 
@@ -315,5 +353,9 @@
 
     .certificate-modal__image img {
         max-height: 58vh;
+    }
+
+    .certificate-spotlight--landscape .certificate-spotlight__image {
+        min-height: 12rem;
     }
 }

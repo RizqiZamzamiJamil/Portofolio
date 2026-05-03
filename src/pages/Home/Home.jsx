@@ -219,7 +219,7 @@ const Home = () => {
                                 },
                             }}
                         >
-                            <strong>Based in Malang</strong>
+                            <strong>Based in Kediri</strong>
                             <span>Open for collaboration</span>
                         </motion.div>
                     </motion.div>

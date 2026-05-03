@@ -4,7 +4,12 @@ import { createPortal } from "react-dom";
 import { certificates, profile } from "../../data/portfolioData";
 import "./Certificate.css";
 
-const spotlightCertificate = certificates[0];
+const getCertificateOrientation = (certificate) =>
+    certificate.orientation === "portrait" ? "portrait" : "landscape";
+
+const spotlightCertificate =
+    certificates.find((certificate) => certificate.isHighlighted) ||
+    certificates[0];
 
 const CertificateCarousel = () => {
     const galleryRef = useRef(null);
@@ -44,7 +49,7 @@ const CertificateCarousel = () => {
     }, [selectedCertificate]);
 
     return (
-        <section className="section-shell certificates-section">
+        <section className="section-shell certificates-section" id="certificates">
             <div className="container">
                 <div className="section-heading">
                     <span className="section-heading__eyebrow">Certificates</span>
@@ -58,7 +63,9 @@ const CertificateCarousel = () => {
 
                 <div className="certificates-layout">
                     <motion.article
-                        className="certificate-spotlight content-panel"
+                        className={`certificate-spotlight certificate-spotlight--${getCertificateOrientation(
+                            spotlightCertificate
+                        )} content-panel`}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, amount: 0.2 }}
@@ -144,10 +151,16 @@ const CertificateCarousel = () => {
                                 <button
                                     key={item.title}
                                     type="button"
-                                    className="certificate-gallery__item"
+                                    className={`certificate-gallery__item certificate-gallery__item--${getCertificateOrientation(
+                                        item
+                                    )}`}
                                     onClick={() => setSelectedCertificate(item)}
                                 >
-                                    <div className="certificate-gallery__thumb">
+                                    <div
+                                        className={`certificate-gallery__thumb certificate-gallery__thumb--${getCertificateOrientation(
+                                            item
+                                        )}`}
+                                    >
                                         <img src={item.image} alt={item.title} />
                                         <span className="certificate-gallery__zoom">
                                             Zoom
@@ -177,7 +190,9 @@ const CertificateCarousel = () => {
                             onClick={() => setSelectedCertificate(null)}
                         >
                             <motion.div
-                                className="certificate-modal__dialog"
+                                className={`certificate-modal__dialog certificate-modal__dialog--${getCertificateOrientation(
+                                    selectedCertificate
+                                )}`}
                                 initial={{ opacity: 0, scale: 0.96, y: 16 }}
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
                                 exit={{ opacity: 0, scale: 0.96, y: 16 }}

@@ -9,6 +9,7 @@ import HeroPortrait from "../assets/foto.png";
 import AboutPortrait from "../assets/foto2.png";
 import GamelabCertificate from "../assets/gamelab2.jpg";
 import JavascriptCertificate from "../assets/javascript.jpg";
+import ProjectLMS from "../assets/lms.png";
 import MsibCertificate from "../assets/msib (2).jpg";
 import ProjectRpl from "../assets/project0.png";
 import ProjectRepository from "../assets/project001.png";
@@ -21,21 +22,22 @@ import ProjectMaut from "../assets/project6.png";
 import ProjectSurvey from "../assets/project7.png";
 import ProjectManagement from "../assets/Project8.png";
 import ProjectClinic from "../assets/ProjectNew.png";
-import ProjectLMS from "../assets/lms.png";
 import ReactCertificate from "../assets/react.jpg";
+import ProjectSinggahLoka from "../assets/singgah-loka.png";
 import VueCertificate from "../assets/vue.jpg";
+import BestGraduateCertificate from "../assets/Wisudawan Terbaik Prodi.jpg";
 import WordpressCertificate from "../assets/wordpress.png";
 
 export const profile = {
     name: "Rizqi Zamzami Jamil",
     shortName: "Rizam",
     role: "Fullstack Web Developer",
-    location: "Malang, East Java, Indonesia",
+    location: "Kediri, East Java, Indonesia",
     email: "rizqizamzamij@gmail.com",
     phone: "+62 821 4708 3442",
     heroImage: HeroPortrait,
     aboutImage: AboutPortrait,
-    cvUrl: "https://drive.google.com/file/d/1nb3bKVORIM6C8vCNbUMSnI8WyHrsQJE8/view?usp=sharing",
+    cvUrl: "https://drive.google.com/file/d/1J5-z9hUHXmMpZxg_RZIV9GZGptyGIuYq/view?usp=sharing",
     certificateCollectionUrl:
         "https://drive.google.com/file/d/1gsLwGgcfcvmGLtGij5DAHWtX5mfgtq4L/view?usp=sharing",
     heroDescription:
@@ -172,13 +174,13 @@ export const skills = [
     },
 ];
 
-export const projects = [
+const projectItems = [
     {
         id: "lms-nazmalogy",
         title: "LMS NaZMaLogy",
         summary:
             "Website LMS atau course online NaZMalogy untuk pengelolaan kelas, materi, dan alur belajar peserta.",
-        stack: ["Laravel", "Livewire", "Alpine.js", "MySQL"],
+        stack: ["Laravel", "Livewire", "Alpine.js", "Tailwind CSS"],
         category: "Fullstack",
         role: "Kemnaker Internship",
         updatedAt: "2026-03-20",
@@ -189,17 +191,32 @@ export const projects = [
             "Proyek hasil magang Kemnaker bulan ke-3 dengan stack Laravel, Livewire, dan Alpine.js.",
     },
     {
+        id: "singgah-loka",
+        title: "Singgah Loka",
+        summary:
+            "Website reservasi penginapan untuk wilayah Yogyakarta dan sekitarnya.",
+        stack: ["Laravel", "Alpine.js", "Tailwind CSS"],
+        category: "Fullstack",
+        role: "Kemnaker Internship",
+        updatedAt: "2026-05-03",
+        image: ProjectSinggahLoka,
+        liveUrl: "https://silo.nazmalogy.com/",
+        codeUrl: null,
+        highlight:
+            "Platform reservasi penginapan Magang Kemnaker / Nazma Office yang sedang dikembangkan ulang pada staging repository.",
+    },
+    {
         id: "document-repository",
         title: "Document Repository System",
         summary:
             "Repository dokumen web untuk JTI Polinema dengan upload, klasifikasi file, dan akses yang lebih aman.",
-        stack: ["Laravel", "PHP", "MySQL", "Bootstrap"],
+        stack: ["Laravel", "Livewire", "Bootstrap"],
         category: "Fullstack",
         role: "Thesis Project",
         updatedAt: "2025-07-30",
         image: ProjectRepository,
         liveUrl: null,
-        codeUrl: "https://github.com/RizqiZamzamiJamil?tab=repositories",
+        codeUrl: null,
         highlight:
             "Proyek skripsi dengan fokus repository dan alur data dokumen.",
     },
@@ -207,13 +224,13 @@ export const projects = [
         id: "stimata-rpl",
         title: "RPL Admission Website",
         summary: "Website penerimaan mahasiswa jalur RPL untuk STIMATA Malang.",
-        stack: ["Laravel", "PHP", "Blade", "Bootstrap"],
+        stack: ["Laravel", "Livewire", "Bootstrap"],
         category: "Fullstack",
         role: "PKL Semester 7",
         updatedAt: "2024-11-06",
         image: ProjectRpl,
         liveUrl: null,
-        codeUrl: "https://github.com/RizqiZamzamiJamil?tab=repositories",
+        codeUrl: null,
         highlight:
             "Proyek PKL semester 7 untuk alur informasi dan pendaftaran mahasiswa.",
     },
@@ -221,7 +238,7 @@ export const projects = [
         id: "clinic-app",
         title: "Clinic Reservation App",
         summary: "Website klinik dengan reservasi online dan notifikasi email.",
-        stack: ["React", "Express", "JavaScript", "Email Notification"],
+        stack: ["React", "Express", "Tailwind CSS"],
         category: "Fullstack",
         role: "Internship Build",
         updatedAt: "2024-06-14",
@@ -236,7 +253,7 @@ export const projects = [
         title: "Simple Project Management",
         summary:
             "Aplikasi manajemen project sederhana untuk mengatur project dan tim.",
-        stack: ["Vue", "JavaScript", "Local State"],
+        stack: ["Vue", "Tailwind CSS"],
         category: "Frontend",
         role: "Dashboard Practice",
         updatedAt: "2024-04-30",
@@ -257,8 +274,9 @@ export const projects = [
         role: "UI Practice",
         updatedAt: "2023-04-25",
         image: ProjectTodoVue,
-        liveUrl: "https://rizqizamzamijamil.github.io/To_Do_List/",
-        codeUrl: "https://github.com/RizqiZamzamiJamil/To_Do_List",
+        liveUrl: null,
+        codeUrl: null,
+        isHidden: true,
         highlight:
             "Menjaga pengalaman input dan pengelolaan task tetap cepat dan sederhana.",
     },
@@ -272,16 +290,18 @@ export const projects = [
         role: "Brand Website",
         updatedAt: "2024-03-20",
         image: ProjectNyahSiok,
-        liveUrl: "https://rizqizamzamijamil.github.io/Website_UMKM_Nyah_Siok/",
-        codeUrl: "https://github.com/RizqiZamzamiJamil/Website_UMKM_Nyah_Siok",
+        liveUrl: null,
+        codeUrl: null,
+        isHidden: true,
         highlight:
             "Menekankan tampilan landing page yang lebih komunikatif untuk promosi UMKM.",
     },
     {
         id: "cinema-list",
         title: "Cinema List Search",
-        summary: "Eksplorasi pencarian film berbasis API dengan jQuery Ajax.",
-        stack: ["JavaScript", "API", "jQuery", "Bootstrap"],
+        summary:
+            "Eksplorasi pencarian film berbasis API dengan jQuery Ajax dengan framework VueJs.",
+        stack: ["Vue", "API", "Tailwind CSS"],
         category: "Frontend",
         role: "API Exploration",
         updatedAt: "2024-03-10",
@@ -301,8 +321,9 @@ export const projects = [
         role: "Landing Page",
         updatedAt: "2024-02-18",
         image: ProjectFoodLanding,
-        liveUrl: "https://rizqizamzamijamil.github.io/Landing_Page_Sederhana/",
-        codeUrl: "https://github.com/RizqiZamzamiJamil/Landing_Page_Sederhana",
+        liveUrl: null,
+        codeUrl: null,
+        isHidden: true,
         highlight:
             "Mengasah kemampuan visual hierarchy dan layout responsive tanpa framework.",
     },
@@ -311,7 +332,7 @@ export const projects = [
         title: "Peek Survey Mobile Collaboration",
         summary:
             "Project kolaboratif aplikasi survey mobile dengan Flutter dan Laravel.",
-        stack: ["Flutter", "Dart", "Laravel", "API"],
+        stack: ["Flutter", "Laravel", "API"],
         category: "Mobile",
         role: "Collaborative Project",
         updatedAt: "2023-12-25",
@@ -326,7 +347,7 @@ export const projects = [
         title: "Decision Support System MAUT",
         summary:
             "Sistem pendukung keputusan berbasis metode MAUT dengan CodeIgniter 4.",
-        stack: ["PHP", "CodeIgniter 4", "Decision Support"],
+        stack: ["CodeIgniter 4", "Tailwind CSS"],
         category: "Fullstack",
         role: "Analytical System",
         updatedAt: "2023-12-12",
@@ -342,7 +363,7 @@ export const projects = [
         title: "Si Launsh Business Website",
         summary:
             "Website fullstack untuk usaha cuci sepatu dan helm yang dibangun dengan CodeIgniter 4.",
-        stack: ["PHP", "CodeIgniter 4", "MySQL"],
+        stack: ["CodeIgniter 4", "Bootstrap"],
         category: "Fullstack",
         role: "Business Platform",
         updatedAt: "2023-07-15",
@@ -354,17 +375,32 @@ export const projects = [
     },
 ];
 
+export const projects = projectItems.filter((project) => !project.isHidden);
+
+export const highlightedProject =
+    projects.find((project) => project.id === "lms-nazmalogy") || projects[0];
+
 export const latestProjects = [...projects]
     .sort((left, right) => new Date(right.updatedAt) - new Date(left.updatedAt))
     .slice(0, 3);
 
 export const certificates = [
     {
+        title: "Penghargaan Wisudawan Terbaik Prodi",
+        issuer: "Politeknik Negeri Malang",
+        focus: "Penghargaan akademik sebagai wisudawan terbaik program studi pada Wisuda ke-70.",
+        issuedAt: "2025",
+        image: BestGraduateCertificate,
+        orientation: "landscape",
+        isHighlighted: true,
+    },
+    {
         title: "Pemrograman Software Komputer",
         issuer: "BNSP",
         focus: "Standar kompetensi profesi bidang software.",
         issuedAt: "2025",
         image: BnspCertificate,
+        orientation: "portrait",
     },
     {
         title: "Web 3.0 & Blockchain",
@@ -372,6 +408,7 @@ export const certificates = [
         focus: "Pengenalan konsep blockchain dan ekosistem web modern.",
         issuedAt: "2025",
         image: BlockchainCertificate,
+        orientation: "landscape",
     },
     {
         title: "WordPress Development",
@@ -379,6 +416,7 @@ export const certificates = [
         focus: "Website management dan development workflow berbasis WordPress.",
         issuedAt: "2024",
         image: WordpressCertificate,
+        orientation: "landscape",
     },
     {
         title: "MSIB Batch 6",
@@ -386,6 +424,7 @@ export const certificates = [
         focus: "Magang dan studi independen bersertifikat dengan pendekatan industri.",
         issuedAt: "2024",
         image: MsibCertificate,
+        orientation: "landscape",
     },
     {
         title: "Frontend Development Class",
@@ -393,6 +432,7 @@ export const certificates = [
         focus: "Pendalaman web frontend sebagai jalur belajar industri.",
         issuedAt: "2024",
         image: GamelabCertificate,
+        orientation: "landscape",
     },
     {
         title: "React JS Certification",
@@ -400,6 +440,7 @@ export const certificates = [
         focus: "Komponen, state, dan antarmuka interaktif dengan React.",
         issuedAt: "2024",
         image: ReactCertificate,
+        orientation: "landscape",
     },
     {
         title: "Vue JS Certification",
@@ -407,6 +448,7 @@ export const certificates = [
         focus: "Reactive interface dan eksplorasi SPA berbasis Vue.",
         issuedAt: "2024",
         image: VueCertificate,
+        orientation: "landscape",
     },
     {
         title: "JavaScript Certification",
@@ -414,6 +456,7 @@ export const certificates = [
         focus: "Dasar logika pemrograman client-side dan interaksi dinamis.",
         issuedAt: "2024",
         image: JavascriptCertificate,
+        orientation: "landscape",
     },
     {
         title: "Bootstrap Certification",
@@ -421,6 +464,7 @@ export const certificates = [
         focus: "Responsive interface dengan sistem layout komponen Bootstrap.",
         issuedAt: "2024",
         image: BootstrapCertificate,
+        orientation: "landscape",
     },
 ];
 

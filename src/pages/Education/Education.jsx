@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import {
     achievementHighlights,
@@ -14,6 +15,20 @@ import {
 import "./Style.css";
 
 const Education = () => {
+    useEffect(() => {
+        const target = window.location.hash
+            ? document.querySelector(window.location.hash)
+            : null;
+
+        if (!target) {
+            return;
+        }
+
+        requestAnimationFrame(() => {
+            target.scrollIntoView({ block: "start" });
+        });
+    }, []);
+
     return (
         <main className="page-shell education-page">
             <section className="section-shell education-hero">
@@ -97,6 +112,7 @@ const Education = () => {
                         {educationTimeline.map((item, index) => (
                             <motion.article
                                 key={item.school}
+                                id={`education-step-${index}`}
                                 className={
                                     index % 2 === 0
                                         ? "education-step"

@@ -72,7 +72,7 @@ const Card = ({ project, featuredLabel, delay = 0 }) => {
                             rel="noreferrer"
                             className="project-card__link"
                         >
-                            Live Preview
+                            View Project
                             <i
                                 className="fa-solid fa-arrow-up-right-from-square"
                                 aria-hidden="true"
@@ -88,7 +88,10 @@ const Card = ({ project, featuredLabel, delay = 0 }) => {
                             className="project-card__link project-card__link--secondary"
                         >
                             Source Code
-                            <i className="fa-solid fa-code" aria-hidden="true"></i>
+                            <i
+                                className="fa-solid fa-code"
+                                aria-hidden="true"
+                            ></i>
                         </a>
                     ) : null}
                 </div>
