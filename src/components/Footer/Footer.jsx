@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import brandLogo from "../../assets/logo.png";
 import { profile, socialLinks } from "../../data/portfolioData";
 import SosmedButton from "../Sosmed/SosmedButton";
 import "./Style.css";
@@ -16,11 +17,11 @@ const Footer = () => {
                 <div className="site-footer__brand">
                     <Link to="/" className="site-footer__logo">
                         <span className="site-footer__logo-icon">
-                            <i className="fa-brands fa-react" aria-hidden="true"></i>
+                            <img src={brandLogo} alt="" aria-hidden="true" />
                         </span>
                         <span>
                             {profile.shortName}
-                            <span className="site-footer__logo-accent">.dev</span>
+                            <span className="site-footer__logo-accent">.Dev</span>
                         </span>
                     </Link>
 

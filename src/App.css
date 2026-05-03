@@ -1,17 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap");
 
 :root {
-    --bg-color: #f4efe6;
-    --surface-color: #fffdf8;
-    --surface-muted: rgba(255, 255, 255, 0.76);
-    --surface-strong: #fff5dd;
-    --text-color: #14110f;
-    --muted-color: #64584d;
-    --brand-color: #f59e0b;
-    --brand-strong: #f97316;
-    --accent-color: #0f766e;
-    --line-color: rgba(20, 17, 15, 0.1);
-    --shadow-soft: 0 24px 60px rgba(20, 17, 15, 0.1);
+    --bg-color: #eaf7ff;
+    --surface-color: #fbfdff;
+    --surface-muted: rgba(255, 255, 255, 0.8);
+    --surface-strong: #dff4ff;
+    --text-color: #071f4f;
+    --muted-color: #49637f;
+    --brand-color: #0ea5e9;
+    --brand-strong: #075da8;
+    --accent-color: #22d3ee;
+    --accent-warm: #d97706;
+    --accent-rose: #be123c;
+    --accent-violet: #6d28d9;
+    --accent-emerald: #047857;
+    --line-color: rgba(7, 31, 79, 0.1);
+    --shadow-soft: 0 24px 60px rgba(7, 31, 79, 0.11);
     --heading-font: "Space Grotesk", sans-serif;
     --body-font: "Plus Jakarta Sans", sans-serif;
 }
@@ -31,9 +35,10 @@ body {
     font-family: var(--body-font);
     color: var(--text-color);
     background:
-        radial-gradient(circle at top left, rgba(245, 158, 11, 0.16), transparent 25%),
-        radial-gradient(circle at top right, rgba(15, 118, 110, 0.12), transparent 22%),
-        linear-gradient(180deg, #fbf6ed 0%, var(--bg-color) 100%);
+        radial-gradient(circle at top left, rgba(14, 165, 233, 0.14), transparent 25%),
+        radial-gradient(circle at top right, rgba(109, 40, 217, 0.06), transparent 22%),
+        radial-gradient(circle at 12% 68%, rgba(217, 119, 6, 0.055), transparent 28%),
+        linear-gradient(180deg, #f8fdff 0%, var(--bg-color) 100%);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
@@ -54,7 +59,7 @@ h4,
 h5,
 h6 {
     font-family: var(--heading-font);
-    letter-spacing: -0.03em;
+    letter-spacing: 0;
 }
 
 p {
@@ -81,7 +86,7 @@ p {
 
 .section-shell--accent {
     background:
-        linear-gradient(135deg, rgba(245, 158, 11, 0.14), rgba(249, 115, 22, 0.08)),
+        linear-gradient(135deg, rgba(14, 165, 233, 0.11), rgba(217, 119, 6, 0.065) 48%, rgba(109, 40, 217, 0.06)),
         rgba(255, 255, 255, 0.32);
 }
 
@@ -102,11 +107,11 @@ p {
     gap: 0.5rem;
     padding: 0.38rem 0.74rem;
     border-radius: 999px;
-    background: rgba(20, 17, 15, 0.06);
+    background: rgba(7, 31, 79, 0.06);
     color: var(--muted-color);
     font-size: 0.7rem;
     font-weight: 700;
-    letter-spacing: 0.06em;
+    letter-spacing: 0;
     text-transform: uppercase;
 }
 
@@ -132,7 +137,7 @@ p {
     border: 1px solid var(--line-color);
     border-radius: 1.32rem;
     background: var(--surface-muted);
-    box-shadow: 0 14px 28px rgba(20, 17, 15, 0.08);
+    box-shadow: 0 14px 28px rgba(7, 31, 79, 0.08);
     backdrop-filter: blur(18px);
 }
 
@@ -154,17 +159,17 @@ p {
 
 .portfolio-button:hover {
     background: var(--brand-color);
-    color: var(--text-color);
+    color: #fff;
     transform: translateY(-2px);
 }
 
 .portfolio-button--ghost {
-    background: rgba(20, 17, 15, 0.08);
+    background: rgba(14, 165, 233, 0.12);
     color: var(--text-color);
 }
 
 .portfolio-button--ghost:hover {
-    background: rgba(20, 17, 15, 0.14);
+    background: rgba(14, 165, 233, 0.2);
     color: var(--text-color);
 }
 
@@ -176,7 +181,7 @@ p {
     max-width: 100%;
     padding: 0.32rem 0.64rem;
     border-radius: 999px;
-    background: rgba(245, 158, 11, 0.14);
+    background: rgba(14, 165, 233, 0.14);
     color: var(--text-color);
     font-size: 0.68rem;
     font-weight: 700;

@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Link, useLocation, useOutlet } from "react-router-dom";
+import brandLogo from "../../assets/logo.png";
 import "./Style.css";
 
 const navigationItems = [
@@ -23,14 +24,11 @@ const Header = () => {
                 <nav className="container site-nav" aria-label="Primary">
                     <Link to="/" className="site-brand">
                         <span className="site-brand__icon">
-                            <i
-                                className="fa-brands fa-react"
-                                aria-hidden="true"
-                            ></i>
+                            <img src={brandLogo} alt="" aria-hidden="true" />
                         </span>
                         <span>
                             Rizam
-                            <span className="site-brand__accent">.dev</span>
+                            <span className="site-brand__accent">.Dev</span>
                         </span>
                     </Link>
 

@@ -489,7 +489,7 @@ const Home = () => {
                                                 delay: 0.1 + index * 0.05,
                                             }}
                                             style={{
-                                                background: `linear-gradient(90deg, ${skill.color}, #f59e0b)`,
+                                                background: `linear-gradient(90deg, ${skill.color}, #0ea5e9)`,
                                             }}
                                         ></motion.span>
                                     </div>

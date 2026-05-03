@@ -13,6 +13,12 @@ import {
 import "./Style.css";
 
 const categories = ["All", ...new Set(projects.map((project) => project.category))];
+const categoryAccentMap = {
+    All: "7, 31, 79",
+    Fullstack: "7, 93, 168",
+    Frontend: "109, 40, 217",
+    Mobile: "4, 120, 87",
+};
 
 const Projects = () => {
     const [activeCategory, setActiveCategory] = useState("All");
@@ -135,6 +141,11 @@ const Projects = () => {
                                         ? "projects-filter is-active"
                                         : "projects-filter"
                                 }
+                                style={{
+                                    "--filter-accent-rgb":
+                                        categoryAccentMap[category] ||
+                                        categoryAccentMap.All,
+                                }}
                                 onClick={() => setActiveCategory(category)}
                                 variants={sectionItem}
                             >

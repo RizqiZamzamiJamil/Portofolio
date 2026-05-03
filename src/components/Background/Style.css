@@ -19,7 +19,7 @@
     left: -8%;
     width: 22rem;
     height: 22rem;
-    background: radial-gradient(circle at 30% 30%, rgba(245, 158, 11, 0.34), rgba(245, 158, 11, 0));
+    background: radial-gradient(circle at 30% 30%, rgba(14, 165, 233, 0.22), rgba(14, 165, 233, 0));
 }
 
 .background-orb--secondary {
@@ -27,7 +27,7 @@
     right: -6%;
     width: 24rem;
     height: 24rem;
-    background: radial-gradient(circle at 30% 30%, rgba(15, 118, 110, 0.24), rgba(15, 118, 110, 0));
+    background: radial-gradient(circle at 30% 30%, rgba(109, 40, 217, 0.09), rgba(109, 40, 217, 0));
     animation-delay: -4s;
 }
 
@@ -36,7 +36,7 @@
     left: 26%;
     width: 20rem;
     height: 20rem;
-    background: radial-gradient(circle at 30% 30%, rgba(249, 115, 22, 0.2), rgba(249, 115, 22, 0));
+    background: radial-gradient(circle at 30% 30%, rgba(217, 119, 6, 0.1), rgba(217, 119, 6, 0));
     animation-delay: -8s;
 }
 
@@ -44,8 +44,8 @@
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(rgba(20, 17, 15, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(20, 17, 15, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(7, 31, 79, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(7, 31, 79, 0.035) 1px, transparent 1px);
     background-size: 48px 48px;
     mask-image: radial-gradient(circle at center, black 45%, transparent 95%);
 }
@@ -64,9 +64,19 @@
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
-    background: rgba(245, 158, 11, 0.2);
-    box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.16);
+    background: rgba(14, 165, 233, 0.2);
+    box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.16);
     animation: particleRise 18s linear infinite;
+}
+
+.background-particles li:nth-child(3n) {
+    background: rgba(109, 40, 217, 0.12);
+    box-shadow: 0 0 0 1px rgba(109, 40, 217, 0.1);
+}
+
+.background-particles li:nth-child(4n) {
+    background: rgba(217, 119, 6, 0.12);
+    box-shadow: 0 0 0 1px rgba(217, 119, 6, 0.1);
 }
 
 .background-particles li:nth-child(1) {

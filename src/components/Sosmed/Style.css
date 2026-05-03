@@ -5,15 +5,15 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: rgba(20, 17, 15, 0.9);
+    background: rgba(7, 31, 79, 0.94);
     color: var(--surface-color);
     text-decoration: none;
-    box-shadow: 0 14px 24px rgba(20, 17, 15, 0.12);
+    box-shadow: 0 14px 24px rgba(7, 31, 79, 0.14);
     transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
 }
 
 .social-link-button:hover {
     background: var(--brand-color);
-    color: var(--text-color);
+    color: #fff;
     transform: translateY(-3px);
 }

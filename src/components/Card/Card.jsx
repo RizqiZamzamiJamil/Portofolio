@@ -10,9 +10,23 @@ const formatProjectDate = (value) =>
 const normalizeUrl = (value) => (value ? value.trim().replace(/\/$/, "") : "");
 
 const projectAccentMap = {
-    Fullstack: "249, 115, 22",
-    Frontend: "8, 145, 178",
-    Mobile: "99, 102, 241",
+    Fullstack: "7, 93, 168",
+    Frontend: "109, 40, 217",
+    Mobile: "4, 120, 87",
+};
+
+const stackAccentMap = {
+    "Alpine.js": "8, 145, 178",
+    API: "217, 119, 6",
+    Bootstrap: "109, 40, 217",
+    "CodeIgniter 4": "190, 18, 60",
+    Express: "71, 85, 105",
+    Flutter: "2, 132, 199",
+    Laravel: "234, 88, 12",
+    Livewire: "124, 58, 237",
+    React: "14, 165, 233",
+    "Tailwind CSS": "8, 145, 178",
+    Vue: "5, 150, 105",
 };
 
 const Card = ({ project, featuredLabel, delay = 0 }) => {
@@ -21,7 +35,8 @@ const Card = ({ project, featuredLabel, delay = 0 }) => {
     const hasLivePreview =
         Boolean(normalizedLiveUrl) && normalizedLiveUrl !== normalizedCodeUrl;
     const hasCodePreview = Boolean(normalizedCodeUrl);
-    const accentRgb = projectAccentMap[project.category] || "245, 158, 11";
+    const accentRgb =
+        project.accent || projectAccentMap[project.category] || "14, 165, 233";
 
     return (
         <motion.article
@@ -60,7 +75,15 @@ const Card = ({ project, featuredLabel, delay = 0 }) => {
 
                 <div className="project-card__tags">
                     {project.stack.map((item) => (
-                        <span key={item}>{item}</span>
+                        <span
+                            key={item}
+                            style={{
+                                "--tag-accent-rgb":
+                                    stackAccentMap[item] || accentRgb,
+                            }}
+                        >
+                            {item}
+                        </span>
                     ))}
                 </div>
 
