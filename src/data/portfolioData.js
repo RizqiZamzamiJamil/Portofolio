@@ -135,7 +135,7 @@ export const skills = [
     {
         name: "React JS",
         iconClass: "fa-brands fa-react",
-        level: 85,
+        level: 86,
         color: "#0891b2",
         focus: "Component, state flow, responsive UI.",
         description: "UI modular dan interaktif.",
@@ -151,7 +151,7 @@ export const skills = [
     {
         name: "JavaScript",
         iconClass: "fa-brands fa-js",
-        level: 87,
+        level: 88,
         color: "#eab308",
         focus: "DOM, dynamic form, frontend logic.",
         description: "Interaksi cepat di frontend.",
@@ -159,7 +159,7 @@ export const skills = [
     {
         name: "HTML & CSS",
         iconClass: "fa-brands fa-html5",
-        level: 95,
+        level: 96,
         color: "#ef4444",
         focus: "Semantic markup, layout, visual hierarchy.",
         description: "Layout rapi dan responsif.",
@@ -167,7 +167,7 @@ export const skills = [
     {
         name: "Vue JS",
         iconClass: "fa-brands fa-vuejs",
-        level: 75,
+        level: 80,
         color: "#10b981",
         focus: "Reactive component dan dashboard ringan.",
         description: "Eksplorasi dashboard ringan.",
