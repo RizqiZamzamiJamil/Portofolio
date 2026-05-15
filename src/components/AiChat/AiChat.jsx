@@ -15,7 +15,8 @@ const starterQuestions = [
     "Rizqi paling kuat di stack apa?",
     "Ceritakan pengalaman magangnya.",
 ];
-const githubPagesChatApiUrl = "https://zesty-kheer-0ca6d3.netlify.app/api/chat";
+const githubPagesChatApiUrl =
+    "https://zesty-kheer-0ca6d3.netlify.app/.netlify/functions/chat";
 
 const resolveChatApiUrl = () => {
     if (import.meta.env.VITE_AI_CHAT_API_URL) {
@@ -74,7 +75,9 @@ const parseInline = (text, keyPrefix) => {
 
 const parseMarkdownBlocks = (content) => {
     const blocks = [];
-    const lines = String(content || "").replace(/\r/g, "").split("\n");
+    const lines = String(content || "")
+        .replace(/\r/g, "")
+        .split("\n");
     let paragraph = [];
     let list = null;
 
@@ -169,7 +172,10 @@ const MarkdownMessage = ({ content }) => {
                         <ul key={`ul-${blockIndex}`}>
                             {block.items.map((item, itemIndex) => (
                                 <li key={`ul-${blockIndex}-${itemIndex}`}>
-                                    {parseInline(item, `ul-${blockIndex}-${itemIndex}`)}
+                                    {parseInline(
+                                        item,
+                                        `ul-${blockIndex}-${itemIndex}`,
+                                    )}
                                 </li>
                             ))}
                         </ul>
@@ -181,7 +187,10 @@ const MarkdownMessage = ({ content }) => {
                         <ol key={`ol-${blockIndex}`}>
                             {block.items.map((item, itemIndex) => (
                                 <li key={`ol-${blockIndex}-${itemIndex}`}>
-                                    {parseInline(item, `ol-${blockIndex}-${itemIndex}`)}
+                                    {parseInline(
+                                        item,
+                                        `ol-${blockIndex}-${itemIndex}`,
+                                    )}
                                 </li>
                             ))}
                         </ol>
@@ -250,8 +259,7 @@ const AiChat = () => {
             const data = contentType.includes("application/json")
                 ? await response.json()
                 : {
-                      error:
-                          "Endpoint AI belum mengembalikan JSON. Pastikan GitHub Pages diarahkan ke Netlify Function.",
+                      error: "Endpoint AI belum mengembalikan JSON. Pastikan GitHub Pages diarahkan ke Netlify Function.",
                   };
 
             if (!response.ok) {
@@ -269,7 +277,7 @@ const AiChat = () => {
                 buildMessage(
                     "assistant",
                     error.message ||
-                        "Maaf, chat AI sedang belum tersedia. Coba lagi sebentar lagi."
+                        "Maaf, chat AI sedang belum tersedia. Coba lagi sebentar lagi.",
                 ),
             ]);
         } finally {
@@ -285,7 +293,10 @@ const AiChat = () => {
     return (
         <div className={isOpen ? "ai-chat is-open" : "ai-chat"}>
             {isOpen ? (
-                <section className="ai-chat__panel content-panel" aria-label="Chat AI">
+                <section
+                    className="ai-chat__panel content-panel"
+                    aria-label="Chat AI"
+                >
                     <header className="ai-chat__header">
                         <div>
                             <span>Rizam AI</span>
@@ -297,7 +308,10 @@ const AiChat = () => {
                             onClick={() => setIsOpen(false)}
                             aria-label="Tutup chat AI"
                         >
-                            <i className="fa-solid fa-xmark" aria-hidden="true"></i>
+                            <i
+                                className="fa-solid fa-xmark"
+                                aria-hidden="true"
+                            ></i>
                         </button>
                     </header>
 
@@ -352,14 +366,20 @@ const AiChat = () => {
                             disabled={isLoading || input.trim().length === 0}
                             aria-label="Kirim pertanyaan"
                         >
-                            <i className="fa-solid fa-paper-plane" aria-hidden="true"></i>
+                            <i
+                                className="fa-solid fa-paper-plane"
+                                aria-hidden="true"
+                            ></i>
                         </button>
                     </form>
 
                     {limitInfo ? (
                         <p className="ai-chat__limit">
                             Sisa token harian perangkat ini:{" "}
-                            {Math.max(0, Math.floor(limitInfo.dailyIpTokenRemaining))}
+                            {Math.max(
+                                0,
+                                Math.floor(limitInfo.dailyIpTokenRemaining),
+                            )}
                         </p>
                     ) : null}
                 </section>
