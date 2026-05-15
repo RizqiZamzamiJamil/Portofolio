@@ -9,6 +9,10 @@ const DEFAULT_DAILY_IP_REQUEST_LIMIT = 30;
 const DEFAULT_MAX_OUTPUT_TOKENS = 550;
 const MAX_MESSAGE_CHARS = 1400;
 const MAX_HISTORY_MESSAGES = 8;
+const defaultAllowedOrigins = [
+    "https://rizqizamzamijamil.github.io",
+    "https://zesty-kheer-0ca6d3.netlify.app",
+];
 const rateBuckets = new Map();
 
 const systemPrompt = `
@@ -23,10 +27,13 @@ Jika pengunjung bertanya soal kerja sama, arahkan ke email atau WhatsApp yang te
 `.trim();
 
 const getAllowedOrigins = () =>
-    (process.env.AI_ALLOWED_ORIGINS || process.env.AI_ALLOWED_ORIGIN || "")
+    [
+        ...defaultAllowedOrigins,
+        ...(process.env.AI_ALLOWED_ORIGINS || process.env.AI_ALLOWED_ORIGIN || "")
         .split(",")
         .map((origin) => origin.trim())
-        .filter(Boolean);
+        .filter(Boolean),
+    ];
 
 const isLocalOrigin = (origin) => {
     try {

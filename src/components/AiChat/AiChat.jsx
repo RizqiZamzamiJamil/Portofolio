@@ -16,7 +16,7 @@ const starterQuestions = [
     "Ceritakan pengalaman magangnya.",
 ];
 const githubPagesChatApiUrl =
-    "https://zesty-kheer-0ca6d3.netlify.app/.netlify/functions/chat";
+    "https://zesty-kheer-0ca6d3.netlify.app/api/chat";
 
 const resolveChatApiUrl = () => {
     if (import.meta.env.VITE_AI_CHAT_API_URL) {
