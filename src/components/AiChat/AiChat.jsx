@@ -15,25 +15,20 @@ const starterQuestions = [
     "Rizqi paling kuat di stack apa?",
     "Ceritakan pengalaman magangnya.",
 ];
-const githubPagesChatApiUrl =
-    "https://zesty-kheer-0ca6d3.netlify.app/api/chat";
 
 const resolveChatApiUrl = () => {
     if (import.meta.env.VITE_AI_CHAT_API_URL) {
         return import.meta.env.VITE_AI_CHAT_API_URL;
     }
 
-    if (
-        typeof window !== "undefined" &&
-        window.location.hostname.endsWith("github.io")
-    ) {
-        return githubPagesChatApiUrl;
-    }
-
     return "/api/chat";
 };
 
 const chatApiUrl = resolveChatApiUrl();
+const isGithubPagesWithoutChatApi =
+    typeof window !== "undefined" &&
+    window.location.hostname.endsWith("github.io") &&
+    !import.meta.env.VITE_AI_CHAT_API_URL;
 
 const buildMessage = (role, content) => ({
     id: `${role}-${Date.now()}-${Math.random().toString(16).slice(2)}`,
@@ -238,6 +233,12 @@ const AiChat = () => {
         setIsLoading(true);
 
         try {
+            if (isGithubPagesWithoutChatApi) {
+                throw new Error(
+                    "Endpoint AI belum diatur untuk GitHub Pages. Tambahkan repository variable VITE_AI_CHAT_API_URL yang mengarah ke Netlify Function."
+                );
+            }
+
             const response = await fetch(chatApiUrl, {
                 method: "POST",
                 headers: {

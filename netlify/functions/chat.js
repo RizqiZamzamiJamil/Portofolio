@@ -20,22 +20,7 @@ const getBody = (event) => {
         : event.body;
 };
 
-const ALLOWED_ORIGIN = "https://rizqizamzamijamil.github.io";
-
 export const handler = async (event) => {
-    // HANDLE PREFLIGHT OPTIONS
-    if (event.httpMethod === "OPTIONS") {
-        return {
-            statusCode: 200,
-            headers: {
-                "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
-                "Access-Control-Allow-Headers": "Content-Type",
-                "Access-Control-Allow-Methods": "POST, OPTIONS",
-            },
-            body: "",
-        };
-    }
-
     const headers = normalizeHeaders(event.headers);
     const body = getBody(event);
 
@@ -57,12 +42,7 @@ export const handler = async (event) => {
 
     let responseBody = "";
 
-    // TAMBAHKAN HEADER CORS DI SINI
-    const responseHeaders = {
-        "Access-Control-Allow-Origin": ALLOWED_ORIGIN,
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-    };
+    const responseHeaders = {};
 
     const res = {
         set statusCode(value) {
