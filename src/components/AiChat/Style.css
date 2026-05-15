@@ -84,7 +84,6 @@
     border-radius: 1rem;
     font-size: 0.84rem;
     line-height: 1.52;
-    white-space: pre-wrap;
     overflow-wrap: anywhere;
 }
 
@@ -107,6 +106,51 @@
     display: inline-flex;
     align-items: center;
     gap: 0.3rem;
+}
+
+.ai-chat__rich-text {
+    display: grid;
+    gap: 0.58rem;
+}
+
+.ai-chat__rich-text > * {
+    margin: 0;
+}
+
+.ai-chat__rich-text h4 {
+    color: inherit;
+    font-family: var(--heading-font);
+    font-size: 0.95rem;
+    line-height: 1.28;
+}
+
+.ai-chat__rich-text p {
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.ai-chat__rich-text ul,
+.ai-chat__rich-text ol {
+    display: grid;
+    gap: 0.42rem;
+    padding-left: 1.2rem;
+}
+
+.ai-chat__rich-text li {
+    padding-left: 0.08rem;
+}
+
+.ai-chat__rich-text strong {
+    font-weight: 800;
+}
+
+.ai-chat__rich-text em {
+    font-style: italic;
+}
+
+.ai-chat__rich-text u {
+    text-underline-offset: 0.16rem;
 }
 
 .ai-chat__message.is-loading span {

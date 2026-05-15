@@ -15,10 +15,66 @@ const systemPrompt = `
 Kamu adalah AI assistant untuk website portofolio Rizqi Zamzami Jamil.
 Jawab dalam bahasa Indonesia yang ramah, ringkas, dan natural.
 Gunakan hanya konteks portofolio yang diberikan: home, project, education, experience, dan data tambahan khusus AI.
+Format jawaban dengan Markdown rapi jika butuh struktur: gunakan paragraf pendek, numbering untuk urutan, bullet list untuk rincian, **bold** untuk istilah penting, _italic_ untuk penekanan ringan, dan __underline__ hanya jika benar-benar perlu.
+Jangan berlebihan memakai simbol Markdown. Hindari daftar panjang jika pertanyaan bisa dijawab singkat.
 Jika informasi tidak ada di konteks, katakan bahwa data portofolio belum memuat informasi itu.
 Jangan mengarang pengalaman, link, nilai, tanggal, atau klaim yang tidak ada di konteks.
 Jika pengunjung bertanya soal kerja sama, arahkan ke email atau WhatsApp yang tersedia.
 `.trim();
+
+const getAllowedOrigins = () =>
+    (process.env.AI_ALLOWED_ORIGINS || process.env.AI_ALLOWED_ORIGIN || "")
+        .split(",")
+        .map((origin) => origin.trim())
+        .filter(Boolean);
+
+const isLocalOrigin = (origin) => {
+    try {
+        const { hostname } = new URL(origin);
+
+        return ["localhost", "127.0.0.1", "::1"].includes(hostname);
+    } catch (error) {
+        return false;
+    }
+};
+
+const getCorsOrigin = (req) => {
+    const origin = req.headers.origin;
+
+    if (!origin) {
+        return null;
+    }
+
+    const allowedOrigins = getAllowedOrigins();
+
+    if (
+        isLocalOrigin(origin) ||
+        allowedOrigins.includes("*") ||
+        allowedOrigins.includes(origin)
+    ) {
+        return origin;
+    }
+
+    return null;
+};
+
+const isRequestOriginAllowed = (req) => {
+    const origin = req.headers.origin;
+
+    return !origin || Boolean(getCorsOrigin(req));
+};
+
+const applyCorsHeaders = (req, res) => {
+    const allowedOrigin = getCorsOrigin(req);
+
+    if (allowedOrigin) {
+        res.setHeader("Access-Control-Allow-Origin", allowedOrigin);
+        res.setHeader("Vary", "Origin");
+    }
+
+    res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+};
 
 const getNumberEnv = (key, fallback) => {
     const value = Number(process.env[key]);
@@ -249,9 +305,19 @@ const reconcileReservation = ({ reservation, actualTokens, failed = false }) => 
 };
 
 export default async function handler(req, res) {
+    applyCorsHeaders(req, res);
+
     if (req.method === "OPTIONS") {
-        res.statusCode = 204;
+        res.statusCode = isRequestOriginAllowed(req) ? 204 : 403;
         res.end();
+        return;
+    }
+
+    if (!isRequestOriginAllowed(req)) {
+        json(res, 403, {
+            error:
+                "Origin tidak diizinkan untuk memakai endpoint AI portfolio.",
+        });
         return;
     }
 

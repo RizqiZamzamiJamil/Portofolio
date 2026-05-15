@@ -15,12 +15,171 @@ const starterQuestions = [
     "Rizqi paling kuat di stack apa?",
     "Ceritakan pengalaman magangnya.",
 ];
+const chatApiUrl = import.meta.env.VITE_AI_CHAT_API_URL || "/api/chat";
 
 const buildMessage = (role, content) => ({
     id: `${role}-${Date.now()}-${Math.random().toString(16).slice(2)}`,
     role,
     content,
 });
+
+const parseInline = (text, keyPrefix) => {
+    const markerPattern = /(\*\*[^*]+?\*\*|__[^_]+?__|_[^_]+?_|[*][^*]+?[*])/g;
+    const parts = [];
+    let lastIndex = 0;
+    let match;
+
+    while ((match = markerPattern.exec(text)) !== null) {
+        if (match.index > lastIndex) {
+            parts.push(text.slice(lastIndex, match.index));
+        }
+
+        const token = match[0];
+        const key = `${keyPrefix}-${match.index}`;
+
+        if (token.startsWith("**")) {
+            parts.push(<strong key={key}>{token.slice(2, -2)}</strong>);
+        } else if (token.startsWith("__")) {
+            parts.push(<u key={key}>{token.slice(2, -2)}</u>);
+        } else {
+            parts.push(<em key={key}>{token.slice(1, -1)}</em>);
+        }
+
+        lastIndex = markerPattern.lastIndex;
+    }
+
+    if (lastIndex < text.length) {
+        parts.push(text.slice(lastIndex));
+    }
+
+    return parts;
+};
+
+const parseMarkdownBlocks = (content) => {
+    const blocks = [];
+    const lines = String(content || "").replace(/\r/g, "").split("\n");
+    let paragraph = [];
+    let list = null;
+
+    const flushParagraph = () => {
+        if (paragraph.length === 0) {
+            return;
+        }
+
+        blocks.push({
+            type: "paragraph",
+            text: paragraph.join(" "),
+        });
+        paragraph = [];
+    };
+
+    const flushList = () => {
+        if (!list) {
+            return;
+        }
+
+        blocks.push(list);
+        list = null;
+    };
+
+    lines.forEach((line) => {
+        const trimmed = line.trim();
+
+        if (!trimmed) {
+            flushParagraph();
+            flushList();
+            return;
+        }
+
+        const heading = trimmed.match(/^#{1,4}\s+(.+)$/);
+        const bullet = trimmed.match(/^[-*]\s+(.+)$/);
+        const numbered = trimmed.match(/^\d+[.)]\s+(.+)$/);
+
+        if (heading) {
+            flushParagraph();
+            flushList();
+            blocks.push({
+                type: "heading",
+                text: heading[1],
+            });
+            return;
+        }
+
+        if (bullet || numbered) {
+            const type = bullet ? "unordered-list" : "ordered-list";
+            const text = bullet ? bullet[1] : numbered[1];
+
+            flushParagraph();
+
+            if (!list || list.type !== type) {
+                flushList();
+                list = {
+                    type,
+                    items: [],
+                };
+            }
+
+            list.items.push(text);
+            return;
+        }
+
+        flushList();
+        paragraph.push(trimmed);
+    });
+
+    flushParagraph();
+    flushList();
+
+    return blocks;
+};
+
+const MarkdownMessage = ({ content }) => {
+    const blocks = parseMarkdownBlocks(content);
+
+    return (
+        <div className="ai-chat__rich-text">
+            {blocks.map((block, blockIndex) => {
+                if (block.type === "heading") {
+                    return (
+                        <h4 key={`heading-${blockIndex}`}>
+                            {parseInline(block.text, `heading-${blockIndex}`)}
+                        </h4>
+                    );
+                }
+
+                if (block.type === "unordered-list") {
+                    return (
+                        <ul key={`ul-${blockIndex}`}>
+                            {block.items.map((item, itemIndex) => (
+                                <li key={`ul-${blockIndex}-${itemIndex}`}>
+                                    {parseInline(item, `ul-${blockIndex}-${itemIndex}`)}
+                                </li>
+                            ))}
+                        </ul>
+                    );
+                }
+
+                if (block.type === "ordered-list") {
+                    return (
+                        <ol key={`ol-${blockIndex}`}>
+                            {block.items.map((item, itemIndex) => (
+                                <li key={`ol-${blockIndex}-${itemIndex}`}>
+                                    {parseInline(item, `ol-${blockIndex}-${itemIndex}`)}
+                                </li>
+                            ))}
+                        </ol>
+                    );
+                }
+
+                return (
+                    <p key={`p-${blockIndex}`}>
+                        {parseInline(block.text, `p-${blockIndex}`)}
+                    </p>
+                );
+            })}
+        </div>
+    );
+};
 
 const AiChat = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -53,7 +212,7 @@ const AiChat = () => {
         setIsLoading(true);
 
         try {
-            const response = await fetch("/api/chat", {
+            const response = await fetch(chatApiUrl, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -129,7 +288,7 @@ const AiChat = () => {
                                         : "ai-chat__message is-assistant"
                                 }
                             >
-                                {message.content}
+                                <MarkdownMessage content={message.content} />
                             </div>
                         ))}
 
