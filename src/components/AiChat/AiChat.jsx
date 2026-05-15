@@ -15,7 +15,24 @@ const starterQuestions = [
     "Rizqi paling kuat di stack apa?",
     "Ceritakan pengalaman magangnya.",
 ];
-const chatApiUrl = import.meta.env.VITE_AI_CHAT_API_URL || "/api/chat";
+const githubPagesChatApiUrl = "https://zesty-kheer-0ca6d3.netlify.app/api/chat";
+
+const resolveChatApiUrl = () => {
+    if (import.meta.env.VITE_AI_CHAT_API_URL) {
+        return import.meta.env.VITE_AI_CHAT_API_URL;
+    }
+
+    if (
+        typeof window !== "undefined" &&
+        window.location.hostname.endsWith("github.io")
+    ) {
+        return githubPagesChatApiUrl;
+    }
+
+    return "/api/chat";
+};
+
+const chatApiUrl = resolveChatApiUrl();
 
 const buildMessage = (role, content) => ({
     id: `${role}-${Date.now()}-${Math.random().toString(16).slice(2)}`,
@@ -229,7 +246,13 @@ const AiChat = () => {
                 }),
             });
 
-            const data = await response.json();
+            const contentType = response.headers.get("content-type") || "";
+            const data = contentType.includes("application/json")
+                ? await response.json()
+                : {
+                      error:
+                          "Endpoint AI belum mengembalikan JSON. Pastikan GitHub Pages diarahkan ke Netlify Function.",
+                  };
 
             if (!response.ok) {
                 throw new Error(data.error || "AI belum bisa menjawab.");

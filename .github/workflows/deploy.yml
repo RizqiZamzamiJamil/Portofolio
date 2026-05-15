@@ -27,6 +27,8 @@ jobs:
               run: npm ci
 
             - name: Build project
+              env:
+                  VITE_AI_CHAT_API_URL: ${{ vars.VITE_AI_CHAT_API_URL }}
               run: npm run build
 
             - name: Deploy to GitHub Pages
