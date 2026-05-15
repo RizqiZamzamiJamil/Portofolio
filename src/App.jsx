@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import AiChat from "./components/AiChat/AiChat";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import ScrollToTopButton from "./components/ScrollTop/ScrollToTopButton";
@@ -39,6 +40,7 @@ export default function App() {
                 </Route>
             </Routes>
             <ScrollToTopButton />
+            <AiChat />
             <Footer />
         </BrowserRouter>
     );
