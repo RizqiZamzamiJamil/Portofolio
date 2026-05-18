@@ -29,6 +29,30 @@ const isGithubPagesWithoutChatApi =
     typeof window !== "undefined" &&
     window.location.hostname.endsWith("github.io") &&
     !import.meta.env.VITE_AI_CHAT_API_URL;
+const aiUnavailableMessage =
+    "Maaf, Rizam AI sedang belum bisa dihubungi. Coba lagi beberapa saat lagi ya.";
+const aiLimitMessage =
+    "Maaf, kuota chat AI hari ini sedang penuh. Silakan coba lagi besok atau hubungi Rizqi langsung lewat kontak yang tersedia.";
+
+class ChatRequestError extends Error {
+    constructor(message, status) {
+        super(message);
+        this.name = "ChatRequestError";
+        this.status = status;
+    }
+}
+
+const getFriendlyErrorMessage = (error) => {
+    if (error?.status === 429) {
+        return aiLimitMessage;
+    }
+
+    if (error?.status >= 500 || error instanceof TypeError) {
+        return aiUnavailableMessage;
+    }
+
+    return aiUnavailableMessage;
+};
 
 const buildMessage = (role, content) => ({
     id: `${role}-${Date.now()}-${Math.random().toString(16).slice(2)}`,
@@ -234,9 +258,7 @@ const AiChat = () => {
 
         try {
             if (isGithubPagesWithoutChatApi) {
-                throw new Error(
-                    "Endpoint AI belum diatur untuk GitHub Pages. Tambahkan repository variable VITE_AI_CHAT_API_URL yang mengarah ke Netlify Function."
-                );
+                throw new ChatRequestError(aiUnavailableMessage, 503);
             }
 
             const response = await fetch(chatApiUrl, {
@@ -259,12 +281,13 @@ const AiChat = () => {
             const contentType = response.headers.get("content-type") || "";
             const data = contentType.includes("application/json")
                 ? await response.json()
-                : {
-                      error: "Endpoint AI belum mengembalikan JSON. Pastikan GitHub Pages diarahkan ke Netlify Function.",
-                  };
+                : {};
 
             if (!response.ok) {
-                throw new Error(data.error || "AI belum bisa menjawab.");
+                throw new ChatRequestError(
+                    data.error || "AI belum bisa menjawab.",
+                    response.status,
+                );
             }
 
             setLimitInfo(data.rateLimit || null);
@@ -277,8 +300,7 @@ const AiChat = () => {
                 ...current,
                 buildMessage(
                     "assistant",
-                    error.message ||
-                        "Maaf, chat AI sedang belum tersedia. Coba lagi sebentar lagi.",
+                    getFriendlyErrorMessage(error),
                 ),
             ]);
         } finally {
