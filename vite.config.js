@@ -18,6 +18,18 @@ const portfolioChatApi = () => ({
     },
 });
 
+const normalizeBasePath = (basePath) => {
+    if (!basePath || basePath === ".") {
+        return "/";
+    }
+
+    const withLeadingSlash = basePath.startsWith("/") ? basePath : `/${basePath}`;
+
+    return withLeadingSlash.endsWith("/")
+        ? withLeadingSlash
+        : `${withLeadingSlash}/`;
+};
+
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, process.cwd(), "");
     Object.assign(process.env, env);
@@ -27,7 +39,7 @@ export default defineConfig(({ mode }) => {
             // ...
         },
         plugins: [react(), portfolioChatApi()],
-        base: "/Portofolio/",
+        base: normalizeBasePath(env.VITE_BASE_PATH || "/"),
         server: {
             port: 1000,
         },

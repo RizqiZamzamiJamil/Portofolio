@@ -22,8 +22,31 @@ Jangan mengarang pengalaman, link, nilai, tanggal, atau klaim yang tidak ada di 
 Jika pengunjung bertanya soal kerja sama, arahkan ke email atau WhatsApp yang tersedia.
 `.trim();
 
-const getAllowedOrigins = () =>
-    (process.env.AI_ALLOWED_ORIGINS || process.env.AI_ALLOWED_ORIGIN || "")
+const getRuntimeEnv = (runtimeEnv) => {
+    if (runtimeEnv) {
+        return runtimeEnv;
+    }
+
+    if (typeof process !== "undefined" && process.env) {
+        return process.env;
+    }
+
+    return {};
+};
+
+const getEnvValue = (key, runtimeEnv) => {
+    const env = getRuntimeEnv(runtimeEnv);
+    const value = env[key];
+
+    return typeof value === "string" ? value : value || "";
+};
+
+const getAllowedOrigins = (runtimeEnv) =>
+    (
+        getEnvValue("AI_ALLOWED_ORIGINS", runtimeEnv) ||
+        getEnvValue("AI_ALLOWED_ORIGIN", runtimeEnv) ||
+        ""
+    )
         .split(",")
         .map((origin) => origin.trim())
         .filter(Boolean);
@@ -38,14 +61,14 @@ const isLocalOrigin = (origin) => {
     }
 };
 
-const getCorsOrigin = (req) => {
+const getCorsOrigin = (req, runtimeEnv) => {
     const origin = req.headers.origin;
 
     if (!origin) {
         return null;
     }
 
-    const allowedOrigins = getAllowedOrigins();
+    const allowedOrigins = getAllowedOrigins(runtimeEnv);
 
     if (
         isLocalOrigin(origin) ||
@@ -58,14 +81,14 @@ const getCorsOrigin = (req) => {
     return null;
 };
 
-const isRequestOriginAllowed = (req) => {
+const isRequestOriginAllowed = (req, runtimeEnv) => {
     const origin = req.headers.origin;
 
-    return !origin || Boolean(getCorsOrigin(req));
+    return !origin || Boolean(getCorsOrigin(req, runtimeEnv));
 };
 
-const applyCorsHeaders = (req, res) => {
-    const allowedOrigin = getCorsOrigin(req);
+const applyCorsHeaders = (req, res, runtimeEnv) => {
+    const allowedOrigin = getCorsOrigin(req, runtimeEnv);
 
     if (allowedOrigin) {
         res.setHeader("Access-Control-Allow-Origin", allowedOrigin);
@@ -76,14 +99,15 @@ const applyCorsHeaders = (req, res) => {
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 };
 
-const getNumberEnv = (key, fallback) => {
-    const value = Number(process.env[key]);
+const getNumberEnv = (key, fallback, runtimeEnv) => {
+    const value = Number(getEnvValue(key, runtimeEnv));
     return Number.isFinite(value) && value > 0 ? value : fallback;
 };
 
-const getDateKey = () => {
+const getDateKey = (runtimeEnv) => {
     const formatter = new Intl.DateTimeFormat("en-CA", {
-        timeZone: process.env.AI_RATE_LIMIT_TIMEZONE || "Asia/Jakarta",
+        timeZone:
+            getEnvValue("AI_RATE_LIMIT_TIMEZONE", runtimeEnv) || "Asia/Jakarta",
         year: "numeric",
         month: "2-digit",
         day: "2-digit",
@@ -102,8 +126,8 @@ const cleanupBuckets = (activeDateKey) => {
     }
 };
 
-const getRateBucket = () => {
-    const dateKey = getDateKey();
+const getRateBucket = (runtimeEnv) => {
+    const dateKey = getDateKey(runtimeEnv);
     cleanupBuckets(dateKey);
 
     if (!rateBuckets.has(dateKey)) {
@@ -151,6 +175,12 @@ const json = (res, status, payload) => {
 const readJsonBody = async (req) => {
     if (req.body && typeof req.body === "object") {
         return req.body;
+    }
+
+    if (typeof req.text === "function") {
+        const text = await req.text();
+
+        return text ? JSON.parse(text) : {};
     }
 
     const chunks = [];
@@ -219,24 +249,28 @@ const extractText = (responseData) => {
     return textChunks.join("\n").trim();
 };
 
-const createReservation = ({ req, estimatedTokens }) => {
+const createReservation = ({ req, estimatedTokens, runtimeEnv }) => {
     const dailyTokenLimit = getNumberEnv(
         "OPENAI_DAILY_TOKEN_LIMIT",
-        DEFAULT_DAILY_TOKEN_LIMIT
+        DEFAULT_DAILY_TOKEN_LIMIT,
+        runtimeEnv
     );
     const dailyRequestLimit = getNumberEnv(
         "OPENAI_DAILY_REQUEST_LIMIT",
-        DEFAULT_DAILY_REQUEST_LIMIT
+        DEFAULT_DAILY_REQUEST_LIMIT,
+        runtimeEnv
     );
     const dailyIpTokenLimit = getNumberEnv(
         "OPENAI_DAILY_IP_TOKEN_LIMIT",
-        DEFAULT_DAILY_IP_TOKEN_LIMIT
+        DEFAULT_DAILY_IP_TOKEN_LIMIT,
+        runtimeEnv
     );
     const dailyIpRequestLimit = getNumberEnv(
         "OPENAI_DAILY_IP_REQUEST_LIMIT",
-        DEFAULT_DAILY_IP_REQUEST_LIMIT
+        DEFAULT_DAILY_IP_REQUEST_LIMIT,
+        runtimeEnv
     );
-    const bucket = getRateBucket();
+    const bucket = getRateBucket(runtimeEnv);
     const client = getClientBucket(bucket, getClientKey(req));
 
     if (bucket.requests >= dailyRequestLimit) {
@@ -304,16 +338,18 @@ const reconcileReservation = ({ reservation, actualTokens, failed = false }) => 
     }
 };
 
-export default async function handler(req, res) {
-    applyCorsHeaders(req, res);
+export default async function handler(req, res, runtimeEnv) {
+    const env = getRuntimeEnv(runtimeEnv);
+
+    applyCorsHeaders(req, res, env);
 
     if (req.method === "OPTIONS") {
-        res.statusCode = isRequestOriginAllowed(req) ? 204 : 403;
+        res.statusCode = isRequestOriginAllowed(req, env) ? 204 : 403;
         res.end();
         return;
     }
 
-    if (!isRequestOriginAllowed(req)) {
+    if (!isRequestOriginAllowed(req, env)) {
         json(res, 403, {
             error:
                 "Origin tidak diizinkan untuk memakai endpoint AI portfolio.",
@@ -326,10 +362,10 @@ export default async function handler(req, res) {
         return;
     }
 
-    if (!process.env.OPENAI_API_KEY) {
+    if (!getEnvValue("OPENAI_API_KEY", env)) {
         json(res, 503, {
             error:
-                "OpenAI API key belum diset. Tambahkan OPENAI_API_KEY di .env.local atau environment hosting.",
+                "OpenAI API key belum diset. Tambahkan OPENAI_API_KEY di .env.local atau Variables and Secrets Cloudflare Pages.",
         });
         return;
     }
@@ -353,7 +389,8 @@ export default async function handler(req, res) {
 
     const maxOutputTokens = getNumberEnv(
         "OPENAI_MAX_OUTPUT_TOKENS",
-        DEFAULT_MAX_OUTPUT_TOKENS
+        DEFAULT_MAX_OUTPUT_TOKENS,
+        env
     );
     const context = buildAiPortfolioContext();
     const conversationInput = buildConversationInput({
@@ -365,7 +402,7 @@ export default async function handler(req, res) {
         estimateTokens(systemPrompt) +
         estimateTokens(conversationInput) +
         maxOutputTokens;
-    const reservation = createReservation({ req, estimatedTokens });
+    const reservation = createReservation({ req, estimatedTokens, runtimeEnv: env });
 
     if (!reservation.ok) {
         json(res, reservation.status, { error: reservation.message });
@@ -376,11 +413,11 @@ export default async function handler(req, res) {
         const apiResponse = await fetch("https://api.openai.com/v1/responses", {
             method: "POST",
             headers: {
-                Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+                Authorization: `Bearer ${getEnvValue("OPENAI_API_KEY", env)}`,
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                model: process.env.OPENAI_MODEL || DEFAULT_MODEL,
+                model: getEnvValue("OPENAI_MODEL", env) || DEFAULT_MODEL,
                 instructions: systemPrompt,
                 input: conversationInput,
                 max_output_tokens: maxOutputTokens,
