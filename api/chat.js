@@ -9,6 +9,12 @@ const DEFAULT_DAILY_IP_REQUEST_LIMIT = 30;
 const DEFAULT_MAX_OUTPUT_TOKENS = 550;
 const MAX_MESSAGE_CHARS = 1400;
 const MAX_HISTORY_MESSAGES = 8;
+const DEFAULT_ALLOWED_ORIGINS = [
+    "https://portofolio-72b.pages.dev",
+    "https://rizam.xyz",
+    "https://www.rizam.xyz",
+    "https://rizqizamzamijamil.github.io",
+];
 const rateBuckets = new Map();
 
 const systemPrompt = `
@@ -42,14 +48,17 @@ const getEnvValue = (key, runtimeEnv) => {
 };
 
 const getAllowedOrigins = (runtimeEnv) =>
-    (
-        getEnvValue("AI_ALLOWED_ORIGINS", runtimeEnv) ||
-        getEnvValue("AI_ALLOWED_ORIGIN", runtimeEnv) ||
-        ""
-    )
-        .split(",")
-        .map((origin) => origin.trim())
-        .filter(Boolean);
+    [
+        ...DEFAULT_ALLOWED_ORIGINS,
+        getEnvValue("CF_PAGES_URL", runtimeEnv),
+        ...(
+            getEnvValue("AI_ALLOWED_ORIGINS", runtimeEnv) ||
+            getEnvValue("AI_ALLOWED_ORIGIN", runtimeEnv) ||
+            ""
+        )
+            .split(",")
+            .map((origin) => origin.trim()),
+    ].filter(Boolean);
 
 const isLocalOrigin = (origin) => {
     try {
@@ -170,6 +179,18 @@ const json = (res, status, payload) => {
     res.setHeader("Content-Type", "application/json; charset=utf-8");
     res.setHeader("Cache-Control", "no-store");
     res.end(JSON.stringify(payload));
+};
+
+const getOpenAiErrorMessage = (status) => {
+    if (status === 401 || status === 403) {
+        return "Konfigurasi OpenAI API key tidak valid atau tidak punya akses.";
+    }
+
+    if (status === 429) {
+        return "Batas pemakaian OpenAI sedang tercapai. Coba lagi nanti.";
+    }
+
+    return "OpenAI API mengembalikan error.";
 };
 
 const readJsonBody = async (req) => {
@@ -429,9 +450,7 @@ export default async function handler(req, res, runtimeEnv) {
         if (!apiResponse.ok) {
             reconcileReservation({ reservation, actualTokens: 0, failed: true });
             json(res, apiResponse.status, {
-                error:
-                    responseData.error?.message ||
-                    "OpenAI API mengembalikan error.",
+                error: getOpenAiErrorMessage(apiResponse.status),
             });
             return;
         }

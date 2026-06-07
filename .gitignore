@@ -1,24 +1,75 @@
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+out/
+.vite/
+*.tsbuildinfo
+
+# Local environment files
+.env
+.env.*
+!.env.example
+*.local
+
+# Cloudflare, hosting, and deploy CLI local state
+.wrangler/
+.dev.vars
+.dev.vars.*
+.netlify/
+.vercel/
+netlify/
+
 # Logs
-logs
+logs/
 *.log
+*.err
+*.out
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-.wrangler/
-*.local
+# Test, coverage, and generated reports
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
 codex-screenshots/
+
+# Temporary files and local caches
+.cache/
+.tmp/
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Local notes that are not required to run or build the app
+CLOUDFLARE_DEPLOY.md
+*.local.md
+*.draft.md
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
+*.code-workspace
+
+# OS files
 .DS_Store
+Thumbs.db
+Desktop.ini
+
+# Visual Studio / Windows project noise
 *.suo
 *.ntvs*
 *.njsproj

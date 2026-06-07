@@ -16,19 +16,24 @@ const starterQuestions = [
     "Ceritakan pengalaman magangnya.",
 ];
 
+const githubPagesChatApiUrl = "https://portofolio-72b.pages.dev/api/chat";
+const isGithubPagesHost =
+    typeof window !== "undefined" &&
+    window.location.hostname.endsWith("github.io");
+
 const resolveChatApiUrl = () => {
     if (import.meta.env.VITE_AI_CHAT_API_URL) {
         return import.meta.env.VITE_AI_CHAT_API_URL;
+    }
+
+    if (isGithubPagesHost) {
+        return githubPagesChatApiUrl;
     }
 
     return "/api/chat";
 };
 
 const chatApiUrl = resolveChatApiUrl();
-const isGithubPagesWithoutChatApi =
-    typeof window !== "undefined" &&
-    window.location.hostname.endsWith("github.io") &&
-    !import.meta.env.VITE_AI_CHAT_API_URL;
 const aiUnavailableMessage =
     "Maaf, Rizam AI sedang belum bisa dihubungi. Coba lagi beberapa saat lagi ya.";
 const aiLimitMessage =
@@ -257,10 +262,6 @@ const AiChat = () => {
         setIsLoading(true);
 
         try {
-            if (isGithubPagesWithoutChatApi) {
-                throw new ChatRequestError(aiUnavailableMessage, 503);
-            }
-
             const response = await fetch(chatApiUrl, {
                 method: "POST",
                 headers: {

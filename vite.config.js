@@ -30,8 +30,27 @@ const normalizeBasePath = (basePath) => {
         : `${withLeadingSlash}/`;
 };
 
+const assertNoPublicSecrets = (env) => {
+    const openAiKeyPattern = /^sk-[A-Za-z0-9_-]{20,}/;
+    const publicSecretNamePattern = /^VITE_.*(API_KEY|SECRET|PRIVATE_KEY|ACCESS_TOKEN)$/i;
+
+    Object.entries(env).forEach(([key, value]) => {
+        if (!key.startsWith("VITE_") || !value) {
+            return;
+        }
+
+        if (publicSecretNamePattern.test(key) || openAiKeyPattern.test(value)) {
+            throw new Error(
+                `${key} terlihat seperti secret dan akan ikut ke bundle browser. ` +
+                    "Simpan OPENAI_API_KEY hanya di .env.local atau Cloudflare Pages Variables and Secrets."
+            );
+        }
+    });
+};
+
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, process.cwd(), "");
+    assertNoPublicSecrets(env);
     Object.assign(process.env, env);
 
     return {
