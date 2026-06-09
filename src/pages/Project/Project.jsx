@@ -1,124 +1,116 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import Card from "../../components/Card/Card";
-import { highlightedProject, projects } from "../../data/portfolioData";
+import {
+    personalProjects,
+    projectLabels,
+    projects,
+    workedProjects,
+} from "../../data/portfolioData";
 import {
     defaultViewport,
     heroItem,
-    heroPanel,
     heroStagger,
     sectionItem,
     sectionStagger,
 } from "../../utils/motion";
 import "./Style.css";
 
-const categories = ["All", ...new Set(projects.map((project) => project.category))];
-const categoryAccentMap = {
-    All: "7, 31, 79",
-    Fullstack: "7, 93, 168",
-    Frontend: "109, 40, 217",
-    Mobile: "4, 120, 87",
-};
-
 const Projects = () => {
-    const [activeCategory, setActiveCategory] = useState("All");
+    const [activeLabel, setActiveLabel] = useState("Semua");
 
-    const filteredProjects = useMemo(() => {
+    const filteredWorkedProjects = useMemo(() => {
         const projectList =
-            activeCategory === "All"
-                ? projects
-                : projects.filter((project) => project.category === activeCategory);
+            activeLabel === "Semua"
+                ? workedProjects
+                : workedProjects.filter((project) => project.label === activeLabel);
 
         return [...projectList].sort(
             (left, right) => new Date(right.updatedAt) - new Date(left.updatedAt)
         );
-    }, [activeCategory]);
+    }, [activeLabel]);
 
     return (
         <main className="page-shell projects-page">
             <section className="section-shell projects-hero">
                 <div className="container">
-                    <div className="projects-hero__grid">
+                    <motion.div
+                        className="projects-hero__content"
+                        initial="hidden"
+                        animate="visible"
+                        variants={heroStagger}
+                    >
+                        <motion.span
+                            className="section-heading__eyebrow"
+                            variants={heroItem}
+                        >
+                            Projects
+                        </motion.span>
+                        <motion.h1
+                            className="projects-hero__title"
+                            variants={heroItem}
+                        >
+                            Project yang merepresentasikan pengalaman saya
+                            membangun web.
+                        </motion.h1>
+                        <motion.p
+                            className="projects-hero__description"
+                            variants={heroItem}
+                        >
+                            Dari karya personal hingga project magang dan skripsi,
+                            setiap item menampilkan konteks peran, stack utama,
+                            dan kontribusi yang relevan.
+                        </motion.p>
+
                         <motion.div
-                            className="projects-hero__content"
-                            initial="hidden"
-                            animate="visible"
-                            variants={heroStagger}
+                            className="projects-hero__summary"
+                            variants={sectionStagger}
                         >
-                            <motion.span
-                                className="section-heading__eyebrow"
-                                variants={heroItem}
-                            >
-                                Selected Works
+                            <motion.span variants={heroItem}>
+                                {personalProjects.length} project pribadi
                             </motion.span>
-                            <motion.h1
-                                className="projects-hero__title"
-                                variants={heroItem}
-                            >
-                                Project pilihan yang paling relevan untuk
-                                <span> dieksplor</span>.
-                            </motion.h1>
-                            <motion.p
-                                className="projects-hero__description"
-                                variants={heroItem}
-                            >
-                                Semua project memakai sumber data yang sama agar
-                                urutan dan tampilannya tetap konsisten.
-                            </motion.p>
-
-                            <motion.div
-                                className="projects-hero__stats"
-                                variants={sectionStagger}
-                            >
-                                <motion.article variants={heroItem}>
-                                    <strong>{projects.length}+</strong>
-                                    <span>Total project pilihan</span>
-                                </motion.article>
-                                <motion.article variants={heroItem}>
-                                    <strong>{categories.length - 1}</strong>
-                                    <span>Kategori karya</span>
-                                </motion.article>
-                                <motion.article variants={heroItem}>
-                                    <strong>Laravel</strong>
-                                    <span>Stack yang paling sering dipakai</span>
-                                </motion.article>
-                            </motion.div>
+                            <motion.span variants={heroItem}>
+                                {workedProjects.length} project pernah dikerjakan
+                            </motion.span>
+                            <motion.span variants={heroItem}>
+                                {projects.length} total project
+                            </motion.span>
                         </motion.div>
+                    </motion.div>
+                </div>
+            </section>
 
-                        <motion.article
-                            className="content-panel projects-featured"
-                            initial="hidden"
-                            animate="visible"
-                            variants={heroPanel}
+            <section className="section-shell">
+                <div className="container">
+                    <motion.div
+                        className="section-heading section-heading--left"
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={defaultViewport}
+                        variants={sectionStagger}
+                    >
+                        <motion.span
+                            className="section-heading__eyebrow"
+                            variants={sectionItem}
                         >
-                            <motion.div
-                                className="projects-featured__media"
-                                variants={heroItem}
-                            >
-                                <motion.img
-                                    src={highlightedProject.image}
-                                    alt={highlightedProject.title}
-                                    variants={heroItem}
-                                />
-                            </motion.div>
-                            <motion.div
-                                className="projects-featured__copy"
-                                variants={sectionStagger}
-                            >
-                                <motion.span
-                                    className="info-chip"
-                                    variants={heroItem}
-                                >
-                                    Highlight Project
-                                </motion.span>
-                                <motion.h2 variants={heroItem}>
-                                    {highlightedProject.title}
-                                </motion.h2>
-                                <motion.p variants={heroItem}>
-                                    {highlightedProject.highlight}
-                                </motion.p>
-                            </motion.div>
-                        </motion.article>
+                            Proyek Pribadi
+                        </motion.span>
+                        <motion.h2
+                            className="section-heading__title"
+                            variants={sectionItem}
+                        >
+                            Project yang saya bangun sebagai karya personal.
+                        </motion.h2>
+                    </motion.div>
+
+                    <div className="projects-grid">
+                        {personalProjects.map((project, index) => (
+                            <Card
+                                key={project.id}
+                                project={project}
+                                delay={index * 0.06}
+                            />
+                        ))}
                     </div>
                 </div>
             </section>
@@ -126,37 +118,53 @@ const Projects = () => {
             <section className="section-shell section-shell--muted">
                 <div className="container">
                     <motion.div
-                        className="projects-toolbar"
+                        className="projects-worked__head"
                         initial="hidden"
                         whileInView="visible"
                         viewport={defaultViewport}
                         variants={sectionStagger}
                     >
-                        {categories.map((category) => (
-                            <motion.button
-                                key={category}
-                                type="button"
-                                className={
-                                    activeCategory === category
-                                        ? "projects-filter is-active"
-                                        : "projects-filter"
-                                }
-                                style={{
-                                    "--filter-accent-rgb":
-                                        categoryAccentMap[category] ||
-                                        categoryAccentMap.All,
-                                }}
-                                onClick={() => setActiveCategory(category)}
+                        <div className="section-heading section-heading--left">
+                            <motion.span
+                                className="section-heading__eyebrow"
                                 variants={sectionItem}
                             >
-                                {category}
-                            </motion.button>
-                        ))}
+                                Pernah Dikerjakan
+                            </motion.span>
+                            <motion.h2
+                                className="section-heading__title"
+                                variants={sectionItem}
+                            >
+                                Project dari pengalaman magang, skripsi, dan
+                                kolaborasi lain.
+                            </motion.h2>
+                        </div>
+
+                        <motion.div
+                            className="projects-toolbar"
+                            variants={sectionStagger}
+                        >
+                            {projectLabels.map((label) => (
+                                <motion.button
+                                    key={label}
+                                    type="button"
+                                    className={
+                                        activeLabel === label
+                                            ? "projects-filter is-active"
+                                            : "projects-filter"
+                                    }
+                                    onClick={() => setActiveLabel(label)}
+                                    variants={sectionItem}
+                                >
+                                    {label}
+                                </motion.button>
+                            ))}
+                        </motion.div>
                     </motion.div>
 
-                    {filteredProjects.length > 0 ? (
+                    {filteredWorkedProjects.length > 0 ? (
                         <div className="projects-grid">
-                            {filteredProjects.map((project, index) => (
+                            {filteredWorkedProjects.map((project, index) => (
                                 <Card
                                     key={project.id}
                                     project={project}
@@ -167,12 +175,12 @@ const Projects = () => {
                     ) : (
                         <motion.div
                             className="empty-state"
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 18 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={defaultViewport}
-                            transition={{ duration: 0.45 }}
+                            transition={{ duration: 0.4 }}
                         >
-                            Belum ada project pada kategori ini.
+                            Belum ada project pada label ini.
                         </motion.div>
                     )}
                 </div>

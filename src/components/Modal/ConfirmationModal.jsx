@@ -1,11 +1,26 @@
+import { useEffect } from "react";
+import { createPortal } from "react-dom";
 import "./Style.css";
 
 const ConfirmationModal = ({ show, handleClose, handleConfirm }) => {
+    useEffect(() => {
+        if (!show) {
+            return undefined;
+        }
+
+        const previousOverflow = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+
+        return () => {
+            document.body.style.overflow = previousOverflow;
+        };
+    }, [show]);
+
     if (!show) {
         return null;
     }
 
-    return (
+    const modal = (
         <div className="confirm-modal" onClick={handleClose} role="presentation">
             <div
                 className="confirm-modal__dialog"
@@ -41,6 +56,8 @@ const ConfirmationModal = ({ show, handleClose, handleConfirm }) => {
             </div>
         </div>
     );
+
+    return createPortal(modal, document.body);
 };
 
 export default ConfirmationModal;

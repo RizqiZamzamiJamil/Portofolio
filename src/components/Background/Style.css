@@ -1,4 +1,4 @@
-.background-orbs {
+.background-field {
     position: absolute;
     inset: 0;
     overflow: hidden;
@@ -6,154 +6,62 @@
     z-index: 0;
 }
 
-.background-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(14px);
-    opacity: 0.7;
-    animation: orbFloat 14s ease-in-out infinite;
-}
-
-.background-orb--primary {
-    top: 4%;
-    left: -8%;
-    width: 22rem;
-    height: 22rem;
-    background: radial-gradient(circle at 30% 30%, rgba(14, 165, 233, 0.22), rgba(14, 165, 233, 0));
-}
-
-.background-orb--secondary {
-    top: 18%;
-    right: -6%;
-    width: 24rem;
-    height: 24rem;
-    background: radial-gradient(circle at 30% 30%, rgba(109, 40, 217, 0.09), rgba(109, 40, 217, 0));
-    animation-delay: -4s;
-}
-
-.background-orb--accent {
-    bottom: -10%;
-    left: 26%;
-    width: 20rem;
-    height: 20rem;
-    background: radial-gradient(circle at 30% 30%, rgba(217, 119, 6, 0.1), rgba(217, 119, 6, 0));
-    animation-delay: -8s;
-}
-
 .background-grid {
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(rgba(7, 31, 79, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(7, 31, 79, 0.035) 1px, transparent 1px);
-    background-size: 48px 48px;
-    mask-image: radial-gradient(circle at center, black 45%, transparent 95%);
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.92), transparent 88%);
 }
 
-.background-particles {
+.background-scanline {
     position: absolute;
     inset: 0;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    background: linear-gradient(
+        180deg,
+        transparent,
+        rgba(19, 216, 255, 0.08),
+        transparent
+    );
+    transform: translateY(-70%);
+    animation: scanlineMove 10s ease-in-out infinite;
 }
 
-.background-particles li {
+.background-rail {
     position: absolute;
-    bottom: -5rem;
-    width: 1rem;
-    height: 1rem;
-    border-radius: 50%;
-    background: rgba(14, 165, 233, 0.2);
-    box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.16);
-    animation: particleRise 18s linear infinite;
+    width: 46rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(19, 216, 255, 0.42), transparent);
+    transform: rotate(-18deg);
 }
 
-.background-particles li:nth-child(3n) {
-    background: rgba(109, 40, 217, 0.12);
-    box-shadow: 0 0 0 1px rgba(109, 40, 217, 0.1);
+.background-rail--one {
+    top: 28%;
+    left: -10rem;
 }
 
-.background-particles li:nth-child(4n) {
-    background: rgba(217, 119, 6, 0.12);
-    box-shadow: 0 0 0 1px rgba(217, 119, 6, 0.1);
+.background-rail--two {
+    right: -8rem;
+    bottom: 20%;
+    background: linear-gradient(90deg, transparent, rgba(18, 185, 129, 0.36), transparent);
+    transform: rotate(16deg);
 }
 
-.background-particles li:nth-child(1) {
-    left: 8%;
-    animation-delay: 0s;
-}
-
-.background-particles li:nth-child(2) {
-    left: 22%;
-    width: 0.6rem;
-    height: 0.6rem;
-    animation-delay: 3s;
-}
-
-.background-particles li:nth-child(3) {
-    left: 36%;
-    width: 1.2rem;
-    height: 1.2rem;
-    animation-delay: 7s;
-}
-
-.background-particles li:nth-child(4) {
-    left: 52%;
-    animation-delay: 2s;
-}
-
-.background-particles li:nth-child(5) {
-    left: 67%;
-    width: 0.7rem;
-    height: 0.7rem;
-    animation-delay: 9s;
-}
-
-.background-particles li:nth-child(6) {
-    left: 78%;
-    width: 1.1rem;
-    height: 1.1rem;
-    animation-delay: 4s;
-}
-
-.background-particles li:nth-child(7) {
-    left: 88%;
-    width: 0.9rem;
-    height: 0.9rem;
-    animation-delay: 6s;
-}
-
-.background-particles li:nth-child(8) {
-    left: 94%;
-    width: 0.55rem;
-    height: 0.55rem;
-    animation-delay: 1s;
-}
-
-@keyframes orbFloat {
+@keyframes scanlineMove {
     0%,
     100% {
-        transform: translate3d(0, 0, 0) scale(1);
-    }
-
-    50% {
-        transform: translate3d(0, -20px, 0) scale(1.05);
-    }
-}
-
-@keyframes particleRise {
-    0% {
-        transform: translateY(0) scale(0.8);
+        transform: translateY(-72%);
         opacity: 0;
     }
 
-    15% {
+    28%,
+    70% {
         opacity: 1;
     }
 
-    100% {
-        transform: translateY(-120vh) scale(1.4);
-        opacity: 0;
+    50% {
+        transform: translateY(72%);
     }
 }

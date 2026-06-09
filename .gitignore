@@ -36,13 +36,6 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Test, coverage, and generated reports
-coverage/
-.nyc_output/
-playwright-report/
-test-results/
-codex-screenshots/
-
 # Temporary files and local caches
 .cache/
 .tmp/

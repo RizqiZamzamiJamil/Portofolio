@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import "./Style.css";
 
 const initialMessages = [
@@ -11,9 +12,8 @@ const initialMessages = [
 ];
 
 const starterQuestions = [
-    "Project Rizqi yang paling relevan apa?",
-    "Rizqi paling kuat di stack apa?",
-    "Ceritakan pengalaman magangnya.",
+    "Ringkasan Rizqi",
+    "Pengalaman Rizqi",
 ];
 
 const githubPagesChatApiUrl = "https://portofolio-72b.pages.dev/api/chat";
@@ -137,7 +137,7 @@ const parseMarkdownBlocks = (content) => {
 
         const heading = trimmed.match(/^#{1,4}\s+(.+)$/);
         const bullet = trimmed.match(/^[-*]\s+(.+)$/);
-        const numbered = trimmed.match(/^\d+[.)]\s+(.+)$/);
+        const numbered = trimmed.match(/^(\d+)[.)]\s+(.+)$/);
 
         if (heading) {
             flushParagraph();
@@ -151,7 +151,8 @@ const parseMarkdownBlocks = (content) => {
 
         if (bullet || numbered) {
             const type = bullet ? "unordered-list" : "ordered-list";
-            const text = bullet ? bullet[1] : numbered[1];
+            const text = bullet ? bullet[1] : numbered[2];
+            const start = numbered ? Number(numbered[1]) : undefined;
 
             flushParagraph();
 
@@ -160,6 +161,7 @@ const parseMarkdownBlocks = (content) => {
                 list = {
                     type,
                     items: [],
+                    start,
                 };
             }
 
@@ -208,7 +210,7 @@ const MarkdownMessage = ({ content }) => {
 
                 if (block.type === "ordered-list") {
                     return (
-                        <ol key={`ol-${blockIndex}`}>
+                        <ol key={`ol-${blockIndex}`} start={block.start}>
                             {block.items.map((item, itemIndex) => (
                                 <li key={`ol-${blockIndex}-${itemIndex}`}>
                                     {parseInline(
@@ -314,11 +316,16 @@ const AiChat = () => {
         submitMessage(input);
     };
 
+    const showStarterQuestions = !messages.some(
+        (message) => message.role === "user",
+    );
+
     return (
-        <div className={isOpen ? "ai-chat is-open" : "ai-chat"}>
-            {isOpen ? (
+        <>
+            {isOpen
+                ? createPortal(
                 <section
-                    className="ai-chat__panel content-panel"
+                    className="ai-chat__panel"
                     aria-label="Chat AI"
                 >
                     <header className="ai-chat__header">
@@ -362,18 +369,20 @@ const AiChat = () => {
                         ) : null}
                     </div>
 
-                    <div className="ai-chat__starters">
-                        {starterQuestions.map((question) => (
-                            <button
-                                key={question}
-                                type="button"
-                                onClick={() => submitMessage(question)}
-                                disabled={isLoading}
-                            >
-                                {question}
-                            </button>
-                        ))}
-                    </div>
+                    {showStarterQuestions ? (
+                        <div className="ai-chat__starters">
+                            {starterQuestions.map((question) => (
+                                <button
+                                    key={question}
+                                    type="button"
+                                    onClick={() => submitMessage(question)}
+                                    disabled={isLoading}
+                                >
+                                    {question}
+                                </button>
+                            ))}
+                        </div>
+                    ) : null}
 
                     <form className="ai-chat__form" onSubmit={handleSubmit}>
                         <textarea
@@ -406,9 +415,12 @@ const AiChat = () => {
                             )}
                         </p>
                     ) : null}
-                </section>
-            ) : null}
+                </section>,
+                document.body,
+            )
+                : null}
 
+            <div className={isOpen ? "ai-chat is-open" : "ai-chat"}>
             <button
                 type="button"
                 className="ai-chat__toggle"
@@ -417,7 +429,8 @@ const AiChat = () => {
             >
                 <i className="fa-solid fa-comments" aria-hidden="true"></i>
             </button>
-        </div>
+            </div>
+        </>
     );
 };
 

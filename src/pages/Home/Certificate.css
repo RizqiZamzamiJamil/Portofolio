@@ -1,237 +1,114 @@
 .certificates-section {
     scroll-margin-top: 5.5rem;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.56));
 }
 
-.certificates-layout {
+.certificate-groups {
     display: grid;
-    grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.1fr);
-    gap: 1rem;
-    align-items: start;
+    gap: 1.45rem;
 }
 
-.certificate-spotlight,
-.certificate-gallery {
-    padding: 1rem;
-    background: rgba(248, 252, 255, 0.92);
+.certificate-group {
+    display: grid;
+    gap: 0.75rem;
 }
 
-.certificate-spotlight {
-    display: flex;
-    flex-direction: column;
+.certificate-group__title {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 1.12rem;
+    line-height: 1.25;
+}
+
+.certificates-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+}
+
+.certificate-item {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     gap: 0.9rem;
-}
-
-.certificate-spotlight__image,
-.certificate-gallery__thumb,
-.certificate-modal__image {
-    background:
-        linear-gradient(135deg, rgba(223, 244, 255, 0.92), rgba(248, 252, 255, 0.96) 55%, rgba(232, 247, 255, 0.94)),
-        #fff;
-    border: 1px solid rgba(14, 165, 233, 0.16);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72);
-}
-
-.certificate-spotlight__image {
-    min-height: clamp(18rem, 28vw, 24rem);
-    display: flex;
     align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 1rem;
     padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025)),
+        rgba(13, 19, 32, 0.82);
 }
 
-.certificate-spotlight--portrait .certificate-spotlight__image {
-    min-height: clamp(26rem, 48vw, 33rem);
-}
-
-.certificate-spotlight--landscape .certificate-spotlight__image {
-    aspect-ratio: 16 / 10;
-    min-height: clamp(14rem, 23vw, 19rem);
-}
-
-.certificate-spotlight__image img,
-.certificate-gallery__thumb img,
-.certificate-modal__image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.certificate-spotlight__copy h3,
-.certificate-modal__copy h3 {
-    margin: 0.7rem 0 0.48rem;
-    font-size: 1.22rem;
-}
-
-.certificate-spotlight__copy p,
-.certificate-gallery__head p,
-.certificate-modal__copy p {
-    margin-bottom: 0;
-    color: var(--muted-color);
-    font-size: 0.9rem;
-    line-height: 1.55;
-}
-
-.certificate-spotlight__meta,
-.certificate-modal__meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem;
-    margin: 0.9rem 0;
-}
-
-.certificate-spotlight__meta span,
-.certificate-modal__meta span {
-    padding: 0.42rem 0.72rem;
-    border-radius: 999px;
-    background: rgba(7, 31, 79, 0.06);
-    font-size: 0.73rem;
-    font-weight: 700;
-}
-
-.certificate-spotlight__actions,
-.certificate-gallery__head {
-    display: flex;
-    gap: 0.7rem;
-    justify-content: space-between;
-}
-
-.certificate-gallery {
-    display: flex;
-    flex-direction: column;
-}
-
-.certificate-gallery__head {
-    align-items: center;
-    margin-bottom: 0.9rem;
-}
-
-.certificate-gallery__controls {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.certificate-gallery__controls button,
-.certificate-modal__close {
-    width: 2.4rem;
-    height: 2.4rem;
+.certificate-item__icon {
+    width: 3rem;
+    height: 3rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(7, 31, 79, 0.08);
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.9);
+    border-radius: 0.5rem;
+    background: rgba(19, 216, 255, 0.12);
+    color: var(--brand-color);
+}
+
+.certificate-item__copy {
+    min-width: 0;
+}
+
+.certificate-item__copy span {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: var(--muted-color);
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.certificate-item__copy h4 {
+    margin: 0 0 0.35rem;
     color: var(--text-color);
-    cursor: pointer;
-    transition: transform 0.25s ease, background 0.25s ease;
+    font-size: 1rem;
+    line-height: 1.32;
 }
 
-.certificate-gallery__controls button:hover,
-.certificate-modal__close:hover {
-    background: rgba(14, 165, 233, 0.18);
-    transform: translateY(-2px);
-}
-
-.certificate-gallery__viewport {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 13.8rem;
-    grid-template-rows: repeat(2, 15rem);
-    gap: 0.85rem;
-    overflow-x: auto;
-    align-content: start;
-    min-height: calc((15rem * 2) + 0.85rem);
-    padding-bottom: 0.2rem;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
-}
-
-.certificate-gallery__item {
-    display: grid;
-    grid-template-rows: 8.8rem minmax(0, 1fr);
-    height: 100%;
-    cursor: pointer;
-    font: inherit;
-    padding: 0;
+.certificate-item__copy p {
+    display: -webkit-box;
+    margin: 0;
+    color: var(--muted-color);
+    font-size: 0.84rem;
+    line-height: 1.5;
     overflow: hidden;
-    border: 1px solid rgba(7, 31, 79, 0.08);
-    border-radius: 1rem;
-    background: rgba(248, 252, 255, 0.96);
-    text-align: left;
-    scroll-snap-align: start;
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
 
-.certificate-gallery__item:hover {
-    transform: translateY(-4px);
-    border-color: rgba(14, 165, 233, 0.24);
-    box-shadow: 0 16px 26px rgba(7, 31, 79, 0.12);
-}
-
-.certificate-gallery__thumb {
-    position: relative;
-    display: flex;
+.certificate-item__button,
+.certificates-collection-link {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    height: 8.8rem;
-    padding: 0.55rem;
-}
-
-.certificate-gallery__thumb img {
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-.certificate-gallery__thumb--portrait img {
-    width: auto;
-    max-width: 100%;
-}
-
-.certificate-gallery__thumb--landscape img {
-    height: auto;
-    max-height: 100%;
-}
-
-.certificate-gallery__item:hover .certificate-gallery__thumb img {
-    transform: scale(1.04);
-}
-
-.certificate-gallery__zoom {
-    position: absolute;
-    right: 0.55rem;
-    bottom: 0.55rem;
-    padding: 0.3rem 0.56rem;
-    border-radius: 999px;
-    background: rgba(7, 31, 79, 0.84);
-    color: #fff;
-    font-size: 0.66rem;
-    font-weight: 700;
-}
-
-.certificate-gallery__meta {
-    padding: 0.82rem;
-}
-
-.certificate-gallery__meta strong {
-    display: -webkit-box;
-    margin-bottom: 0.25rem;
-    font-size: 0.94rem;
-    line-height: 1.35;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-}
-
-.certificate-gallery__meta span {
-    display: -webkit-box;
-    color: var(--muted-color);
+    gap: 0.45rem;
+    min-height: 2.35rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.5rem;
+    padding: 0.52rem 0.75rem;
+    background: rgba(255, 255, 255, 0.055);
+    color: var(--text-color);
+    font: inherit;
     font-size: 0.76rem;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.22s ease, background 0.22s ease, transform 0.22s ease;
+}
+
+.certificate-item__button:hover,
+.certificates-collection-link:hover {
+    border-color: rgba(19, 216, 255, 0.42);
+    background: rgba(19, 216, 255, 0.13);
+    color: var(--text-color);
+    transform: translateY(-1px);
+}
+
+.certificates-collection-link {
+    margin-top: 1rem;
 }
 
 .certificate-modal {
@@ -241,121 +118,137 @@
     display: grid;
     place-items: center;
     padding: 1rem;
-    background: rgba(7, 31, 79, 0.5);
-    backdrop-filter: blur(8px);
+    background: rgba(3, 7, 18, 0.72);
+    backdrop-filter: blur(10px);
 }
 
 .certificate-modal__dialog {
     position: relative;
-    width: min(90vw, 54rem);
-    max-height: calc(100vh - 1.6rem);
-    overflow-y: auto;
+    width: min(94vw, 68rem);
+    max-height: calc(100vh - 2rem);
+    overflow: auto;
     display: grid;
-    grid-template-columns: minmax(0, 0.95fr) minmax(220px, 0.8fr);
+    grid-template-columns: minmax(0, 1.25fr) minmax(250px, 0.75fr);
     gap: 1rem;
     padding: 1rem;
-    border-radius: 1.35rem;
-    background: var(--surface-color);
-    border: 1px solid rgba(7, 31, 79, 0.08);
-    box-shadow: 0 26px 60px rgba(7, 31, 79, 0.22);
-}
-
-.certificate-modal__dialog--landscape {
-    width: min(94vw, 72rem);
-    grid-template-columns: minmax(0, 1.35fr) minmax(230px, 0.65fr);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 3px solid rgba(19, 216, 255, 0.82);
+    border-radius: 0.5rem;
+    background:
+        linear-gradient(145deg, rgba(19, 216, 255, 0.08), transparent 34%),
+        #0a0f1b;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.42);
 }
 
 .certificate-modal__dialog--portrait {
-    width: min(90vw, 54rem);
+    width: min(92vw, 52rem);
+    grid-template-columns: minmax(0, 0.9fr) minmax(240px, 0.85fr);
 }
 
 .certificate-modal__close {
     position: absolute;
     top: 0.85rem;
     right: 0.85rem;
+    z-index: 2;
+    width: 2.4rem;
+    height: 2.4rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 0.5rem;
+    background: rgba(6, 10, 20, 0.78);
+    color: var(--text-color);
+    cursor: pointer;
 }
 
 .certificate-modal__image {
     display: grid;
     place-items: center;
+    min-height: 20rem;
     overflow: hidden;
-    border-radius: 1rem;
-    min-height: unset;
-    max-height: calc(100vh - 6rem);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    background: #05070d;
     padding: 0.85rem;
 }
 
 .certificate-modal__image img {
     width: auto;
     max-width: 100%;
-    max-height: min(72vh, 40rem);
-    height: auto;
+    max-height: min(76vh, 42rem);
+    object-fit: contain;
 }
 
 .certificate-modal__dialog--landscape .certificate-modal__image img {
     width: 100%;
-    max-height: min(76vh, 42rem);
 }
 
 .certificate-modal__copy {
     align-self: center;
 }
 
+.certificate-modal__copy h3 {
+    margin: 0.8rem 0 0.55rem;
+    color: var(--text-color);
+    font-size: 1.55rem;
+    line-height: 1.16;
+}
+
+.certificate-modal__copy p {
+    margin: 0;
+    color: var(--muted-color);
+    font-size: 0.94rem;
+    line-height: 1.62;
+}
+
+.certificate-modal__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 1rem;
+}
+
+.certificate-modal__meta span {
+    display: inline-flex;
+    min-height: 2.2rem;
+    align-items: center;
+    border: 1px solid rgba(19, 216, 255, 0.22);
+    border-radius: 0.5rem;
+    padding: 0.45rem 0.65rem;
+    background: rgba(19, 216, 255, 0.09);
+    color: var(--text-color);
+    font-size: 0.76rem;
+    font-weight: 800;
+}
+
 @media (max-width: 991px) {
-    .certificates-layout,
-    .certificate-modal__dialog {
+    .certificates-list,
+    .certificate-modal__dialog,
+    .certificate-modal__dialog--portrait {
         grid-template-columns: 1fr;
-    }
-
-    .certificate-spotlight__image {
-        min-height: 18rem;
-    }
-
-    .certificate-spotlight--portrait .certificate-spotlight__image {
-        min-height: 25rem;
-    }
-
-    .certificate-gallery__viewport {
-        grid-auto-columns: calc((100% - 0.85rem) / 2);
-        grid-template-rows: repeat(2, 14rem);
-        min-height: calc((14rem * 2) + 0.85rem);
     }
 }
 
-@media (max-width: 576px) {
-    .certificate-spotlight__actions,
-    .certificate-gallery__head {
-        flex-direction: column;
-        align-items: stretch;
+@media (max-width: 640px) {
+    .certificate-item {
+        grid-template-columns: 1fr;
     }
 
-    .certificate-gallery__controls {
-        justify-content: flex-end;
-    }
-
-    .certificate-gallery__viewport {
-        grid-auto-columns: 100%;
-        grid-template-rows: repeat(1, 14rem);
-        min-height: 14rem;
-    }
-
-    .certificate-gallery__item {
-        grid-template-rows: 8.4rem minmax(0, 1fr);
-    }
-
-    .certificate-gallery__thumb {
-        height: 8.4rem;
+    .certificate-item__button {
+        width: 100%;
     }
 
     .certificate-modal {
+        padding: 0.7rem;
+    }
+
+    .certificate-modal__dialog {
+        width: 100%;
         padding: 0.75rem;
     }
 
-    .certificate-modal__image img {
-        max-height: 58vh;
-    }
-
-    .certificate-spotlight--landscape .certificate-spotlight__image {
-        min-height: 12rem;
+    .certificate-modal__image {
+        min-height: 14rem;
     }
 }

@@ -1,23 +1,19 @@
+import BestDefense from "../assets/bestdefense.jpg";
 import BlockchainCertificate from "../assets/blockchain.png";
 import BnspCertificate from "../assets/bnsp.jpg";
 import BootstrapCertificate from "../assets/bootstrap.jpg";
-import SchoolPolinema from "../assets/education/kuliah.jpg";
-import SchoolMtsn3 from "../assets/education/mts.png";
-import SchoolSdSendang from "../assets/education/sd.jpeg";
-import SchoolSmkGrogol from "../assets/education/smk.jpeg";
 import HeroPortrait from "../assets/foto.png";
 import AboutPortrait from "../assets/foto2.png";
 import GamelabCertificate from "../assets/gamelab2.jpg";
 import JavascriptCertificate from "../assets/javascript.jpg";
 import ProjectLMS from "../assets/lms.png";
+import PortfolioLogo from "../assets/logo.png";
+import MagangHub from "../assets/maganghub.png";
 import MsibCertificate from "../assets/msib (2).jpg";
 import ProjectRpl from "../assets/project0.png";
 import ProjectRepository from "../assets/project001.png";
-import ProjectNyahSiok from "../assets/project1.png";
 import ProjectCinema from "../assets/project2.png";
 import ProjectLaundry from "../assets/project3.png";
-import ProjectTodoVue from "../assets/project4.png";
-import ProjectFoodLanding from "../assets/project5.png";
 import ProjectMaut from "../assets/project6.png";
 import ProjectSurvey from "../assets/project7.png";
 import ProjectManagement from "../assets/Project8.png";
@@ -32,7 +28,7 @@ export const profile = {
     name: "Rizqi Zamzami Jamil",
     shortName: "Rizam",
     role: "Fullstack Web Developer",
-    location: "Kediri, East Java, Indonesia",
+    location: "Kediri, Jawa Timur, Indonesia",
     email: "rizqizamzamij@gmail.com",
     phone: "+62 821 4708 3442",
     heroImage: HeroPortrait,
@@ -41,12 +37,12 @@ export const profile = {
     certificateCollectionUrl:
         "https://drive.google.com/file/d/1gsLwGgcfcvmGLtGij5DAHWtX5mfgtq4L/view?usp=sharing",
     heroDescription:
-        "Fullstack web developer yang fokus membangun web Laravel yang rapi, aman, dan nyaman dipakai.",
+        "Saya membangun web fullstack yang rapi, mudah dipakai, dan kuat di alur data.",
     summary:
-        "Lulusan 2025 dari Politeknik Negeri Malang. Saya fokus mengubah kebutuhan bisnis menjadi web yang jelas dan mudah dipakai.",
+        "Lulusan Sistem Informasi Bisnis Politeknik Negeri Malang tahun 2025. Saya fokus mengubah kebutuhan pengguna dan proses bisnis menjadi aplikasi web yang jelas, terstruktur, dan nyaman dipakai.",
     secondarySummary:
-        "Saya sering menggabungkan Laravel, PHP, JavaScript, dan React untuk web yang rapi di UI dan kuat di logika.",
-    heroBadges: ["2025 Graduate", "Laravel", "React", "Best Graduate"],
+        "Stack yang paling sering saya gunakan adalah Laravel, PHP, React, JavaScript, dan Tailwind CSS, dengan perhatian besar pada struktur backend dan UI yang sesuai dengan kebutuhan pengguna.",
+    heroBadges: ["Laravel", "React", "PHP", "JavaScript"],
 };
 
 export const socialLinks = [
@@ -74,324 +70,374 @@ export const socialLinks = [
 
 export const coreStrengths = [
     {
-        title: "End-to-end thinking",
+        title: "Fullstack Web Development",
         description:
-            "Terbiasa memikirkan alur user, data, dan implementasi secara menyatu.",
+            "Mengerjakan frontend, backend, database, dan integrasi fitur untuk aplikasi web end-to-end.",
     },
     {
-        title: "Laravel-centered delivery",
+        title: "Alur Bisnis & Sistem",
         description:
-            "Paling sering membangun sistem dengan Laravel untuk backend dan logic aplikasi.",
+            "Membaca kebutuhan proses bisnis lalu menerjemahkannya menjadi alur fitur dan struktur data.",
     },
     {
-        title: "UI yang lebih tenang",
+        title: "Delivery Project",
         description:
-            "Suka membuat tampilan yang rapi, jelas, dan nyaman dipakai.",
+            "Berpengalaman di project mandiri dan tim, mulai dari portfolio, skripsi, PKL, MSIB, sampai magang.",
     },
 ];
 
-export const achievementHighlights = [
+export const skillGroups = [
     {
-        title: "Wisudawan Terbaik Prodi, Wisuda ke-70",
-        value: "Top Graduate",
-        icon: "fa-solid fa-award",
-        description:
-            "Pencapaian akademik yang saya jadikan standar kualitas kerja.",
+        title: "Frontend",
+        skills: [
+            {
+                name: "HTML & CSS",
+                level: "Lanjut",
+                color: "#e34f26",
+            },
+            {
+                name: "JavaScript",
+                level: "Menengah",
+                color: "#f7df1e",
+            },
+            {
+                name: "Tailwind CSS",
+                level: "Lanjut",
+                color: "#38bdf8",
+            },
+            {
+                name: "Bootstrap",
+                level: "Lanjut",
+                color: "#7952b3",
+            },
+            {
+                name: "React JS",
+                level: "Menengah",
+                color: "#61dafb",
+            },
+            {
+                name: "Vue JS",
+                level: "Dasar",
+                color: "#42b883",
+            },
+        ],
     },
     {
-        title: "Lulus Tahun 2025",
-        value: "Polinema",
-        icon: "fa-solid fa-graduation-cap",
-        description:
-            "Lulus Sistem Informasi Bisnis dan aktif membangun project web.",
+        title: "Backend",
+        skills: [
+            {
+                name: "PHP",
+                level: "Lanjut",
+                color: "#777bb4",
+            },
+            {
+                name: "MySQL",
+                level: "Lanjut",
+                color: "#00758f",
+            },
+            {
+                name: "Laravel",
+                level: "Menengah",
+                color: "#ff2d20",
+            },
+            {
+                name: "CodeIgniter 4",
+                level: "Menengah",
+                color: "#ef4223",
+            },
+            {
+                name: "Node.js",
+                level: "Dasar",
+                color: "#539e43",
+            },
+            {
+                name: "Express.js",
+                level: "Dasar",
+                color: "#f8fafc",
+            },
+        ],
     },
     {
-        title: "Stack Utama",
-        value: "Laravel + React",
-        icon: "fa-solid fa-layer-group",
-        description:
-            "Kombinasi utama saya untuk backend terstruktur dan UI responsif.",
-    },
-    {
-        title: "Pengalaman Project",
-        value: "10+ Builds",
-        icon: "fa-solid fa-rocket",
-        description:
-            "Mulai dari sistem akademik, repository, website klinik, dan landing page.",
-    },
-];
-
-export const skillCategories = ["Frontend", "Backend", "API", "Delivery"];
-
-export const skills = [
-    {
-        name: "Laravel",
-        iconClass: "fa-brands fa-laravel",
-        level: 93,
-        color: "#f97316",
-        focus: "CRUD, auth, dashboard, business logic.",
-        description: "Stack utama untuk web fullstack.",
-    },
-    {
-        name: "React JS",
-        iconClass: "fa-brands fa-react",
-        level: 86,
-        color: "#0891b2",
-        focus: "Component, state flow, responsive UI.",
-        description: "UI modular dan interaktif.",
-    },
-    {
-        name: "PHP",
-        iconClass: "fa-brands fa-php",
-        level: 93,
-        color: "#6366f1",
-        focus: "Backend logic, templating, server-side flow.",
-        description: "Fondasi backend yang stabil.",
-    },
-    {
-        name: "JavaScript",
-        iconClass: "fa-brands fa-js",
-        level: 88,
-        color: "#d97706",
-        focus: "DOM, dynamic form, frontend logic.",
-        description: "Interaksi cepat di frontend.",
-    },
-    {
-        name: "HTML & CSS",
-        iconClass: "fa-brands fa-html5",
-        level: 96,
-        color: "#be123c",
-        focus: "Semantic markup, layout, visual hierarchy.",
-        description: "Layout rapi dan responsif.",
-    },
-    {
-        name: "Vue JS",
-        iconClass: "fa-brands fa-vuejs",
-        level: 80,
-        color: "#10b981",
-        focus: "Reactive component dan dashboard ringan.",
-        description: "Eksplorasi dashboard ringan.",
+        title: "Tools",
+        skills: [
+            {
+                name: "VS Code",
+                level: "Lanjut",
+                color: "#007acc",
+            },
+            {
+                name: "Git & GitHub",
+                level: "Menengah",
+                color: "#f05032",
+            },
+            {
+                name: "Figma",
+                level: "Menengah",
+                color: "#f24e1e",
+            },
+            {
+                name: "Postman",
+                level: "Menengah",
+                color: "#ff6c37",
+            },
+            {
+                name: "Laragon",
+                level: "Menengah",
+                color: "#38bdf8",
+            },
+            {
+                name: "Vite",
+                level: "Menengah",
+                color: "#646cff",
+            },
+        ],
     },
 ];
 
 const projectItems = [
     {
-        id: "lms-nazmalogy",
-        title: "LMS NaZMaLogy",
-        summary:
-            "Website LMS atau course online NaZMalogy untuk pengelolaan kelas, materi, dan alur belajar peserta.",
-        stack: ["Laravel", "Livewire", "Alpine.js", "Tailwind CSS"],
-        category: "Fullstack",
-        accent: "79, 70, 229",
-        role: "Kemnaker Internship",
-        updatedAt: "2026-03-20",
-        image: ProjectLMS,
-        liveUrl: "https://lms.nazmalogy.com/",
+        id: "portfolio-new",
+        title: "Portfolio Website",
+        listDescription:
+            "Website personal untuk merangkum profil, pengalaman, project, education, dan sertifikat.",
+        detailDescription:
+            "Portfolio ini menjadi pusat profil profesional yang merangkum latar belakang, pengalaman, project, education, dan sertifikat dalam satu website.",
+        stack: ["React", "Vite", "CSS", "Bootstrap"],
+        mainStack: "React",
+        logoStack: "React",
+        group: "Proyek Pribadi",
+        label: "Pribadi",
+        position: "Frontend Developer",
+        collaboration: "Mandiri",
+        updatedAt: "2026-06-08",
+        image: PortfolioLogo,
+        liveUrl: "https://portfolio.rizam.fun/",
         codeUrl: null,
-        highlight:
-            "Proyek hasil magang Kemnaker bulan ke-3 dengan stack Laravel, Livewire, dan Alpine.js.",
-    },
-    {
-        id: "singgah-loka",
-        title: "Singgah Loka",
-        summary:
-            "Website reservasi penginapan untuk wilayah Yogyakarta dan sekitarnya.",
-        stack: ["Laravel", "Alpine.js", "Tailwind CSS"],
-        category: "Fullstack",
-        accent: "217, 119, 6",
-        role: "Kemnaker Internship",
-        updatedAt: "2026-05-03",
-        image: ProjectSinggahLoka,
-        liveUrl: "https://silo.nazmalogy.com/",
-        codeUrl: null,
-        highlight:
-            "Platform reservasi penginapan Magang Kemnaker / Nazma Office yang sedang dikembangkan ulang pada staging repository.",
-    },
-    {
-        id: "document-repository",
-        title: "Document Repository System",
-        summary:
-            "Repository dokumen web untuk JTI Polinema dengan upload, klasifikasi file, dan akses yang lebih aman.",
-        stack: ["Laravel", "Livewire", "Bootstrap"],
-        category: "Fullstack",
-        accent: "14, 116, 144",
-        role: "Thesis Project",
-        updatedAt: "2025-07-30",
-        image: ProjectRepository,
-        liveUrl: null,
-        codeUrl: null,
-        highlight:
-            "Proyek skripsi dengan fokus repository dan alur data dokumen.",
-    },
-    {
-        id: "stimata-rpl",
-        title: "RPL Admission Website",
-        summary: "Website penerimaan mahasiswa jalur RPL untuk STIMATA Malang.",
-        stack: ["Laravel", "Livewire", "Bootstrap"],
-        category: "Fullstack",
-        accent: "234, 88, 12",
-        role: "PKL Semester 7",
-        updatedAt: "2024-11-06",
-        image: ProjectRpl,
-        liveUrl: null,
-        codeUrl: null,
-        highlight:
-            "Proyek PKL semester 7 untuk alur informasi dan pendaftaran mahasiswa.",
-    },
-    {
-        id: "clinic-app",
-        title: "Clinic Reservation App",
-        summary: "Website klinik dengan reservasi online dan notifikasi email.",
-        stack: ["React", "Express", "Tailwind CSS"],
-        category: "Fullstack",
-        accent: "5, 150, 105",
-        role: "Internship Build",
-        updatedAt: "2024-06-14",
-        image: ProjectClinic,
-        liveUrl: "https://fe-msib-6-klinik-app-04.educalab.id/",
-        codeUrl: "https://github.com/RizqiZamzamiJamil/klinik-app",
-        highlight:
-            "Menggabungkan UI dinamis dengan reservasi dan komunikasi notifikasi berbasis email.",
-    },
-    {
-        id: "project-management-vue",
-        title: "Simple Project Management",
-        summary:
-            "Aplikasi manajemen project sederhana untuk mengatur project dan tim.",
-        stack: ["Vue", "Tailwind CSS"],
-        category: "Frontend",
-        accent: "109, 40, 217",
-        role: "Dashboard Practice",
-        updatedAt: "2024-04-30",
-        image: ProjectManagement,
-        liveUrl: null,
-        codeUrl:
-            "https://github.com/RizqiZamzamiJamil/Manajemen_Proyek_Sederhana",
-        highlight:
-            "Berfokus pada state management sederhana dan penyusunan UI dashboard mini.",
-    },
-    {
-        id: "todo-vue",
-        title: "Vue To Do List",
-        summary:
-            "Aplikasi to do list berbasis Vue JS untuk manajemen task harian.",
-        stack: ["Vue", "JavaScript", "CDN"],
-        category: "Frontend",
-        accent: "5, 150, 105",
-        role: "UI Practice",
-        updatedAt: "2023-04-25",
-        image: ProjectTodoVue,
-        liveUrl: null,
-        codeUrl: null,
-        isHidden: true,
-        highlight:
-            "Menjaga pengalaman input dan pengelolaan task tetap cepat dan sederhana.",
-    },
-    {
-        id: "nyah-siok",
-        title: "UMKM Nyah Siok Website",
-        summary:
-            "Website promosi brand kuliner dimsum dengan fokus presentasi produk.",
-        stack: ["HTML", "Bootstrap", "SASS"],
-        category: "Frontend",
-        accent: "190, 18, 60",
-        role: "Brand Website",
-        updatedAt: "2024-03-20",
-        image: ProjectNyahSiok,
-        liveUrl: null,
-        codeUrl: null,
-        isHidden: true,
-        highlight:
-            "Menekankan tampilan landing page yang lebih komunikatif untuk promosi UMKM.",
+        accent: "14, 165, 233",
     },
     {
         id: "cinema-list",
-        title: "Cinema List Search",
-        summary:
-            "Eksplorasi pencarian film berbasis API dengan jQuery Ajax dengan framework VueJs.",
-        stack: ["Vue", "API", "Tailwind CSS"],
-        category: "Frontend",
-        accent: "2, 132, 199",
-        role: "API Exploration",
+        title: "Cinema List",
+        listDescription:
+            "Katalog pencarian film dan serial dengan data TMDB dalam tampilan dark modern.",
+        detailDescription:
+            "Cinema List menampilkan data film dan serial TV, pencarian, detail, rating, dan modal informasi dalam UI gelap yang lebih fokus ke konten.",
+        stack: ["Vue", "Tailwind CSS", "Flowbite", "TMDB API"],
+        mainStack: "Vue",
+        logoStack: "Vue",
+        group: "Proyek Pribadi",
+        label: "Pribadi",
+        position: "Frontend Developer",
+        collaboration: "Mandiri",
         updatedAt: "2024-03-10",
         image: ProjectCinema,
-        liveUrl: "https://rizqizamzamijamil.github.io/Cinema_List/",
+        liveUrl: "https://cinemalist.rizam.fun",
         codeUrl: "https://github.com/RizqiZamzamiJamil/Cinema_List",
-        highlight:
-            "Melatih pengambilan data eksternal dan pencarian berbasis user input secara real time.",
-    },
-    {
-        id: "food-landing-page",
-        title: "Static Food Landing Page",
-        summary:
-            "Landing page makanan statis untuk latihan layout dan visual branding.",
-        stack: ["HTML", "CSS"],
-        category: "Frontend",
-        accent: "217, 119, 6",
-        role: "Landing Page",
-        updatedAt: "2024-02-18",
-        image: ProjectFoodLanding,
-        liveUrl: null,
-        codeUrl: null,
-        isHidden: true,
-        highlight:
-            "Mengasah kemampuan visual hierarchy dan layout responsive tanpa framework.",
-    },
-    {
-        id: "peek-survey-mobile",
-        title: "Peek Survey Mobile Collaboration",
-        summary:
-            "Project kolaboratif aplikasi survey mobile dengan Flutter dan Laravel.",
-        stack: ["Flutter", "Laravel", "API"],
-        category: "Mobile",
-        accent: "190, 18, 60",
-        role: "Collaborative Project",
-        updatedAt: "2023-12-25",
-        image: ProjectSurvey,
-        liveUrl: null,
-        codeUrl: "https://github.com/RizqiZamzamiJamil/Survey_Mobile",
-        highlight:
-            "Memberikan pengalaman kerja lintas stack dengan pembagian peran frontend dan backend.",
+        accent: "5, 150, 105",
     },
     {
         id: "maut-system",
         title: "Decision Support System MAUT",
-        summary:
-            "Sistem pendukung keputusan berbasis metode MAUT dengan CodeIgniter 4.",
-        stack: ["CodeIgniter 4", "Tailwind CSS"],
-        category: "Fullstack",
-        accent: "8, 145, 178",
-        role: "Analytical System",
+        listDescription:
+            "Sistem pendukung keputusan berbasis metode MAUT untuk proses penilaian alternatif.",
+        detailDescription:
+            "Project SPK ini menerapkan metode MAUT pada aplikasi web dengan proses input kriteria, pengolahan nilai, dan hasil ranking yang lebih terstruktur.",
+        stack: ["CodeIgniter 4", "Tailwind CSS", "PHP", "MySQL"],
+        mainStack: "CodeIgniter 4",
+        logoStack: "CodeIgniter 4",
+        group: "Proyek Pribadi",
+        label: "Pribadi",
+        position: "Fullstack Developer",
+        collaboration: "Mandiri",
         updatedAt: "2023-12-12",
         image: ProjectMaut,
         liveUrl: null,
         codeUrl:
             "https://github.com/RizqiZamzamiJamil/Sistem_Pendukung_Keputusan_MAUT",
-        highlight:
-            "Menerapkan logika pengambilan keputusan ke dalam sistem web yang lebih terstruktur.",
+        accent: "239, 68, 68",
+    },
+    {
+        id: "lms-nazmalogy",
+        title: "LMS NaZMaLogy",
+        listDescription:
+            "Platform LMS untuk mengelola kelas, materi, dan alur belajar peserta.",
+        detailDescription:
+            "LMS NaZMaLogy dikembangkan untuk mendukung pengelolaan course online, materi pembelajaran, kelas, dan proses belajar peserta selama program magang.",
+        stack: ["Laravel", "Livewire", "Alpine.js", "Tailwind CSS"],
+        mainStack: "Laravel",
+        logoStack: "Laravel",
+        group: "Pernah Dikerjakan",
+        label: "Magang",
+        position: "Fullstack Developer",
+        collaboration: "Tim Nazma Office",
+        updatedAt: "2026-03-20",
+        image: ProjectLMS,
+        liveUrl: "https://lms.nazmalogy.com/",
+        codeUrl: null,
+        accent: "234, 88, 12",
+    },
+    {
+        id: "singgah-loka",
+        title: "Singgah Loka",
+        listDescription:
+            "Website reservasi penginapan untuk wilayah Yogyakarta dan sekitarnya.",
+        detailDescription:
+            "Singgah Loka berfokus pada alur reservasi penginapan, informasi properti, dan pengelolaan data booking untuk kebutuhan platform penginapan.",
+        stack: ["Laravel", "Alpine.js", "Tailwind CSS"],
+        mainStack: "Laravel",
+        logoStack: "Laravel",
+        group: "Pernah Dikerjakan",
+        label: "Magang",
+        position: "Fullstack Developer",
+        collaboration: "Tim Nazma Office",
+        updatedAt: "2026-05-03",
+        image: ProjectSinggahLoka,
+        liveUrl: "https://silo.nazmalogy.com/",
+        codeUrl: null,
+        accent: "234, 88, 12",
+    },
+    {
+        id: "document-repository",
+        title: "Document Repository System",
+        listDescription:
+            "Repository dokumen untuk upload, klasifikasi file, dan akses dokumen yang lebih aman.",
+        detailDescription:
+            "Sistem repository dokumen ini dibuat sebagai project skripsi untuk membantu pengelolaan dokumen pada lingkungan kampus dengan alur upload, kategori, dan akses yang lebih tertata.",
+        stack: ["Laravel", "Livewire", "Bootstrap", "MySQL"],
+        mainStack: "Laravel",
+        logoStack: "Laravel",
+        group: "Pernah Dikerjakan",
+        label: "Skripsi",
+        position: "Fullstack Developer",
+        collaboration: "Mandiri",
+        updatedAt: "2025-07-30",
+        image: ProjectRepository,
+        liveUrl: null,
+        codeUrl: null,
+        accent: "234, 88, 12",
+    },
+    {
+        id: "stimata-rpl",
+        title: "RPL Admission Website",
+        listDescription:
+            "Website penerimaan mahasiswa jalur RPL untuk STIMATA Malang.",
+        detailDescription:
+            "Website ini membantu penyajian informasi dan proses pendaftaran mahasiswa jalur RPL dengan struktur halaman dan form yang lebih mudah diikuti.",
+        stack: ["Laravel", "Livewire", "Bootstrap", "MySQL"],
+        mainStack: "Laravel",
+        logoStack: "Laravel",
+        group: "Pernah Dikerjakan",
+        label: "Magang",
+        position: "Fullstack Developer",
+        collaboration: "Tim Duta Technology",
+        updatedAt: "2024-11-06",
+        image: ProjectRpl,
+        liveUrl: null,
+        codeUrl: null,
+        accent: "234, 88, 12",
+    },
+    {
+        id: "clinic-app",
+        title: "Clinic Reservation App",
+        listDescription:
+            "Aplikasi reservasi klinik online dengan notifikasi dan alur booking pasien.",
+        detailDescription:
+            "Clinic Reservation App menggabungkan frontend dinamis, reservasi pasien, dan integrasi notifikasi email untuk kebutuhan simulasi aplikasi klinik.",
+        stack: ["React", "Express", "Tailwind CSS", "Node.js"],
+        mainStack: "React",
+        logoStack: "React",
+        group: "Pernah Dikerjakan",
+        label: "Magang",
+        position: "Frontend Developer",
+        collaboration: "Peserta MSIB",
+        updatedAt: "2024-06-14",
+        image: ProjectClinic,
+        liveUrl: "https://fe-msib-6-klinik-app-04.educalab.id/",
+        codeUrl: "https://github.com/RizqiZamzamiJamil/klinik-app",
+        accent: "14, 165, 233",
+    },
+    {
+        id: "project-management-vue",
+        title: "Simple Project Management",
+        listDescription:
+            "Dashboard sederhana untuk mengatur project, task, dan anggota tim.",
+        detailDescription:
+            "Project ini digunakan untuk eksplorasi dashboard frontend, pengelolaan state sederhana, dan penyusunan UI manajemen task yang rapi.",
+        stack: ["Vue", "Tailwind CSS"],
+        mainStack: "Vue",
+        logoStack: "Vue",
+        group: "Pernah Dikerjakan",
+        label: "Proyek Lain",
+        position: "Frontend Developer",
+        collaboration: "Mandiri",
+        updatedAt: "2024-04-30",
+        image: ProjectManagement,
+        liveUrl: null,
+        codeUrl:
+            "https://github.com/RizqiZamzamiJamil/Manajemen_Proyek_Sederhana",
+        accent: "5, 150, 105",
+    },
+    {
+        id: "peek-survey-mobile",
+        title: "Peek Survey Mobile Collaboration",
+        listDescription:
+            "Project kolaboratif aplikasi survey mobile dengan Flutter dan Laravel API.",
+        detailDescription:
+            "Project ini memberi pengalaman kerja lintas stack melalui aplikasi survey mobile, integrasi API, dan pembagian peran dalam tim.",
+        stack: ["Flutter", "Laravel", "API", "MySQL"],
+        mainStack: "Laravel",
+        logoStack: "Laravel",
+        group: "Pernah Dikerjakan",
+        label: "Proyek Lain",
+        position: "Backend/API Contributor",
+        collaboration: "Tim Kolaborasi",
+        updatedAt: "2023-12-25",
+        image: ProjectSurvey,
+        liveUrl: null,
+        codeUrl: "https://github.com/RizqiZamzamiJamil/Survey_Mobile",
+        accent: "234, 88, 12",
     },
     {
         id: "si-launsh",
         title: "Si Launsh Business Website",
-        summary:
-            "Website fullstack untuk usaha cuci sepatu dan helm yang dibangun dengan CodeIgniter 4.",
-        stack: ["CodeIgniter 4", "Bootstrap"],
-        category: "Fullstack",
-        accent: "217, 119, 6",
-        role: "Business Platform",
+        listDescription:
+            "Website bisnis untuk layanan cuci sepatu dan helm berbasis CodeIgniter 4.",
+        detailDescription:
+            "Si Launsh dibuat untuk menerapkan alur layanan usaha ke dalam website yang menampilkan informasi layanan, proses, dan struktur data sederhana.",
+        stack: ["CodeIgniter 4", "Bootstrap", "PHP", "MySQL"],
+        mainStack: "CodeIgniter 4",
+        logoStack: "CodeIgniter 4",
+        group: "Pernah Dikerjakan",
+        label: "Proyek Lain",
+        position: "Fullstack Developer",
+        collaboration: "Tim Kolaborasi",
         updatedAt: "2023-07-15",
         image: ProjectLaundry,
         liveUrl: null,
         codeUrl: "https://github.com/RizqiZamzamiJamil/Cuci_Sepatu_Si_Launsh",
-        highlight:
-            "Menerapkan alur usaha ke website layanan yang lebih terstruktur dan informatif.",
+        accent: "239, 68, 68",
     },
 ];
 
-export const projects = projectItems.filter((project) => !project.isHidden);
+export const projects = projectItems;
+
+export const personalProjects = projects.filter(
+    (project) => project.group === "Proyek Pribadi",
+);
+
+export const workedProjects = projects.filter(
+    (project) => project.group === "Pernah Dikerjakan",
+);
+
+export const projectLabels = [
+    "Semua",
+    ...new Set(workedProjects.map((project) => project.label)),
+];
 
 export const highlightedProject =
-    projects.find((project) => project.id === "lms-nazmalogy") || projects[0];
+    personalProjects.find((project) => project.id === "portfolio-new") ||
+    personalProjects[0] ||
+    projects[0];
 
 export const latestProjects = [...projects]
     .sort((left, right) => new Date(right.updatedAt) - new Date(left.updatedAt))
@@ -399,85 +445,135 @@ export const latestProjects = [...projects]
 
 export const certificates = [
     {
-        title: "Penghargaan Wisudawan Terbaik Prodi",
+        title: "Wisudawan Terbaik Program Studi",
         issuer: "Politeknik Negeri Malang",
-        focus: "Penghargaan akademik sebagai wisudawan terbaik program studi pada Wisuda ke-70.",
+        focus: "Penghargaan akademik sebagai wisudawan terbaik program studi Sistem Informasi Bisnis pada Wisuda ke-70 Politeknik Negeri Malang.",
         issuedAt: "2025",
         image: BestGraduateCertificate,
         orientation: "landscape",
+        category: "Penghargaan",
         isHighlighted: true,
     },
     {
-        title: "Pemrograman Software Komputer",
-        issuer: "BNSP",
-        focus: "Standar kompetensi profesi bidang software.",
+        title: "Best Defense Lomba Keamanan Siber",
+        issuer: "Politeknik Negeri Malang",
+        focus: "Penghargaan sebagai best defense dalam lomba Keamanan Siber Internal Compotition Jurusan Teknologi Informasi Politeknik Negeri Malang pada tahun 2023.",
+        issuedAt: "2023",
+        image: BestDefense,
+        orientation: "landscape",
+        category: "Penghargaan",
+        isHighlighted: true,
+    },
+    {
+        title: "Magang dan Studi Independen Bersertifikat Batch 6",
+        issuer: "Kampus Merdeka",
+        focus: "Program magang dan studi independen bersertifikat batch 6 dari Kampus Merdeka dengan fokus pada frontend web developer.",
+        issuedAt: "2024",
+        image: MsibCertificate,
+        orientation: "landscape",
+        category: "Pelatihan dan Magang",
+    },
+    {
+        title: "Pemagangan Nasional Batch 2",
+        issuer: "Kementerian Ketenagakerjaan",
+        focus: "Program pemagangan nasional lulusan perguruan tinggi dari Kementerian Ketenagakerjaan pada posisi Fullstack Developer di Nazma Office - Sleman",
+        issuedAt: "2026",
+        image: MagangHub,
+        orientation: "landscape",
+        category: "Pelatihan dan Magang",
+    },
+    {
+        title: "Sertifikasi Pemrograman Software Komputer",
+        issuer: "Badan Nasional Sertifikasi Profesi",
+        focus: "Sertifikasi kompetensi yang berkaitan dengan pemrograman software komputer oleh Badan Nasional Sertifikasi Profesi.",
         issuedAt: "2025",
         image: BnspCertificate,
         orientation: "portrait",
+        category: "Pengembangan Diri",
     },
     {
         title: "Web 3.0 & Blockchain",
         issuer: "MySkill",
-        focus: "Pengenalan konsep blockchain dan ekosistem web modern.",
+        focus: "Pengenalan konsep blockchain, web modern, dan ekosistem aplikasi terdesentralisasi.",
         issuedAt: "2025",
         image: BlockchainCertificate,
         orientation: "landscape",
+        category: "Pengembangan Diri",
     },
     {
         title: "WordPress Development",
         issuer: "MySkill",
-        focus: "Website management dan development workflow berbasis WordPress.",
+        focus: "Dasar pengelolaan dan pengembangan website berbasis WordPress.",
         issuedAt: "2024",
         image: WordpressCertificate,
         orientation: "landscape",
-    },
-    {
-        title: "MSIB Batch 6",
-        issuer: "Kampus Merdeka",
-        focus: "Magang dan studi independen bersertifikat dengan pendekatan industri.",
-        issuedAt: "2024",
-        image: MsibCertificate,
-        orientation: "landscape",
+        category: "Pengembangan Diri",
     },
     {
         title: "Frontend Development Class",
         issuer: "Gamelab",
-        focus: "Pendalaman web frontend sebagai jalur belajar industri.",
+        focus: "Pelatihan frontend web untuk memperkuat dasar layout, komponen, dan interaksi.",
         issuedAt: "2024",
         image: GamelabCertificate,
         orientation: "landscape",
+        category: "Pengembangan Diri",
     },
     {
         title: "React JS Certification",
         issuer: "Gamelab",
-        focus: "Komponen, state, dan antarmuka interaktif dengan React.",
+        focus: "Materi komponen, state, dan pengembangan antarmuka interaktif dengan ReactJs dan disertai proyek akhir dengan ExpressJs.",
         issuedAt: "2024",
         image: ReactCertificate,
         orientation: "landscape",
+        category: "Pengembangan Diri",
     },
     {
         title: "Vue JS Certification",
         issuer: "Gamelab",
-        focus: "Reactive interface dan eksplorasi SPA berbasis Vue.",
+        focus: "Pengenalan reactive interface dan pengembangan aplikasi berbasis Vue.",
         issuedAt: "2024",
         image: VueCertificate,
         orientation: "landscape",
+        category: "Pengembangan Diri",
     },
     {
         title: "JavaScript Certification",
         issuer: "Gamelab",
-        focus: "Dasar logika pemrograman client-side dan interaksi dinamis.",
+        focus: "Dasar logika client-side, manipulasi data, dan interaksi dinamis.",
         issuedAt: "2024",
         image: JavascriptCertificate,
         orientation: "landscape",
+        category: "Pengembangan Diri",
     },
     {
         title: "Bootstrap Certification",
         issuer: "Gamelab",
-        focus: "Responsive interface dengan sistem layout komponen Bootstrap.",
+        focus: "Responsive layout dan penggunaan komponen Bootstrap untuk kebutuhan web.",
         issuedAt: "2024",
         image: BootstrapCertificate,
         orientation: "landscape",
+        category: "Pengembangan Diri",
+    },
+];
+
+export const certificateGroups = [
+    {
+        title: "Penghargaan",
+        items: certificates.filter(
+            (certificate) => certificate.category === "Penghargaan",
+        ),
+    },
+    {
+        title: "Pelatihan dan Magang",
+        items: certificates.filter(
+            (certificate) => certificate.category === "Pelatihan dan Magang",
+        ),
+    },
+    {
+        title: "Sertifikasi dan Pengembangan Diri",
+        items: certificates.filter(
+            (certificate) => certificate.category === "Pengembangan Diri",
+        ),
     },
 ];
 
@@ -486,131 +582,82 @@ export const educationTimeline = [
         period: "2009 - 2015",
         school: "SD Negeri Sendang",
         location: "Kediri",
-        image: SchoolSdSendang,
-        title: "Pendidikan dasar",
+        program: "Pendidikan Dasar",
         description:
-            "Membangun dasar kemampuan belajar, rasa ingin tahu, dan kebiasaan disiplin yang kemudian terus terbawa ke jenjang berikutnya.",
-        highlights: ["Fondasi akademik", "Adaptasi", "Kedisiplinan"],
+            "Membangun fondasi belajar, disiplin, dan kebiasaan memahami materi secara bertahap.",
     },
     {
         period: "2015 - 2018",
         school: "MTs Negeri 3 Kota Kediri",
         location: "Kediri",
-        image: SchoolMtsn3,
-        title: "Penguatan akademik dan karakter",
+        program: "Pendidikan Menengah Pertama",
         description:
-            "Menjalani pendidikan yang memperkuat kombinasi antara pembelajaran akademik, ketelitian, dan pembentukan karakter.",
-        highlights: ["Akademik umum", "Karakter", "Konsistensi"],
+            "Memperkuat dasar akademik umum, ketelitian, keagamaan, dan konsistensi dalam menyelesaikan tugas.",
     },
     {
         period: "2018 - 2021",
         school: "SMK Negeri 1 Grogol",
         location: "Kediri",
-        image: SchoolSmkGrogol,
-        title: "Awal ketertarikan ke jalur teknis",
+        program: "Teknik Komputer dan Jaringan",
         description:
-            "Mulai lebih dekat dengan pola pikir vokasional dan pembelajaran yang berorientasi praktik, problem solving, dan kesiapan kerja.",
-        highlights: ["Praktik teknis", "Problem solving", "Vocational mindset"],
+            "Mulai masuk ke jalur teknis melalui jaringan komputer, troubleshooting perangkat, administrasi dasar, dan praktik kerja yang lebih dekat dengan dunia IT.",
     },
     {
         period: "2021 - 2025",
         school: "Politeknik Negeri Malang",
         location: "Malang",
-        image: SchoolPolinema,
-        title: "Business Information System",
+        program: "Sistem Informasi Bisnis",
         description:
-            "Menyelesaikan studi pada tahun 2025 dengan fokus pada pengembangan web, sistem informasi, dan penerjemahan kebutuhan bisnis menjadi solusi digital yang usable.",
-        highlights: ["Graduate 2025", "Best Graduate", "Web Development"],
+            "Mempelajari pengembangan sistem informasi, pemodelan proses bisnis, database, analisis kebutuhan, dan implementasi aplikasi web untuk kebutuhan organisasi.",
     },
 ];
 
-export const experienceStats = [
-    {
-        label: "Campus Org",
-        value: "HMTI",
-        detail: "Januari 2022 - Januari 2023",
-    },
-    {
-        label: "MSIB",
-        value: "MSIB 6",
-        detail: "Februari 2024 - Juni 2024",
-    },
-    {
-        label: "PKL",
-        value: "Duta Tech",
-        detail: "Agustus 2024 - November 2024",
-    },
-    {
-        label: "Internship",
-        value: "Kemnaker",
-        detail: "November 2025 - Mei 2026",
-    },
-];
+export const experienceLabels = ["Organisasi", "Program Industri"];
 
 export const experienceEntries = [
     {
         title: "HMTI Polinema",
         organization: "Himpunan Mahasiswa Teknologi Informasi",
         period: "Januari 2022 - Januari 2023",
-        phase: "Semester 2 - 3",
+        label: "Organisasi",
         role: "Organizing Committee - Departemen Kominfo",
-        accent: "217, 119, 6",
+        accent: "14, 165, 233",
         icon: "fa-solid fa-users-gear",
         summary:
-            "Aktif selama satu tahun penuh sebagai panitia kegiatan, editor konten sosial media, dan bagian organizing committee departemen Kominfo.",
-        highlights: [
-            "Ketua pelaksana program kerja Studi Banding",
-            "Panitia pada program kerja lainnya",
-            "Editor konten sosial media",
-        ],
+            "Terlibat dalam kegiatan organisasi, publikasi, pengelolaan konten, dan koordinasi program kerja departemen Kominfo.",
     },
     {
         title: "MSIB Batch 6",
-        organization: "Kampus Merdeka x Gamelab Indonesia",
+        organization: "Kampus Merdeka x Gamelab - Salatiga",
         period: "Februari 2024 - Juni 2024",
-        phase: "Semester 6",
+        label: "Program Industri",
         role: "Frontend Web Developer",
-        accent: "8, 145, 178",
+        accent: "5, 150, 105",
         icon: "fa-solid fa-laptop-code",
         summary:
-            "Mengikuti Studi Independen satu semester penuh untuk belajar teknis web frontend di luar kampus bersama mitra industri.",
-        highlights: [
-            "Skema Frontend Web Developer",
-            "Mitra Gamelab Indonesia",
-            "Program nasional Kampus Merdeka",
-        ],
+            "Mengikuti studi independen frontend web developer dengan materi industri, tugas praktik, dan project berbasis web.",
     },
     {
-        title: "PKL Duta Technology",
+        title: "Magang Duta Technology",
         organization: "CV. Duta Technology - Malang",
         period: "Agustus 2024 - November 2024",
-        phase: "Semester 7",
+        label: "Program Industri",
         role: "Fullstack Developer",
-        accent: "14, 116, 144",
+        accent: "234, 88, 12",
         icon: "fa-solid fa-code-branch",
         summary:
-            "Menjalani PKL selama empat bulan dengan fokus implementasi web fullstack dan penyesuaian kebutuhan kerja lapangan.",
-        highlights: [
-            "Durasi 4 bulan",
-            "Fullstack Developer",
-            "Pengalaman industri semester 7",
-        ],
+            "Mengerjakan pengembangan web fullstack dan menyesuaikan implementasi dengan kebutuhan kerja lapangan.",
     },
     {
         title: "Magang Kemnaker",
-        organization: "Kemnaker x Nazma Office",
+        organization: "Kemnaker x Nazma Office - Sleman",
         period: "November 2025 - Mei 2026",
-        phase: "Setelah lulus",
+        label: "Program Industri",
         role: "Fullstack Developer",
-        accent: "99, 102, 241",
+        accent: "59, 130, 246",
         icon: "fa-solid fa-briefcase",
         summary:
-            "Program magang setelah lulus dengan durasi enam bulan untuk terlibat langsung dalam pengembangan web fullstack.",
-        highlights: [
-            "Batch 2 2025",
-            "Durasi 6 bulan setelah lulus",
-            "Mitra Nazma Office",
-        ],
+            "Terlibat dalam pengembangan aplikasi web fullstack, terutama pada project berbasis Laravel dan Tailwind.",
     },
 ];
 
@@ -632,25 +679,22 @@ export const contactDetails = [
     },
 ];
 
+export const contactScopes = ["Kolaborasi", "Diskusi", "Pekerjaan"];
+
 export const portfolioStats = [
     {
-        label: "Graduation",
+        label: "Graduate",
         value: "2025",
-        detail: "Politeknik Negeri Malang",
+        detail: "Sistem Informasi Bisnis",
     },
     {
-        label: "Main Focus",
+        label: "Focus",
         value: "Fullstack",
-        detail: "Laravel, React, PHP, JavaScript",
+        detail: "Laravel, React, PHP",
     },
     {
         label: "Projects",
-        value: `${projects.length}+`,
-        detail: "Selected portfolio works",
-    },
-    {
-        label: "Highlight",
-        value: "Best Graduate",
-        detail: "Academic achievement milestone",
+        value: `${projects.length}`,
+        detail: "Pribadi, magang, skripsi, dan lainnya",
     },
 ];

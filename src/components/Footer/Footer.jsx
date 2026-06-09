@@ -8,6 +8,7 @@ const quickLinks = [
     { label: "Home", to: "/" },
     { label: "Projects", to: "/projects" },
     { label: "Education", to: "/education" },
+    { label: "Experience", to: "/experience" },
 ];
 
 const Footer = () => {
@@ -21,7 +22,7 @@ const Footer = () => {
                         </span>
                         <span>
                             {profile.shortName}
-                            <span className="site-footer__logo-accent">.Dev</span>
+                            <span className="site-footer__logo-accent">Dev</span>
                         </span>
                     </Link>
 

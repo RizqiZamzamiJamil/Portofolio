@@ -11,8 +11,9 @@ const MAX_MESSAGE_CHARS = 1400;
 const MAX_HISTORY_MESSAGES = 8;
 const DEFAULT_ALLOWED_ORIGINS = [
     "https://portofolio-72b.pages.dev",
-    "https://rizam.xyz",
-    "https://www.rizam.xyz",
+    "https://rizam.fun",
+    "https://www.rizam.fun",
+    "https://portfolio.rizam.fun",
     "https://rizqizamzamijamil.github.io",
 ];
 const rateBuckets = new Map();
@@ -234,7 +235,10 @@ const sanitizeHistory = (history) => {
 
 const buildConversationInput = ({ message, history, context }) => {
     const historyText = history
-        .map((item) => `${item.role === "user" ? "Pengunjung" : "AI"}: ${item.content}`)
+        .map(
+            (item) =>
+                `${item.role === "user" ? "Pengunjung" : "AI"}: ${item.content}`,
+        )
         .join("\n");
 
     return `
@@ -254,7 +258,9 @@ const extractText = (responseData) => {
         return responseData.output_text.trim();
     }
 
-    const output = Array.isArray(responseData.output) ? responseData.output : [];
+    const output = Array.isArray(responseData.output)
+        ? responseData.output
+        : [];
     const textChunks = [];
 
     output.forEach((item) => {
@@ -274,22 +280,22 @@ const createReservation = ({ req, estimatedTokens, runtimeEnv }) => {
     const dailyTokenLimit = getNumberEnv(
         "OPENAI_DAILY_TOKEN_LIMIT",
         DEFAULT_DAILY_TOKEN_LIMIT,
-        runtimeEnv
+        runtimeEnv,
     );
     const dailyRequestLimit = getNumberEnv(
         "OPENAI_DAILY_REQUEST_LIMIT",
         DEFAULT_DAILY_REQUEST_LIMIT,
-        runtimeEnv
+        runtimeEnv,
     );
     const dailyIpTokenLimit = getNumberEnv(
         "OPENAI_DAILY_IP_TOKEN_LIMIT",
         DEFAULT_DAILY_IP_TOKEN_LIMIT,
-        runtimeEnv
+        runtimeEnv,
     );
     const dailyIpRequestLimit = getNumberEnv(
         "OPENAI_DAILY_IP_REQUEST_LIMIT",
         DEFAULT_DAILY_IP_REQUEST_LIMIT,
-        runtimeEnv
+        runtimeEnv,
     );
     const bucket = getRateBucket(runtimeEnv);
     const client = getClientBucket(bucket, getClientKey(req));
@@ -341,7 +347,11 @@ const createReservation = ({ req, estimatedTokens, runtimeEnv }) => {
     };
 };
 
-const reconcileReservation = ({ reservation, actualTokens, failed = false }) => {
+const reconcileReservation = ({
+    reservation,
+    actualTokens,
+    failed = false,
+}) => {
     if (!reservation.ok) {
         return;
     }
@@ -350,12 +360,24 @@ const reconcileReservation = ({ reservation, actualTokens, failed = false }) => 
         ? -reservation.estimatedTokens
         : actualTokens - reservation.estimatedTokens;
 
-    reservation.bucket.tokens = Math.max(0, reservation.bucket.tokens + adjustment);
-    reservation.client.tokens = Math.max(0, reservation.client.tokens + adjustment);
+    reservation.bucket.tokens = Math.max(
+        0,
+        reservation.bucket.tokens + adjustment,
+    );
+    reservation.client.tokens = Math.max(
+        0,
+        reservation.client.tokens + adjustment,
+    );
 
     if (failed) {
-        reservation.bucket.requests = Math.max(0, reservation.bucket.requests - 1);
-        reservation.client.requests = Math.max(0, reservation.client.requests - 1);
+        reservation.bucket.requests = Math.max(
+            0,
+            reservation.bucket.requests - 1,
+        );
+        reservation.client.requests = Math.max(
+            0,
+            reservation.client.requests - 1,
+        );
     }
 };
 
@@ -372,8 +394,7 @@ export default async function handler(req, res, runtimeEnv) {
 
     if (!isRequestOriginAllowed(req, env)) {
         json(res, 403, {
-            error:
-                "Origin tidak diizinkan untuk memakai endpoint AI portfolio.",
+            error: "Origin tidak diizinkan untuk memakai endpoint AI portfolio.",
         });
         return;
     }
@@ -385,8 +406,7 @@ export default async function handler(req, res, runtimeEnv) {
 
     if (!getEnvValue("OPENAI_API_KEY", env)) {
         json(res, 503, {
-            error:
-                "OpenAI API key belum diset. Tambahkan OPENAI_API_KEY di .env.local atau Variables and Secrets Cloudflare Pages.",
+            error: "OpenAI API key belum diset. Tambahkan OPENAI_API_KEY di .env.local atau Variables and Secrets Cloudflare Pages.",
         });
         return;
     }
@@ -400,7 +420,9 @@ export default async function handler(req, res, runtimeEnv) {
         return;
     }
 
-    const message = String(body.message || "").trim().slice(0, MAX_MESSAGE_CHARS);
+    const message = String(body.message || "")
+        .trim()
+        .slice(0, MAX_MESSAGE_CHARS);
     const history = sanitizeHistory(body.history);
 
     if (!message) {
@@ -411,7 +433,7 @@ export default async function handler(req, res, runtimeEnv) {
     const maxOutputTokens = getNumberEnv(
         "OPENAI_MAX_OUTPUT_TOKENS",
         DEFAULT_MAX_OUTPUT_TOKENS,
-        env
+        env,
     );
     const context = buildAiPortfolioContext();
     const conversationInput = buildConversationInput({
@@ -423,7 +445,11 @@ export default async function handler(req, res, runtimeEnv) {
         estimateTokens(systemPrompt) +
         estimateTokens(conversationInput) +
         maxOutputTokens;
-    const reservation = createReservation({ req, estimatedTokens, runtimeEnv: env });
+    const reservation = createReservation({
+        req,
+        estimatedTokens,
+        runtimeEnv: env,
+    });
 
     if (!reservation.ok) {
         json(res, reservation.status, { error: reservation.message });
@@ -448,7 +474,11 @@ export default async function handler(req, res, runtimeEnv) {
         const responseData = await apiResponse.json();
 
         if (!apiResponse.ok) {
-            reconcileReservation({ reservation, actualTokens: 0, failed: true });
+            reconcileReservation({
+                reservation,
+                actualTokens: 0,
+                failed: true,
+            });
             json(res, apiResponse.status, {
                 error: getOpenAiErrorMessage(apiResponse.status),
             });
@@ -458,7 +488,8 @@ export default async function handler(req, res, runtimeEnv) {
         const answer = extractText(responseData);
         const actualTokens =
             responseData.usage?.total_tokens ||
-            responseData.usage?.input_tokens + responseData.usage?.output_tokens ||
+            responseData.usage?.input_tokens +
+                responseData.usage?.output_tokens ||
             estimateTokens(answer) + estimateTokens(conversationInput);
 
         reconcileReservation({ reservation, actualTokens });
@@ -473,13 +504,13 @@ export default async function handler(req, res, runtimeEnv) {
                 dailyTokenUsed: reservation.bucket.tokens,
                 dailyTokenRemaining: Math.max(
                     0,
-                    reservation.dailyTokenLimit - reservation.bucket.tokens
+                    reservation.dailyTokenLimit - reservation.bucket.tokens,
                 ),
                 dailyIpTokenLimit: reservation.dailyIpTokenLimit,
                 dailyIpTokenUsed: reservation.client.tokens,
                 dailyIpTokenRemaining: Math.max(
                     0,
-                    reservation.dailyIpTokenLimit - reservation.client.tokens
+                    reservation.dailyIpTokenLimit - reservation.client.tokens,
                 ),
             },
         });

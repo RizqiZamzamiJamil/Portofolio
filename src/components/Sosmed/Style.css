@@ -1,19 +1,20 @@
 .social-link-button {
-    width: 3rem;
-    height: 3rem;
+    width: 2.7rem;
+    height: 2.7rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    background: rgba(7, 31, 79, 0.94);
-    color: var(--surface-color);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.055);
+    color: var(--text-color);
     text-decoration: none;
-    box-shadow: 0 14px 24px rgba(7, 31, 79, 0.14);
-    transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+    transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease, color 0.22s ease;
 }
 
 .social-link-button:hover {
-    background: var(--brand-color);
-    color: #fff;
-    transform: translateY(-3px);
+    border-color: rgba(19, 216, 255, 0.42);
+    background: rgba(19, 216, 255, 0.12);
+    color: var(--brand-color);
+    transform: translateY(-1px);
 }
