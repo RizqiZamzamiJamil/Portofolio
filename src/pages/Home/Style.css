@@ -564,6 +564,33 @@
     }
 }
 
+@media (min-width: 992px) and (max-width: 1199px) {
+    .home-hero__visual {
+        width: min(74vw, 42rem);
+        height: clamp(20rem, 46svh, 27rem);
+        margin-inline: auto;
+    }
+
+    .home-hero__portrait img {
+        width: clamp(21rem, 38vw, 27rem);
+    }
+
+    .home-hero__stats article:nth-child(1) {
+        top: 12%;
+        left: 0;
+    }
+
+    .home-hero__stats article:nth-child(2) {
+        top: 32%;
+        right: 0;
+    }
+
+    .home-hero__stats article:nth-child(3) {
+        left: 1.45rem;
+        bottom: 10%;
+    }
+}
+
 @media (max-width: 768px) {
     .home-hero__grid {
         gap: clamp(1.05rem, 2.8svh, 1.55rem);

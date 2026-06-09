@@ -264,6 +264,10 @@
         display: none;
     }
 
+    .site-nav__cta {
+        display: none;
+    }
+
     .site-nav__toggle {
         display: inline-flex;
     }
@@ -284,20 +288,8 @@
         height: 2.35rem;
     }
 
-    .site-nav__cta {
-        min-height: 2.35rem;
-        padding: 0.54rem 0.72rem;
-        font-size: 0.74rem;
-    }
-
     .site-nav__toggle {
         width: 2.35rem;
         height: 2.35rem;
-    }
-}
-
-@media (max-width: 390px) {
-    .site-nav__cta {
-        display: none;
     }
 }
