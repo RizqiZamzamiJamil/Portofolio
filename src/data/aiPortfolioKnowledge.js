@@ -4,16 +4,16 @@ const profile = {
     name: "Rizqi Zamzami Jamil",
     nickname: "Rizam",
     role: "Fullstack Web Developer",
-    location: "Kediri, East Java, Indonesia",
+    location: "Kediri, Jawa Timur, Indonesia",
     email: "rizqizamzamij@gmail.com",
     phone: "+62 821 4708 3442",
     summary:
-        "Lulusan Sistem Informasi Bisnis Politeknik Negeri Malang tahun 2025 yang fokus membangun aplikasi web fullstack dengan UI rapi dan backend terstruktur.",
+        "Lulusan Sistem Informasi Bisnis Politeknik Negeri Malang tahun 2025. Rizqi fokus mengubah kebutuhan pengguna dan proses bisnis menjadi aplikasi web yang jelas, terstruktur, dan nyaman dipakai.",
     mainStack: ["HTML & CSS", "JavaScript", "PHP", "MySQL", "Laravel", "React JS", "Tailwind CSS", "Bootstrap"],
     strengths: [
         "Mengerjakan frontend, backend, database, dan integrasi fitur untuk aplikasi web end-to-end.",
         "Membaca kebutuhan proses bisnis lalu menerjemahkannya menjadi alur fitur dan struktur data.",
-        "Berpengalaman di project mandiri dan tim, mulai dari portfolio, skripsi, PKL, MSIB, sampai magang.",
+        "Berpengalaman di project mandiri dan tim, mulai dari proyek pribadi, kuliah, pelatihan, sampai magang.",
     ],
 };
 
@@ -22,19 +22,19 @@ const skillGroups = [
         title: "Frontend",
         skills: [
             "HTML & CSS - Lanjut",
-            "JavaScript - Lanjut",
-            "Tailwind CSS - Menengah",
-            "Bootstrap - Menengah",
-            "React JS - Lanjut",
-            "Vue JS - Menengah",
+            "JavaScript - Menengah",
+            "Tailwind CSS - Lanjut",
+            "Bootstrap - Lanjut",
+            "React JS - Menengah",
+            "Vue JS - Dasar",
         ],
     },
     {
         title: "Backend",
         skills: [
             "PHP - Lanjut",
-            "MySQL - Menengah",
-            "Laravel - Lanjut",
+            "MySQL - Lanjut",
+            "Laravel - Menengah",
             "CodeIgniter 4 - Menengah",
             "Node.js - Dasar",
             "Express.js - Dasar",
@@ -45,7 +45,7 @@ const skillGroups = [
         skills: [
             "VS Code - Lanjut",
             "Git & GitHub - Menengah",
-            "Figma - Dasar",
+            "Figma - Menengah",
             "Postman - Menengah",
             "Laragon - Menengah",
             "Vite - Menengah",
@@ -61,11 +61,13 @@ const projects = [
         position: "Frontend Developer",
         collaboration: "Mandiri",
         stack: ["React", "Vite", "CSS", "Bootstrap"],
+        startedAt: "2024",
+        version: "Versi ketiga",
         updatedAt: "2026-06-08",
         link: "https://portfolio.rizam.fun/",
         repository: null,
         summary:
-            "Website personal untuk profil, pengalaman, project, education, dan sertifikat.",
+            "Website personal yang mulai dibuat sejak 2024 dan terus diperbarui. Versi saat ini adalah versi ketiga dengan tampilan dark theme, data terbaru, project, education, experience, dan sertifikat yang lebih lengkap.",
     },
     {
         title: "Cinema List",
@@ -75,7 +77,7 @@ const projects = [
         collaboration: "Mandiri",
         stack: ["Vue", "Tailwind CSS", "Flowbite", "TMDB API"],
         updatedAt: "2024-03-10",
-        link: "https://rizqizamzamijamil.github.io/Cinema_List/",
+        link: "https://cinemalist.rizam.fun",
         repository: "https://github.com/RizqiZamzamiJamil/Cinema_List",
         summary:
             "Katalog pencarian film dan serial dengan data TMDB dalam tampilan dark modern.",
@@ -138,7 +140,7 @@ const projects = [
         group: "Pernah Dikerjakan",
         label: "Magang",
         position: "Fullstack Developer",
-        collaboration: "Tim PKL Duta Technology",
+        collaboration: "Tim Duta Technology",
         stack: ["Laravel", "Livewire", "Bootstrap", "MySQL"],
         updatedAt: "2024-11-06",
         link: null,
@@ -150,7 +152,7 @@ const projects = [
         group: "Pernah Dikerjakan",
         label: "Magang",
         position: "Frontend Developer",
-        collaboration: "Tim MSIB",
+        collaboration: "Peserta MSIB",
         stack: ["React", "Express", "Tailwind CSS", "Node.js"],
         updatedAt: "2024-06-14",
         link: "https://fe-msib-6-klinik-app-04.educalab.id/",
@@ -189,7 +191,7 @@ const projects = [
         group: "Pernah Dikerjakan",
         label: "Proyek Lain",
         position: "Fullstack Developer",
-        collaboration: "Mandiri",
+        collaboration: "Tim Kolaborasi",
         stack: ["CodeIgniter 4", "Bootstrap", "PHP", "MySQL"],
         updatedAt: "2023-07-15",
         link: null,
@@ -214,7 +216,7 @@ const education = [
         location: "Kediri",
         program: "Pendidikan Menengah Pertama",
         description:
-            "Memperkuat dasar akademik umum, ketelitian, dan konsistensi dalam menyelesaikan tugas.",
+            "Memperkuat dasar akademik umum, ketelitian, keagamaan, dan konsistensi dalam menyelesaikan tugas.",
     },
     {
         period: "2018 - 2021",
@@ -248,14 +250,14 @@ const experience = [
         period: "Februari 2024 - Juni 2024",
         title: "MSIB Batch 6",
         label: "Program Industri",
-        organization: "Kampus Merdeka x Gamelab Indonesia",
+        organization: "Kampus Merdeka x Gamelab - Salatiga",
         role: "Frontend Web Developer",
         summary:
             "Mengikuti studi independen frontend web developer dengan materi industri, tugas praktik, dan project berbasis web.",
     },
     {
         period: "Agustus 2024 - November 2024",
-        title: "PKL Duta Technology",
+        title: "Magang Duta Technology",
         label: "Program Industri",
         organization: "CV. Duta Technology - Malang",
         role: "Fullstack Developer",
@@ -266,7 +268,7 @@ const experience = [
         period: "November 2025 - Mei 2026",
         title: "Magang Kemnaker",
         label: "Program Industri",
-        organization: "Kemnaker x Nazma Office",
+        organization: "Kemnaker x Nazma Office - Sleman",
         role: "Fullstack Developer",
         summary:
             "Terlibat dalam pengembangan aplikasi web fullstack, terutama pada project berbasis Laravel dan Tailwind.",
@@ -274,14 +276,14 @@ const experience = [
 ];
 
 const certificates = [
-    "Penghargaan: Penghargaan Wisudawan Terbaik Program Studi - Politeknik Negeri Malang - 2025",
-    "Penghargaan: Best Defense Lomba Keamanan Siber - Politeknik Negeri Malang - 2025",
-    "Pelatihan dan Magang: Magang dan Studi Independen Bersertifikat Batch 6 - Kampus Merdeka - 2024",
+    "Penghargaan: Wisudawan Terbaik Program Studi - Politeknik Negeri Malang - 2025",
+    "Penghargaan: Best Defense Lomba Keamanan Siber - Politeknik Negeri Malang - 2023",
     "Pelatihan dan Magang: Pemagangan Nasional Batch 2 - Kementerian Ketenagakerjaan - 2026",
-    "Pengembangan Diri: Pemrograman Software Komputer - Badan Nasional Sertifikasi Profesi - 2025",
+    "Pelatihan dan Magang: Magang dan Studi Independen Bersertifikat Batch 6 - Kampus Merdeka - 2024",
+    "Pelatihan dan Magang: Web Frontend Development Class - Gamelab - 2024",
+    "Pengembangan Diri: Sertifikasi Pemrograman Software Komputer - Badan Nasional Sertifikasi Profesi - 2025",
     "Pengembangan Diri: Web 3.0 & Blockchain - MySkill - 2025",
     "Pengembangan Diri: WordPress Development - MySkill - 2024",
-    "Pengembangan Diri: Frontend Development Class - Gamelab - 2024",
     "Pengembangan Diri: React JS Certification - Gamelab - 2024",
     "Pengembangan Diri: Vue JS Certification - Gamelab - 2024",
     "Pengembangan Diri: JavaScript Certification - Gamelab - 2024",
@@ -328,6 +330,8 @@ ${formatObjectList(
   Posisi: ${project.position}
   Pola kerja: ${project.collaboration}
   Stack: ${project.stack.join(", ")}
+  Mulai dibuat: ${project.startedAt || "Tidak dicantumkan"}
+  Versi: ${project.version || "Tidak dicantumkan"}
   Update: ${project.updatedAt}
   Ringkasan: ${project.summary}
   Link live: ${project.link || "Tidak dicantumkan"}

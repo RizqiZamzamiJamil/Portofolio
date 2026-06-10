@@ -11,6 +11,9 @@ const formatProjectDate = (value) =>
         year: "numeric",
     }).format(new Date(value));
 
+const getProjectDateLabel = (project) =>
+    project.dateLabel || formatProjectDate(project.updatedAt);
+
 const normalizeUrl = (value) => (value ? value.trim().replace(/\/$/, "") : "");
 
 const ProjectDetailModal = ({ project, onClose }) => {
@@ -72,7 +75,7 @@ const ProjectDetailModal = ({ project, onClose }) => {
                     <div className="project-modal__copy">
                         <div className="project-modal__eyebrow">
                             <span>{project.label}</span>
-                            <span>{formatProjectDate(project.updatedAt)}</span>
+                            <span>{getProjectDateLabel(project)}</span>
                         </div>
                         <h2>{project.title}</h2>
                         <p>{project.detailDescription || project.listDescription}</p>
@@ -180,7 +183,7 @@ const Card = ({ project, featuredLabel, delay = 0 }) => {
                 <div className="project-card__body">
                     <div className="project-card__meta">
                         <span>{featuredLabel || project.label}</span>
-                        <span>{formatProjectDate(project.updatedAt)}</span>
+                        <span>{getProjectDateLabel(project)}</span>
                     </div>
 
                     <div className="project-card__copy">

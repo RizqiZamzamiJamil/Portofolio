@@ -37,7 +37,7 @@ export const profile = {
     certificateCollectionUrl:
         "https://drive.google.com/file/d/1gsLwGgcfcvmGLtGij5DAHWtX5mfgtq4L/view?usp=sharing",
     heroDescription:
-        "Saya membangun web fullstack yang rapi, mudah dipakai, dan kuat di alur data.",
+        "Saya suka membangun website yang tampilannya bersih, modern, dan terasa nyaman saat dipakai.",
     summary:
         "Lulusan Sistem Informasi Bisnis Politeknik Negeri Malang tahun 2025. Saya fokus mengubah kebutuhan pengguna dan proses bisnis menjadi aplikasi web yang jelas, terstruktur, dan nyaman dipakai.",
     secondarySummary:
@@ -82,7 +82,7 @@ export const coreStrengths = [
     {
         title: "Delivery Project",
         description:
-            "Berpengalaman di project mandiri dan tim, mulai dari portfolio, skripsi, PKL, MSIB, sampai magang.",
+            "Berpengalaman di project mandiri dan tim, mulai dari proyek pribadi, kuliah, pelatihan, sampai magang.",
     },
 ];
 
@@ -199,9 +199,9 @@ const projectItems = [
         id: "portfolio-new",
         title: "Portfolio Website",
         listDescription:
-            "Website personal untuk merangkum profil, pengalaman, project, education, dan sertifikat.",
+            "Website personal yang saya mulai sejak 2024 dan terus diperbarui sebagai pusat profil profesional.",
         detailDescription:
-            "Portfolio ini menjadi pusat profil profesional yang merangkum latar belakang, pengalaman, project, education, dan sertifikat dalam satu website.",
+            "Portfolio ini sudah dikembangkan sejak 2024 dan terus saya perbarui. Tampilan saat ini adalah versi ketiga dengan pembaruan data, struktur halaman, dark theme, project, education, experience, dan sertifikat yang lebih lengkap.",
         stack: ["React", "Vite", "CSS", "Bootstrap"],
         mainStack: "React",
         logoStack: "React",
@@ -209,6 +209,9 @@ const projectItems = [
         label: "Pribadi",
         position: "Frontend Developer",
         collaboration: "Mandiri",
+        startedAt: "2024",
+        version: "Versi ketiga",
+        dateLabel: "Sejak 2024",
         updatedAt: "2026-06-08",
         image: PortfolioLogo,
         liveUrl: "https://portfolio.rizam.fun/",
@@ -465,6 +468,15 @@ export const certificates = [
         isHighlighted: true,
     },
     {
+        title: "Pemagangan Nasional Batch 2",
+        issuer: "Kementerian Ketenagakerjaan",
+        focus: "Program pemagangan nasional lulusan perguruan tinggi dari Kementerian Ketenagakerjaan pada posisi Fullstack Developer di Nazma Office - Sleman",
+        issuedAt: "2026",
+        image: MagangHub,
+        orientation: "landscape",
+        category: "Pelatihan dan Magang",
+    },
+    {
         title: "Magang dan Studi Independen Bersertifikat Batch 6",
         issuer: "Kampus Merdeka",
         focus: "Program magang dan studi independen bersertifikat batch 6 dari Kampus Merdeka dengan fokus pada frontend web developer.",
@@ -474,11 +486,11 @@ export const certificates = [
         category: "Pelatihan dan Magang",
     },
     {
-        title: "Pemagangan Nasional Batch 2",
-        issuer: "Kementerian Ketenagakerjaan",
-        focus: "Program pemagangan nasional lulusan perguruan tinggi dari Kementerian Ketenagakerjaan pada posisi Fullstack Developer di Nazma Office - Sleman",
-        issuedAt: "2026",
-        image: MagangHub,
+        title: "Web Frontend Development Class",
+        issuer: "Gamelab",
+        focus: "Pelatihan frontend web untuk memperkuat dasar layout, komponen, dan interaksi.",
+        issuedAt: "2024",
+        image: GamelabCertificate,
         orientation: "landscape",
         category: "Pelatihan dan Magang",
     },
@@ -506,15 +518,6 @@ export const certificates = [
         focus: "Dasar pengelolaan dan pengembangan website berbasis WordPress.",
         issuedAt: "2024",
         image: WordpressCertificate,
-        orientation: "landscape",
-        category: "Pengembangan Diri",
-    },
-    {
-        title: "Frontend Development Class",
-        issuer: "Gamelab",
-        focus: "Pelatihan frontend web untuk memperkuat dasar layout, komponen, dan interaksi.",
-        issuedAt: "2024",
-        image: GamelabCertificate,
         orientation: "landscape",
         category: "Pengembangan Diri",
     },

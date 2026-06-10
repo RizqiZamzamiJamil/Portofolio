@@ -324,13 +324,14 @@
         grid-template-columns: 1fr;
     }
 
-    .project-card__button,
-    .project-card__main-stack {
+    .project-card__button {
         width: 100%;
+        justify-content: center;
     }
 
-    .project-card__button {
-        justify-content: center;
+    .project-card__main-stack {
+        width: fit-content;
+        max-width: 100%;
     }
 
     .project-modal {
