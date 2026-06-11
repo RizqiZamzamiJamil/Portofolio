@@ -55,6 +55,20 @@ const skillGroups = [
 
 const projects = [
     {
+        title: "Markdown Editor",
+        group: "Proyek Pribadi",
+        label: "Pribadi",
+        position: "Frontend Developer",
+        collaboration: "Mandiri",
+        stack: ["React", "Vite", "Tailwind CSS", "Flowbite"],
+        updatedAt: "2026-06-11",
+        link: "https://markdown.rizam.fun/",
+        repository:
+            "https://github.com/RizqiZamzamiJamil/Rizam_Markdown-Editor",
+        summary:
+            "Editor Markdown online dengan preview langsung, dukungan GitHub Flavored Markdown dan Mermaid, pengelolaan dokumen, serta penyimpanan otomatis melalui local storage browser.",
+    },
+    {
         title: "Portfolio Website",
         group: "Proyek Pribadi",
         label: "Pribadi",

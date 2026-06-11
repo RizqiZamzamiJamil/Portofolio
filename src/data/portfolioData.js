@@ -7,6 +7,7 @@ import AboutPortrait from "../assets/foto2.png";
 import GamelabCertificate from "../assets/gamelab2.jpg";
 import JavascriptCertificate from "../assets/javascript.jpg";
 import ProjectLMS from "../assets/lms.png";
+import ProjectMarkdown from "../assets/markdown.png";
 import PortfolioLogo from "../assets/logo.png";
 import MagangHub from "../assets/maganghub.png";
 import MsibCertificate from "../assets/msib (2).jpg";
@@ -195,6 +196,27 @@ export const skillGroups = [
 ];
 
 const projectItems = [
+    {
+        id: "markdown-editor",
+        title: "Markdown Editor",
+        listDescription:
+            "Editor Markdown online dengan preview langsung dan penyimpanan otomatis di browser.",
+        detailDescription:
+            "Markdown Editor adalah aplikasi editor online berbasis React dengan preview langsung, dukungan GitHub Flavored Markdown, diagram Mermaid, pengelolaan dokumen, dan penyimpanan otomatis melalui local storage browser.",
+        stack: ["React", "Vite", "Tailwind CSS", "Flowbite"],
+        mainStack: "React",
+        logoStack: "React",
+        group: "Proyek Pribadi",
+        label: "Pribadi",
+        position: "Frontend Developer",
+        collaboration: "Mandiri",
+        updatedAt: "2026-06-11",
+        image: ProjectMarkdown,
+        liveUrl: "https://markdown.rizam.fun/",
+        codeUrl:
+            "https://github.com/RizqiZamzamiJamil/Rizam_Markdown-Editor",
+        accent: "14, 165, 233",
+    },
     {
         id: "portfolio-new",
         title: "Portfolio Website",
@@ -442,9 +464,15 @@ export const highlightedProject =
     personalProjects[0] ||
     projects[0];
 
-export const latestProjects = [...projects]
-    .sort((left, right) => new Date(right.updatedAt) - new Date(left.updatedAt))
-    .slice(0, 3);
+const latestProjectIds = [
+    "markdown-editor",
+    "singgah-loka",
+    "lms-nazmalogy",
+];
+
+export const latestProjects = latestProjectIds
+    .map((projectId) => projects.find((project) => project.id === projectId))
+    .filter(Boolean);
 
 export const certificates = [
     {
