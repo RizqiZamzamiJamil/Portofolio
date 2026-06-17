@@ -6,9 +6,10 @@ import HeroPortrait from "../assets/foto.png";
 import AboutPortrait from "../assets/foto2.png";
 import GamelabCertificate from "../assets/gamelab2.jpg";
 import JavascriptCertificate from "../assets/javascript.jpg";
+import ProjectDevtools from "../assets/devtools.png";
 import ProjectLMS from "../assets/lms.png";
 import ProjectMarkdown from "../assets/markdown.png";
-import PortfolioLogo from "../assets/logo.png";
+import ProjectPortfolio from "../assets/portfolio.png";
 import MagangHub from "../assets/maganghub.png";
 import MsibCertificate from "../assets/msib (2).jpg";
 import ProjectRpl from "../assets/project0.png";
@@ -117,6 +118,11 @@ export const skillGroups = [
                 color: "#61dafb",
             },
             {
+                name: "Next.js",
+                level: "Dasar",
+                color: "#f8fafc",
+            },
+            {
                 name: "Vue JS",
                 level: "Dasar",
                 color: "#42b883",
@@ -135,6 +141,11 @@ export const skillGroups = [
                 name: "MySQL",
                 level: "Lanjut",
                 color: "#00758f",
+            },
+            {
+                name: "PostgreSQL",
+                level: "Dasar",
+                color: "#336791",
             },
             {
                 name: "Laravel",
@@ -197,6 +208,26 @@ export const skillGroups = [
 
 const projectItems = [
     {
+        id: "devtools",
+        title: "Rizam Devtools",
+        listDescription:
+            "Kumpulan tool developer untuk JSON, JWT, Base64, dan utilitas harian.",
+        detailDescription:
+            "Rizam Devtools adalah kumpulan utilitas developer berbasis Next.js untuk membantu kebutuhan harian seperti JSON formatter, JWT decoder, Base64, UUID, timestamp, URL, hash, dan case converter.",
+        stack: ["Next.js", "React", "Tailwind CSS", "Flowbite"],
+        mainStack: "Next.js",
+        logoStack: "Next.js",
+        group: "Proyek Pribadi",
+        label: "Pribadi",
+        position: "Frontend Developer",
+        collaboration: "Mandiri",
+        updatedAt: "2026-06-17",
+        image: ProjectDevtools,
+        liveUrl: "https://devtools.rizam.fun/",
+        codeUrl: null,
+        accent: "14, 165, 233",
+    },
+    {
         id: "markdown-editor",
         title: "Markdown Editor",
         listDescription:
@@ -210,7 +241,7 @@ const projectItems = [
         label: "Pribadi",
         position: "Frontend Developer",
         collaboration: "Mandiri",
-        updatedAt: "2026-06-11",
+        updatedAt: "2026-05-11",
         image: ProjectMarkdown,
         liveUrl: "https://markdown.rizam.fun/",
         codeUrl:
@@ -235,7 +266,7 @@ const projectItems = [
         version: "Versi ketiga",
         dateLabel: "Sejak 2024",
         updatedAt: "2026-06-08",
-        image: PortfolioLogo,
+        image: ProjectPortfolio,
         liveUrl: "https://portfolio.rizam.fun/",
         codeUrl: null,
         accent: "14, 165, 233",
@@ -465,6 +496,7 @@ export const highlightedProject =
     projects[0];
 
 const latestProjectIds = [
+    "devtools",
     "markdown-editor",
     "singgah-loka",
     "lms-nazmalogy",

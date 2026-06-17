@@ -26,9 +26,11 @@ const stackAccentMap = {
     Laragon: "14, 143, 205",
     Livewire: "124, 58, 237",
     MySQL: "0, 117, 143",
+    "Next.js": "245, 245, 245",
     "Node.js": "83, 158, 67",
     PHP: "119, 123, 180",
     Postman: "255, 108, 55",
+    PostgreSQL: "51, 103, 145",
     React: "97, 218, 251",
     "React JS": "97, 218, 251",
     "REST API": "59, 130, 246",
@@ -60,6 +62,10 @@ const stackLogoMap = {
     "Vue JS": [logo(`${DEVICON}/vuejs/vuejs-original.svg`, "Vue.js")],
     PHP: [logo(`${DEVICON}/php/php-original.svg`, "PHP")],
     MySQL: [logo(`${DEVICON}/mysql/mysql-original.svg`, "MySQL")],
+    "Next.js": [logo(`${SIMPLE_ICON}/nextdotjs/FFFFFF`, "Next.js")],
+    PostgreSQL: [
+        logo(`${DEVICON}/postgresql/postgresql-original.svg`, "PostgreSQL"),
+    ],
     Laravel: [logo(`${DEVICON}/laravel/laravel-original.svg`, "Laravel")],
     "CodeIgniter 4": [
         logo(`${DEVICON}/codeigniter/codeigniter-plain.svg`, "CodeIgniter"),

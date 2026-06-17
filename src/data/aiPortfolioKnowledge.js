@@ -26,6 +26,7 @@ const skillGroups = [
             "Tailwind CSS - Lanjut",
             "Bootstrap - Lanjut",
             "React JS - Menengah",
+            "Next.js - Dasar",
             "Vue JS - Dasar",
         ],
     },
@@ -34,6 +35,7 @@ const skillGroups = [
         skills: [
             "PHP - Lanjut",
             "MySQL - Lanjut",
+            "PostgreSQL - Dasar",
             "Laravel - Menengah",
             "CodeIgniter 4 - Menengah",
             "Node.js - Dasar",
@@ -55,13 +57,26 @@ const skillGroups = [
 
 const projects = [
     {
+        title: "Rizam Devtools",
+        group: "Proyek Pribadi",
+        label: "Pribadi",
+        position: "Frontend Developer",
+        collaboration: "Mandiri",
+        stack: ["Next.js", "React", "Tailwind CSS", "Flowbite"],
+        updatedAt: "2026-06-17",
+        link: "https://devtools.rizam.fun/",
+        repository: null,
+        summary:
+            "Kumpulan tool developer berbasis Next.js untuk JSON formatter, JWT decoder, Base64, UUID, timestamp, URL, hash, dan case converter.",
+    },
+    {
         title: "Markdown Editor",
         group: "Proyek Pribadi",
         label: "Pribadi",
         position: "Frontend Developer",
         collaboration: "Mandiri",
         stack: ["React", "Vite", "Tailwind CSS", "Flowbite"],
-        updatedAt: "2026-06-11",
+        updatedAt: "2026-05-11",
         link: "https://markdown.rizam.fun/",
         repository:
             "https://github.com/RizqiZamzamiJamil/Rizam_Markdown-Editor",
