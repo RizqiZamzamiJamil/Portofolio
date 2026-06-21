@@ -35,7 +35,7 @@ export const profile = {
     phone: "+62 821 4708 3442",
     heroImage: HeroPortrait,
     aboutImage: AboutPortrait,
-    cvUrl: "https://drive.google.com/file/d/1J5-z9hUHXmMpZxg_RZIV9GZGptyGIuYq/view?usp=sharing",
+    cvUrl: "https://drive.google.com/file/d/1YViA7fVly7TjKj6dwGBVxAPS6y4DVWKu/view?usp=sharing",
     certificateCollectionUrl:
         "https://drive.google.com/file/d/1gsLwGgcfcvmGLtGij5DAHWtX5mfgtq4L/view?usp=sharing",
     heroDescription:
@@ -675,52 +675,85 @@ export const educationTimeline = [
     },
 ];
 
-export const experienceLabels = ["Organisasi", "Program Industri"];
+export const experienceLabels = [
+    "Pengalaman Kerja",
+    "Organisasi",
+    "Pelatihan",
+];
 
 export const experienceEntries = [
     {
-        title: "HMTI Polinema",
-        organization: "Himpunan Mahasiswa Teknologi Informasi",
-        period: "Januari 2022 - Januari 2023",
-        label: "Organisasi",
-        role: "Organizing Committee - Departemen Kominfo",
-        accent: "14, 165, 233",
-        icon: "fa-solid fa-users-gear",
+        title: "Magang Kementerian Ketenagakerjaan",
+        organization: "Nazma Office - Sleman",
+        period: "November 2025 - Mei 2026",
+        label: "Pengalaman Kerja",
+        category: "work",
+        role: "Fullstack Developer",
+        accent: "59, 130, 246",
+        icon: "fa-solid fa-briefcase",
+        badges: ["LMS NaZMaLogy", "Singgah Loka"],
         summary:
-            "Terlibat dalam kegiatan organisasi, publikasi, pengelolaan konten, dan koordinasi program kerja departemen Kominfo.",
+            "Terlibat dalam pengembangan aplikasi web fullstack untuk kebutuhan Nazma Office, terutama project berbasis Laravel dan Tailwind.",
     },
     {
-        title: "MSIB Batch 6",
-        organization: "Kampus Merdeka x Gamelab - Salatiga",
+        title: "Magang",
+        organization: "CV Duta Technology - Malang",
+        period: "Agustus 2024 - November 2024",
+        label: "Pengalaman Kerja",
+        category: "work",
+        role: "Fullstack Developer",
+        accent: "59, 130, 246",
+        icon: "fa-solid fa-code-branch",
+        badges: ["RPL Admission Website"],
+        summary:
+            "Mengerjakan pengembangan web fullstack dan menyesuaikan implementasi RPL Admission Website dengan kebutuhan kerja lapangan.",
+    },
+    {
+        title: "Magang",
+        organization: "Trans Computer - Kediri",
+        period: "Januari 2020 - Mei 2020",
+        label: "Pengalaman Kerja",
+        category: "work",
+        role: "IT Support",
+        accent: "59, 130, 246",
+        icon: "fa-solid fa-network-wired",
+        badges: [
+            "Instalasi Jaringan",
+            "Maintenance Komputer",
+            "Troubleshooting",
+        ],
+        summary:
+            "Melakukan instalasi jaringan internet di gedung pemerintah dan BAWASLU Kabupaten Kediri, sekaligus menangani perawatan serta troubleshooting komputer instansi pemerintah daerah.",
+    },
+    {
+        title: "Magang dan Studi Independen Batch 6 - Kampus Merdeka",
+        organization: "Gamelab Indonesia - Salatiga",
         period: "Februari 2024 - Juni 2024",
-        label: "Program Industri",
-        role: "Frontend Web Developer",
+        label: "Pelatihan",
+        category: "growth",
+        role: "Frontend Developer",
         accent: "5, 150, 105",
         icon: "fa-solid fa-laptop-code",
+        badges: ["Clinic Reservation App", "Portfolio"],
         summary:
             "Mengikuti studi independen frontend web developer dengan materi industri, tugas praktik, dan project berbasis web.",
     },
     {
-        title: "Magang Duta Technology",
-        organization: "CV. Duta Technology - Malang",
-        period: "Agustus 2024 - November 2024",
-        label: "Program Industri",
-        role: "Fullstack Developer",
-        accent: "234, 88, 12",
-        icon: "fa-solid fa-code-branch",
+        title: "Departemen Kominfo",
+        organization: "Himpunan Mahasiswa Teknologi Informasi, Polinema - Malang",
+        period: "Februari 2022 - Januari 2023",
+        label: "Organisasi",
+        category: "growth",
+        role: "Organizing Committee",
+        accent: "14, 165, 233",
+        icon: "fa-solid fa-users-gear",
+        badges: [
+            "Studi Banding HMTI",
+            "Publikasi Media Sosial",
+            "Kepanitiaan",
+        ],
         summary:
-            "Mengerjakan pengembangan web fullstack dan menyesuaikan implementasi dengan kebutuhan kerja lapangan.",
-    },
-    {
-        title: "Magang Kemnaker",
-        organization: "Kemnaker x Nazma Office - Sleman",
-        period: "November 2025 - Mei 2026",
-        label: "Program Industri",
-        role: "Fullstack Developer",
-        accent: "59, 130, 246",
-        icon: "fa-solid fa-briefcase",
-        summary:
-            "Terlibat dalam pengembangan aplikasi web fullstack, terutama pada project berbasis Laravel dan Tailwind.",
+            "Ketua pelaksana Program Kerja Studi Banding HMTI 2022, mengelola dan mengedit lebih dari 20 konten publikasi media sosial, serta aktif dalam lebih dari 10 kegiatan kepanitiaan dan program kerja HMTI selama satu periode.",
     },
 ];
 

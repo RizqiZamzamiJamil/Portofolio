@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Link, useLocation, useOutlet } from "react-router-dom";
 import brandLogo from "../../assets/logo.png";
+import { profile } from "../../data/portfolioData";
 import "./Style.css";
 
 const navigationItems = [
@@ -109,7 +110,7 @@ const Header = () => {
                     <div className="site-nav__actions">
                         <a
                             className="site-nav__cta"
-                            href="https://drive.google.com/file/d/1J5-z9hUHXmMpZxg_RZIV9GZGptyGIuYq/view?usp=sharing"
+                            href={profile.cvUrl}
                             target="_blank"
                             rel="noreferrer"
                         >
@@ -191,7 +192,7 @@ const Header = () => {
                             </div>
                             <a
                                 className="site-sidebar__cta"
-                                href="https://drive.google.com/file/d/1J5-z9hUHXmMpZxg_RZIV9GZGptyGIuYq/view?usp=sharing"
+                                href={profile.cvUrl}
                                 target="_blank"
                                 rel="noreferrer"
                             >

@@ -267,40 +267,62 @@ const education = [
 
 const experience = [
     {
-        period: "Januari 2022 - Januari 2023",
-        title: "HMTI Polinema",
-        label: "Organisasi",
-        organization: "Himpunan Mahasiswa Teknologi Informasi",
-        role: "Organizing Committee - Departemen Kominfo",
+        period: "November 2025 - Mei 2026",
+        title: "Magang Kementerian Ketenagakerjaan",
+        label: "Pengalaman Kerja",
+        organization: "Nazma Office - Sleman",
+        role: "Fullstack Developer",
+        badges: ["LMS NaZMaLogy", "Singgah Loka"],
         summary:
-            "Terlibat dalam kegiatan organisasi, publikasi, pengelolaan konten, dan koordinasi program kerja departemen Kominfo.",
+            "Terlibat dalam pengembangan aplikasi web fullstack untuk kebutuhan Nazma Office, terutama project berbasis Laravel dan Tailwind.",
+    },
+    {
+        period: "Agustus 2024 - November 2024",
+        title: "Magang",
+        label: "Pengalaman Kerja",
+        organization: "CV Duta Technology - Malang",
+        role: "Fullstack Developer",
+        badges: ["RPL Admission Website"],
+        summary:
+            "Mengerjakan pengembangan web fullstack dan menyesuaikan implementasi RPL Admission Website dengan kebutuhan kerja lapangan.",
+    },
+    {
+        period: "Januari 2020 - Mei 2020",
+        title: "Magang",
+        label: "Pengalaman Kerja",
+        organization: "Trans Computer - Kediri",
+        role: "IT Support",
+        badges: [
+            "Instalasi Jaringan",
+            "Maintenance Komputer",
+            "Troubleshooting",
+        ],
+        summary:
+            "Melakukan instalasi jaringan internet di gedung pemerintah dan BAWASLU Kabupaten Kediri, sekaligus menangani perawatan serta troubleshooting komputer instansi pemerintah daerah.",
     },
     {
         period: "Februari 2024 - Juni 2024",
-        title: "MSIB Batch 6",
-        label: "Program Industri",
-        organization: "Kampus Merdeka x Gamelab - Salatiga",
-        role: "Frontend Web Developer",
+        title: "Magang dan Studi Independen Batch 6 - Kampus Merdeka",
+        label: "Pelatihan",
+        organization: "Gamelab Indonesia - Salatiga",
+        role: "Frontend Developer",
+        badges: ["Clinic Reservation App", "Portfolio"],
         summary:
             "Mengikuti studi independen frontend web developer dengan materi industri, tugas praktik, dan project berbasis web.",
     },
     {
-        period: "Agustus 2024 - November 2024",
-        title: "Magang Duta Technology",
-        label: "Program Industri",
-        organization: "CV. Duta Technology - Malang",
-        role: "Fullstack Developer",
+        period: "Februari 2022 - Januari 2023",
+        title: "Departemen Kominfo",
+        label: "Organisasi",
+        organization: "Himpunan Mahasiswa Teknologi Informasi, Polinema - Malang",
+        role: "Organizing Committee",
+        badges: [
+            "Studi Banding HMTI",
+            "Publikasi Media Sosial",
+            "Kepanitiaan",
+        ],
         summary:
-            "Mengerjakan pengembangan web fullstack dan menyesuaikan implementasi dengan kebutuhan kerja lapangan.",
-    },
-    {
-        period: "November 2025 - Mei 2026",
-        title: "Magang Kemnaker",
-        label: "Program Industri",
-        organization: "Kemnaker x Nazma Office - Sleman",
-        role: "Fullstack Developer",
-        summary:
-            "Terlibat dalam pengembangan aplikasi web fullstack, terutama pada project berbasis Laravel dan Tailwind.",
+            "Ketua pelaksana Program Kerja Studi Banding HMTI 2022, mengelola dan mengedit lebih dari 20 konten publikasi media sosial, serta aktif dalam lebih dari 10 kegiatan kepanitiaan dan program kerja HMTI selama satu periode.",
     },
 ];
 

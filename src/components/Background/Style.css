@@ -29,26 +29,6 @@
     animation: scanlineMove 10s ease-in-out infinite;
 }
 
-.background-rail {
-    position: absolute;
-    width: 46rem;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(19, 216, 255, 0.42), transparent);
-    transform: rotate(-18deg);
-}
-
-.background-rail--one {
-    top: 28%;
-    left: -10rem;
-}
-
-.background-rail--two {
-    right: -8rem;
-    bottom: 20%;
-    background: linear-gradient(90deg, transparent, rgba(18, 185, 129, 0.36), transparent);
-    transform: rotate(16deg);
-}
-
 @keyframes scanlineMove {
     0%,
     100% {

@@ -13,16 +13,20 @@ import {
 import CertificateCarousel from "../Home/CertificateCarousel";
 import "./Style.css";
 
-const getTimelinePosition = (index) => {
-    const row = Math.floor(index / 4) + 1;
-    const offset = index % 4;
-    const column = row % 2 === 1 ? offset + 1 : 4 - offset;
-
-    return {
-        gridColumn: String(column),
-        gridRow: String(row),
-    };
-};
+const experienceGroups = [
+    {
+        key: "work",
+        title: "Pengalaman Kerja",
+        description:
+            "Magang dan kontribusi project yang dikerjakan bersama perusahaan atau instansi.",
+    },
+    {
+        key: "growth",
+        title: "Organisasi & Pelatihan",
+        description:
+            "Aktivitas pengembangan diri, organisasi, dan program pembelajaran industri.",
+    },
+];
 
 const Experience = () => {
     return (
@@ -93,47 +97,85 @@ const Experience = () => {
                         </motion.h2>
                     </motion.div>
 
-                    <div className="experience-serpentine">
-                        <span
-                            className="experience-serpentine__track"
-                            aria-hidden="true"
-                        ></span>
+                    <div className="experience-timeline-grid">
+                        {experienceGroups.map((group, groupIndex) => {
+                            const entries = experienceEntries.filter(
+                                (item) => item.category === group.key
+                            );
 
-                        {experienceEntries.map((item, index) => (
-                            <motion.article
-                                key={item.title}
-                                className="experience-step"
-                                style={{
-                                    "--experience-accent-rgb": item.accent,
-                                    ...getTimelinePosition(index),
-                                }}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={defaultViewport}
-                                transition={{
-                                    duration: 0.42,
-                                    delay: index * 0.07,
-                                }}
-                            >
-                                <div className="experience-step__top">
-                                    <span>{item.label}</span>
-                                    <div className="experience-step__icon">
-                                        <i className={item.icon} aria-hidden="true"></i>
+                            return (
+                                <motion.section
+                                    key={group.key}
+                                    className="experience-column"
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={defaultViewport}
+                                    variants={sectionStagger}
+                                >
+                                    <motion.div
+                                        className="experience-column__head"
+                                        variants={sectionItem}
+                                    >
+                                        <span>{group.title}</span>
+                                        <p>{group.description}</p>
+                                    </motion.div>
+
+                                    <div className="experience-timeline-list">
+                                        <span
+                                            className="experience-timeline-list__track"
+                                            aria-hidden="true"
+                                        ></span>
+
+                                        {entries.map((item, index) => (
+                                            <motion.article
+                                                key={`${item.period}-${item.role}-${item.organization}`}
+                                                className="experience-step"
+                                                style={{
+                                                    "--experience-accent-rgb":
+                                                        item.accent,
+                                                }}
+                                                initial={{ opacity: 0, y: 20 }}
+                                                whileInView={{
+                                                    opacity: 1,
+                                                    y: 0,
+                                                }}
+                                                viewport={defaultViewport}
+                                                transition={{
+                                                    duration: 0.42,
+                                                    delay:
+                                                        groupIndex * 0.08 +
+                                                        index * 0.07,
+                                                }}
+                                            >
+                                                <span
+                                                    className="experience-step__marker"
+                                                    aria-hidden="true"
+                                                ></span>
+                                                <p className="experience-step__period">
+                                                    {item.period}
+                                                </p>
+                                                <h3>{item.role}</h3>
+                                                <strong>{item.title}</strong>
+                                                <p className="experience-step__org">
+                                                    {item.organization}
+                                                </p>
+                                                <p className="experience-step__summary">
+                                                    {item.summary}
+                                                </p>
+
+                                                <div className="experience-step__badges">
+                                                    {item.badges.map((badge) => (
+                                                        <span key={badge}>
+                                                            {badge}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            </motion.article>
+                                        ))}
                                     </div>
-                                </div>
-                                <p className="experience-step__period">
-                                    {item.period}
-                                </p>
-                                <h3>{item.title}</h3>
-                                <strong>{item.role}</strong>
-                                <p className="experience-step__org">
-                                    {item.organization}
-                                </p>
-                                <p className="experience-step__summary">
-                                    {item.summary}
-                                </p>
-                            </motion.article>
-                        ))}
+                                </motion.section>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
