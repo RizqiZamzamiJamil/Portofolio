@@ -16,21 +16,22 @@ const starterQuestions = [
     "Pengalaman Rizqi",
 ];
 
-const githubPagesChatApiUrl = "https://portofolio-72b.pages.dev/api/chat";
-const isGithubPagesHost =
-    typeof window !== "undefined" &&
-    window.location.hostname.endsWith("github.io");
+const centralizedChatApiUrl = "https://api.rizam.fun/openai/portfolio-chat";
+
+// DEFAULT: OpenAI dipanggil melalui gateway terpusat api.rizam.fun.
+const defaultChatApiUrl = centralizedChatApiUrl;
+
+// FALLBACK API ASLI YANG SUDAH ADA:
+// Jika gateway gagal di-deploy, komentari default di atas lalu aktifkan salah satu.
+// const defaultChatApiUrl = "https://portofolio-72b.pages.dev/api/chat";
+// const defaultChatApiUrl = "/api/chat";
 
 const resolveChatApiUrl = () => {
     if (import.meta.env.VITE_AI_CHAT_API_URL) {
         return import.meta.env.VITE_AI_CHAT_API_URL;
     }
 
-    if (isGithubPagesHost) {
-        return githubPagesChatApiUrl;
-    }
-
-    return "/api/chat";
+    return defaultChatApiUrl;
 };
 
 const chatApiUrl = resolveChatApiUrl();
