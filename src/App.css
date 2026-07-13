@@ -14,7 +14,7 @@
     --line-color: rgba(255, 255, 255, 0.1);
     --shadow-soft: 0 24px 70px rgba(0, 0, 0, 0.28);
     --site-header-height: 72px;
-    --site-container-max: 1640px;
+    --site-desktop-gutter: clamp(5.5rem, 7.3vw, 8.75rem);
     --heading-font: "Space Grotesk", sans-serif;
     --body-font: "Plus Jakarta Sans", sans-serif;
 }
@@ -69,9 +69,12 @@ p {
     min-height: 100vh;
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1200px) {
     .container {
-        max-width: var(--site-container-max);
+        width: 100%;
+        max-width: none;
+        padding-right: var(--site-desktop-gutter);
+        padding-left: var(--site-desktop-gutter);
     }
 }
 
