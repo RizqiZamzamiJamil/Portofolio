@@ -35,9 +35,9 @@ export const profile = {
     phone: "+62 821 4708 3442",
     heroImage: HeroPortrait,
     aboutImage: AboutPortrait,
-    cvUrl: "https://drive.google.com/file/d/1YViA7fVly7TjKj6dwGBVxAPS6y4DVWKu/view?usp=sharing",
+    cvUrl: "https://drive.google.com/file/d/1r4fQpU60XucrquyuKmKka1e-vRqi7LfQ/view?usp=sharing",
     certificateCollectionUrl:
-        "https://drive.google.com/file/d/1gsLwGgcfcvmGLtGij5DAHWtX5mfgtq4L/view?usp=sharing",
+        "https://drive.google.com/drive/folders/1-UFxXQpHg72vCa6P-ge5hb5Q4dsfqXg-?usp=sharing",
     heroDescription:
         "Saya suka membangun website yang tampilannya bersih, modern, dan terasa nyaman saat dipakai.",
     summary:
