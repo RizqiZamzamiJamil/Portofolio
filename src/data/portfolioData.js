@@ -2,16 +2,16 @@ import BestDefense from "../assets/bestdefense.jpg";
 import BlockchainCertificate from "../assets/blockchain.png";
 import BnspCertificate from "../assets/bnsp.jpg";
 import BootstrapCertificate from "../assets/bootstrap.jpg";
+import ProjectDevtools from "../assets/devtools.png";
 import HeroPortrait from "../assets/foto.png";
 import AboutPortrait from "../assets/foto2.png";
 import GamelabCertificate from "../assets/gamelab2.jpg";
 import JavascriptCertificate from "../assets/javascript.jpg";
-import ProjectDevtools from "../assets/devtools.png";
 import ProjectLMS from "../assets/lms.png";
-import ProjectMarkdown from "../assets/markdown.png";
-import ProjectPortfolio from "../assets/portfolio.png";
 import MagangHub from "../assets/maganghub.png";
+import ProjectMarkdown from "../assets/markdown.png";
 import MsibCertificate from "../assets/msib (2).jpg";
+import ProjectPortfolio from "../assets/portfolio.png";
 import ProjectRpl from "../assets/project0.png";
 import ProjectRepository from "../assets/project001.png";
 import ProjectCinema from "../assets/project2.png";
@@ -244,8 +244,7 @@ const projectItems = [
         updatedAt: "2026-05-11",
         image: ProjectMarkdown,
         liveUrl: "https://markdown.rizam.fun/",
-        codeUrl:
-            "https://github.com/RizqiZamzamiJamil/Rizam_Markdown-Editor",
+        codeUrl: "https://github.com/RizqiZamzamiJamil/Rizam_Markdown-Editor",
         accent: "14, 165, 233",
     },
     {
@@ -316,16 +315,16 @@ const projectItems = [
         id: "lms-nazmalogy",
         title: "LMS NaZMaLogy",
         listDescription:
-            "Platform LMS untuk mengelola kelas, materi, dan alur belajar peserta.",
+            "Platform kursus online dengan fitur kelola kelas, materi, alur belajar peserta, dan adanya fasilitator sebagai pendamping peserta.",
         detailDescription:
-            "LMS NaZMaLogy dikembangkan untuk mendukung pengelolaan course online, materi pembelajaran, kelas, dan proses belajar peserta selama program magang.",
+            "LMS NaZMaLogy merupakan website kursus online yang mendukung pengelolaan kursus, materi pembelajaran, kelas, proses belajar peserta, dan adanya fasilitator sebagai pendamping peserta.",
         stack: ["Laravel", "Livewire", "Alpine.js", "Tailwind CSS"],
         mainStack: "Laravel",
         logoStack: "Laravel",
         group: "Pernah Dikerjakan",
         label: "Magang",
         position: "Fullstack Developer",
-        collaboration: "Tim Nazma Office",
+        collaboration: "Tim Perusahaan",
         updatedAt: "2026-03-20",
         image: ProjectLMS,
         liveUrl: "https://lms.nazmalogy.com/",
@@ -338,14 +337,14 @@ const projectItems = [
         listDescription:
             "Website reservasi penginapan untuk wilayah Yogyakarta dan sekitarnya.",
         detailDescription:
-            "Singgah Loka berfokus pada alur reservasi penginapan, informasi properti, dan pengelolaan data booking untuk kebutuhan platform penginapan.",
+            "Singgah Loka merupakan website reservasi penginapan wilayah Yogyakarta dengan fokus pada alur reservasi, informasi properti, dan pengelolaan data booking penginapan.",
         stack: ["Laravel", "Alpine.js", "Tailwind CSS"],
         mainStack: "Laravel",
         logoStack: "Laravel",
         group: "Pernah Dikerjakan",
         label: "Magang",
         position: "Fullstack Developer",
-        collaboration: "Tim Nazma Office",
+        collaboration: "Tim Perusahaan",
         updatedAt: "2026-05-03",
         image: ProjectSinggahLoka,
         liveUrl: "https://silo.nazmalogy.com/",
@@ -530,7 +529,7 @@ export const certificates = [
     {
         title: "Pemagangan Nasional Batch 2",
         issuer: "Kementerian Ketenagakerjaan",
-        focus: "Program pemagangan nasional lulusan perguruan tinggi dari Kementerian Ketenagakerjaan pada posisi Fullstack Developer di Nazma Office - Sleman",
+        focus: "Program pemagangan nasional lulusan perguruan tinggi dari Kementerian Ketenagakerjaan pada posisi Fullstack Developer di PT Nazmalogy Loka Lastari (Nazma Office) - Sleman",
         issuedAt: "2026",
         image: MagangHub,
         orientation: "landscape",
@@ -675,25 +674,21 @@ export const educationTimeline = [
     },
 ];
 
-export const experienceLabels = [
-    "Pengalaman Kerja",
-    "Organisasi",
-    "Pelatihan",
-];
+export const experienceLabels = ["Pengalaman Kerja", "Organisasi", "Pelatihan"];
 
 export const experienceEntries = [
     {
-        title: "Magang Kementerian Ketenagakerjaan",
-        organization: "Nazma Office - Sleman",
+        title: "Magang Nasional",
+        organization: "PT Nazmalogy Loka Lastari - Sleman",
         period: "November 2025 - Mei 2026",
         label: "Pengalaman Kerja",
         category: "work",
         role: "Fullstack Developer",
         accent: "59, 130, 246",
         icon: "fa-solid fa-briefcase",
-        badges: ["LMS NaZMaLogy", "Singgah Loka"],
+        badges: ["LMS Nazmalogy", "Singgah Loka"],
         summary:
-            "Terlibat dalam pengembangan aplikasi web fullstack untuk kebutuhan Nazma Office, terutama project berbasis Laravel dan Tailwind.",
+            "Terlibat dalam pengembangan ulang LMS Nazmalogy dan Singgah Loka sebagai Fullstack Developer di PT Nazmalogy Loka Lastari, menggunakan Laravel, Livewire, Alpine.js, dan Tailwind CSS.",
     },
     {
         title: "Magang",
@@ -740,18 +735,15 @@ export const experienceEntries = [
     },
     {
         title: "Departemen Kominfo",
-        organization: "Himpunan Mahasiswa Teknologi Informasi, Polinema - Malang",
+        organization:
+            "Himpunan Mahasiswa Teknologi Informasi, Polinema - Malang",
         period: "Februari 2022 - Januari 2023",
         label: "Organisasi",
         category: "growth",
         role: "Organizing Committee",
         accent: "14, 165, 233",
         icon: "fa-solid fa-users-gear",
-        badges: [
-            "Studi Banding HMTI",
-            "Publikasi Media Sosial",
-            "Kepanitiaan",
-        ],
+        badges: ["Studi Banding", "Publikasi Media Sosial", "Kepanitiaan"],
         summary:
             "Ketua pelaksana Program Kerja Studi Banding HMTI 2022, mengelola dan mengedit lebih dari 20 konten publikasi media sosial, serta aktif dalam lebih dari 10 kegiatan kepanitiaan dan program kerja HMTI selama satu periode.",
     },
