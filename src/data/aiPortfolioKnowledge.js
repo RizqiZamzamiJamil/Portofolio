@@ -57,6 +57,20 @@ const skillGroups = [
 
 const projects = [
     {
+        title: "GeoWeather",
+        group: "Proyek Pribadi",
+        label: "Pribadi",
+        position: "Frontend Developer",
+        collaboration: "Mandiri",
+        stack: ["Vue", "Tailwind CSS", "MapLibre GL JS", "BMKG API"],
+        startedAt: "Juli 2026",
+        updatedAt: "Juli 2026",
+        link: "https://geo.rizam.fun/",
+        repository: "https://github.com/RizqiZamzamiJamil/Geo_weather",
+        summary:
+            "Aplikasi peta interaktif Indonesia untuk mencari wilayah serta melihat prakiraan cuaca, peringatan dini cuaca, dan informasi gempa dari data resmi BMKG langsung pada peta.",
+    },
+    {
         title: "Rizam Devtools",
         group: "Proyek Pribadi",
         label: "Pribadi",

@@ -3,6 +3,7 @@ import BlockchainCertificate from "../assets/blockchain.png";
 import BnspCertificate from "../assets/bnsp.jpg";
 import BootstrapCertificate from "../assets/bootstrap.jpg";
 import ProjectDevtools from "../assets/devtools.png";
+import ProjectGeoWeather from "../assets/geoweather.png";
 import HeroPortrait from "../assets/foto.png";
 import AboutPortrait from "../assets/foto2.png";
 import GamelabCertificate from "../assets/gamelab2.jpg";
@@ -207,6 +208,28 @@ export const skillGroups = [
 ];
 
 const projectItems = [
+    {
+        id: "geoweather",
+        title: "GeoWeather",
+        listDescription:
+            "Peta cuaca interaktif Indonesia dengan prakiraan, peringatan dini, dan informasi gempa dari BMKG.",
+        detailDescription:
+            "GeoWeather adalah aplikasi peta interaktif berbasis Vue untuk mencari wilayah Indonesia dan melihat prakiraan cuaca, peringatan dini, serta informasi gempa dari data resmi BMKG langsung pada peta.",
+        stack: ["Vue", "Tailwind CSS"],
+        mainStack: "Vue",
+        logoStack: "Vue",
+        group: "Proyek Pribadi",
+        label: "Pribadi",
+        position: "Frontend Developer",
+        collaboration: "Mandiri",
+        startedAt: "Juli 2026",
+        dateLabel: "Juli 2026",
+        updatedAt: "2026-07-01",
+        image: ProjectGeoWeather,
+        liveUrl: "https://geo.rizam.fun/",
+        codeUrl: "https://github.com/RizqiZamzamiJamil/Geo_weather",
+        accent: "5, 150, 105",
+    },
     {
         id: "devtools",
         title: "Rizam Devtools",
@@ -495,10 +518,10 @@ export const highlightedProject =
     projects[0];
 
 const latestProjectIds = [
+    "geoweather",
     "devtools",
     "markdown-editor",
     "singgah-loka",
-    "lms-nazmalogy",
 ];
 
 export const latestProjects = latestProjectIds
