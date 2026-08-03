@@ -2,15 +2,11 @@
   <title id="title">Politeknik Negeri Malang</title>
   <desc id="desc">Ilustrasi kartu kampus Politeknik Negeri Malang.</desc>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fee2e2" />
-      <stop offset="100%" stop-color="#fecaca" />
-    </linearGradient>
     <pattern id="grid" width="58" height="58" patternUnits="userSpaceOnUse">
       <path d="M 58 0 L 0 0 0 58" fill="none" stroke="#be123c" stroke-opacity=".10" stroke-width="2" />
     </pattern>
   </defs>
-  <rect width="1600" height="900" fill="url(#bg)" />
+  <rect width="1600" height="900" fill="#fed6d6" />
   <rect width="1600" height="900" fill="url(#grid)" />
   <circle cx="1320" cy="170" r="145" fill="#f97316" fill-opacity=".12" />
   <circle cx="280" cy="760" r="220" fill="#e11d48" fill-opacity=".10" />

@@ -2,15 +2,11 @@
   <title id="title">SMK Negeri 1 Grogol</title>
   <desc id="desc">Ilustrasi kartu sekolah SMK Negeri 1 Grogol di Kediri.</desc>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#dbeafe" />
-      <stop offset="100%" stop-color="#bfdbfe" />
-    </linearGradient>
     <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse">
       <path d="M 56 0 L 0 0 0 56" fill="none" stroke="#2563eb" stroke-opacity=".10" stroke-width="2" />
     </pattern>
   </defs>
-  <rect width="1600" height="900" fill="url(#bg)" />
+  <rect width="1600" height="900" fill="#cde3fe" />
   <rect width="1600" height="900" fill="url(#grid)" />
   <circle cx="220" cy="180" r="160" fill="#3b82f6" fill-opacity=".12" />
   <circle cx="1330" cy="760" r="190" fill="#2563eb" fill-opacity=".12" />

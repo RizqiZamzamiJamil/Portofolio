@@ -93,8 +93,8 @@
 
 .projects-filter:hover,
 .projects-filter.is-active {
-    border-color: rgba(19, 216, 255, 0.42);
-    background: rgba(19, 216, 255, 0.13);
+    border-color: rgba(22, 216, 242, 0.42);
+    background: rgba(22, 216, 242, 0.13);
     color: var(--text-color);
 }
 

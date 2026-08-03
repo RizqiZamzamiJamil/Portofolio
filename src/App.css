@@ -1,15 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap");
 
 :root {
-    --bg-color: #05070d;
-    --surface-color: #0a0f1b;
-    --surface-muted: rgba(13, 19, 32, 0.82);
-    --surface-strong: #111827;
+    --bg-color: #000000;
+    --surface-color: #10151d;
+    --surface-muted: #151b25;
+    --surface-strong: #19212d;
     --text-color: #f7fbff;
     --muted-color: #94a3b8;
-    --brand-color: #13d8ff;
-    --brand-strong: #0b8fff;
-    --accent-color: #12b981;
+    --brand-color: #16d8f2;
+    --brand-strong: #027dfd;
+    --accent-color: #059669;
     --accent-warm: #f59e0b;
     --line-color: rgba(255, 255, 255, 0.1);
     --shadow-soft: 0 24px 70px rgba(0, 0, 0, 0.28);
@@ -34,10 +34,7 @@ body {
     overflow-x: hidden;
     font-family: var(--body-font);
     color: var(--text-color);
-    background:
-        linear-gradient(135deg, rgba(11, 143, 255, 0.2), transparent 28rem),
-        linear-gradient(225deg, rgba(18, 185, 129, 0.16), transparent 30rem),
-        linear-gradient(180deg, #0b1020 0%, #05070d 48%, #03050a 100%);
+    background: var(--bg-color);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
@@ -89,15 +86,11 @@ p {
 }
 
 .section-shell--muted {
-    background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.02)),
-        rgba(3, 7, 18, 0.25);
+    background: var(--bg-color);
 }
 
 .section-shell--accent {
-    background:
-        linear-gradient(135deg, rgba(19, 216, 255, 0.08), rgba(18, 185, 129, 0.06)),
-        rgba(3, 7, 18, 0.24);
+    background: var(--bg-color);
 }
 
 .section-heading {
@@ -117,9 +110,9 @@ p {
     gap: 0.5rem;
     min-height: 2.1rem;
     padding: 0.4rem 0.68rem;
-    border: 1px solid rgba(19, 216, 255, 0.18);
+    border: 1px solid #14515a;
     border-radius: 0.5rem;
-    background: rgba(19, 216, 255, 0.08);
+    background: #082a32;
     color: var(--brand-color);
     font-size: 0.72rem;
     font-weight: 800;
@@ -150,7 +143,6 @@ p {
     border-radius: 0.5rem;
     background: var(--surface-muted);
     box-shadow: var(--shadow-soft);
-    backdrop-filter: blur(18px);
 }
 
 .portfolio-button {
@@ -160,9 +152,9 @@ p {
     gap: 0.55rem;
     min-height: 2.55rem;
     padding: 0.62rem 0.9rem;
-    border: 1px solid rgba(19, 216, 255, 0.48);
+    border: 1px solid var(--brand-color);
     border-radius: 0.5rem;
-    background: linear-gradient(135deg, var(--brand-strong), var(--brand-color));
+    background: var(--brand-color);
     color: #03111d;
     font-size: 0.84rem;
     font-weight: 800;
@@ -177,13 +169,13 @@ p {
 
 .portfolio-button--ghost {
     border-color: rgba(255, 255, 255, 0.12);
-    background: rgba(255, 255, 255, 0.055);
+    background: #151b25;
     color: var(--text-color);
 }
 
 .portfolio-button--ghost:hover {
-    border-color: rgba(19, 216, 255, 0.42);
-    background: rgba(19, 216, 255, 0.12);
+    border-color: rgba(22, 216, 242, 0.42);
+    background: #1b2732;
     color: var(--text-color);
 }
 
@@ -195,9 +187,9 @@ p {
     max-width: 100%;
     min-height: 2rem;
     padding: 0.36rem 0.62rem;
-    border: 1px solid rgba(19, 216, 255, 0.18);
+    border: 1px solid #14515a;
     border-radius: 0.5rem;
-    background: rgba(19, 216, 255, 0.08);
+    background: #082a32;
     color: var(--brand-color);
     font-size: 0.7rem;
     font-weight: 800;
@@ -212,7 +204,7 @@ p {
     text-align: center;
     border-radius: 0.5rem;
     border: 1px dashed rgba(255, 255, 255, 0.14);
-    background: rgba(255, 255, 255, 0.04);
+    background: #111720;
     color: var(--muted-color);
 }
 

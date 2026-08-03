@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import Card from "../../components/Card/Card";
+import SectionScrollCue from "../../components/SectionScrollCue/SectionScrollCue";
 import {
     personalProjects,
     projectLabels,
@@ -78,9 +79,16 @@ const Projects = () => {
                         </motion.div>
                     </motion.div>
                 </div>
+                <SectionScrollCue
+                    label="Lihat Proyek"
+                    targetId="projects-main-content"
+                />
             </section>
 
-            <section className="section-shell">
+            <section
+                id="projects-main-content"
+                className="section-shell section-scroll-target"
+            >
                 <div className="container">
                     <motion.div
                         className="section-heading section-heading--left"

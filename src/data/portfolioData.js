@@ -1,12 +1,13 @@
 import BestDefense from "../assets/bestdefense.jpg";
 import BlockchainCertificate from "../assets/blockchain.png";
 import BnspCertificate from "../assets/bnsp.jpg";
+import Bnsp2Certificate from "../assets/bnsp2.png";
 import BootstrapCertificate from "../assets/bootstrap.jpg";
 import ProjectDevtools from "../assets/devtools.png";
-import ProjectGeoWeather from "../assets/geoweather.png";
 import HeroPortrait from "../assets/foto.png";
 import AboutPortrait from "../assets/foto2.png";
 import GamelabCertificate from "../assets/gamelab2.jpg";
+import ProjectGeoWeather from "../assets/geoweather.png";
 import JavascriptCertificate from "../assets/javascript.jpg";
 import ProjectLMS from "../assets/lms.png";
 import MagangHub from "../assets/maganghub.png";
@@ -115,7 +116,7 @@ export const skillGroups = [
             },
             {
                 name: "React JS",
-                level: "Menengah",
+                level: "Lanjut",
                 color: "#61dafb",
             },
             {
@@ -125,7 +126,7 @@ export const skillGroups = [
             },
             {
                 name: "Vue JS",
-                level: "Dasar",
+                level: "Menengah",
                 color: "#42b883",
             },
         ],
@@ -145,13 +146,23 @@ export const skillGroups = [
             },
             {
                 name: "PostgreSQL",
-                level: "Dasar",
+                level: "Menengah",
                 color: "#336791",
             },
             {
                 name: "Laravel",
-                level: "Menengah",
+                level: "Lanjut",
                 color: "#ff2d20",
+            },
+            {
+                name: "C#",
+                level: "Dasar",
+                color: "#512bd4",
+            },
+            {
+                name: ".NET",
+                level: "Dasar",
+                color: "#512bd4",
             },
             {
                 name: "CodeIgniter 4",
@@ -575,6 +586,15 @@ export const certificates = [
         image: GamelabCertificate,
         orientation: "landscape",
         category: "Pelatihan dan Magang",
+    },
+    {
+        title: "Sertifikasi Asisten Pengembang Web",
+        issuer: "Badan Nasional Sertifikasi Profesi",
+        focus: "Sertifikasi kompetensi sebagai lanjutan program Magang Nasional, di uji oleh BBPVP Semarang dan diverifikasi oleh Badan Nasional Sertifikasi Profesi. (Sertifikat dalam penerbitan)",
+        issuedAt: "2026",
+        image: Bnsp2Certificate,
+        orientation: "landscape",
+        category: "Pengembangan Diri",
     },
     {
         title: "Sertifikasi Pemrograman Software Komputer",

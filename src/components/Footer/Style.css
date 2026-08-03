@@ -1,9 +1,7 @@
 .site-footer {
     padding: 4rem 0 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    background:
-        linear-gradient(180deg, rgba(3, 7, 18, 0), rgba(3, 7, 18, 0.72) 36%),
-        #05070d;
+    background: #000000;
 }
 
 .site-footer__grid {
@@ -34,8 +32,8 @@
 }
 
 .site-footer__logo-icon {
-    width: 2.65rem;
-    height: 2.65rem;
+    width: 2.35rem;
+    height: 2.35rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -47,7 +45,7 @@
     height: 100%;
     object-fit: contain;
     object-position: center;
-    transform: scale(1.42);
+    transform: scale(1.12);
 }
 
 .site-footer__logo-accent {

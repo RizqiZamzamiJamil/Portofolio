@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
+import SectionScrollCue from "../../components/SectionScrollCue/SectionScrollCue";
 import { educationTimeline } from "../../data/portfolioData";
 import {
     defaultViewport,
@@ -57,9 +58,16 @@ const Education = () => {
                         </motion.p>
                     </motion.div>
                 </div>
+                <SectionScrollCue
+                    label="Lihat Pendidikan"
+                    targetId="education-main-content"
+                />
             </section>
 
-            <section className="section-shell section-shell--muted">
+            <section
+                id="education-main-content"
+                className="section-shell section-shell--muted section-scroll-target"
+            >
                 <div className="container">
                     <motion.div
                         className="education-list"

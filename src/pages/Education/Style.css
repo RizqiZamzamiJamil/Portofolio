@@ -50,12 +50,7 @@
     bottom: 0;
     left: 1.35rem;
     width: 1px;
-    background: linear-gradient(
-        180deg,
-        rgba(19, 216, 255, 0.12),
-        rgba(19, 216, 255, 0.52),
-        rgba(18, 185, 129, 0.24)
-    );
+    background: rgba(22, 216, 242, 0.48);
 }
 
 .education-item {
@@ -75,7 +70,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(19, 216, 255, 0.28);
+    border: 1px solid rgba(22, 216, 242, 0.28);
     border-radius: 0.5rem;
     background: #0a0f1b;
     color: var(--brand-color);
@@ -88,9 +83,7 @@
     padding: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 0.5rem;
-    background:
-        linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025)),
-        rgba(13, 19, 32, 0.82);
+    background: var(--surface-muted);
     box-shadow: 0 18px 42px rgba(0, 0, 0, 0.2);
 }
 

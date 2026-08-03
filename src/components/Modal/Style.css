@@ -13,7 +13,6 @@
     justify-content: center;
     padding: 1.5rem;
     background: rgba(3, 7, 18, 0.72);
-    backdrop-filter: blur(10px);
     overflow: hidden;
     overscroll-behavior: contain;
 }
@@ -53,10 +52,10 @@
 
 .confirm-modal__button {
     min-height: 2.55rem;
-    border: 1px solid rgba(19, 216, 255, 0.42);
+    border: 1px solid rgba(22, 216, 242, 0.42);
     border-radius: 0.5rem;
     padding: 0.7rem 0.85rem;
-    background: rgba(19, 216, 255, 0.14);
+    background: rgba(22, 216, 242, 0.14);
     color: var(--text-color);
     font: inherit;
     font-weight: 800;
@@ -65,7 +64,7 @@
 
 .confirm-modal__button:hover {
     transform: translateY(-1px);
-    background: rgba(19, 216, 255, 0.22);
+    background: rgba(22, 216, 242, 0.22);
 }
 
 .confirm-modal__button--ghost {

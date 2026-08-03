@@ -2,15 +2,11 @@
   <title id="title">SD Negeri Sendang</title>
   <desc id="desc">Ilustrasi kartu sekolah dasar SD Negeri Sendang di Kediri.</desc>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fef3c7" />
-      <stop offset="100%" stop-color="#fde68a" />
-    </linearGradient>
     <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
       <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#d97706" stroke-opacity=".12" stroke-width="2" />
     </pattern>
   </defs>
-  <rect width="1600" height="900" fill="url(#bg)" />
+  <rect width="1600" height="900" fill="#fdecaa" />
   <rect width="1600" height="900" fill="url(#grid)" />
   <circle cx="1330" cy="170" r="150" fill="#f59e0b" fill-opacity=".16" />
   <circle cx="260" cy="760" r="210" fill="#f97316" fill-opacity=".14" />

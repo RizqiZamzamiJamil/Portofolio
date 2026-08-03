@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import SectionScrollCue from "../../components/SectionScrollCue/SectionScrollCue";
 import {
     experienceEntries,
     experienceLabels,
@@ -72,9 +73,16 @@ const Experience = () => {
                         </motion.div>
                     </motion.div>
                 </div>
+                <SectionScrollCue
+                    label="Lihat Pengalaman"
+                    targetId="experience-main-content"
+                />
             </section>
 
-            <section className="section-shell section-shell--muted">
+            <section
+                id="experience-main-content"
+                className="section-shell section-shell--muted section-scroll-target"
+            >
                 <div className="container">
                     <motion.div
                         className="section-heading section-heading--left"

@@ -40,9 +40,8 @@
     overflow: hidden;
     border: 1px solid var(--line-color);
     border-radius: 0.5rem;
-    background: rgba(10, 15, 27, 0.96);
+    background: var(--surface-color);
     box-shadow: 0 24px 58px rgba(0, 0, 0, 0.34);
-    backdrop-filter: blur(18px);
 }
 
 .ai-chat__header {
@@ -52,9 +51,7 @@
     gap: 1rem;
     padding: 1rem;
     border-bottom: 1px solid var(--line-color);
-    background:
-        linear-gradient(135deg, rgba(19, 216, 255, 0.12), rgba(18, 185, 129, 0.08)),
-        rgba(255, 255, 255, 0.035);
+    background: var(--surface-strong);
 }
 
 .ai-chat__header div {
@@ -126,15 +123,15 @@
 
 .ai-chat__message.is-assistant {
     align-self: flex-start;
-    background: rgba(255, 255, 255, 0.065);
+    background: #1b222d;
     color: var(--text-color);
 }
 
 .ai-chat__message.is-user {
     align-self: flex-end;
-    background: rgba(19, 216, 255, 0.16);
+    background: #0b2a35;
     color: var(--text-color);
-    border: 1px solid rgba(19, 216, 255, 0.22);
+    border: 1px solid rgba(22, 216, 242, 0.22);
 }
 
 .ai-chat__message.is-loading {
@@ -223,7 +220,7 @@
     padding: 0.48rem 0.68rem;
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 0.5rem;
-    background: rgba(255, 255, 255, 0.055);
+    background: #1b222d;
     color: var(--text-color);
     font-size: 0.72rem;
     font-weight: 800;
@@ -249,7 +246,7 @@
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 0.5rem;
     padding: 0.7rem 0.78rem;
-    background: rgba(5, 7, 13, 0.78);
+    background: #090d13;
     color: var(--text-color);
     font: inherit;
     font-size: 0.84rem;
@@ -261,19 +258,18 @@
 }
 
 .ai-chat__form textarea:focus {
-    border-color: rgba(19, 216, 255, 0.55);
-    box-shadow: 0 0 0 3px rgba(19, 216, 255, 0.12);
+    border-color: rgba(22, 216, 242, 0.55);
+    outline: 2px solid var(--brand-color);
+    outline-offset: 2px;
 }
 
 .ai-chat__send {
     width: 3rem;
     height: 3rem;
     align-self: end;
-    border: 1px solid rgba(19, 216, 255, 0.42);
+    border: 1px solid rgba(22, 216, 242, 0.42);
     border-radius: 0.5rem;
-    background:
-        linear-gradient(135deg, rgba(19, 216, 255, 0.2), rgba(11, 143, 255, 0.24)),
-        #07364b;
+    background: #0b2a35;
 }
 
 .ai-chat__send:disabled,
@@ -291,14 +287,10 @@
 .ai-chat__toggle {
     width: var(--chat-toggle-size);
     height: var(--chat-toggle-size);
-    border: 1px solid rgba(19, 216, 255, 0.58);
+    border: 1px solid rgba(22, 216, 242, 0.58);
     border-radius: 0.5rem;
-    background:
-        linear-gradient(135deg, rgba(19, 216, 255, 0.2), rgba(11, 143, 255, 0.28)),
-        #06384d;
-    box-shadow:
-        0 18px 36px rgba(0, 0, 0, 0.34),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    background: #0b2a35;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.34);
 }
 
 .ai-chat__toggle:hover,

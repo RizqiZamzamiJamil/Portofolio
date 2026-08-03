@@ -2,15 +2,11 @@
   <title id="title">MTs Negeri 3 Kota Kediri</title>
   <desc id="desc">Ilustrasi kartu sekolah MTs Negeri 3 Kota Kediri.</desc>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#d1fae5" />
-      <stop offset="100%" stop-color="#99f6e4" />
-    </linearGradient>
     <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
       <path d="M 64 0 L 0 0 0 64" fill="none" stroke="#0f766e" stroke-opacity=".12" stroke-width="2" />
     </pattern>
   </defs>
-  <rect width="1600" height="900" fill="url(#bg)" />
+  <rect width="1600" height="900" fill="#b5f5df" />
   <rect width="1600" height="900" fill="url(#grid)" />
   <circle cx="1400" cy="160" r="130" fill="#14b8a6" fill-opacity=".16" />
   <circle cx="240" cy="140" r="90" fill="#0f766e" fill-opacity=".12" />
