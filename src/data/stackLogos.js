@@ -14,6 +14,7 @@ const stackAccentMap = {
     "Alpine.js": "8, 145, 178",
     API: "59, 130, 246",
     Bootstrap: "124, 58, 237",
+    "ASP.NET Core": "81, 43, 212",
     "C#": "81, 43, 212",
     "CodeIgniter 4": "239, 68, 68",
     CSS: "14, 165, 233",
@@ -38,6 +39,10 @@ const stackAccentMap = {
     "REST API": "59, 130, 246",
     "Tailwind CSS": "56, 189, 248",
     "TMDB API": "1, 180, 228",
+    SQLite: "0, 117, 143",
+    Velopack: "22, 216, 242",
+    WebView2: "14, 165, 233",
+    WPF: "81, 43, 212",
     Vite: "100, 108, 255",
     Vue: "66, 184, 131",
     "Vue JS": "66, 184, 131",
@@ -67,6 +72,9 @@ const stackLogoMap = {
     "Next.js": [logo(`${SIMPLE_ICON}/nextdotjs/FFFFFF`, "Next.js")],
     "C#": [logo(`${DEVICON}/csharp/csharp-original.svg`, "C#")],
     ".NET": [logo(`${DEVICON}/dotnetcore/dotnetcore-original.svg`, ".NET")],
+    "ASP.NET Core": [
+        logo(`${DEVICON}/dotnetcore/dotnetcore-original.svg`, "ASP.NET Core"),
+    ],
     PostgreSQL: [
         logo(`${DEVICON}/postgresql/postgresql-original.svg`, "PostgreSQL"),
     ],
@@ -103,6 +111,14 @@ const stackLogoMap = {
     Alpine: [logo(`${SIMPLE_ICON}/alpinedotjs/8BC0D0`, "Alpine.js")],
     "TMDB API": [logo(`${SIMPLE_ICON}/themoviedatabase/01B4E4`, "TMDB")],
     Flutter: [logo(`${DEVICON}/flutter/flutter-original.svg`, "Flutter")],
+    SQLite: [logo(`${DEVICON}/sqlite/sqlite-original.svg`, "SQLite")],
+    Velopack: [
+        logo(`${DEVICON}/dotnetcore/dotnetcore-original.svg`, "Velopack"),
+    ],
+    WebView2: [
+        logo(`${DEVICON}/dotnetcore/dotnetcore-original.svg`, "WebView2"),
+    ],
+    WPF: [logo(`${DEVICON}/dotnetcore/dotnetcore-original.svg`, "WPF")],
 };
 
 export const getStackAccent = (stackName, fallbackAccent = "14, 165, 233") =>

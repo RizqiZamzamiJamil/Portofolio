@@ -4,6 +4,7 @@ import BnspCertificate from "../assets/bnsp.jpg";
 import Bnsp2Certificate from "../assets/bnsp2.png";
 import BootstrapCertificate from "../assets/bootstrap.jpg";
 import ProjectDevtools from "../assets/devtools.png";
+import ProjectFinance from "../assets/finance.png";
 import HeroPortrait from "../assets/foto.png";
 import AboutPortrait from "../assets/foto2.png";
 import GamelabCertificate from "../assets/gamelab2.jpg";
@@ -37,7 +38,7 @@ export const profile = {
     phone: "+62 821 4708 3442",
     heroImage: HeroPortrait,
     aboutImage: AboutPortrait,
-    cvUrl: "https://drive.google.com/file/d/1r4fQpU60XucrquyuKmKka1e-vRqi7LfQ/view?usp=sharing",
+    cvUrl: "https://drive.google.com/drive/folders/1ujH_rOBPo1QaUTITNoHqb20tXeGokbge?usp=sharing",
     certificateCollectionUrl:
         "https://drive.google.com/drive/folders/1-UFxXQpHg72vCa6P-ge5hb5Q4dsfqXg-?usp=sharing",
     heroDescription:
@@ -101,7 +102,7 @@ export const skillGroups = [
             },
             {
                 name: "JavaScript",
-                level: "Menengah",
+                level: "Lanjut",
                 color: "#f7df1e",
             },
             {
@@ -121,7 +122,7 @@ export const skillGroups = [
             },
             {
                 name: "Next.js",
-                level: "Dasar",
+                level: "Menengah",
                 color: "#f8fafc",
             },
             {
@@ -171,7 +172,7 @@ export const skillGroups = [
             },
             {
                 name: "Node.js",
-                level: "Dasar",
+                level: "Menengah",
                 color: "#539e43",
             },
             {
@@ -219,6 +220,28 @@ export const skillGroups = [
 ];
 
 const projectItems = [
+    {
+        id: "rizam-finance",
+        title: "RizamFinance",
+        listDescription:
+            "Aplikasi desktop Windows untuk mencatat transaksi, memantau saldo, dan membaca ringkasan keuangan pribadi secara offline.",
+        detailDescription:
+            "Aplikasi dekstop pencatatan keuangan pribadi yang dapat diinstal di Windows. Aplikasi ini menyediakan pengelolaan saldo, pemasukan, pengeluaran, jenis/sub jenis transaksi, dashboard grafik berdasarkan periode, target saldo minimum, serta penyimpanan lokal.",
+        stack: ["React", "Tailwind CSS", "C#", ".NET", "ASP.NET Core"],
+        mainStack: ".NET",
+        logoStack: ".NET",
+        group: "Proyek Pribadi",
+        label: "Pribadi",
+        position: "Fullstack Developer",
+        collaboration: "Mandiri",
+        startedAt: "Agustus 2026",
+        dateLabel: "Agustus 2026",
+        updatedAt: "2026-08-04",
+        image: ProjectFinance,
+        liveUrl: null,
+        codeUrl: "https://github.com/RizqiZamzamiJamil/Rizam_Finance",
+        accent: "22, 216, 242",
+    },
     {
         id: "geoweather",
         title: "GeoWeather",
@@ -529,10 +552,10 @@ export const highlightedProject =
     projects[0];
 
 const latestProjectIds = [
+    "rizam-finance",
     "geoweather",
     "devtools",
     "markdown-editor",
-    "singgah-loka",
 ];
 
 export const latestProjects = latestProjectIds

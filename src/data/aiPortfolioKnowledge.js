@@ -22,11 +22,11 @@ const skillGroups = [
         title: "Frontend",
         skills: [
             "HTML & CSS - Lanjut",
-            "JavaScript - Menengah",
+            "JavaScript - Lanjut",
             "Tailwind CSS - Lanjut",
             "Bootstrap - Lanjut",
             "React JS - Lanjut",
-            "Next.js - Dasar",
+            "Next.js - Menengah",
             "Vue JS - Menengah",
         ],
     },
@@ -40,7 +40,7 @@ const skillGroups = [
             "C# - Dasar",
             ".NET - Dasar",
             "CodeIgniter 4 - Menengah",
-            "Node.js - Dasar",
+            "Node.js - Menengah",
             "Express.js - Dasar",
         ],
     },
@@ -58,6 +58,30 @@ const skillGroups = [
 ];
 
 const projects = [
+    {
+        title: "RizamFinance",
+        group: "Proyek Pribadi",
+        label: "Pribadi",
+        position: "Fullstack/Desktop Developer",
+        collaboration: "Mandiri",
+        stack: [
+            "React",
+            "Tailwind CSS",
+            "C#",
+            ".NET",
+            "WPF",
+            "ASP.NET Core",
+            "WebView2",
+            "SQLite",
+            "Velopack",
+        ],
+        startedAt: "Agustus 2026",
+        updatedAt: "Agustus 2026",
+        link: null,
+        repository: "https://github.com/RizqiZamzamiJamil/Rizam_Finance",
+        summary:
+            "Aplikasi desktop Windows yang dapat diinstal untuk mencatat saldo, pemasukan, pengeluaran, jenis dan subjenis transaksi, grafik berdasarkan periode, serta target saldo minimum. Data disimpan secara lokal dan privat menggunakan SQLite.",
+    },
     {
         title: "GeoWeather",
         group: "Proyek Pribadi",
