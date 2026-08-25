@@ -616,8 +616,8 @@ export const certificates = [
         focus: "Sertifikasi kompetensi sebagai lanjutan program Magang Nasional, di uji oleh BBPVP Semarang dan diverifikasi oleh Badan Nasional Sertifikasi Profesi. (Sertifikat dalam penerbitan)",
         issuedAt: "2026",
         image: Bnsp2Certificate,
-        orientation: "landscape",
-        category: "Pengembangan Diri",
+        orientation: "portrait",
+        category: "Sertifikasi",
     },
     {
         title: "Sertifikasi Pemrograman Software Komputer",
@@ -626,7 +626,7 @@ export const certificates = [
         issuedAt: "2025",
         image: BnspCertificate,
         orientation: "portrait",
-        category: "Pengembangan Diri",
+        category: "Sertifikasi",
     },
     {
         title: "Web 3.0 & Blockchain",
@@ -698,7 +698,13 @@ export const certificateGroups = [
         ),
     },
     {
-        title: "Sertifikasi dan Pengembangan Diri",
+        title: "Sertifikasi",
+        items: certificates.filter(
+            (certificate) => certificate.category === "Sertifikasi",
+        ),
+    },
+    {
+        title: "Pengembangan Diri",
         items: certificates.filter(
             (certificate) => certificate.category === "Pengembangan Diri",
         ),
