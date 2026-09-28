@@ -1,6 +1,9 @@
 import BestDefense from "../assets/bestdefense.jpg";
 import BlockchainCertificate from "../assets/blockchain.png";
 import BnspCertificate from "../assets/bnsp.jpg";
+import Bnsp11 from "../assets/certificates/bnsp1-1.png";
+import Bnsp12 from "../assets/certificates/bnsp1-2.png";
+import Bnsp22 from "../assets/certificates/bnsp2-2.png";
 import Bnsp2Certificate from "../assets/bnsp2.png";
 import BootstrapCertificate from "../assets/bootstrap.jpg";
 import ProjectDevtools from "../assets/devtools.png";
@@ -239,7 +242,7 @@ const projectItems = [
             "Aplikasi desktop Windows untuk mencatat transaksi, memantau saldo, dan membaca ringkasan keuangan pribadi secara offline.",
         detailDescription:
             "Aplikasi dekstop pencatatan keuangan pribadi yang dapat diinstal di Windows. Aplikasi ini menyediakan pengelolaan saldo, pemasukan, pengeluaran, jenis/sub jenis transaksi, dashboard grafik berdasarkan periode, target saldo minimum, serta penyimpanan lokal.",
-        stack: ["React", "Tailwind CSS", "C#", ".NET", "ASP.NET Core"],
+        stack: ["React", "Tailwind CSS", ".NET", "C#", "ASP.NET Core"],
         mainStack: ".NET",
         logoStack: ".NET",
         group: "Proyek Pribadi",
@@ -303,7 +306,7 @@ const projectItems = [
             "Editor Markdown online dengan preview langsung dan penyimpanan otomatis di browser.",
         detailDescription:
             "Markdown Editor adalah aplikasi editor online berbasis React dengan preview langsung, dukungan GitHub Flavored Markdown, diagram Mermaid, pengelolaan dokumen, dan penyimpanan otomatis melalui local storage browser.",
-        stack: ["React", "Vite", "Tailwind CSS", "Flowbite"],
+        stack: ["React", "Tailwind CSS",],
         mainStack: "React",
         logoStack: "React",
         group: "Proyek Pribadi",
@@ -323,7 +326,7 @@ const projectItems = [
             "Website personal yang saya mulai sejak 2024 dan terus diperbarui sebagai pusat profil profesional.",
         detailDescription:
             "Portfolio ini sudah dikembangkan sejak 2024 dan terus saya perbarui. Tampilan saat ini adalah versi ketiga dengan pembaruan data, struktur halaman, dark theme, project, education, experience, dan sertifikat yang lebih lengkap.",
-        stack: ["React JS", "Tailwind CSS", "Vite"],
+        stack: ["React JS", "Tailwind CSS"],
         mainStack: "React JS",
         logoStack: "React JS",
         group: "Proyek Pribadi",
@@ -334,7 +337,8 @@ const projectItems = [
         version: "Versi ketiga",
         dateLabel: "Sejak 2024",
         updatedAt: "2026-06-08",
-        image: Portfolio, Portfolio2,
+        image: Portfolio,
+        screenshots: [Portfolio, Portfolio2],
         liveUrl: "https://portfolio.rizam.fun/",
         codeUrl: null,
         accent: "14, 165, 233",
@@ -346,7 +350,7 @@ const projectItems = [
             "Katalog pencarian film dan serial dengan data TMDB dalam tampilan dark modern.",
         detailDescription:
             "Cinema List menampilkan data film dan serial TV, pencarian, detail, rating, dan modal informasi dalam UI gelap yang lebih fokus ke konten.",
-        stack: ["Vue", "Tailwind CSS", "Flowbite", "TMDB API"],
+        stack: ["Vue", "Tailwind CSS", "TMDB API"],
         mainStack: "Vue",
         logoStack: "Vue",
         group: "Proyek Pribadi",
@@ -366,7 +370,7 @@ const projectItems = [
             "Sistem pendukung keputusan berbasis metode MAUT untuk proses penilaian alternatif.",
         detailDescription:
             "Project SPK ini menerapkan metode MAUT pada aplikasi web dengan proses input kriteria, pengolahan nilai, dan hasil ranking yang lebih terstruktur.",
-        stack: ["CodeIgniter 4", "Tailwind CSS", "PHP", "MySQL"],
+        stack: ["CodeIgniter 4", "Tailwind CSS"],
         mainStack: "CodeIgniter 4",
         logoStack: "CodeIgniter 4",
         group: "Proyek Pribadi",
@@ -652,7 +656,10 @@ export const certificates = [
         issuer: "Badan Nasional Sertifikasi Profesi",
         focus: "Sertifikasi kompetensi sebagai lanjutan program Magang Nasional, di uji oleh BBPVP Semarang dan diverifikasi oleh Badan Nasional Sertifikasi Profesi. (Sertifikat dalam penerbitan)",
         issuedAt: "2026",
-        images: [{ src: Bnsp2Certificate, side: "front" }],
+        images: [
+            { src: Bnsp2Certificate, side: "front" },
+            { src: Bnsp22, side: "back" },
+        ],
         orientation: "portrait",
         category: "Sertifikasi",
     },
@@ -661,7 +668,10 @@ export const certificates = [
         issuer: "Badan Nasional Sertifikasi Profesi",
         focus: "Sertifikasi kompetensi yang berkaitan dengan pemrograman software komputer oleh Badan Nasional Sertifikasi Profesi.",
         issuedAt: "2025",
-        images: [{ src: BnspCertificate, side: "front" }],
+        images: [
+            { src: Bnsp11, side: "front" },
+            { src: Bnsp12, side: "back" },
+        ],
         orientation: "portrait",
         category: "Sertifikasi",
     },

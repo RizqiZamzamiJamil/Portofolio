@@ -1,5 +1,5 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { certificateGroups, profile } from "../data/portfolioData";
 
@@ -8,13 +8,12 @@ const getPageLabel = (side) =>
 
 const CertificateCarousel = () => {
     const [selectedCertificate, setSelectedCertificate] = useState(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const [activeImageIndex, setActiveImageIndex] = useState(0);
     const dialogRef = useRef(null);
     const closeButtonRef = useRef(null);
     const openerRef = useRef(null);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (!selectedCertificate) return undefined;
 
         const previousOverflow = document.body.style.overflow;
@@ -26,12 +25,9 @@ const CertificateCarousel = () => {
                 window.getComputedStyle(document.body).paddingRight,
             ) ||
             0;
-        const focusFrame = requestAnimationFrame(() =>
-            closeButtonRef.current?.focus(),
-        );
         const handleEscape = (event) => {
             if (event.key === "Escape") {
-                setIsModalOpen(false);
+                setSelectedCertificate(null);
                 return;
             }
 
@@ -66,14 +62,16 @@ const CertificateCarousel = () => {
         if (scrollbarWidth > 0) {
             document.body.style.paddingRight = `${currentPaddingRight + scrollbarWidth}px`;
         }
+        closeButtonRef.current?.focus({ preventScroll: true });
         window.addEventListener("keydown", handleEscape);
 
         return () => {
-            cancelAnimationFrame(focusFrame);
             document.body.style.overflow = previousOverflow;
             document.body.style.paddingRight = previousPaddingRight;
             window.removeEventListener("keydown", handleEscape);
-            if (openerRef.current?.isConnected) openerRef.current.focus();
+            if (openerRef.current?.isConnected) {
+                openerRef.current.focus({ preventScroll: true });
+            }
         };
     }, [selectedCertificate]);
 
@@ -81,7 +79,6 @@ const CertificateCarousel = () => {
         openerRef.current = trigger;
         setActiveImageIndex(0);
         setSelectedCertificate(certificate);
-        setIsModalOpen(true);
     };
 
     const selectedGroup = certificateGroups.find(
@@ -207,176 +204,166 @@ const CertificateCarousel = () => {
                 </a>
             </div>
 
-            {createPortal(
-                <AnimatePresence
-                    onExitComplete={() => setSelectedCertificate(null)}
-                >
-                    {isModalOpen && selectedCertificate ? (
-                          <motion.div
-                              key="certificate-modal"
-                              className="fixed inset-0 z-[100] grid place-items-center overflow-y-auto bg-foreground/85 p-3 sm:p-5"
-                              initial={{ opacity: 0 }}
-                              animate={{ opacity: 1 }}
-                              exit={{ opacity: 0 }}
-                              onClick={() => setIsModalOpen(false)}
+            {selectedCertificate
+                ? createPortal(
+                      <div
+                          className="fixed inset-0 z-[100] grid place-items-center overflow-y-auto bg-foreground/85 p-3 sm:p-5"
+                          onClick={() => setSelectedCertificate(null)}
+                      >
+                          <article
+                              ref={dialogRef}
+                              className="relative max-h-[92dvh] w-full max-w-3xl overflow-y-auto border-[2.5px] border-border bg-card shadow-[8px_8px_0_var(--foreground)]"
+                              role="dialog"
+                              aria-modal="true"
+                              aria-labelledby="certificate-modal-title"
+                              onClick={(event) => event.stopPropagation()}
                           >
-                              <motion.article
-                                  ref={dialogRef}
-                                  className="relative max-h-[92dvh] w-full max-w-3xl overflow-y-auto border-[2.5px] border-border bg-card shadow-[8px_8px_0_var(--foreground)]"
-                                  role="dialog"
-                                  aria-modal="true"
-                                  aria-labelledby="certificate-modal-title"
-                                  initial={{ opacity: 0, y: 16, scale: 0.985 }}
-                                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                                  exit={{ opacity: 0, y: 16, scale: 0.985 }}
-                                  transition={{ duration: 0.2 }}
-                                  onClick={(event) => event.stopPropagation()}
+                              <header
+                                  className="flex items-center justify-between gap-3 border-b-2 border-border px-4 py-3 sm:px-6"
+                                  style={{
+                                      backgroundColor:
+                                          selectedGroup?.color ??
+                                          "var(--primary)",
+                                      color:
+                                          selectedGroup?.textColor ??
+                                          "var(--primary-foreground)",
+                                  }}
                               >
-                                  <header
-                                      className="flex items-center justify-between gap-3 border-b-2 border-border px-4 py-3 sm:px-6"
-                                      style={{
-                                          backgroundColor:
-                                              selectedGroup?.color ??
-                                              "var(--primary)",
-                                          color:
-                                              selectedGroup?.textColor ??
-                                              "var(--primary-foreground)",
-                                      }}
+                                  <div className="flex min-w-0 items-center gap-3">
+                                      <i
+                                          className={`${selectedGroup?.icon ?? "fa-solid fa-certificate"} shrink-0`}
+                                          aria-hidden="true"
+                                      />
+                                      <span className="truncate font-display text-xs font-bold uppercase tracking-widest">
+                                          {selectedCertificate.category}
+                                      </span>
+                                  </div>
+                                  <button
+                                      ref={closeButtonRef}
+                                      type="button"
+                                      className="inline-flex size-11 shrink-0 items-center justify-center border-2 border-border bg-foreground text-xl text-white transition-colors hover:bg-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
+                                      onClick={() =>
+                                          setSelectedCertificate(null)
+                                      }
+                                      aria-label="Tutup detail sertifikat"
                                   >
-                                      <div className="flex min-w-0 items-center gap-3">
-                                          <i
-                                              className={`${selectedGroup?.icon ?? "fa-solid fa-certificate"} shrink-0`}
-                                              aria-hidden="true"
-                                          />
-                                          <span className="truncate font-display text-xs font-bold uppercase tracking-widest">
-                                              {selectedCertificate.category}
-                                          </span>
-                                      </div>
-                                      <button
-                                          ref={closeButtonRef}
-                                          type="button"
-                                          className="inline-flex size-11 shrink-0 items-center justify-center border-2 border-border bg-foreground text-xl text-white transition-colors hover:bg-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground"
-                                          onClick={() => setIsModalOpen(false)}
-                                          aria-label="Tutup detail sertifikat"
-                                      >
-                                          <i
-                                              className="fa-solid fa-xmark"
-                                              aria-hidden="true"
-                                          />
-                                      </button>
-                                  </header>
+                                      <i
+                                          className="fa-solid fa-xmark"
+                                          aria-hidden="true"
+                                      />
+                                  </button>
+                              </header>
 
-                                  <div className="space-y-5 p-4 sm:space-y-6 sm:p-6">
-                                      <div>
-                                          {certificateImages.length > 1 && (
-                                              <div
-                                                  className="mb-3 grid grid-cols-2 gap-2"
-                                                  role="group"
-                                                  aria-label="Pilih halaman sertifikat"
-                                              >
-                                                  {certificateImages.map(
-                                                      (image, index) => {
-                                                          const isActive =
-                                                              index ===
-                                                              activeImageIndex;
-
-                                                          return (
-                                                              <button
-                                                                  key={`${image.side}-${index}`}
-                                                                  type="button"
-                                                                  className={`min-h-11 border-2 border-border px-2 text-[10px] font-bold uppercase tracking-wide transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue ${isActive ? "bg-foreground text-primary" : "bg-card text-foreground hover:bg-muted"}`}
-                                                                  onClick={() =>
-                                                                      setActiveImageIndex(
-                                                                          index,
-                                                                      )
-                                                                  }
-                                                                  aria-pressed={
-                                                                      isActive
-                                                                  }
-                                                              >
-                                                                  {getPageLabel(
-                                                                      image.side,
-                                                                  )}
-                                                              </button>
-                                                          );
-                                                      },
-                                                  )}
-                                              </div>
-                                          )}
-
+                              <div className="space-y-5 p-4 sm:space-y-6 sm:p-6">
+                                  <div>
+                                      {certificateImages.length > 1 && (
                                           <div
-                                              className={`neo-border mx-auto grid w-full place-items-center overflow-hidden bg-muted p-1 ${imageFrameClass}`}
-                                              style={{
-                                                  boxShadow:
-                                                      "4px 4px 0 var(--foreground)",
-                                              }}
+                                              className="mb-3 grid grid-cols-2 gap-2"
+                                              role="group"
+                                              aria-label="Pilih halaman sertifikat"
                                           >
-                                              {activeImage ? (
-                                                  <img
-                                                      className="h-full w-full object-contain"
-                                                      src={activeImage.src}
-                                                      alt={`${selectedCertificate.title} — ${getPageLabel(activeImage.side).toLowerCase()}`}
-                                                  />
-                                              ) : null}
-                                          </div>
-                                          <p className="mt-2 text-[10px] font-bold uppercase tracking-wider text-foreground/55">
-                                              {getPageLabel(activeImage?.side)}{" "}
-                                              —{" "}
-                                              {selectedCertificate.orientation ===
-                                              "portrait"
-                                                  ? "A4 Portrait"
-                                                  : "A4 Landscape"}
-                                          </p>
-                                      </div>
+                                              {certificateImages.map(
+                                                  (image, index) => {
+                                                      const isActive =
+                                                          index ===
+                                                          activeImageIndex;
 
-                                      <div>
-                                          <h3
-                                              className="font-display text-lg font-extrabold leading-snug sm:text-xl"
-                                              id="certificate-modal-title"
-                                          >
-                                              {selectedCertificate.title}
-                                          </h3>
-                                          <div className="mt-3 grid gap-3 sm:grid-cols-2">
-                                              {[
-                                                  {
-                                                      label: "Tahun",
-                                                      value: selectedCertificate.issuedAt,
+                                                      return (
+                                                          <button
+                                                              key={`${image.side}-${index}`}
+                                                              type="button"
+                                                              className={`min-h-11 border-2 border-border px-2 text-[10px] font-bold uppercase tracking-wide transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue ${isActive ? "bg-foreground text-primary" : "bg-card text-foreground hover:bg-muted"}`}
+                                                              onClick={() =>
+                                                                  setActiveImageIndex(
+                                                                      index,
+                                                                  )
+                                                              }
+                                                              aria-pressed={
+                                                                  isActive
+                                                              }
+                                                          >
+                                                              {getPageLabel(
+                                                                  image.side,
+                                                              )}
+                                                          </button>
+                                                      );
                                                   },
-                                                  {
-                                                      label: "Diterbitkan oleh",
-                                                      value: selectedCertificate.issuer,
-                                                  },
-                                              ].map((detail) => (
-                                                  <div
-                                                      className="neo-border bg-muted p-3 shadow-[2px_2px_0_var(--foreground)]"
-                                                      key={detail.label}
-                                                  >
-                                                      <p className="font-display text-[9px] font-bold uppercase tracking-widest text-foreground/45">
-                                                          {detail.label}
-                                                      </p>
-                                                      <p className="mt-0.5 text-sm font-semibold">
-                                                          {detail.value}
-                                                      </p>
-                                                  </div>
-                                              ))}
+                                              )}
                                           </div>
-                                      </div>
+                                      )}
 
-                                      <div>
-                                          <p className="mb-1.5 font-display text-[10px] font-bold uppercase tracking-widest text-foreground/45">
-                                              Deskripsi
-                                          </p>
-                                          <p className="text-sm leading-relaxed text-foreground/75">
-                                              {selectedCertificate.focus}
-                                          </p>
+                                      <div
+                                          className={`neo-border mx-auto grid w-full place-items-center overflow-hidden bg-muted p-1 ${imageFrameClass}`}
+                                          style={{
+                                              boxShadow:
+                                                  "4px 4px 0 var(--foreground)",
+                                          }}
+                                      >
+                                          {activeImage ? (
+                                              <img
+                                                  className="h-full w-full object-contain"
+                                                  src={activeImage.src}
+                                                  alt={`${selectedCertificate.title} — ${getPageLabel(activeImage.side).toLowerCase()}`}
+                                              />
+                                          ) : null}
+                                      </div>
+                                      <p className="mt-2 text-[10px] font-bold uppercase tracking-wider text-foreground/55">
+                                          {getPageLabel(activeImage?.side)}{" "}
+                                          —{" "}
+                                          {selectedCertificate.orientation ===
+                                          "portrait"
+                                              ? "A4 Portrait"
+                                              : "A4 Landscape"}
+                                      </p>
+                                  </div>
+
+                                  <div>
+                                      <h3
+                                          className="font-display text-lg font-extrabold leading-snug sm:text-xl"
+                                          id="certificate-modal-title"
+                                      >
+                                          {selectedCertificate.title}
+                                      </h3>
+                                      <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                                          {[
+                                              {
+                                                  label: "Tahun",
+                                                  value: selectedCertificate.issuedAt,
+                                              },
+                                              {
+                                                  label: "Diterbitkan oleh",
+                                                  value: selectedCertificate.issuer,
+                                              },
+                                          ].map((detail) => (
+                                              <div
+                                                  className="neo-border bg-muted p-3 shadow-[2px_2px_0_var(--foreground)]"
+                                                  key={detail.label}
+                                              >
+                                                  <p className="font-display text-[9px] font-bold uppercase tracking-widest text-foreground/45">
+                                                      {detail.label}
+                                                  </p>
+                                                  <p className="mt-0.5 text-sm font-semibold">
+                                                      {detail.value}
+                                                  </p>
+                                              </div>
+                                          ))}
                                       </div>
                                   </div>
-                              </motion.article>
-                          </motion.div>
-                    ) : null}
-                </AnimatePresence>,
-                document.body,
-            )}
+
+                                  <div>
+                                      <p className="mb-1.5 font-display text-[10px] font-bold uppercase tracking-widest text-foreground/45">
+                                          Deskripsi
+                                      </p>
+                                      <p className="text-sm leading-relaxed text-foreground/75">
+                                          {selectedCertificate.focus}
+                                      </p>
+                                  </div>
+                              </div>
+                          </article>
+                      </div>,
+                      document.body,
+                  )
+                : null}
         </section>
     );
 };
