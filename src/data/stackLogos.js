@@ -124,6 +124,30 @@ const stackLogoMap = {
 export const getStackAccent = (stackName, fallbackAccent = "14, 165, 233") =>
     stackAccentMap[stackName] || fallbackAccent;
 
+const getReadableForeground = (rgbColor) => {
+    const channels = rgbColor.split(",").map((channel) => Number(channel.trim()));
+    const luminance = channels
+        .map((channel) => channel / 255)
+        .map((channel) =>
+            channel <= 0.04045
+                ? channel / 12.92
+                : ((channel + 0.055) / 1.055) ** 2.4,
+        )
+        .reduce((sum, channel, index) =>
+            sum + channel * [0.2126, 0.7152, 0.0722][index], 0);
+
+    return luminance > 0.179 ? "#0A0A0A" : "#FFFFFF";
+};
+
+export const getStackBadgeStyle = (stackName) => {
+    const accent = getStackAccent(stackName);
+
+    return {
+        backgroundColor: `rgb(${accent})`,
+        color: getReadableForeground(accent),
+    };
+};
+
 export const getStackLogos = (stackName) =>
     stackLogoMap[stackName] || [
         logo(`${SIMPLE_ICON}/codepen/13D8FF`, stackName || "Stack"),

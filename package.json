@@ -16,16 +16,14 @@
         "deploy:gh-pages": "npm run build:gh-pages && gh-pages -d dist"
     },
     "dependencies": {
-        "aos": "^2.3.4",
-        "bootstrap": "^5.3.3",
         "framer-motion": "^11.2.2",
         "react": "^18.2.0",
         "react-anchor-link-smooth-scroll": "^1.0.12",
-        "react-bootstrap": "^2.10.4",
         "react-dom": "^18.2.0",
         "react-intersection-observer": "^9.10.2"
     },
     "devDependencies": {
+        "@tailwindcss/vite": "^4.3.3",
         "@types/react": "^18.2.66",
         "@types/react-dom": "^18.2.22",
         "@vitejs/plugin-react": "^4.2.1",
@@ -35,6 +33,7 @@
         "eslint-plugin-react-refresh": "^0.4.6",
         "gh-pages": "^6.3.0",
         "react-router-dom": "^6.23.0",
+        "tailwindcss": "^4.3.3",
         "vite": "^5.2.0"
     }
 }

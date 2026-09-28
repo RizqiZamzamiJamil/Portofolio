@@ -1,5 +1,6 @@
 /* eslint-env node */
 import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, loadEnv } from "vite";
 
 // https://vitejs.dev/config/
@@ -57,7 +58,7 @@ export default defineConfig(({ mode }) => {
         test: {
             // ...
         },
-        plugins: [react(), portfolioChatApi()],
+        plugins: [react(), tailwindcss(), portfolioChatApi()],
         base: normalizeBasePath(env.VITE_BASE_PATH || "/"),
         server: {
             port: 1000,

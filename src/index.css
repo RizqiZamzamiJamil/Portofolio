@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-success: var(--success);
+    --color-border: var(--border);
+    --color-card: var(--card);
+    --color-muted: var(--muted);
+    --color-blue: var(--blue);
+    --font-sans: "Inter", sans-serif;
+    --font-display: "Bricolage Grotesque", sans-serif;
+}
+
+@layer base {
+    :root {
+        color-scheme: light;
+        --background: #fafafa;
+        --foreground: #0a0a0a;
+        --primary: #ffe500;
+        --primary-foreground: #0a0a0a;
+        --accent: #ff3b00;
+        --accent-foreground: #fafafa;
+        --success: #059669eb;
+        --border: #0a0a0a;
+        --card: #ffffff;
+        --muted: #f0f0f0;
+        --blue: #0057ff;
+        --site-header-height: 4rem;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        background: var(--background);
+    }
+
+    body {
+        min-width: 320px;
+        min-height: 100vh;
+        margin: 0;
+        overflow-x: hidden;
+        background: var(--background);
+        color: var(--foreground);
+        font-family: var(--font-sans);
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-display);
+        font-weight: 700;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+        font: inherit;
+    }
+
+    button {
+        font-family: var(--font-display);
+        font-weight: 600;
+    }
+
+    input,
+    textarea,
+    select {
+        font-family: var(--font-sans);
+    }
+
+    strong,
+    b {
+        font-weight: 600;
+    }
+
+    button,
+    a {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+    }
+
+    #root {
+        min-height: 100vh;
+    }
+
+    ::selection {
+        background: var(--primary);
+        color: var(--foreground);
+    }
+
+    :focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 3px;
+    }
+
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--muted);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--foreground);
+    }
+}
+
+/* Neobrutalism utilities */
+.neo-border {
+  border: 2.5px solid #0A0A0A;
+}
+
+.neo-shadow {
+  box-shadow: 4px 4px 0px #0A0A0A;
+}
+
+.neo-shadow-lg {
+  box-shadow: 6px 6px 0px #0A0A0A;
+}
+
+.neo-shadow-xl {
+  box-shadow: 8px 8px 0px #0A0A0A;
+}
+
+.neo-btn {
+  border: 2.5px solid #0A0A0A;
+  box-shadow: 4px 4px 0px #0A0A0A;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  cursor: pointer;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+}
+
+.neo-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #0A0A0A;
+}
+
+.neo-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #0A0A0A;
+}
+
+.neo-card {
+  border: 2.5px solid #0A0A0A;
+  box-shadow: 5px 5px 0px #0A0A0A;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.neo-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0px #0A0A0A;
+}
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}

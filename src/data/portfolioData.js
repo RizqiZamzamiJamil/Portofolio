@@ -14,7 +14,8 @@ import ProjectLMS from "../assets/lms.png";
 import MagangHub from "../assets/maganghub.png";
 import ProjectMarkdown from "../assets/markdown.png";
 import MsibCertificate from "../assets/msib (2).jpg";
-import ProjectPortfolio from "../assets/portfolio.png";
+import Portfolio from "../assets/projects/portfolio.png";
+import Portfolio2 from "../assets/projects/portfolio2.png";
 import ProjectRpl from "../assets/project0.png";
 import ProjectRepository from "../assets/project001.png";
 import ProjectCinema from "../assets/project2.png";
@@ -32,8 +33,14 @@ import WordpressCertificate from "../assets/wordpress.png";
 export const profile = {
     name: "Rizqi Zamzami Jamil",
     shortName: "Rizam",
-    role: "Fullstack Web Developer",
-    location: "Kediri, Jawa Timur, Indonesia",
+    role: "Full  stack Web Developer",
+    graduation: {
+        label: "Graduate",
+        year: "2025",
+        program: "Sistem Informasi Bisnis",
+        institution: "Politeknik Negeri Malang",
+    },
+    location: "Kediri, Jawa Timur",
     email: "rizqizamzamij@gmail.com",
     phone: "+62 821 4708 3442",
     heroImage: HeroPortrait,
@@ -42,12 +49,12 @@ export const profile = {
     certificateCollectionUrl:
         "https://drive.google.com/drive/folders/1-UFxXQpHg72vCa6P-ge5hb5Q4dsfqXg-?usp=sharing",
     heroDescription:
-        "Saya suka membangun website yang tampilannya bersih, modern, dan terasa nyaman saat dipakai.",
+        "Saya suka membangun website dengan mempertimbangkan kerapihan struktur kode dan kerapihan user interface.",
     summary:
-        "Lulusan Sistem Informasi Bisnis Politeknik Negeri Malang tahun 2025. Saya fokus mengubah kebutuhan pengguna dan proses bisnis menjadi aplikasi web yang jelas, terstruktur, dan nyaman dipakai.",
+        "Lulusan Sistem Informasi Bisnis Politeknik Negeri Malang tahun 2025. Pernah mengikuti program Magang dan Studi Independen Bersertifikat (MSIB) Batch 6 sebagai Front-End Developer dan Magang Nasional 2025 Batch 2 sebagai Full-Stack Developer. Penerima penghargaan Wisudawan Terbaik tingkat Program Studi pada Wisuda ke-70.",
     secondarySummary:
-        "Stack yang paling sering saya gunakan adalah Laravel, PHP, React, JavaScript, dan Tailwind CSS, dengan perhatian besar pada struktur backend dan UI yang sesuai dengan kebutuhan pengguna.",
-    heroBadges: ["Laravel", "React", "PHP", "JavaScript"],
+        "Saat ini sedang menjadi Freelancer dan Conten Creator YouTube Gaming (Konten IT - Soon). Stack yang sering digunakan adalah Laravel, React, Vue, Tailwind CSS, dan NodeJs.",
+    heroBadges: ["Laravel", "React", "Node", "JavaScript"],
 };
 
 export const socialLinks = [
@@ -70,6 +77,11 @@ export const socialLinks = [
         label: "GitHub",
         icon: "fa-brands fa-github",
         url: "https://github.com/RizqiZamzamiJamil/",
+    },
+    {
+        label: "YouTube",
+        icon: "fa-brands fa-youtube",
+        url: "https://www.youtube.com/@rizam_aja",
     },
 ];
 
@@ -311,9 +323,9 @@ const projectItems = [
             "Website personal yang saya mulai sejak 2024 dan terus diperbarui sebagai pusat profil profesional.",
         detailDescription:
             "Portfolio ini sudah dikembangkan sejak 2024 dan terus saya perbarui. Tampilan saat ini adalah versi ketiga dengan pembaruan data, struktur halaman, dark theme, project, education, experience, dan sertifikat yang lebih lengkap.",
-        stack: ["React", "Vite", "CSS", "Bootstrap"],
-        mainStack: "React",
-        logoStack: "React",
+        stack: ["React JS", "Tailwind CSS", "Vite"],
+        mainStack: "React JS",
+        logoStack: "React JS",
         group: "Proyek Pribadi",
         label: "Pribadi",
         position: "Frontend Developer",
@@ -322,7 +334,7 @@ const projectItems = [
         version: "Versi ketiga",
         dateLabel: "Sejak 2024",
         updatedAt: "2026-06-08",
-        image: ProjectPortfolio,
+        image: Portfolio, Portfolio2,
         liveUrl: "https://portfolio.rizam.fun/",
         codeUrl: null,
         accent: "14, 165, 233",
@@ -546,6 +558,33 @@ export const projectLabels = [
     ...new Set(workedProjects.map((project) => project.label)),
 ];
 
+export const projectCategories = {
+    personal: {
+        cardLabel: "Pribadi",
+        detailLabel: "Proyek Pribadi",
+        background: "#FFE500",
+        foreground: "#0A0A0A",
+    },
+    internship: {
+        cardLabel: "Magang",
+        detailLabel: "Magang",
+        background: "#FF3B00",
+        foreground: "#0A0A0A",
+    },
+    other: {
+        cardLabel: "Proyek Lain",
+        detailLabel: "Proyek Lain",
+        background: "#0057FF",
+        foreground: "#FFFFFF",
+    },
+};
+
+export const getProjectCategory = (project) => {
+    if (project.group === "Proyek Pribadi") return projectCategories.personal;
+    if (project.label === "Magang") return projectCategories.internship;
+    return projectCategories.other;
+};
+
 export const highlightedProject =
     personalProjects.find((project) => project.id === "portfolio-new") ||
     personalProjects[0] ||
@@ -555,7 +594,7 @@ const latestProjectIds = [
     "rizam-finance",
     "geoweather",
     "devtools",
-    "markdown-editor",
+    "portfolio-new",
 ];
 
 export const latestProjects = latestProjectIds
@@ -568,54 +607,52 @@ export const certificates = [
         issuer: "Politeknik Negeri Malang",
         focus: "Penghargaan akademik sebagai wisudawan terbaik program studi Sistem Informasi Bisnis pada Wisuda ke-70 Politeknik Negeri Malang.",
         issuedAt: "2025",
-        image: BestGraduateCertificate,
+        images: [{ src: BestGraduateCertificate, side: "front" }],
         orientation: "landscape",
         category: "Penghargaan",
-        isHighlighted: true,
     },
     {
         title: "Best Defense Lomba Keamanan Siber",
         issuer: "Politeknik Negeri Malang",
         focus: "Penghargaan sebagai best defense dalam lomba Keamanan Siber Internal Compotition Jurusan Teknologi Informasi Politeknik Negeri Malang pada tahun 2023.",
         issuedAt: "2023",
-        image: BestDefense,
+        images: [{ src: BestDefense, side: "front" }],
         orientation: "landscape",
         category: "Penghargaan",
-        isHighlighted: true,
     },
     {
         title: "Pemagangan Nasional Batch 2",
         issuer: "Kementerian Ketenagakerjaan",
         focus: "Program pemagangan nasional lulusan perguruan tinggi dari Kementerian Ketenagakerjaan pada posisi Fullstack Developer di PT Nazmalogy Loka Lastari (Nazma Office) - Sleman",
         issuedAt: "2026",
-        image: MagangHub,
+        images: [{ src: MagangHub, side: "front" }],
         orientation: "landscape",
-        category: "Pelatihan dan Magang",
+        category: "Pelatihan & Magang",
     },
     {
         title: "Magang dan Studi Independen Bersertifikat Batch 6",
         issuer: "Kampus Merdeka",
         focus: "Program magang dan studi independen bersertifikat batch 6 dari Kampus Merdeka dengan fokus pada frontend web developer.",
         issuedAt: "2024",
-        image: MsibCertificate,
+        images: [{ src: MsibCertificate, side: "front" }],
         orientation: "landscape",
-        category: "Pelatihan dan Magang",
+        category: "Pelatihan & Magang",
     },
     {
         title: "Web Frontend Development Class",
         issuer: "Gamelab",
         focus: "Pelatihan frontend web untuk memperkuat dasar layout, komponen, dan interaksi.",
         issuedAt: "2024",
-        image: GamelabCertificate,
+        images: [{ src: GamelabCertificate, side: "front" }],
         orientation: "landscape",
-        category: "Pelatihan dan Magang",
+        category: "Pelatihan & Magang",
     },
     {
         title: "Sertifikasi Asisten Pengembang Web",
         issuer: "Badan Nasional Sertifikasi Profesi",
         focus: "Sertifikasi kompetensi sebagai lanjutan program Magang Nasional, di uji oleh BBPVP Semarang dan diverifikasi oleh Badan Nasional Sertifikasi Profesi. (Sertifikat dalam penerbitan)",
         issuedAt: "2026",
-        image: Bnsp2Certificate,
+        images: [{ src: Bnsp2Certificate, side: "front" }],
         orientation: "portrait",
         category: "Sertifikasi",
     },
@@ -624,7 +661,7 @@ export const certificates = [
         issuer: "Badan Nasional Sertifikasi Profesi",
         focus: "Sertifikasi kompetensi yang berkaitan dengan pemrograman software komputer oleh Badan Nasional Sertifikasi Profesi.",
         issuedAt: "2025",
-        image: BnspCertificate,
+        images: [{ src: BnspCertificate, side: "front" }],
         orientation: "portrait",
         category: "Sertifikasi",
     },
@@ -633,7 +670,7 @@ export const certificates = [
         issuer: "MySkill",
         focus: "Pengenalan konsep blockchain, web modern, dan ekosistem aplikasi terdesentralisasi.",
         issuedAt: "2025",
-        image: BlockchainCertificate,
+        images: [{ src: BlockchainCertificate, side: "front" }],
         orientation: "landscape",
         category: "Pengembangan Diri",
     },
@@ -642,7 +679,7 @@ export const certificates = [
         issuer: "MySkill",
         focus: "Dasar pengelolaan dan pengembangan website berbasis WordPress.",
         issuedAt: "2024",
-        image: WordpressCertificate,
+        images: [{ src: WordpressCertificate, side: "front" }],
         orientation: "landscape",
         category: "Pengembangan Diri",
     },
@@ -651,7 +688,7 @@ export const certificates = [
         issuer: "Gamelab",
         focus: "Materi komponen, state, dan pengembangan antarmuka interaktif dengan ReactJs dan disertai proyek akhir dengan ExpressJs.",
         issuedAt: "2024",
-        image: ReactCertificate,
+        images: [{ src: ReactCertificate, side: "front" }],
         orientation: "landscape",
         category: "Pengembangan Diri",
     },
@@ -660,7 +697,7 @@ export const certificates = [
         issuer: "Gamelab",
         focus: "Pengenalan reactive interface dan pengembangan aplikasi berbasis Vue.",
         issuedAt: "2024",
-        image: VueCertificate,
+        images: [{ src: VueCertificate, side: "front" }],
         orientation: "landscape",
         category: "Pengembangan Diri",
     },
@@ -669,7 +706,7 @@ export const certificates = [
         issuer: "Gamelab",
         focus: "Dasar logika client-side, manipulasi data, dan interaksi dinamis.",
         issuedAt: "2024",
-        image: JavascriptCertificate,
+        images: [{ src: JavascriptCertificate, side: "front" }],
         orientation: "landscape",
         category: "Pengembangan Diri",
     },
@@ -678,7 +715,7 @@ export const certificates = [
         issuer: "Gamelab",
         focus: "Responsive layout dan penggunaan komponen Bootstrap untuk kebutuhan web.",
         issuedAt: "2024",
-        image: BootstrapCertificate,
+        images: [{ src: BootstrapCertificate, side: "front" }],
         orientation: "landscape",
         category: "Pengembangan Diri",
     },
@@ -687,24 +724,36 @@ export const certificates = [
 export const certificateGroups = [
     {
         title: "Penghargaan",
+        color: "var(--primary)",
+        textColor: "var(--primary-foreground)",
+        icon: "fa-solid fa-trophy",
         items: certificates.filter(
             (certificate) => certificate.category === "Penghargaan",
         ),
     },
     {
-        title: "Pelatihan dan Magang",
-        items: certificates.filter(
-            (certificate) => certificate.category === "Pelatihan dan Magang",
-        ),
-    },
-    {
         title: "Sertifikasi",
+        color: "var(--blue)",
+        textColor: "var(--accent-foreground)",
         items: certificates.filter(
             (certificate) => certificate.category === "Sertifikasi",
         ),
+        icon: "fa-solid fa-certificate",
+    },
+    {
+        title: "Pelatihan & Magang",
+        color: "var(--accent)",
+        textColor: "var(--primary-foreground)",
+        items: certificates.filter(
+            (certificate) => certificate.category === "Pelatihan & Magang",
+        ),
+        icon: "fa-solid fa-book-open",
     },
     {
         title: "Pengembangan Diri",
+        color: "var(--success)",
+        textColor: "var(--primary-foreground)",
+        icon: "fa-solid fa-arrow-trend-up",
         items: certificates.filter(
             (certificate) => certificate.category === "Pengembangan Diri",
         ),
@@ -748,6 +797,7 @@ export const educationTimeline = [
 
 export const experienceLabels = ["Pengalaman Kerja", "Organisasi", "Pelatihan"];
 
+// Timeline renders CV bullet points; summaries remain stored as unrendered context.
 export const experienceEntries = [
     {
         title: "Magang Nasional",
@@ -756,9 +806,18 @@ export const experienceEntries = [
         label: "Pengalaman Kerja",
         category: "work",
         role: "Fullstack Developer",
-        accent: "59, 130, 246",
         icon: "fa-solid fa-briefcase",
-        badges: ["LMS Nazmalogy", "Singgah Loka"],
+        badge: {
+            label: "Magang Nasional",
+            background: "var(--primary)",
+            textColor: "var(--primary-foreground)",
+        },
+        contentMode: "summary",
+        points: [
+            "Mengembangkan ulang website LMS Nazmalogy, platform LMS kursus online berbasis Laravel.",
+            "Mengembangkan website Singgah Loka, platform reservasi penginapan daerah Yogyakarta dan sekitarnya berbasis Laravel.",
+            "Mendukung pelaksanaan serta pendampingan pelatihan yang diselenggarakan perusahaan bersama dinas pemerintahan.",
+        ],
         summary:
             "Terlibat dalam pengembangan ulang LMS Nazmalogy dan Singgah Loka sebagai Fullstack Developer di PT Nazmalogy Loka Lastari, menggunakan Laravel, Livewire, Alpine.js, dan Tailwind CSS.",
     },
@@ -769,9 +828,18 @@ export const experienceEntries = [
         label: "Pengalaman Kerja",
         category: "work",
         role: "Fullstack Developer",
-        accent: "59, 130, 246",
         icon: "fa-solid fa-code-branch",
-        badges: ["RPL Admission Website"],
+        badge: {
+            label: "Magang",
+            background: "var(--blue)",
+            textColor: "var(--accent-foreground)",
+        },
+        contentMode: "summary",
+        points: [
+            "Mengembangkan website penerimaan mahasiswa baru untuk kampus STIMATA jalur Rekognisi Pembelajaran Lampau (RPL) menggunakan Laravel 11.",
+            "Mengerjakan modul pendaftaran, pengelolaan data pendaftar, validasi input, serta dashboard admin.",
+            "Melakukan integrasi antar modul sistem agar data pendaftar tersinkron dengan dashboard admin.",
+        ],
         summary:
             "Mengerjakan pengembangan web fullstack dan menyesuaikan implementasi RPL Admission Website dengan kebutuhan kerja lapangan.",
     },
@@ -782,12 +850,16 @@ export const experienceEntries = [
         label: "Pengalaman Kerja",
         category: "work",
         role: "IT Support",
-        accent: "59, 130, 246",
         icon: "fa-solid fa-network-wired",
-        badges: [
-            "Instalasi Jaringan",
-            "Maintenance Komputer",
-            "Troubleshooting",
+        badge: {
+            label: "Magang",
+            background: "var(--accent)",
+            textColor: "var(--primary-foreground)",
+        },
+        contentMode: "summary",
+        points: [
+            "Melakukan instalasi jaringan internet di gedung pemerintah dan BAWASLU Kabupaten Kediri.",
+            "Menangani perawatan dan troubleshooting komputer pada instansi pemerintah daerah.",
         ],
         summary:
             "Melakukan instalasi jaringan internet di gedung pemerintah dan BAWASLU Kabupaten Kediri, sekaligus menangani perawatan serta troubleshooting komputer instansi pemerintah daerah.",
@@ -799,9 +871,17 @@ export const experienceEntries = [
         label: "Pelatihan",
         category: "growth",
         role: "Frontend Developer",
-        accent: "5, 150, 105",
         icon: "fa-solid fa-laptop-code",
-        badges: ["Clinic Reservation App", "Portfolio"],
+        badge: {
+            label: "MSIB",
+            background: "var(--blue)",
+            textColor: "var(--accent-foreground)",
+        },
+        contentMode: "points",
+        points: [
+            "Menyelesaikan pembelajaran Frontend Web Developer dan memperoleh sertifikasi kompetensi pada modul frontend.",
+            "Berkolaborasi dalam proyek akhir studi kasus bersama peserta Backend Web Developer.",
+        ],
         summary:
             "Mengikuti studi independen frontend web developer dengan materi industri, tugas praktik, dan project berbasis web.",
     },
@@ -813,9 +893,18 @@ export const experienceEntries = [
         label: "Organisasi",
         category: "growth",
         role: "Organizing Committee",
-        accent: "14, 165, 233",
         icon: "fa-solid fa-users-gear",
-        badges: ["Studi Banding", "Publikasi Media Sosial", "Kepanitiaan"],
+        badge: {
+            label: "Organisasi",
+            background: "var(--accent)",
+            textColor: "var(--primary-foreground)",
+        },
+        contentMode: "points",
+        points: [
+            "Ketua Pelaksana Program Kerja Studi Banding HMTI 2022.",
+            "Mengelola dan mengedit lebih dari 20 konten publikasi media sosial.",
+            "Aktif dalam lebih dari 10 kegiatan kepanitiaan dan program kerja HMTI selama satu periode.",
+        ],
         summary:
             "Ketua pelaksana Program Kerja Studi Banding HMTI 2022, mengelola dan mengedit lebih dari 20 konten publikasi media sosial, serta aktif dalam lebih dari 10 kegiatan kepanitiaan dan program kerja HMTI selama satu periode.",
     },
@@ -843,9 +932,9 @@ export const contactScopes = ["Kolaborasi", "Diskusi", "Pekerjaan"];
 
 export const portfolioStats = [
     {
-        label: "Graduate",
-        value: "2025",
-        detail: "Sistem Informasi Bisnis",
+        label: profile.graduation.label,
+        value: profile.graduation.year,
+        detail: profile.graduation.program,
     },
     {
         label: "Focus",
