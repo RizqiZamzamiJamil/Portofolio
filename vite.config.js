@@ -3,7 +3,6 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, loadEnv } from "vite";
 
-// https://vitejs.dev/config/
 const portfolioChatApi = () => ({
     name: "portfolio-chat-api",
     configureServer(server) {
@@ -55,26 +54,10 @@ export default defineConfig(({ mode }) => {
     Object.assign(process.env, env);
 
     return {
-        test: {
-            // ...
-        },
         plugins: [react(), tailwindcss(), portfolioChatApi()],
         base: normalizeBasePath(env.VITE_BASE_PATH || "/"),
         server: {
             port: 1000,
-        },
-        build: {
-            sourcemap: true,
-            chunkSizeWarningLimit: 2000,
-            assetsInlineLimit: 10240,
-            rollupOptions: {
-                output: {
-                    manualChunks: {
-                        react: ["react"],
-                        "react-dom": ["react-dom"],
-                    },
-                },
-            },
         },
     };
 });

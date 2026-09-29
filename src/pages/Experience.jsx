@@ -11,7 +11,9 @@ const orgExperiences = experienceEntries.filter(
 const ExperienceContent = ({ experience, textColor }) => {
     if (experience.contentMode === "summary") {
         return (
-            <p className={`font-['Inter'] text-xs leading-relaxed ${textColor}`}>
+            <p
+                className={`font-['Inter'] text-xs leading-relaxed ${textColor}`}
+            >
                 {experience.summary}
             </p>
         );
@@ -103,18 +105,7 @@ const Experience = () => (
                                             <span className="font-['Bricolage_Grotesque'] text-[10px] font-bold uppercase tracking-widest text-[#0A0A0A]/40">
                                                 {experience.period}
                                             </span>
-                                            <span
-                                                className="border-[1.5px] border-[#0A0A0A] px-1.5 py-0.5 font-['Bricolage_Grotesque'] text-[8px] font-bold uppercase tracking-wide"
-                                                style={{
-                                                    backgroundColor:
-                                                        experience.badge
-                                                            .background,
-                                                    color: experience.badge
-                                                        .textColor,
-                                                }}
-                                            >
-                                                {experience.badge.label}
-                                            </span>
+                                            
                                         </div>
                                         <h4 className="font-['Bricolage_Grotesque'] text-base font-extrabold leading-tight text-[#0A0A0A]">
                                             {experience.role}

@@ -288,21 +288,26 @@ const education = [
             "Memperkuat dasar akademik umum, ketelitian, keagamaan, dan konsistensi dalam menyelesaikan tugas.",
     },
     {
-        period: "2018 - 2021",
-        school: "SMK Negeri 1 Grogol",
+        period: "Jul 2018 - Jun 2021",
+        school: "SMK Negeri Grogol",
         location: "Kediri",
         program: "Teknik Komputer dan Jaringan",
         description:
-            "Belajar jaringan komputer, troubleshooting perangkat, administrasi dasar, dan praktik teknis IT.",
+            "Lulusan terbaik Jurusan Teknik Komputer dan Jaringan; meraih predikat Istimewa pada sertifikasi Troubleshooting Keamanan Jaringan WAN. Magang sebagai IT Support di CV Trans Computer pada Januari-Mei 2020.",
     },
     {
-        period: "2021 - 2025",
+        period: "Agu 2021 - Jul 2025",
         school: "Politeknik Negeri Malang",
         location: "Malang",
-        program: "Sistem Informasi Bisnis",
+        program: "D4 Sistem Informasi Bisnis",
         description:
-            "Mempelajari pengembangan sistem informasi, pemodelan proses bisnis, database, analisis kebutuhan, dan implementasi aplikasi web.",
+            "IPK 3.83/4.00; Wisudawan Terbaik Program Studi pada Wisuda ke-70; penghargaan Best Defense Lomba Keamanan Siber Internal JTI; proyek skripsi Website Repository Dokumen JTI. Mata kuliah relevan dari kurikulum prodi 2022/2023: Pemrograman Web, Basis Data, Rekayasa Perangkat Lunak, Analisis dan Perancangan Sistem Informasi, Analisa Proses Bisnis, dan Interaksi Manusia Komputer.",
     },
+];
+
+const trainingPrograms = [
+    "Frontend Web Developer - Gamelab Indonesia - 2024",
+    "Web Developer - MySkill - 2025",
 ];
 
 const experience = [
@@ -438,6 +443,8 @@ ${formatObjectList(
   Lokasi: ${item.location}
   Detail: ${item.description}`
 )}
+Pelatihan dan bootcamp:
+${formatList(trainingPrograms)}
 
 HALAMAN EXPERIENCE
 ${formatObjectList(

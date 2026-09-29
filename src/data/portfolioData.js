@@ -1,11 +1,10 @@
 import BestDefense from "../assets/bestdefense.jpg";
 import BlockchainCertificate from "../assets/blockchain.png";
-import BnspCertificate from "../assets/bnsp.jpg";
+import Bnsp2Certificate from "../assets/bnsp2.png";
+import BootstrapCertificate from "../assets/bootstrap.jpg";
 import Bnsp11 from "../assets/certificates/bnsp1-1.png";
 import Bnsp12 from "../assets/certificates/bnsp1-2.png";
 import Bnsp22 from "../assets/certificates/bnsp2-2.png";
-import Bnsp2Certificate from "../assets/bnsp2.png";
-import BootstrapCertificate from "../assets/bootstrap.jpg";
 import ProjectDevtools from "../assets/devtools.png";
 import ProjectFinance from "../assets/finance.png";
 import HeroPortrait from "../assets/foto.png";
@@ -17,8 +16,8 @@ import ProjectLMS from "../assets/lms.png";
 import MagangHub from "../assets/maganghub.png";
 import ProjectMarkdown from "../assets/markdown.png";
 import MsibCertificate from "../assets/msib (2).jpg";
-import Portfolio from "../assets/projects/portfolio.png";
-import Portfolio2 from "../assets/projects/portfolio2.png";
+import Gamelab from "../assets/other/gamelab.png";
+import MySkill from "../assets/other/myskill.png";
 import ProjectRpl from "../assets/project0.png";
 import ProjectRepository from "../assets/project001.png";
 import ProjectCinema from "../assets/project2.png";
@@ -27,6 +26,8 @@ import ProjectMaut from "../assets/project6.png";
 import ProjectSurvey from "../assets/project7.png";
 import ProjectManagement from "../assets/Project8.png";
 import ProjectClinic from "../assets/ProjectNew.png";
+import Portfolio from "../assets/projects/portfolio.png";
+import Portfolio2 from "../assets/projects/portfolio2.png";
 import ReactCertificate from "../assets/react.jpg";
 import ProjectSinggahLoka from "../assets/singgah-loka.png";
 import VueCertificate from "../assets/vue.jpg";
@@ -306,7 +307,7 @@ const projectItems = [
             "Editor Markdown online dengan preview langsung dan penyimpanan otomatis di browser.",
         detailDescription:
             "Markdown Editor adalah aplikasi editor online berbasis React dengan preview langsung, dukungan GitHub Flavored Markdown, diagram Mermaid, pengelolaan dokumen, dan penyimpanan otomatis melalui local storage browser.",
-        stack: ["React", "Tailwind CSS",],
+        stack: ["React", "Tailwind CSS"],
         mainStack: "React",
         logoStack: "React",
         group: "Proyek Pribadi",
@@ -788,20 +789,56 @@ export const educationTimeline = [
             "Memperkuat dasar akademik umum, ketelitian, keagamaan, dan konsistensi dalam menyelesaikan tugas.",
     },
     {
-        period: "2018 - 2021",
-        school: "SMK Negeri 1 Grogol",
+        period: "Jul 2018 - Jun 2021",
+        school: "SMK Negeri Grogol",
         location: "Kediri",
         program: "Teknik Komputer dan Jaringan",
         description:
-            "Mulai masuk ke jalur teknis melalui jaringan komputer, troubleshooting perangkat, administrasi dasar, dan praktik kerja yang lebih dekat dengan dunia IT.",
+            "Mendalami hardware komputer, jaringan komputer, dan keamanan WAN",
+        achievements: [
+            "Lulusan terbaik Jurusan Teknik Komputer dan Jaringan.",
+            "Predikat Istimewa pada sertifikasi skema Troubleshooting Keamanan Jaringan WAN.",
+        ],
+        experience:
+            "Magang IT Support di CV Trans Computer dengan instalasi jaringan dan perawatan komputer instansi pemerintah Kabupaten Kediri.",
     },
     {
-        period: "2021 - 2025",
+        period: "Agu 2021 - Jul 2025",
         school: "Politeknik Negeri Malang",
         location: "Malang",
-        program: "Sistem Informasi Bisnis",
+        program: "D4 Sistem Informasi Bisnis",
         description:
-            "Mempelajari pengembangan sistem informasi, pemodelan proses bisnis, database, analisis kebutuhan, dan implementasi aplikasi web untuk kebutuhan organisasi.",
+            "Mempelajari analisis proses bisnis, perancangan data, dan pengembangan aplikasi berbasis web.",
+        gpa: "3.83 / 4.00",
+        achievements: [
+            "Wisudawan Terbaik Program Studi Sistem Informasi Bisnis pada Wisuda ke-70.",
+            "Penerima penghargaan Best Defense pada Lomba Keamanan Siber Internal JTI.",
+            "Membangun Website Repository Dokumen untuk Jurusan Teknologi Informasi sebagai proyek skripsi.",
+        ],
+        courses: [
+            "Pemrograman Berbasis Objek",
+            "Desain dan Pemrograman Web",
+            "Basis Data",
+            "Rekayasa Perangkat Lunak",
+            "Analisis dan Perancangan Sistem Informasi",
+            "Analisa Proses Bisnis",
+            "Rekayasa Teknologi Informasi",
+        ],
+    },
+];
+
+export const trainingPrograms = [
+    {
+        title: "Frontend Web Developer",
+        provider: "Gamelab Indonesia",
+        logo: Gamelab,
+        year: "2024",
+    },
+    {
+        title: "Web Developer",
+        provider: "MySkill",
+        logo: MySkill,
+        year: "2025",
     },
 ];
 
@@ -815,7 +852,7 @@ export const experienceEntries = [
         period: "November 2025 - Mei 2026",
         label: "Pengalaman Kerja",
         category: "work",
-        role: "Fullstack Developer",
+        role: "Full-Stack Developer",
         icon: "fa-solid fa-briefcase",
         badge: {
             label: "Magang Nasional",
@@ -837,7 +874,7 @@ export const experienceEntries = [
         period: "Agustus 2024 - November 2024",
         label: "Pengalaman Kerja",
         category: "work",
-        role: "Fullstack Developer",
+        role: "Full-Stack Developer",
         icon: "fa-solid fa-code-branch",
         badge: {
             label: "Magang",
@@ -864,7 +901,7 @@ export const experienceEntries = [
         badge: {
             label: "Magang",
             background: "var(--accent)",
-            textColor: "var(--primary-foreground)",
+            textColor: "var(--card)",
         },
         contentMode: "summary",
         points: [
@@ -880,11 +917,11 @@ export const experienceEntries = [
         period: "Februari 2024 - Juni 2024",
         label: "Pelatihan",
         category: "growth",
-        role: "Frontend Developer",
+        role: "Front-End Web Developer",
         icon: "fa-solid fa-laptop-code",
         badge: {
-            label: "MSIB",
-            background: "var(--blue)",
+            label: "Pelatihan",
+            background: "var(--success)",
             textColor: "var(--accent-foreground)",
         },
         contentMode: "points",
@@ -906,8 +943,8 @@ export const experienceEntries = [
         icon: "fa-solid fa-users-gear",
         badge: {
             label: "Organisasi",
-            background: "var(--accent)",
-            textColor: "var(--primary-foreground)",
+            background: "var(--primary)",
+            textColor: "var(--foreground)",
         },
         contentMode: "points",
         points: [

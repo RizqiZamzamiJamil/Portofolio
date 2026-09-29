@@ -1,14 +1,3 @@
-const DEVICON =
-    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
-const SIMPLE_ICON = "https://cdn.simpleicons.org";
-
-const logo = (src, alt, options = {}) => ({
-    src,
-    alt,
-    needsBackground: false,
-    ...options,
-});
-
 const stackAccentMap = {
     Alpine: "8, 145, 178",
     "Alpine.js": "8, 145, 178",
@@ -49,106 +38,23 @@ const stackAccentMap = {
     "VS Code": "0, 122, 204",
 };
 
-const stackLogoMap = {
-    "HTML & CSS": [
-        logo(`${DEVICON}/html5/html5-original.svg`, "HTML5"),
-    ],
-    CSS: [logo(`${DEVICON}/css3/css3-original.svg`, "CSS3")],
-    JavaScript: [
-        logo(`${DEVICON}/javascript/javascript-original.svg`, "JavaScript"),
-    ],
-    "Tailwind CSS": [
-        logo(`${DEVICON}/tailwindcss/tailwindcss-original.svg`, "Tailwind CSS"),
-    ],
-    Bootstrap: [
-        logo(`${DEVICON}/bootstrap/bootstrap-original.svg`, "Bootstrap"),
-    ],
-    React: [logo(`${DEVICON}/react/react-original.svg`, "React")],
-    "React JS": [logo(`${DEVICON}/react/react-original.svg`, "React")],
-    Vue: [logo(`${DEVICON}/vuejs/vuejs-original.svg`, "Vue.js")],
-    "Vue JS": [logo(`${DEVICON}/vuejs/vuejs-original.svg`, "Vue.js")],
-    PHP: [logo(`${DEVICON}/php/php-original.svg`, "PHP")],
-    MySQL: [logo(`${DEVICON}/mysql/mysql-original.svg`, "MySQL")],
-    "Next.js": [logo(`${SIMPLE_ICON}/nextdotjs/FFFFFF`, "Next.js")],
-    "C#": [logo(`${DEVICON}/csharp/csharp-original.svg`, "C#")],
-    ".NET": [logo(`${DEVICON}/dotnetcore/dotnetcore-original.svg`, ".NET")],
-    "ASP.NET Core": [
-        logo(`${DEVICON}/dotnetcore/dotnetcore-original.svg`, "ASP.NET Core"),
-    ],
-    PostgreSQL: [
-        logo(`${DEVICON}/postgresql/postgresql-original.svg`, "PostgreSQL"),
-    ],
-    Laravel: [logo(`${DEVICON}/laravel/laravel-original.svg`, "Laravel")],
-    "CodeIgniter 4": [
-        logo(`${DEVICON}/codeigniter/codeigniter-plain.svg`, "CodeIgniter"),
-    ],
-    "Node.js": [logo(`${DEVICON}/nodejs/nodejs-original.svg`, "Node.js")],
-    Express: [
-        logo(`${DEVICON}/express/express-original.svg`, "Express.js", {
-            needsBackground: true,
-        }),
-    ],
-    "Express.js": [
-        logo(`${DEVICON}/express/express-original.svg`, "Express.js", {
-            needsBackground: true,
-        }),
-    ],
-    "REST API": [
-        logo(`${SIMPLE_ICON}/openapiinitiative/6BA539`, "OpenAPI"),
-    ],
-    API: [logo(`${SIMPLE_ICON}/openapiinitiative/6BA539`, "OpenAPI")],
-    Vite: [logo(`${DEVICON}/vitejs/vitejs-original.svg`, "Vite")],
-    Figma: [logo(`${DEVICON}/figma/figma-original.svg`, "Figma")],
-    "VS Code": [logo(`${DEVICON}/vscode/vscode-original.svg`, "VS Code")],
-    "Git & GitHub": [
-        logo(`${DEVICON}/git/git-original.svg`, "Git"),
-    ],
-    Postman: [logo(`${DEVICON}/postman/postman-original.svg`, "Postman")],
-    Laragon: [logo(`${SIMPLE_ICON}/laragon/0E83CD`, "Laragon")],
-    Flowbite: [logo("https://flowbite.com/docs/images/logo.svg", "Flowbite")],
-    Livewire: [logo(`${SIMPLE_ICON}/livewire/4E56A6`, "Livewire")],
-    "Alpine.js": [logo(`${SIMPLE_ICON}/alpinedotjs/8BC0D0`, "Alpine.js")],
-    Alpine: [logo(`${SIMPLE_ICON}/alpinedotjs/8BC0D0`, "Alpine.js")],
-    "TMDB API": [logo(`${SIMPLE_ICON}/themoviedatabase/01B4E4`, "TMDB")],
-    Flutter: [logo(`${DEVICON}/flutter/flutter-original.svg`, "Flutter")],
-    SQLite: [logo(`${DEVICON}/sqlite/sqlite-original.svg`, "SQLite")],
-    Velopack: [
-        logo(`${DEVICON}/dotnetcore/dotnetcore-original.svg`, "Velopack"),
-    ],
-    WebView2: [
-        logo(`${DEVICON}/dotnetcore/dotnetcore-original.svg`, "WebView2"),
-    ],
-    WPF: [logo(`${DEVICON}/dotnetcore/dotnetcore-original.svg`, "WPF")],
-};
-
-export const getStackAccent = (stackName, fallbackAccent = "14, 165, 233") =>
-    stackAccentMap[stackName] || fallbackAccent;
-
 const getReadableForeground = (rgbColor) => {
     const channels = rgbColor.split(",").map((channel) => Number(channel.trim()));
     const luminance = channels
         .map((channel) => channel / 255)
         .map((channel) =>
-            channel <= 0.04045
-                ? channel / 12.92
-                : ((channel + 0.055) / 1.055) ** 2.4,
+            channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4,
         )
-        .reduce((sum, channel, index) =>
-            sum + channel * [0.2126, 0.7152, 0.0722][index], 0);
+        .reduce((sum, channel, index) => sum + channel * [0.2126, 0.7152, 0.0722][index], 0);
 
     return luminance > 0.179 ? "#0A0A0A" : "#FFFFFF";
 };
 
 export const getStackBadgeStyle = (stackName) => {
-    const accent = getStackAccent(stackName);
+    const accent = stackAccentMap[stackName] || "14, 165, 233";
 
     return {
         backgroundColor: `rgb(${accent})`,
         color: getReadableForeground(accent),
     };
 };
-
-export const getStackLogos = (stackName) =>
-    stackLogoMap[stackName] || [
-        logo(`${SIMPLE_ICON}/codepen/13D8FF`, stackName || "Stack"),
-    ];

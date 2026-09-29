@@ -11,7 +11,7 @@ import Experience from "./pages/Experience";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 
-import "./App.css";
+import "./index.css";
 
 const ScrollToTop = () => {
     const { pathname } = useLocation();
