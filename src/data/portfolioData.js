@@ -28,6 +28,10 @@ import ProjectManagement from "../assets/Project8.png";
 import ProjectClinic from "../assets/ProjectNew.png";
 import Portfolio from "../assets/projects/portfolio.png";
 import Portfolio2 from "../assets/projects/portfolio2.png";
+import Devtools1 from "../assets/projects/devtools1.png";
+import Devtools2 from "../assets/projects/devtools2.png";
+import Devtools3 from "../assets/projects/devtools3.png";
+import Devtools4 from "../assets/projects/devtools4.png";
 import ReactCertificate from "../assets/react.jpg";
 import ProjectSinggahLoka from "../assets/singgah-loka.png";
 import VueCertificate from "../assets/vue.jpg";
@@ -287,7 +291,7 @@ const projectItems = [
             "Kumpulan tool developer untuk JSON, JWT, Base64, dan utilitas harian.",
         detailDescription:
             "Rizam Devtools adalah kumpulan utilitas developer berbasis Next.js untuk membantu kebutuhan harian seperti JSON formatter, JWT decoder, Base64, UUID, timestamp, URL, hash, dan case converter.",
-        stack: ["Next.js", "React", "Tailwind CSS", "Flowbite"],
+        stack: ["Next.js", "React", "Material UI"],
         mainStack: "Next.js",
         logoStack: "Next.js",
         group: "Proyek Pribadi",
@@ -295,7 +299,8 @@ const projectItems = [
         position: "Frontend Developer",
         collaboration: "Mandiri",
         updatedAt: "2026-06-17",
-        image: ProjectDevtools,
+        image: Devtools1,
+        screenshots: [Devtools1, Devtools2, Devtools3, Devtools4],
         liveUrl: "https://devtools.rizam.fun/",
         codeUrl: null,
         accent: "14, 165, 233",
