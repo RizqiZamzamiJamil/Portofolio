@@ -5,7 +5,6 @@ import BootstrapCertificate from "../assets/bootstrap.jpg";
 import Bnsp11 from "../assets/certificates/bnsp1-1.png";
 import Bnsp12 from "../assets/certificates/bnsp1-2.png";
 import Bnsp22 from "../assets/certificates/bnsp2-2.png";
-import ProjectDevtools from "../assets/devtools.png";
 import ProjectFinance from "../assets/finance.png";
 import HeroPortrait from "../assets/foto.png";
 import AboutPortrait from "../assets/foto2.png";
@@ -14,7 +13,6 @@ import ProjectGeoWeather from "../assets/geoweather.png";
 import JavascriptCertificate from "../assets/javascript.jpg";
 import ProjectLMS from "../assets/lms.png";
 import MagangHub from "../assets/maganghub.png";
-import ProjectMarkdown from "../assets/markdown.png";
 import MsibCertificate from "../assets/msib (2).jpg";
 import Gamelab from "../assets/other/gamelab.png";
 import MySkill from "../assets/other/myskill.png";
@@ -26,12 +24,14 @@ import ProjectMaut from "../assets/project6.png";
 import ProjectSurvey from "../assets/project7.png";
 import ProjectManagement from "../assets/Project8.png";
 import ProjectClinic from "../assets/ProjectNew.png";
-import Portfolio from "../assets/projects/portfolio.png";
-import Portfolio2 from "../assets/projects/portfolio2.png";
 import Devtools1 from "../assets/projects/devtools1.png";
 import Devtools2 from "../assets/projects/devtools2.png";
 import Devtools3 from "../assets/projects/devtools3.png";
 import Devtools4 from "../assets/projects/devtools4.png";
+import Markdown1 from "../assets/projects/markdown1.png";
+import Markdown2 from "../assets/projects/markdown2.png";
+import Portfolio from "../assets/projects/portfolio.png";
+import Portfolio2 from "../assets/projects/portfolio2.png";
 import ReactCertificate from "../assets/react.jpg";
 import ProjectSinggahLoka from "../assets/singgah-loka.png";
 import VueCertificate from "../assets/vue.jpg";
@@ -242,7 +242,7 @@ export const skillGroups = [
 const projectItems = [
     {
         id: "rizam-finance",
-        title: "RizamFinance",
+        title: "MyFinance",
         listDescription:
             "Aplikasi desktop Windows untuk mencatat transaksi, memantau saldo, dan membaca ringkasan keuangan pribadi secara offline.",
         detailDescription:
@@ -286,17 +286,17 @@ const projectItems = [
     },
     {
         id: "devtools",
-        title: "Rizam Devtools",
+        title: "Devtools",
         listDescription:
             "Kumpulan tool developer untuk JSON, JWT, Base64, dan utilitas harian.",
         detailDescription:
-            "Rizam Devtools adalah kumpulan utilitas developer berbasis Next.js untuk membantu kebutuhan harian seperti JSON formatter, JWT decoder, Base64, UUID, timestamp, URL, hash, dan case converter.",
+            "Devtools adalah kumpulan utilitas developer berbasis Next.js untuk membantu kebutuhan harian seperti JSON formatter, JWT decoder, Base64, UUID, timestamp, URL, hash, dan case converter.",
         stack: ["Next.js", "React", "Material UI"],
         mainStack: "Next.js",
         logoStack: "Next.js",
         group: "Proyek Pribadi",
         label: "Pribadi",
-        position: "Frontend Developer",
+        position: "Fullstack Developer",
         collaboration: "Mandiri",
         updatedAt: "2026-06-17",
         image: Devtools1,
@@ -317,10 +317,11 @@ const projectItems = [
         logoStack: "React",
         group: "Proyek Pribadi",
         label: "Pribadi",
-        position: "Frontend Developer",
+        position: "Fullstack Developer",
         collaboration: "Mandiri",
         updatedAt: "2026-05-11",
-        image: ProjectMarkdown,
+        image: Markdown1,
+        screenshots: [Markdown1, Markdown2],
         liveUrl: "https://markdown.rizam.fun/",
         codeUrl: "https://github.com/RizqiZamzamiJamil/Rizam_Markdown-Editor",
         accent: "14, 165, 233",
